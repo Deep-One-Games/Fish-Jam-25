@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdsex8i171oiq"]
+[gd_scene load_steps=6 format=3 uid="uid://cdsex8i171oiq"]
 
 [ext_resource type="Script" uid="uid://cl8i7aptmhiwn" path="res://src/ui/scripts/menu_ui.gd" id="1_w3pxu"]
 [ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="2_r1qqu"]
 [ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="4_511x6"]
 [ext_resource type="PackedScene" uid="uid://k67glnpraysy" path="res://src/ui/credits.tscn" id="4_w3pxu"]
+[ext_resource type="AudioStream" uid="uid://cenb4kqg72p2y" path="res://library/music/fish_race22.wav" id="5_r1qqu"]
 
 [node name="Root" type="Node3D"]
 
@@ -78,3 +79,8 @@ text = "Credits"
 layout_mode = 2
 theme = ExtResource("4_511x6")
 text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_r1qqu")
+autoplay = true
+bus = &"Music"
