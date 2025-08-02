@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdsex8i171oiq"]
+
+[ext_resource type="Script" uid="uid://cl8i7aptmhiwn" path="res://src/ui/scripts/menu_ui.gd" id="1_w3pxu"]
+[ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="2_r1qqu"]
+[ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="4_511x6"]
+[ext_resource type="PackedScene" uid="uid://k67glnpraysy" path="res://src/ui/credits.tscn" id="4_w3pxu"]
+
+[node name="Root" type="Node3D"]
+
+[node name="MainMenu" type="Control" parent="." node_paths=PackedStringArray("options", "credits", "btn_start", "btn_options", "btn_credits", "btn_exit")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w3pxu")
+options = NodePath("Options")
+credits = NodePath("Credits")
+btn_start = NodePath("Buttons/start")
+btn_options = NodePath("Buttons/options")
+btn_credits = NodePath("Buttons/credits")
+btn_exit = NodePath("Buttons/exit")
+
+[node name="Title" type="Label" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -213.5
+offset_top = 25.0
+offset_right = 213.5
+offset_bottom = 113.0
+grow_horizontal = 2
+theme = ExtResource("4_511x6")
+theme_type_variation = &"HeaderLarge"
+text = "Fish Game '25"
+
+[node name="Options" parent="MainMenu" instance=ExtResource("2_r1qqu")]
+layout_mode = 1
+offset_left = -213.5
+offset_right = 213.5
+
+[node name="Credits" parent="MainMenu" instance=ExtResource("4_w3pxu")]
+layout_mode = 1
+
+[node name="Buttons" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = -68.0
+offset_right = -26.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 15
+
+[node name="start" type="Button" parent="MainMenu/Buttons"]
+layout_mode = 2
+theme = ExtResource("4_511x6")
+text = "Start Game"
+
+[node name="options" type="Button" parent="MainMenu/Buttons"]
+layout_mode = 2
+theme = ExtResource("4_511x6")
+text = "Options"
+
+[node name="credits" type="Button" parent="MainMenu/Buttons"]
+layout_mode = 2
+theme = ExtResource("4_511x6")
+text = "Credits"
+
+[node name="exit" type="Button" parent="MainMenu/Buttons"]
+layout_mode = 2
+theme = ExtResource("4_511x6")
+text = "Exit"

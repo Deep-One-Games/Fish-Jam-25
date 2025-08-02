@@ -1,0 +1,128 @@
+[gd_scene load_steps=3 format=3 uid="uid://k67glnpraysy"]
+
+[ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="1_2y887"]
+[ext_resource type="Script" uid="uid://c0cvwhqfpq0td" path="res://src/ui/scripts/credits.gd" id="1_73yjm"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_73yjm")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -248.5
+offset_right = 136.0
+offset_bottom = 248.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CreditsTitle" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_2y887")
+theme_type_variation = &"HeaderLarge"
+text = "Credits!!!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Programmers:"
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Asserth
+Greg
+Ego
+Elena"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "2D & Concept Art:"
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Ego
+Kora"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Environment: "
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Asserth
+Kruglov"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Game Design:"
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Ego"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Music & SFX:"
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Alec"
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Press Escape To Close"
+horizontal_alignment = 1

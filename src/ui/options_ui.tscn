@@ -1,0 +1,121 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpn0ecxui5ep8"]
+
+[ext_resource type="Script" uid="uid://bdcj2yb1gxlk" path="res://src/ui/scripts/options_ui.gd" id="1_1es2m"]
+[ext_resource type="AudioBusLayout" uid="uid://b0ciqypvtyv6d" path="res://library/resources/bus_layout.tres" id="2_kev30"]
+
+[node name="Options" type="Control" node_paths=PackedStringArray("close", "exit", "master", "music", "sfx", "toggle_fs")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1es2m")
+audioDriver = ExtResource("2_kev30")
+close = NodePath("PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Close")
+exit = NodePath("PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Exit")
+master = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Master_HSlider")
+music = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Music_HSlider")
+sfx = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/SFX_HSlider")
+toggle_fs = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4/FSMode")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.5
+offset_top = -144.0
+offset_right = 134.5
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Game Options"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Master"
+
+[node name="Master_HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Music"
+
+[node name="Music_HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SFX" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "SFX"
+
+[node name="SFX_HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FullscreenMode" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Fullscreen Mode"
+
+[node name="FSMode" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Close" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Close"
+
+[node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Save & Exit"
