@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameItem" load_steps=4 format=3 uid="uid://bwwfbngfo52yu"]
+
+[ext_resource type="ArrayMesh" uid="uid://cwdwcxeapx73d" path="res://library/models/Trees/Mesh/Fir.res" id="1_jmidc"]
+[ext_resource type="Script" uid="uid://gak3ble014rj" path="res://src/000-Data/gameitem.gd" id="1_ycd0b"]
+[ext_resource type="Texture2D" uid="uid://brhdkmd7s8yfn" path="res://library/textures/Pink Poyion.png" id="3_o3c6b"]
+
+[resource]
+script = ExtResource("1_ycd0b")
+ref_id = "POTION_REF"
+name = "Potion"
+desc = "Very pink"
+lore = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! DRUGS"
+thumb = ExtResource("3_o3c6b")
+mesh = ExtResource("1_jmidc")
+metadata/_custom_type_script = "uid://gak3ble014rj"

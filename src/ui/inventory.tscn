@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://df0qay8pm5da4"]
+
+[ext_resource type="Script" uid="uid://dobnn1ln2jhui" path="res://src/ui/scripts/inventory_ui.gd" id="1_nn0ug"]
+[ext_resource type="Resource" uid="uid://cai54e51n76mr" path="res://src/000-Data/SaveGameExample/testsave.tres" id="2_dagsi"]
+[ext_resource type="ArrayMesh" uid="uid://bvda720p10jw3" path="res://library/models/Trees/Mesh/Bush_1.res" id="3_l8kat"]
+[ext_resource type="PackedScene" uid="uid://ccu3ad3bxw81p" path="res://src/ui/inventory_item.tscn" id="4_asd7g"]
+[ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="4_w3dr0"]
+[ext_resource type="Script" uid="uid://bljcsapxjhgw4" path="res://src/nodes/linear_rotate.gd" id="5_25bch"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_l8kat"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Inventory" type="Control" node_paths=PackedStringArray("inventory", "item_mesh", "item_name", "item_lore")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nn0ug")
+max_inventory_size = 8
+savefile = ExtResource("2_dagsi")
+inventory = NodePath("HBoxContainer/SelectScreen/GridContainer")
+item_display = ExtResource("4_asd7g")
+item_mesh = NodePath("SubViewport/MeshInstance3D")
+item_name = NodePath("HBoxContainer/ContextScreen/VBoxContainer/Item Name")
+item_lore = NodePath("HBoxContainer/ContextScreen/VBoxContainer/Lore")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(250, 250)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport"]
+transform = Transform3D(1.00418, 0, 0, 0, 1.00418, 0, 0, 0, 1.00418, 0, 0, 0)
+mesh = ExtResource("3_l8kat")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.991945, 0.126666, 0, -0.126666, 0.991945, 0, 2.52636, 4.92082)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport"]
+transform = Transform3D(0.834608, 0, 0.550845, -0.216886, 0.919225, 0.328613, -0.50635, -0.393733, 0.767192, 2.84904, 1.7297, 2.64034)
+light_energy = 3.765
+spot_range = 12.314
+spot_angle = 31.67
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/SpotLight3D"]
+transform = Transform3D(0.410723, 0.18046, -0.893723, -0.427023, 0.904137, -0.0136816, 0.80558, 0.38726, 0.44841, -7.08681, 1.11867, -2.10823)
+
+[node name="ApplyLinearRotation" type="Node3D" parent="SubViewport" node_paths=PackedStringArray("nodes")]
+script = ExtResource("5_25bch")
+v_rot = Vector3(0, 0.001, 0)
+nodes = [NodePath("../MeshInstance3D")]
+metadata/_custom_type_script = "uid://bljcsapxjhgw4"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="SelectScreen" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/SelectScreen"]
+layout_mode = 2
+columns = 4
+
+[node name="ContextScreen" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ContextScreen"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/ContextScreen/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("ViewportTexture_l8kat")
+
+[node name="Item Name" type="Label" parent="HBoxContainer/ContextScreen/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_w3dr0")
+theme_type_variation = &"HeaderMedium"
+text = "Item"
+horizontal_alignment = 1
+
+[node name="Lore" type="Label" parent="HBoxContainer/ContextScreen/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_w3dr0")
+text = "Item Description"

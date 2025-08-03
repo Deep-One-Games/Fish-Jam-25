@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameItem" load_steps=4 format=3 uid="uid://brqnqhxxnjqak"]
+
+[ext_resource type="Script" uid="uid://gak3ble014rj" path="res://src/000-Data/gameitem.gd" id="1_2lbr1"]
+[ext_resource type="ArrayMesh" uid="uid://wka7osdxnoh8" path="res://library/models/Trees/Mesh/Dark_Tree_1.res" id="1_xao3f"]
+[ext_resource type="Texture2D" uid="uid://c4inl1k6qa8ev" path="res://icon.svg" id="3_0r77u"]
+
+[resource]
+script = ExtResource("1_2lbr1")
+ref_id = "GODOT_FISH"
+name = "Godot Fish"
+desc = "Blue and heavy. Slow at swimming"
+lore = "He has never won once!!!"
+thumb = ExtResource("3_0r77u")
+mesh = ExtResource("1_xao3f")
+metadata/_custom_type_script = "uid://gak3ble014rj"
