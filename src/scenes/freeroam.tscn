@@ -1,12 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdmht4f00dj51"]
+[gd_scene load_steps=15 format=3 uid="uid://bdmht4f00dj51"]
 
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="1_oqo2t"]
 [ext_resource type="ArrayMesh" uid="uid://wka7osdxnoh8" path="res://library/models/Trees/Mesh/Dark_Tree_1.res" id="2_68brx"]
 [ext_resource type="ArrayMesh" uid="uid://drn74h63kh3p1" path="res://library/models/Trees/Mesh/Small_Tree.res" id="4_08gxd"]
 [ext_resource type="PackedScene" uid="uid://7nn4cuftv11d" path="res://library/models/houses/house1.tscn" id="5_38kxv"]
 [ext_resource type="PackedScene" uid="uid://bkptsroxo4as3" path="res://library/models/houses/house2.tscn" id="6_drfrh"]
-[ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/player/player.tscn" id="7_38kxv"]
+[ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="7_38kxv"]
 [ext_resource type="PackedScene" uid="uid://dsdq3urr4o0jk" path="res://library/models/houses/house3.tscn" id="7_ehlhi"]
+[ext_resource type="Environment" uid="uid://pa607ivxbo2b" path="res://library/resources/world_env.tres" id="8_drfrh"]
+[ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="9_ehlhi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2kdx"]
+render_priority = 0
+shader = ExtResource("9_ehlhi")
+shader_parameter/dither_amount = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_drfrh"]
+flip_faces = true
+size = Vector2(2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oqo2t"]
 size = Vector3(58.1932, 0.0407715, 39.7175)
@@ -16,6 +27,11 @@ size = Vector3(58.1932, 0.0407715, 39.7175)
 [sub_resource type="BoxMesh" id="BoxMesh_hbpvc"]
 
 [node name="Root" type="Node3D"]
+
+[node name="PS1_PP" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_f2kdx")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_drfrh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(3.025, 0, 0, 0, 3.025, 0, 0, 0, 3.025, 0, 0, 0)
@@ -33,12 +49,53 @@ mesh = SubResource("PlaneMesh_hbpvc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.438506, 0)
 mesh = SubResource("BoxMesh_hbpvc")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.336666, 0.430021, -0.837698, -0.0110978, 0.891381, 0.453119, 0.941559, -0.143253, 0.30487, -3.38065, 2, 0)
-shadow_enabled = true
-
 [node name="PlayerUi" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_oqo2t")]
 player = NodePath("../Player")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.18886, 2.20316, 3.92658)
+light_color = Color(0.520709, 0.376202, 0.0784127, 1)
+light_energy = 11.14
+light_volumetric_fog_energy = 1.085
+shadow_enabled = true
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.363482, 2.20316, 0.861502)
+light_color = Color(0.520709, 0.376202, 0.0784127, 1)
+light_energy = 13.115
+light_volumetric_fog_energy = 1.085
+shadow_enabled = true
+omni_range = 5.354
+omni_attenuation = 0.671
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331277, 2.20316, -3.25228)
+light_color = Color(0.520709, 0.376202, 0.0784127, 1)
+light_energy = 11.14
+light_volumetric_fog_energy = 1.085
+shadow_enabled = true
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.51095, 2.20316, -0.272613)
+light_color = Color(0.520709, 0.376202, 0.0784127, 1)
+light_energy = 11.14
+light_volumetric_fog_energy = 1.085
+shadow_enabled = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08164, 5.50787, -2.63864)
+light_color = Color(0.18359, 0.18359, 0.18359, 1)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 0.909628, 0.415424, 0, -0.415424, 0.909628, -1.99324, 3.14991, 4.49086)
+light_energy = 13.115
+spot_range = 7.387
+spot_attenuation = 0.35
+spot_angle = 57.7
 
 [node name="DarkTree1" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.999759, 0, 0, 0, 0.999759, 0, 0, 0, 0.999759, -1.12081, 0.0223278, 2.31587)
@@ -61,3 +118,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0803, 0, -5.20862)
 transform = Transform3D(1.00191, 0, 0, 0, 1.00191, 0, 0, 0, 1.00191, -5.98246, 0.00397938, 1.05851)
 speed = 5.0
 camera_sens = 2.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.336666, 0.430021, -0.837698, -0.0110978, 0.891381, 0.453119, 0.941559, -0.143253, 0.30487, -3.38065, 2, 0)
+visible = false
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("8_drfrh")

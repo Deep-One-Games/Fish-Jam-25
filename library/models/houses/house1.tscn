@@ -1,4 +1,12 @@
-[gd_scene load_steps=7 format=4 uid="uid://7nn4cuftv11d"]
+[gd_scene load_steps=9 format=4 uid="uid://7nn4cuftv11d"]
+
+[ext_resource type="Shader" uid="uid://dp6wyhvyfrd48" path="res://library/resources/ps1_shadeobj.gdshader" id="1_jnmmi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0gkiv"]
+render_priority = 0
+shader = ExtResource("1_jnmmi")
+shader_parameter/vertex_wobble = 1.0
+shader_parameter/affine_mapping = 0.26
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rkagb"]
 
@@ -72,10 +80,12 @@ shadow_mesh = SubResource("ArrayMesh_krroj")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.69159, 0, 0, 0, 2.69159, 0, 0, 0, 2.69159, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_0gkiv")
 mesh = SubResource("ArrayMesh_gl23r")
 skeleton = NodePath("")
 
 [node name="Cube_001" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.69159, 0, 0, 0, 2.69159, 0, 0, 0, 2.69159, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_0gkiv")
 mesh = SubResource("ArrayMesh_jnmmi")
 skeleton = NodePath("")
