@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckgrvvgm6jgdh"]
+
+[ext_resource type="Script" uid="uid://cj25jfouf1eqb" path="res://src/player/fpcontroller.gd" id="1_4anbu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qnmj6"]
+radius = 0.3
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera")]
+collision_layer = 2
+script = ExtResource("1_4anbu")
+camera = NodePath("Camera3D")
+
+[node name="CShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901715, 0)
+shape = SubResource("CapsuleShape3D_qnmj6")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48184, 0)
+current = true
+fov = 85.0

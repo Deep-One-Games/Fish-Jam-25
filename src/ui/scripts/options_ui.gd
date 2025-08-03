@@ -1,4 +1,6 @@
-extends PopupUI
+class_name OptionsControl extends PopupUI
+
+signal on_options_close
 
 @export var audioDriver: AudioBusLayout
 
@@ -13,8 +15,6 @@ extends PopupUI
 
 @export_group("View Options")
 @export var toggle_fs: CheckBox
-@export var options_mouse_mode: Input.MouseMode
-var prev_mouse_mode: Input.MouseMode
 
 func _ready() -> void:
 	self.visible = false
@@ -27,12 +27,10 @@ func _ready() -> void:
 	close.pressed.connect(popup_close)
 	exit.pressed.connect(exit_game)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"): popup_close()
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("options"): popup_close()
 
 func popup_open():
-	prev_mouse_mode = Input.mouse_mode
-	Input.set_mouse_mode(options_mouse_mode)
 	self.visible = true
 
 func change_volume(value: float, type: String) -> void:
@@ -58,5 +56,5 @@ func exit_game():
 	get_tree().quit()
 
 func popup_close():
-	Input.set_mouse_mode(prev_mouse_mode)
+	on_options_close.emit()
 	self.visible = false
