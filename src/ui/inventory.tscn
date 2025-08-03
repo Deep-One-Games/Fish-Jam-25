@@ -18,7 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nn0ug")
-max_inventory_size = 8
+max_inventory_size = 16
 savefile = ExtResource("2_dagsi")
 inventory = NodePath("HBoxContainer/SelectScreen/GridContainer")
 item_display = ExtResource("4_asd7g")
@@ -65,7 +65,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 80
+theme_override_constants/separation = 45
 
 [node name="SelectScreen" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2

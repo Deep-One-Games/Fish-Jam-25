@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdmht4f00dj51"]
+[gd_scene load_steps=10 format=3 uid="uid://bdmht4f00dj51"]
 
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="1_oqo2t"]
 [ext_resource type="ArrayMesh" uid="uid://wka7osdxnoh8" path="res://library/models/Trees/Mesh/Dark_Tree_1.res" id="2_68brx"]
-[ext_resource type="ArrayMesh" uid="uid://cqykelgo63pml" path="res://library/models/Trees/Mesh/Light_Tree_1.res" id="3_odu0d"]
 [ext_resource type="ArrayMesh" uid="uid://drn74h63kh3p1" path="res://library/models/Trees/Mesh/Small_Tree.res" id="4_08gxd"]
 [ext_resource type="PackedScene" uid="uid://7nn4cuftv11d" path="res://library/models/houses/house1.tscn" id="5_38kxv"]
 [ext_resource type="PackedScene" uid="uid://bkptsroxo4as3" path="res://library/models/houses/house2.tscn" id="6_drfrh"]
@@ -43,10 +42,6 @@ shadow_enabled = true
 [node name="DarkTree1" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12081, 0.0223278, 2.31587)
 mesh = ExtResource("2_68brx")
-
-[node name="LightTree1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49398, 0.0886072, -1.89506)
-mesh = ExtResource("3_odu0d")
 
 [node name="SmallTree" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.613437, 0.0141292, 2.03709)
