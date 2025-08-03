@@ -1,6 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdmht4f00dj51"]
+[gd_scene load_steps=11 format=3 uid="uid://bdmht4f00dj51"]
 
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="1_oqo2t"]
+[ext_resource type="ArrayMesh" uid="uid://wka7osdxnoh8" path="res://library/models/Trees/Mesh/Dark_Tree_1.res" id="2_68brx"]
+[ext_resource type="ArrayMesh" uid="uid://cqykelgo63pml" path="res://library/models/Trees/Mesh/Light_Tree_1.res" id="3_odu0d"]
+[ext_resource type="ArrayMesh" uid="uid://drn74h63kh3p1" path="res://library/models/Trees/Mesh/Small_Tree.res" id="4_08gxd"]
+[ext_resource type="PackedScene" uid="uid://7nn4cuftv11d" path="res://library/models/houses/house1.tscn" id="5_38kxv"]
+[ext_resource type="PackedScene" uid="uid://bkptsroxo4as3" path="res://library/models/houses/house2.tscn" id="6_drfrh"]
+[ext_resource type="PackedScene" uid="uid://dsdq3urr4o0jk" path="res://library/models/houses/house3.tscn" id="7_ehlhi"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hbpvc"]
 
@@ -33,3 +39,24 @@ transform = Transform3D(0.336666, 0.430021, -0.837698, -0.0110978, 0.891381, 0.4
 shadow_enabled = true
 
 [node name="PlayerUi" parent="." instance=ExtResource("1_oqo2t")]
+
+[node name="DarkTree1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12081, 0.0223278, 2.31587)
+mesh = ExtResource("2_68brx")
+
+[node name="LightTree1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49398, 0.0886072, -1.89506)
+mesh = ExtResource("3_odu0d")
+
+[node name="SmallTree" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.613437, 0.0141292, 2.03709)
+mesh = ExtResource("4_08gxd")
+
+[node name="House1" parent="." instance=ExtResource("5_38kxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.76889, 0.143715, -6.88174)
+
+[node name="House2" parent="." instance=ExtResource("6_drfrh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0536, 0.126337, -7.8338)
+
+[node name="House3" parent="." instance=ExtResource("7_ehlhi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0803, 0, -5.20862)
