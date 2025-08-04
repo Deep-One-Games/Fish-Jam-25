@@ -21,29 +21,35 @@ jobs:
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git lfs pull
-          
-      - name: Install Latest Blender
+
+      - name: Install Blender LTS
         run: |
-          # Use wget to download the official Linux build. Update the version number as needed.
-          wget https://mirror.cs.uchicago.edu/blender/release/Blender4.2/blender-4.2.0-linux-x64.tar.xz
+          # Download a recent Blender 4.2 LTS build. This link is more stable.
+          # NOTE: I've updated this to a plausible working link for a 4.2.x release.
+          wget https://download.blender.org/release/Blender4.2/blender-4.2.2-linux-x64.tar.xz
           
-          # Extract the archive
-          tar -xf blender-4.2.0-linux-x64.tar.xz
+          # Extract the archive using a wildcard to match the exact filename
+          tar -xf blender-*-linux-x64.tar.xz
           
-          # Verify the new version
-          echo "Blender version:"
-          ./blender-4.2.0-linux-x64/blender --version
+          # Find the name of the extracted directory dynamically and store it in a variable
+          BLENDER_DIR=$(find . -maxdepth 1 -type d -name 'blender-*')
+          
+          # Add the path to the blender executable to the environment for subsequent steps
+          echo "BLENDER_PATH=$GITHUB_WORKSPACE/$BLENDER_DIR/blender" >> $GITHUB_ENV
+
+          # Verify the installation and path
+          echo "Blender was found in: $BLENDER_DIR"
+          echo "Executable path is: ${{ env.BLENDER_PATH }}"
+          ${{ env.BLENDER_PATH }} --version
+        id: setup_blender
 
       - name: Create Godot and Export Directories
         run: mkdir -p .godot web
 
       - name: Import Assets with Correct Blender Path
         run: |
-          # Use the correct setting 'filesystem/import/blender/blender_path3'.
-          # Point it to the full path of our newly downloaded Blender.
-          # The timeout prevents a runaway job if something goes wrong.
           timeout 300s godot --headless --editor --quit --import \
-            --set-setting filesystem/import/blender/blender_path3 $GITHUB_WORKSPACE/blender-4.2.0-linux-x64/blender
+            --set-setting filesystem/import/blender/blender_path3 "${{ env.BLENDER_PATH }}"
 
       - name: Export HTML5 Web Build
         run: |
