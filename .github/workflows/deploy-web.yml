@@ -11,25 +11,40 @@ jobs:
     container: barichello/godot-ci:latest
 
     steps:
+      # 1) Checkout with LFS
       - name: Checkout game (with LFS)
         uses: actions/checkout@v4
         with:
           lfs: true
           fetch-depth: 0
 
+      # 2) Trust the workspace for Git LFS
       - name: Trust repo directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
+      # 3) Pull down real LFS blobs
       - name: Pull LFS files
         run: git lfs pull
 
+      # 4) Install Blender so Godot can import .blend files
+      - name: Install Blender
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y blender
+
+      # 5) Export and re-import need this env var
+      - name: Set Blender path for Godot
+        run: echo "GODOT_BLENDER_PATH=/usr/bin/blender" >> $GITHUB_ENV
+
+      # 6) Pre‐import all assets (now that Blender is available)
       - name: Pre-import assets (headless import)
-        run: godot --headless --import --path . --verbose
+        run: godot --headless --import --path . --quiet
 
+      # 7) Export the HTML5 build
       - name: Export HTML5 Web Build
-        run: godot --headless --no-window --path . \
-             --export-release "HTML5" web/index.html
+        run: godot --headless --export-release "HTML5" web/index.html
 
+      # 8) Push to itch.io
       - name: Publish to itch.io
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCHIO_API_KEY }}
