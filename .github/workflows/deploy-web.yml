@@ -55,7 +55,7 @@ jobs:
           sudo tar -xJf godot.tar.xz -C "${INSTALL_DIR}" --strip-components=1
           ls -l "${INSTALL_DIR}"
           sudo ln -sf "${INSTALL_DIR}/Godot_v${GODOT_VER}_linux.x86_64" /usr/local/bin/godot
-          sudo chmod +x /usr/local/bin/godot
+          sudo chmod +x "${INSTALL_DIR}/Godot_v${GODOT_VER}_linux.x86_64"
           godot --version
 
       # 5) Prepare directories for Godot export
