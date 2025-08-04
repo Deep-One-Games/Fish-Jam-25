@@ -11,47 +11,38 @@ jobs:
     container: barichello/godot-ci:latest
 
     steps:
-      # 1) Checkout with LFS
       - name: Checkout game (with LFS)
         uses: actions/checkout@v4
         with:
           lfs: true
           fetch-depth: 0
 
-      # 2) Trust the workspace for Git LFS
-      - name: Trust repo directory
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-
-      # 3) Pull down real LFS blobs
       - name: Pull LFS files
-        run: git lfs pull
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git lfs pull
 
-      # 4) Install Blender so Godot can import .blend files
-      - name: Install Blender and verify path
+      - name: Install Blender
         run: |
           apt-get update
           apt-get install -y blender
+          echo "Blender version:"
           blender --version
 
-      # 5) Create a valid Godot editor settings file with the Blender path.
-      # This is the correct method to set the path for headless builds.
-      - name: Set Blender Path
+      - name: Create Godot and Export Directories
+        run: mkdir -p .godot web
+
+      - name: Import Assets
         run: |
-          mkdir -p ~/.config/godot
-          echo "[editor_settings]" > ~/.config/godot/editor_settings-4.tres
-          echo "blend/blender_path = \"/usr/bin/blender\"" >> ~/.config/godot/editor_settings-4.tres
-          
-      # 6) Export the HTML5 build. This command will now handle the asset import
-      # correctly. The timeout command is used safely to prevent a permanent hang
-      # without causing the workflow to fail.
+          godot --headless --editor --quit --import --set-setting editor/import/blender/blender_path="/usr/bin/blender"
+
       - name: Export HTML5 Web Build
         run: |
-          set +e
-          timeout 120s godot --headless --export-release "HTML5" web/index.html
-          exit 0
-
-      # 7) Push to itch.io
+          godot --headless --export-release "HTML5" web/index.html
+          
       - name: Publish to itch.io
+        if: github.ref == 'refs/heads/main'
         env:
           BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
-        run: butler push web ${{ secrets.ITCHIO_GAME }}
+        run: |
+          butler push web ${{ secrets.ITCHIO_GAME }}:html5
