@@ -43,19 +43,30 @@ jobs:
           sudo ln -sf /opt/blender/blender /usr/local/bin/blender
           blender --version
 
-      # 4) Install Godot 4.4.1 via tar.xz (stable release)
+      # 4) Install Godot 4.4.1 via .zip (stable release)
       - name: Install Godot 4.4.1
         run: |
+          set -e
+      
           GODOT_VER=4.4.1
           INSTALL_DIR=/opt/godot/${GODOT_VER}
+          ZIP_NAME=Godot_v${GODOT_VER}-stable_linux.x86_64.zip
+          DOWNLOAD_URL="https://github.com/godotengine/godot/releases/download/${GODOT_VER}-stable/${ZIP_NAME}"
+      
           sudo mkdir -p "${INSTALL_DIR}"
           wget --tries=3 --timeout=60 \
-            "https://github.com/godotengine/godot/releases/download/${GODOT_VER}-stable/godot-${GODOT_VER}-stable_linux.x86_64.tar.xz" \
-            -O godot.tar.xz
-          sudo tar -xJf godot.tar.xz -C "${INSTALL_DIR}" --strip-components=1
+            "${DOWNLOAD_URL}" \
+            -O godot.zip
+      
+          sudo apt-get update -qq && sudo apt-get install -yqq unzip
+      
+          sudo unzip -q godot.zip -d "${INSTALL_DIR}"
+      
           ls -l "${INSTALL_DIR}"
-          sudo ln -sf "${INSTALL_DIR}/Godot_v4.4.1-stable_linux.x86_64" /usr/local/bin/godot
-          sudo chmod +x "${INSTALL_DIR}/Godot_v4.4.1-stable_linux.x86_64"
+      
+          sudo ln -sf "${INSTALL_DIR}/Godot_v${GODOT_VER}-stable_linux.x86_64" /usr/local/bin/godot
+          sudo chmod +x /usr/local/bin/godot
+      
           godot --version
 
       # 5) Prepare directories for Godot export
