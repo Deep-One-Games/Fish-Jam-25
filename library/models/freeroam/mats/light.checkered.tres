@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dwqlbyag2jqhb"]
+
+[ext_resource type="Texture2D" uid="uid://cx16yoowrjxu" path="res://library/models/PrototypingLib/tex/Light/texture_08.png" id="1_vjhkx"]
+
+[resource]
+resource_name = "light.checkered"
+cull_mode = 2
+albedo_texture = ExtResource("1_vjhkx")
+roughness = 0.5
+uv1_triplanar = true

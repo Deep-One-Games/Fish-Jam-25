@@ -9,7 +9,7 @@ enum GameScene {
 
 var SceneInstances := {
 	GameScene.main_menu: preload("res://src/ui/menu.tscn"),
-	GameScene.freeroam: preload("res://src/scenes/freeroam.tscn"),
+	GameScene.freeroam: preload("res://src/scenes/freeroam_1.tscn"),
 	GameScene.racing: preload("res://src/scenes/racing.tscn"),
 	GameScene.fishing: preload("res://src/scenes/fishing.tscn"),
 }

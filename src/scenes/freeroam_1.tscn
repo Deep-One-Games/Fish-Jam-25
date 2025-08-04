@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dy2enkbobri0r"]
+
+[ext_resource type="Environment" uid="uid://pa607ivxbo2b" path="res://library/resources/world_env.tres" id="1_nwaox"]
+[ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_piq2t"]
+[ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="3_qktgv"]
+[ext_resource type="PackedScene" uid="uid://qmhe2mw2pt88" path="res://library/models/freeroam/freeroam_editable.tscn" id="5_0ij2y"]
+[ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="9_0uljx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2kdx"]
+render_priority = 0
+shader = ExtResource("2_piq2t")
+shader_parameter/dither_amount = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_drfrh"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ij2y"]
+size = Vector3(24.3681, 2.30354, 27)
+
+[node name="Root" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_nwaox")
+
+[node name="PS1_PP" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_f2kdx")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_drfrh")
+
+[node name="PlayerUi" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_qktgv")]
+player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("9_0uljx")]
+transform = Transform3D(1.00191, 0, 0, 0, 1.00191, 0, 0, 0, 1.00191, -7.74248, 7.36092, 4.90419)
+speed = 5.0
+camera_sens = 2.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Player"]
+light_color = Color(0.461966, 0.896221, 0.766828, 1)
+light_energy = 5.938
+shadow_enabled = true
+omni_range = 23.4496
+
+[node name="freeroam" parent="." instance=ExtResource("5_0ij2y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5608, 0, 59.7419)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="freeroam"]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="freeroam/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.3655, 0.482227, -9.73653)
+shape = SubResource("BoxShape3D_0ij2y")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="freeroam/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0434, 0.133937, -11.4629)
+shape = SubResource("BoxShape3D_0ij2y")

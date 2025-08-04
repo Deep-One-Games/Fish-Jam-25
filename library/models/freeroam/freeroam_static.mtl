@@ -1,0 +1,42 @@
+# Blender 4.5.1 LTS MTL File: 'freeroam.blend'
+# www.blender.org
+
+newmtl green.box
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd /home/asserth/Conjures/FishProject/library/models/PrototypingLib/tex/Green/texture_06.png
+
+newmtl light.checkered
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd /home/asserth/Conjures/FishProject/library/models/PrototypingLib/tex/Light/texture_08.png
+
+newmtl orange.checkered
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd /home/asserth/Conjures/FishProject/library/models/PrototypingLib/tex/Orange/texture_10.png
+
+newmtl red.checkered
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd /home/asserth/Conjures/FishProject/library/models/PrototypingLib/tex/Red/texture_08.png
