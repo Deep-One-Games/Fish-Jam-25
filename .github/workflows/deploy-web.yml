@@ -21,25 +21,34 @@ jobs:
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git lfs pull
-
-      - name: Install Blender
+          
+      - name: Install Latest Blender
         run: |
-          apt-get update
-          apt-get install -y blender
+          # Use wget to download the official Linux build. Update the version number as needed.
+          wget https://mirror.cs.uchicago.edu/blender/release/Blender4.2/blender-4.2.0-linux-x64.tar.xz
+          
+          # Extract the archive
+          tar -xf blender-4.2.0-linux-x64.tar.xz
+          
+          # Verify the new version
           echo "Blender version:"
-          blender --version
+          ./blender-4.2.0-linux-x64/blender --version
 
       - name: Create Godot and Export Directories
         run: mkdir -p .godot web
 
-      - name: Import Assets
+      - name: Import Assets with Correct Blender Path
         run: |
-          godot --headless --editor --quit --import --set-setting editor/import/blender/blender_path="/usr/bin/blender"
+          # Use the correct setting 'filesystem/import/blender/blender_path3'.
+          # Point it to the full path of our newly downloaded Blender.
+          # The timeout prevents a runaway job if something goes wrong.
+          timeout 300s godot --headless --editor --quit --import \
+            --set-setting filesystem/import/blender/blender_path3 $GITHUB_WORKSPACE/blender-4.2.0-linux-x64/blender
 
       - name: Export HTML5 Web Build
         run: |
           godot --headless --export-release "HTML5" web/index.html
-          
+
       - name: Publish to itch.io
         if: github.ref == 'refs/heads/main'
         env:
