@@ -53,4 +53,25 @@ jobs:
           godot --version
 
       # 5) Prepare export directories
-      - name: Prepare export
+      - name: Prepare export directories
+        run: mkdir -p .godot web
+
+      # 6) Import assets via Godot CLI
+      - name: Import assets (Godot → Web)
+        run: |
+          godot --headless --editor --quit --import \
+            --set-setting editor/import/blender/blender_path="$(which blender)"
+
+      # 7) Export HTML5 Web build
+      - name: Export HTML5 build
+        run: godot --headless --export-release "HTML5" web/index.html
+
+      # 8) Push to itch.io (only on main)
+      - name: Publish to itch.io
+        if: ${{ github.ref == 'refs/heads/main' }}
+        env:
+          BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
+        run: |
+          curl -L https://broth.itch.ovh/butler/linux-amd64/latest/archive/default -o butler
+          chmod +x butler
+          ./butler push web "${{ secrets.ITCHIO_GAME }}:html5"
