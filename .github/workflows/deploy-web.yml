@@ -8,10 +8,9 @@ on:
 jobs:
   deploy_web:
     runs-on: ubuntu-latest
-    container: barichello/godot‑ci:4.4.1‑stable
 
     steps:
-      - name: Checkout game (with LFS)
+      - name: Checkout (incl. LFS)
         uses: actions/checkout@v4
         with:
           lfs: true
@@ -22,39 +21,59 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git lfs pull
 
-      - name: Install dependencies (OpenGL + curl + gpg + jq)
+      - name: Install system packages
         run: |
-          apt-get update
-          apt-get install -y \
-            curl gnupg software-properties-common jq
-          # On Ubuntu‑latest (jammy/kinetic), libgl1-mesa-glx may be replaced by:
-          apt-get install -y libgl1          libglx-mesa0
+          sudo apt-get update
+          sudo apt-get install -y \
+            xz-utils wget curl gnupg software-properties-common \
+            libgl1 libglx-mesa0 libglu1-mesa \
+            libxi6 libxrandr2 libxinerama1 libxcursor1 libxrender1
 
-      - name: Add Blender PPA & install Blender ≥ 4.5
+      - name: Add Rob Savoury’s PPA and install Blender ≥ 4.5
         run: |
           curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x374C7797FB006459" \
             | gpg --dearmor > /usr/share/keyrings/robsavoury.gpg
-          echo "deb [signed-by=/usr/share/keyrings/robsavoury.gpg] \
-            https://ppa.launchpadcontent.net/savoury1/blender/ubuntu $(lsb_release -cs) main" \
+          echo "deb [signed-by=/usr/share/keyrings/robsavoury.gpg] http://ppa.launchpadcontent.net/savoury1/blender/ubuntu $(lsb_release -cs) main" \
             > /etc/apt/sources.list.d/savoury1-blender.list
           apt-get update
           apt-get install -y blender
           blender --version
 
-      - name: Download latest Godot 4 .4.1‑stable headless binary
-        shell: bash
+      - name: Download Godot 4.4.1‑stable tar.xz
         run: |
-          GODOT_TAG="4.4.1‑stable"
-          BASE_URL="https://github.com/godotengine/godot/releases/download/${GODOT_TAG}"
-          curl -fsSL "$BASE_URL/godot-${GODOT_TAG}.tar.xz" -o godot.tar.xz
+          GODOT_VER="4.4.1-stable"
+          URL="https://github.com/godotengine/godot/releases/download/${GODOT_VER}/godot-${GODOT_VER}.tar.xz"
+          echo "Downloading Godot from: $URL"
+          wget --tries=3 --timeout=60 -O godot.tar.xz "$URL"
 
-      - name: Extract Godot binary safely
+      - name: Extract Godot binary reliably
         run: |
-          # Identify the single root file inside the tar, assumming a single binary file
-          BIN=$(tar -tf godot.tar.xz | head -1)
-          tar -xJf godot.tar.xz -C /usr/local/bin "$BIN"
-          chmod +x "/usr/local/bin/$BIN"
-          mv "/usr/local/bin/$BIN" /usr/local/bin/godot
+          F=$(tar -tf godot.tar.xz \
+               | grep -E '[Ll]inux.*x86_64$' \
+               | head -n1)
+          echo "Found binary in archive: $F"
+          sudo tar -xJf godot.tar.xz -C /usr/local/bin "$F"
+          sudo ln -sf "/usr/local/bin/$F" /usr/local/bin/godot
+          sudo chmod +x "/usr/local/bin/godot"
+          godot --version
 
-      - name: Check Godot
-        run: god
+      - name: Prepare export directories
+        run: mkdir -p .godot web
+
+      - name: Import assets (Godot → Web)
+        run: >
+          godot --headless --editor --quit --import
+            --set-setting editor/import/blender/blender_path="$(which blender)"
+
+      - name: Export HTML5 Web Build
+        run: >
+          godot --headless --export-release "HTML5" web/index.html
+
+      - name: Publish to itch.io (on main only)
+        if: ${{ github.ref == 'refs/heads/main' }}
+        env:
+          BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
+        run: |
+          curl -fsSL https://broth.itch.ovh/butler/linux-amd64/latest/archive/default -o butler
+          chmod +x butler
+          ./butler push web "${{ secrets.ITCHIO_GAME }}:html5"
