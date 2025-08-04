@@ -32,16 +32,23 @@ jobs:
           apt-get update
           apt-get install -y blender
 
-      # 5) Set Blender path and pre-import assets (headless import)
-      - name: Set Blender path and pre-import assets
-        run: |
-          godot --headless --path . --editor --quit-after 60 --set settings/importer_defaults/blend/blender_path "/usr/bin/blender"
+      # 5) Set Blender path in project settings
+      # This command just sets the path without starting a full import.
+      # This is done first to prevent a race condition.
+      - name: Set Blender Path
+        run: godot --headless --path . --set settings/importer_defaults/blend/blender_path "/usr/bin/blender"
 
-      # 6) Export the HTML5 build
+      # 6) Pre-import assets by running the headless editor.
+      # The `timeout` command ensures the process is killed after 120 seconds,
+      # which is more reliable than Godot's built-in flag.
+      - name: Pre-import assets (headless)
+        run: timeout 120s godot --headless --editor --path .
+
+      # 7) Export the HTML5 build
       - name: Export HTML5 Web Build
         run: godot --headless --export-release "HTML5" web/index.html
 
-      # 7) Push to itch.io
+      # 8) Push to itch.io
       - name: Publish to itch.io
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCHIO_API_KEY }}
