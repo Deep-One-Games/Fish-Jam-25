@@ -1,4 +1,5 @@
-name: CI to Web Export & itch.io
+# .github/workflows/deploy-web.yml
+name: CI → Web Export & itch.io
 
 on:
   push:
@@ -32,7 +33,7 @@ jobs:
           apt-get update
           apt-get install -y blender
 
-      # 5) Correctly write a valid editor_settings-4.tres
+      # 5) Set Blender path in Godot's editor settings
       - name: Set Blender path in editor settings
         run: |
           mkdir -p ~/.config/godot
@@ -40,8 +41,8 @@ jobs:
           echo '' >> ~/.config/godot/editor_settings-4.tres
           echo '[importer_defaults/blend]' >> ~/.config/godot/editor_settings-4.tres
           echo 'blender_path = "/usr/bin/blender"' >> ~/.config/godot/editor_settings-4.tres
-
-      # 6) Let Godot import assets headlessly
+      
+      # 6) Pre‐import all assets (headless import)
       - name: Pre-import assets (headless import)
         run: godot --headless --import --path . --quiet
 
