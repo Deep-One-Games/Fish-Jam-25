@@ -1,4 +1,4 @@
-name: CI to Web Export & itch.io
+name: CI → Web Export & itch.io
 
 on:
   push:
@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: Checkout game
         uses: actions/checkout@v4
+
+      # Ensure all assets are imported (.import/) before export
+      - name: Pre-import all resources (headless)
+        run: godot --headless --no-window --check-project
 
       - name: Export HTML5 Web Build (headless)
         run: godot --headless --export-release "HTML5" web/index.html
