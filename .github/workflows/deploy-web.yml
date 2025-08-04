@@ -47,13 +47,14 @@ jobs:
       - name: Install Godot 4.4.1
         run: |
           GODOT_VER=4.4.1
+          INSTALL_DIR=/opt/godot/${GODOT_VER}
+          sudo mkdir -p "${INSTALL_DIR}"
           wget --tries=3 --timeout=60 \
-            https://github.com/godotengine/godot/releases/download/${GODOT_VER}-stable/godot-${GODOT_VER}-stable.tar.xz \
+            "https://github.com/godotengine/godot/releases/download/${GODOT_VER}-stable/godot-${GODOT_VER}-stable.tar.xz" \
             -O godot.tar.xz
-          sudo tar -xJf godot.tar.xz -C /usr/local/bin --wildcards --strip-components=1 \
-            'godot*'
-          ls /usr/local/bin
-          sudo ln -sf /usr/local/bin/Godot_v${GODOT_VER}_linux.x86_64 /usr/local/bin/godot
+          sudo tar -xJf godot.tar.xz -C "${INSTALL_DIR}" --strip-components=1
+          ls -l "${INSTALL_DIR}"
+          sudo ln -sf "${INSTALL_DIR}/Godot_v${GODOT_VER}_linux.x86_64" /usr/local/bin/godot
           sudo chmod +x /usr/local/bin/godot
           godot --version
 
