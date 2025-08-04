@@ -32,14 +32,14 @@ jobs:
           apt-get update
           apt-get install -y blender
 
-      # 5) Set Blender path in Godot's editor settings
-      - name: Set Blender path in editor settings
+      # 5) Set Blender path and pre-import assets (headless import)
+      - name: Set Blender path and pre-import assets
         run: |
-          godot --headless --path . --editor --set settings/importer_defaults/blend/blender_path "/usr/bin/blender"
+          godot --headless --path . --editor --quit-after 60 --set settings/importer_defaults/blend/blender_path "/usr/bin/blender"
 
-      # 6) Pre‐import all assets (headless import)
-      - name: Pre-import assets (headless import)
-        run: godot --headless --import --path . --quiet
+      # 6) Export the HTML5 build
+      - name: Export HTML5 Web Build
+        run: godot --headless --export-release "HTML5" web/index.html
 
       # 7) Export the HTML5 build
       - name: Export HTML5 Web Build
