@@ -53,5 +53,5 @@ jobs:
       # 7) Push to itch.io
       - name: Publish to itch.io
         env:
-          BUTLER_CREDENTIALS: ${{ secrets.ITCHIO_API_KEY }}
+          BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
         run: butler push web ${{ secrets.ITCHIO_GAME }}
