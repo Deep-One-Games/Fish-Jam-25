@@ -1,0 +1,23 @@
+name: _CI → Web Export & itch.io_
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  deploy_web:
+    runs-on: ubuntu-latest
+    container: barichello/godot-ci:latest
+
+    steps:
+      - name: Checkout game
+        uses: actions/checkout@v4
+
+      - name: Export HTML5 Web Build
+        run: godot --export-release "HTML5" web/index.html
+
+      - name: Publish to itch.io
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.ITCHIO_API_KEY }}
+        run: butler push web ${{ secrets.ITCHIO_GAME }}
