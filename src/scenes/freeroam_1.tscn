@@ -32,15 +32,19 @@ mesh = SubResource("QuadMesh_drfrh")
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("9_0uljx")]
-transform = Transform3D(1.00191, 0, 0, 0, 1.00191, 0, 0, 0, 1.00191, -7.74248, 7.36092, 4.90419)
+transform = Transform3D(1.00191, 0, 0, 0, 1.00191, 0, 0, 0, 1.00191, 45.8254, 6.90864, 33.831)
 speed = 5.0
 camera_sens = 2.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Player"]
-light_color = Color(0.461966, 0.896221, 0.766828, 1)
-light_energy = 5.938
+transform = Transform3D(0.998094, 0, 0, 0, 0.998094, 0, 0, 0, 0.998094, 0, 0, -0.0488148)
+light_color = Color(0.444483, 0.883783, 0.753913, 1)
+light_energy = 9.111
+light_indirect_energy = 1.203
+light_volumetric_fog_energy = 1.27
 shadow_enabled = true
-omni_range = 23.4496
+omni_range = 10.834
+omni_attenuation = 0.15
 
 [node name="freeroam" parent="." instance=ExtResource("5_0ij2y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5608, 0, 59.7419)
