@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ctfwmxc8iiui3"
-path="res://.godot/imported/freeroam.blend-b62b9e07d3eff79d487edd55a9e24861.scn"
+valid=false
 
 [deps]
 
 source_file="res://library/models/freeroam.blend"
-dest_files=["res://.godot/imported/freeroam.blend-b62b9e07d3eff79d487edd55a9e24861.scn"]
 
 [params]
 
