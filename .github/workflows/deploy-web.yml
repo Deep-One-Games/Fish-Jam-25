@@ -11,45 +11,45 @@ jobs:
     container: barichello/godot-ci:latest
 
     steps:
-      - name: Checkout game (with LFS)
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           lfs: true
           fetch-depth: 0
 
-      - name: Pull LFS files
+      - name: Pull Git LFS content
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git lfs pull
 
-      - name: Install required dependencies
+      - name: Install system dependencies
         run: |
           apt-get update
-          apt-get install -y curl xz-utils libglib2.0-0 libxi6 libxrender1 libsm6 libxrandr2 libxcursor1 libxinerama1 libxcomposite1 libasound2 libpulse0 libssl-dev libudev-dev
+          apt-get install -y software-properties-common gnupg \
+            libgl1-mesa-glx libglu1-mesa libxi6 libxrender1 libxrandr2 libxinerama1 libxcursor1
 
-      - name: Install Blender via PPA
+      - name: Install latest Blender via PPA
         run: |
-          apt-get update
-          apt-get install -y software-properties-common gnupg curl
           curl -fsSL https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xE996735927E427A733BB653E374C7797FB006459 \
             | gpg --dearmor | tee /usr/share/keyrings/robsavoury.gpg > /dev/null
-          echo "deb [signed-by=/usr/share/keyrings/robsavoury.gpg] https://ppa.launchpadcontent.net/savoury1/blender/ubuntu $UBUNTU_CODENAME main" \
+          echo "deb [signed-by=/usr/share/keyrings/robsavoury.gpg] https://ppa.launchpadcontent.net/savoury1/blender/ubuntu $(lsb_release -sc) main" \
             | tee /etc/apt/sources.list.d/blender-robsavoury.list
-          echo "deb [signed-by=/usr/share/keyrings/robsavoury.gpg] https://ppa.launchpadcontent.net/savoury1/ffmpeg4/ubuntu $UBUNTU_CODENAME main" \
+          echo "deb [signed-by=/usr/share/keyrings/robsavoury.gpg] https://ppa.launchpadcontent.net/savoury1/ffmpeg4/ubuntu $(lsb_release -sc) main" \
             | tee /etc/apt/sources.list.d/ffmpeg-robsavoury.list
           apt-get update
           apt-get install -y blender
-      
 
-      - name: Create Godot and Export Directories
+      - name: Verify Blender
+        run: blender --version
+
+      - name: Create Godot and web output directories
         run: mkdir -p .godot web
 
-      - name: Import Assets
+      - name: Import assets
         run: |
           godot --headless --editor --quit --import \
-            --set-setting editor/import/blender/blender_path="/usr/local/bin/blender"
+            --set-setting editor/import/blender/blender_path="$(command -v blender)"
 
-      - name: Export HTML5 Web Build
+      - name: Export HTML5 build
         run: |
           godot --headless --export-release "HTML5" web/index.html
 
@@ -59,3 +59,4 @@ jobs:
           BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
         run: |
           butler push web ${{ secrets.ITCHIO_GAME }}:html5
+
