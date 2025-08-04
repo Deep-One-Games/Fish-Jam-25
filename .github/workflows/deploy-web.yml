@@ -77,6 +77,7 @@ jobs:
       - name: Import Godot assets
         run: |
           which blender
+          godot --help
           godot --headless --editor --quit --import --set-setting editor/import/blender/blender_path="$(which blender)"
           
       # 7) Export HTML5 build
