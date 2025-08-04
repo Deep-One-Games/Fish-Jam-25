@@ -1,4 +1,4 @@
-name: _CI → Web Export & itch.io_
+name: CI to Web Export & itch.io
 
 on:
   push:
@@ -14,8 +14,8 @@ jobs:
       - name: Checkout game
         uses: actions/checkout@v4
 
-      - name: Export HTML5 Web Build
-        run: godot --export-release "HTML5" web/index.html
+      - name: Export HTML5 Web Build (headless)
+        run: godot --headless --export-release "HTML5" web/index.html
 
       - name: Publish to itch.io
         env:
