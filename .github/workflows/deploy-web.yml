@@ -41,11 +41,7 @@ jobs:
       - name: Export HTML5 Web Build
         run: godot --headless --export-release "HTML5" web/index.html
 
-      # 7) Export the HTML5 build
-      - name: Export HTML5 Web Build
-        run: godot --headless --export-release "HTML5" web/index.html
-
-      # 8) Push to itch.io
+      # 7) Push to itch.io
       - name: Publish to itch.io
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCHIO_API_KEY }}
