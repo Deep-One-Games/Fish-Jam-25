@@ -76,9 +76,9 @@ jobs:
       # 6) Run asset import via Godot CLI
       - name: Import Godot assets
         run: |
-          godot --headless --editor --quit --import \
-            --set-setting editor/import/blender/blender_path="$(which blender)"
-
+          which blender
+          godot --headless --editor --quit --import --set-setting editor/import/blender/blender_path="$(which blender)"
+          
       # 7) Export HTML5 build
       - name: Export HTML5 build
         run: godot --headless --export-release "HTML5" web/index.html
