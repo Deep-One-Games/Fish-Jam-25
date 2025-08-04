@@ -22,20 +22,24 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git lfs pull
 
-      # Install xz and curl so we can unpack Blender manually
       - name: Install required dependencies
         run: |
           apt-get update
           apt-get install -y curl xz-utils libglib2.0-0 libxi6 libxrender1 libsm6 libxrandr2 libxcursor1 libxinerama1 libxcomposite1 libasound2 libpulse0 libssl-dev libudev-dev
 
-      # Download and install latest Blender manually (headless)
-      - name: Install Blender 4.2.2
+      - name: Install Blender via PPA
         run: |
-          mkdir -p /opt/blender
-          curl -L https://ftp.nluug.nl/pub/graphics/blender/release/Blender4.2/blender-4.2.2-linux-x64.tar.xz -o blender.tar.xz
-          tar -xf blender.tar.xz -C /opt/blender --strip-components=1
-          ln -s /opt/blender/blender /usr/local/bin/blender
-          blender --version
+          apt-get update
+          apt-get install -y software-properties-common gnupg curl
+          curl -fsSL https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xE996735927E427A733BB653E374C7797FB006459 \
+            | gpg --dearmor | tee /usr/share/keyrings/robsavoury.gpg > /dev/null
+          echo "deb [signed-by=/usr/share/keyrings/robsavoury.gpg] https://ppa.launchpadcontent.net/savoury1/blender/ubuntu $UBUNTU_CODENAME main" \
+            | tee /etc/apt/sources.list.d/blender-robsavoury.list
+          echo "deb [signed-by=/usr/share/keyrings/robsavoury.gpg] https://ppa.launchpadcontent.net/savoury1/ffmpeg4/ubuntu $UBUNTU_CODENAME main" \
+            | tee /etc/apt/sources.list.d/ffmpeg-robsavoury.list
+          apt-get update
+          apt-get install -y blender
+      
 
       - name: Create Godot and Export Directories
         run: mkdir -p .godot web
