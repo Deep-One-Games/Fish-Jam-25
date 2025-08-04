@@ -14,9 +14,6 @@ jobs:
       - name: Checkout game
         uses: actions/checkout@v4
 
-      - name: Pre-import all resources (headless)
-        run: godot --headless --no-window --path . --check-project
-
       - name: Export HTML5 Web Build (headless)
         run: godot --headless --no-window --path . \
              --export-release "HTML5" web/index.html
