@@ -22,34 +22,28 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git lfs pull
 
-      - name: Install Blender LTS
+      # Install xz and curl so we can unpack Blender manually
+      - name: Install required dependencies
         run: |
-          # Download a recent Blender 4.2 LTS build. This link is more stable.
-          # NOTE: I've updated this to a plausible working link for a 4.2.x release.
-          wget https://download.blender.org/release/Blender4.2/blender-4.2.2-linux-x64.tar.xz
-          
-          # Extract the archive using a wildcard to match the exact filename
-          tar -xf blender-*-linux-x64.tar.xz
-          
-          # Find the name of the extracted directory dynamically and store it in a variable
-          BLENDER_DIR=$(find . -maxdepth 1 -type d -name 'blender-*')
-          
-          # Add the path to the blender executable to the environment for subsequent steps
-          echo "BLENDER_PATH=$GITHUB_WORKSPACE/$BLENDER_DIR/blender" >> $GITHUB_ENV
+          apt-get update
+          apt-get install -y curl xz-utils libglib2.0-0 libxi6 libxrender1 libsm6 libxrandr2 libxcursor1 libxinerama1 libxcomposite1 libasound2 libpulse0 libssl-dev libudev-dev
 
-          # Verify the installation and path
-          echo "Blender was found in: $BLENDER_DIR"
-          echo "Executable path is: ${{ env.BLENDER_PATH }}"
-          ${{ env.BLENDER_PATH }} --version
-        id: setup_blender
+      # Download and install latest Blender manually (headless)
+      - name: Install Blender 4.2.2
+        run: |
+          mkdir -p /opt/blender
+          curl -L https://ftp.nluug.nl/pub/graphics/blender/release/Blender4.2/blender-4.2.2-linux-x64.tar.xz -o blender.tar.xz
+          tar -xf blender.tar.xz -C /opt/blender --strip-components=1
+          ln -s /opt/blender/blender /usr/local/bin/blender
+          blender --version
 
       - name: Create Godot and Export Directories
         run: mkdir -p .godot web
 
-      - name: Import Assets with Correct Blender Path
+      - name: Import Assets
         run: |
-          timeout 300s godot --headless --editor --quit --import \
-            --set-setting filesystem/import/blender/blender_path3 "${{ env.BLENDER_PATH }}"
+          godot --headless --editor --quit --import \
+            --set-setting editor/import/blender/blender_path="/usr/local/bin/blender"
 
       - name: Export HTML5 Web Build
         run: |
