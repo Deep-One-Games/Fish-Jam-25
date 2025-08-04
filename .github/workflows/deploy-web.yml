@@ -1,4 +1,4 @@
-name: CI → Web Export & itch.io
+name: CI to Web Export & itch.io
 
 on:
   push:
@@ -11,13 +11,22 @@ jobs:
     container: barichello/godot-ci:latest
 
     steps:
-      - name: Checkout game
+      - name: Checkout game (with LFS)
         uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0 
 
-      - name: Pre-import assets (headless editor)
-        run: godot --headless --editor --path . --quit
+      - name: Pull LFS files
+        run: |
+          git lfs pull
+          # fallback if pull fails:
+          git lfs checkout
 
-      - name: Export HTML5 Web Build (headless)
+      - name: Pre-import assets (headless import)
+        run: godot --headless --import --path . --verbose
+
+      - name: Export HTML5 Web Build
         run: godot --headless --no-window --path . \
              --export-release "HTML5" web/index.html
 
