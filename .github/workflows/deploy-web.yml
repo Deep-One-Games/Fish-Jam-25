@@ -32,7 +32,7 @@ jobs:
             libxi6 libxrender1 libxrandr2 \
             libxinerama1 libxcursor1
 
-      # 3) Download & install Blender 4.5.x
+      # 3) Download & install Blender 4.5.1
       - name: Install Blender 4.5.1
         run: |
           mkdir -p /opt/blender
@@ -41,10 +41,10 @@ jobs:
           sudo ln -sf /opt/blender/blender /usr/local/bin/blender
           blender --version
 
-      # 4) Download & install Godot 4.4.2 headless (stable) from GitHub
+      # 4) Download & install Godot 4.4.2 headless from GitHub
       - name: Install Godot 4.4.2 headless
         run: |
-          GODOT_VER=4.4.2-stable
+          GODOT_VER=4.4.2
           URL="https://github.com/godotengine/godot/releases/download/${GODOT_VER}/Godot_v${GODOT_VER}_linux_headless.64.zip"
           wget --tries=3 --timeout=30 -O godot.zip "$URL"
           unzip godot.zip -d godot_tmp
@@ -66,7 +66,7 @@ jobs:
       - name: Export HTML5 build
         run: godot --headless --export-release "HTML5" web/index.html
 
-      # 8) Push to itch.io (only on main)
+      # 8) Push to itch.io (only on main branch)
       - name: Publish to itch.io
         if: ${{ github.ref == 'refs/heads/main' }}
         env:
