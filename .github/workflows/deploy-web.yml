@@ -36,10 +36,12 @@ jobs:
       - name: Set Blender path in editor settings
         run: |
           mkdir -p ~/.config/godot
-          echo '[gd_resource type="EditorSettings" load_steps=2 format=3]' > ~/.config/godot/editor_settings-4.tres
-          echo '' >> ~/.config/godot/editor_settings-4.tres
-          echo '[importer_defaults/blend]' >> ~/.config/godot/editor_settings-4.tres
-          echo 'blender_path = "/usr/bin/blender"' >> ~/.config/godot/editor_settings-4.tres
+          cat <<EOF > ~/.config/godot/editor_settings-4.tres
+[gd_resource type="EditorSettings" load_steps=2 format=3]
+
+[importer_defaults/blend]
+blender_path = "/usr/bin/blender"
+EOF
 
       # 6) Pre‐import all assets (headless import)
       - name: Pre-import assets (headless import)
