@@ -1,4 +1,4 @@
-name: CI → Web Export & itch.io
+name: CI to Web Export & itch.io
 
 on:
   push:
