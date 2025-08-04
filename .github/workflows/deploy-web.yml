@@ -22,7 +22,7 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git lfs pull
 
-      # 2) Install system deps (xz for tar.xz, unzip, GL libs)
+      # 2) Install system deps (xz, GL libs, unzip, wget)
       - name: Install system packages
         run: |
           sudo apt-get update
@@ -41,14 +41,15 @@ jobs:
           sudo ln -sf /opt/blender/blender /usr/local/bin/blender
           blender --version
 
-      # 4) Download & install Godot 4.4.2 headless from GitHub
-      - name: Install Godot 4.4.2 headless
+      # 4) Download & install Godot 4.4.1-stable headless from godot-builds
+      - name: Install Godot 4.4.1-stable headless
         run: |
-          GODOT_VER=4.4.2
-          URL="https://github.com/godotengine/godot/releases/download/${GODOT_VER}/Godot_v${GODOT_VER}_linux_headless.64.zip"
+          GODOT_TAG=4.4.1-stable
+          URL="https://github.com/godotengine/godot-builds/releases/download/${GODOT_TAG}/Godot_v${GODOT_TAG}_linux_headless.64.zip"
+          echo "Pulling Godot headless from: $URL"
           wget --tries=3 --timeout=30 -O godot.zip "$URL"
           unzip godot.zip -d godot_tmp
-          sudo mv godot_tmp/Godot_v${GODOT_VER}_linux_headless.64 /usr/local/bin/godot
+          sudo mv godot_tmp/Godot_v${GODOT_TAG}_linux_headless.64 /usr/local/bin/godot
           sudo chmod +x /usr/local/bin/godot
           godot --version
 
@@ -56,7 +57,7 @@ jobs:
       - name: Prepare export directories
         run: mkdir -p .godot web
 
-      # 6) Import assets via Godot CLI
+      # 6) Import assets via Godot CLI (pointing at our Blender)
       - name: Import assets (Godot → Web)
         run: |
           godot --headless --editor --quit --import \
@@ -66,7 +67,7 @@ jobs:
       - name: Export HTML5 build
         run: godot --headless --export-release "HTML5" web/index.html
 
-      # 8) Push to itch.io (only on main branch)
+      # 8) Push to itch.io (only on main)
       - name: Publish to itch.io
         if: ${{ github.ref == 'refs/heads/main' }}
         env:
