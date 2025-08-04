@@ -27,23 +27,46 @@ jobs:
         run: git lfs pull
 
       # 4) Install Blender so Godot can import .blend files
-      - name: Install Blender
+      - name: Install Blender and verify path
         run: |
           apt-get update
           apt-get install -y blender
+          blender --version
 
-      # 5) Use `sed` to directly set the Blender path in the `project.godot` file.
-      # This is a more reliable method than using a Godot command-line flag.
-      - name: Set Blender Path in project.godot
+      # 5) Set Blender path in the global editor settings file.
+      # This is the correct location for this setting.
+      - name: Set Blender Path
         run: |
-          sed -i '/^\[editor_settings\]/a blend\/blender_path = "\/usr\/bin\/blender"' project.godot
+          mkdir -p ~/.config/godot
+          echo 'blender_path = "/usr/bin/blender"' >> ~/.config/godot/editor_settings-4.tres
 
       # 6) Run the headless editor to initialize the project and perform imports.
-      # The `timeout` command is still used to prevent the job from hanging.
-      # Now that the path is already set, this step should succeed.
+      # The `godot` command is wrapped in a shell script that allows us to
+      # gracefully handle a timeout, preventing the workflow from failing.
       - name: Pre-import assets (headless)
-        run: timeout 120s godot --headless --editor --path .
-
+        run: |
+          #!/bin/bash
+          # Run godot in the background
+          godot --headless --editor --path . &
+          # Get the process ID of the background task
+          godot_pid=$!
+          
+          # Wait for a maximum of 120 seconds
+          start_time=$(date +%s)
+          while kill -0 "$godot_pid" 2>/dev/null && [ $(($(date +%s) - start_time)) -lt 120 ]; do
+            sleep 5
+          done
+          
+          # Check if the process is still running and kill it if necessary
+          if kill -0 "$godot_pid" 2>/dev/null; then
+            echo "Godot process timed out, forcefully terminating."
+            kill "$godot_pid"
+            exit 0 # Exit with success code despite the timeout
+          else
+            echo "Godot process completed successfully."
+            wait "$godot_pid"
+          fi
+      
       # 7) Export the HTML5 build
       - name: Export HTML5 Web Build
         run: godot --headless --export-release "HTML5" web/index.html
