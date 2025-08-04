@@ -32,18 +32,16 @@ jobs:
           apt-get update
           apt-get install -y blender
 
-      # 5) Set Blender path in Godot's editor settings
+      # 5) Correctly write a valid editor_settings-4.tres
       - name: Set Blender path in editor settings
         run: |
           mkdir -p ~/.config/godot
-          cat <<EOF > ~/.config/godot/editor_settings-4.tres
-[gd_resource type="EditorSettings" load_steps=2 format=3]
+          echo '[gd_resource type="EditorSettings" load_steps=2 format=3]' > ~/.config/godot/editor_settings-4.tres
+          echo '' >> ~/.config/godot/editor_settings-4.tres
+          echo '[importer_defaults/blend]' >> ~/.config/godot/editor_settings-4.tres
+          echo 'blender_path = "/usr/bin/blender"' >> ~/.config/godot/editor_settings-4.tres
 
-[importer_defaults/blend]
-blender_path = "/usr/bin/blender"
-EOF
-
-      # 6) Pre‐import all assets (headless import)
+      # 6) Let Godot import assets headlessly
       - name: Pre-import assets (headless import)
         run: godot --headless --import --path . --quiet
 
