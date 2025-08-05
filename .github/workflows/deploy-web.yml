@@ -1,13 +1,17 @@
 name: CI → Web Export & itch.io
 
 on:
+  # run on any commit to main
   push:
     branches: [ main ]
+  # run on PRs targeting main
   pull_request:
+    branches: [ main ]
 
 jobs:
   deploy_web:
     runs-on: ubuntu-latest
+    name: CI → Web Export & itch.io
 
     steps:
       # 1) Checkout + Git LFS
@@ -22,33 +26,46 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git lfs pull
 
-      # 2) Sanity-check web/ folder
+      # 2) Ensure the PR actually changed web/
+      - name: Require changes under web/
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          echo "Checking for any changes inside web/..."
+          # fetch the base branch to compare
+          git fetch origin ${{ github.base_ref }}
+          # diff only web/; if empty, fail
+          if [ -z "$(git diff --name-only origin/${{ github.base_ref }} -- web)" ]; then
+            echo "No changes detected in web/. Please rebuild your game and include web/ artifacts."
+            exit 1
+          fi
+
+      # 3) Sanity-check web/ folder
       - name: Ensure web/ exists and is non-empty
         run: |
           if [ ! -d web ]; then
-            echo "❌ web/ directory is missing. Did you forget to commit your build?"
+            echo "web/ directory is missing. Did you forget to commit your build?"
             exit 1
           fi
           if [ -z "$(ls -A web)" ]; then
-            echo "❌ web/ is empty. Make sure your build output is in web/."
+            echo "web/ is empty. Make sure your build output is in web/."
             exit 1
           fi
 
-      # 3) Check for index.html
+      # 4) Check for index.html
       - name: Verify web/index.html
         run: |
           if [ ! -f web/index.html ]; then
-            echo "❌ web/index.html not found. Expected the HTML5 entrypoint there."
+            echo "web/index.html not found. Expected the HTML5 entrypoint there."
             exit 1
           fi
           if [ ! -s web/index.html ]; then
-            echo "❌ web/index.html exists but is empty."
+            echo "web/index.html exists but is empty."
             exit 1
           fi
 
-      # 4) Publish to itch.io (only on main)
+      # 5) Publish to itch.io (only on push to main)
       - name: Publish to itch.io
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         env:
           BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
         run: |
