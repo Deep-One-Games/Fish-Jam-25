@@ -11,6 +11,7 @@
 viewport_path = NodePath("SubViewport")
 
 [node name="Inventory" type="Control" node_paths=PackedStringArray("inventory", "item_mesh", "item_name", "item_lore")]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

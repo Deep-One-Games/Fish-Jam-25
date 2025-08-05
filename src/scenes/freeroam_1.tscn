@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dy2enkbobri0r"]
+[gd_scene load_steps=12 format=3 uid="uid://dy2enkbobri0r"]
 
 [ext_resource type="Environment" uid="uid://pa607ivxbo2b" path="res://library/resources/world_env.tres" id="1_nwaox"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_piq2t"]
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="3_qktgv"]
 [ext_resource type="PackedScene" uid="uid://qmhe2mw2pt88" path="res://library/models/freeroam/freeroam_editable.tscn" id="5_0ij2y"]
+[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable.gd" id="6_0jgi7"]
+[ext_resource type="Resource" uid="uid://defgqeurnf2ej" path="res://library/dialogue/example.dialogue" id="7_34se8"]
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="9_0uljx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2kdx"]
@@ -17,6 +19,9 @@ size = Vector2(2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ij2y"]
 size = Vector3(24.3681, 2.30354, 27)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0jgi7"]
+size = Vector3(1.62207, 2.5304, 1)
 
 [node name="Root" type="Node3D"]
 
@@ -32,7 +37,7 @@ mesh = SubResource("QuadMesh_drfrh")
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("9_0uljx")]
-transform = Transform3D(1.00191, 0, 0, 0, 1.00191, 0, 0, 0, 1.00191, 45.8254, 6.90864, 33.831)
+transform = Transform3D(1.00191, 0, 0, 0, 1.00191, 0, 0, 0, 1.00191, 45.8254, 4.82019, 33.831)
 speed = 5.0
 camera_sens = 2.0
 
@@ -59,3 +64,16 @@ shape = SubResource("BoxShape3D_0ij2y")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="freeroam/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0434, 0.133937, -11.4629)
 shape = SubResource("BoxShape3D_0ij2y")
+
+[node name="InteractableArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3683, 2.57791, 28.8695)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("6_0jgi7")
+dialogue = ExtResource("7_34se8")
+title = "start"
+metadata/_custom_type_script = "uid://12ky23xpgrrg"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311035, 0.765198, 0)
+shape = SubResource("BoxShape3D_0jgi7")

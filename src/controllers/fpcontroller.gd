@@ -20,7 +20,9 @@ var jump_vel: Vector3 # Jumping velocity
 
 var disable := false
 
+@export_category("Node Declares")
 @export var camera: Camera3D
+@export var interact_box: Area3D
 
 func _input(event: InputEvent) -> void:
 	if disable: return

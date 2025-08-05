@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bopieg0vu42pp"
-valid=false
+path="res://.godot/imported/openworld.blend-298d1818bd042e2483bfaaf48d114d7b.scn"
 
 [deps]
 
 source_file="res://library/models/openworld.blend"
+dest_files=["res://.godot/imported/openworld.blend-298d1818bd042e2483bfaaf48d114d7b.scn"]
 
 [params]
 

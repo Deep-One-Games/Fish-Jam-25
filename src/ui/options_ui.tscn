@@ -4,6 +4,7 @@
 [ext_resource type="AudioBusLayout" uid="uid://b0ciqypvtyv6d" path="res://library/resources/bus_layout.tres" id="2_kev30"]
 
 [node name="Options" type="Control" node_paths=PackedStringArray("close", "exit", "master", "music", "sfx", "toggle_fs")]
+z_index = 1
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

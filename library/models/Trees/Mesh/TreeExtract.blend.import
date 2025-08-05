@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://buuvihejnkhi0"
-valid=false
+path="res://.godot/imported/TreeExtract.blend-9408344970a26495d77328987e1e2260.scn"
 
 [deps]
 
 source_file="res://library/models/Trees/Mesh/TreeExtract.blend"
+dest_files=["res://.godot/imported/TreeExtract.blend-9408344970a26495d77328987e1e2260.scn"]
 
 [params]
 

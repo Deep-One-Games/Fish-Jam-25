@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://18k60p0d0xh1"]
+[gd_scene load_steps=5 format=3 uid="uid://18k60p0d0xh1"]
 
 [ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="1_354od"]
 [ext_resource type="Script" uid="uid://l4pqogg24mrk" path="res://src/ui/scripts/player_ui.gd" id="1_idx4u"]
 [ext_resource type="PackedScene" uid="uid://df0qay8pm5da4" path="res://src/ui/inventory.tscn" id="3_rp5hd"]
+[ext_resource type="PackedScene" uid="uid://bp3mxiywn45q" path="res://src/ui/interact.tscn" id="4_i84qp"]
 
-[node name="PlayerUI" type="Control" node_paths=PackedStringArray("options", "inventory")]
+[node name="PlayerUI" type="Control" node_paths=PackedStringArray("options", "inventory", "show_interact")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,9 +15,13 @@ grow_vertical = 2
 script = ExtResource("1_idx4u")
 options = NodePath("Options")
 inventory = NodePath("Inventory")
+show_interact = NodePath("Interact")
 
 [node name="Options" parent="." instance=ExtResource("1_354od")]
 layout_mode = 1
 
 [node name="Inventory" parent="." instance=ExtResource("3_rp5hd")]
+layout_mode = 1
+
+[node name="Interact" parent="." instance=ExtResource("4_i84qp")]
 layout_mode = 1
