@@ -1,10 +1,8 @@
 name: CI → Web Export & itch.io
 
 on:
-  # run on any commit to main
   push:
     branches: [ main ]
-  # run on PRs targeting main
   pull_request:
     branches: [ main ]
 
@@ -26,14 +24,12 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git lfs pull
 
-      # 2) Ensure the PR actually changed web/
+      # 2) Require changes under web/ on PRs
       - name: Require changes under web/
         if: ${{ github.event_name == 'pull_request' }}
         run: |
           echo "Checking for any changes inside web/..."
-          # fetch the base branch to compare
           git fetch origin ${{ github.base_ref }}
-          # diff only web/; if empty, fail
           if [ -z "$(git diff --name-only origin/${{ github.base_ref }} -- web)" ]; then
             echo "No changes detected in web/. Please rebuild your game and include web/ artifacts."
             exit 1
@@ -51,7 +47,7 @@ jobs:
             exit 1
           fi
 
-      # 4) Check for index.html
+      # 4) Verify index.html
       - name: Verify web/index.html
         run: |
           if [ ! -f web/index.html ]; then
@@ -63,13 +59,24 @@ jobs:
             exit 1
           fi
 
-      # 5) Publish to itch.io (only on push to main)
+      # 5) Setup butler (stable .zip)
+      - name: Setup butler (stable)
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        run: |
+          echo "Downloading butler stable .zip from broth"
+          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          echo "Butler version:"
+          ./butler -V
+
+      # 6) Publish to itch.io using the local binary
       - name: Publish to itch.io
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         env:
           BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
         run: |
-          curl -L https://broth.itch.ovh/butler/linux-amd64/latest/archive/default \
-            -o butler
-          chmod +x butler
-          ./butler push web "${{ secrets.ITCHIO_GAME }}:html5"
+          echo "Which butler binary are we using?"
+          which butler || echo "System butler not found, using local ./butler"
+          echo "Pushing to itch target = ${{ secrets.ITCHIO_GAME }}"
+          ./butler push web "${{ secrets.ITCHIO_GAME }}"
