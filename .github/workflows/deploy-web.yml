@@ -22,69 +22,63 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git lfs pull
 
-      # 2) Install necessary system libs
+      # 2) Install core dependencies
       - name: Install system packages
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-            xz-utils wget unzip \
+            xz-utils wget unzip curl jq \
             libgl1 libglx-mesa0 libglu1-mesa \
             libxi6 libxrender1 libxrandr2 \
             libxinerama1 libxcursor1
 
-      # 3) Download & install Blender 4.5.1
-      - name: Install Blender 4.5.1
+      # 3) Install latest Blender
+      - name: Install latest Blender
         run: |
-          mkdir -p /opt/blender
-          wget --tries=3 --timeout=60 \
-            https://download.blender.org/release/Blender4.5/blender-4.5.1-linux-x64.tar.xz \
+          # Fetch latest version folder from Blender release index
+          BLENDER_VER=$(curl -s https://download.blender.org/release/ \
+            | grep -Po 'blender-[0-9]+\.[0-9]+\.[0-9]+/' \
+            | sed 's|blender-||; s|/||' \
+            | sort -V \
+            | tail -1)
+          INSTALL_DIR=/opt/blender/$BLENDER_VER
+          mkdir -p $INSTALL_DIR
+          wget -q \
+            https://download.blender.org/release/Blender${BLENDER_VER%.*}/blender-$BLENDER_VER-linux-x64.tar.xz \
             -O blender.tar.xz
-          sudo tar -xJf blender.tar.xz -C /opt/blender --strip-components=1
-          sudo ln -sf /opt/blender/blender /usr/local/bin/blender
+          sudo tar -xJf blender.tar.xz -C $INSTALL_DIR --strip-components=1
+          sudo ln -sf $INSTALL_DIR/blender /usr/local/bin/blender
           blender --version
 
-      # 4) Install Godot 4.4.1 via .zip (stable release)
-      - name: Install Godot 4.4.1
+      # 4) Install latest Godot
+      - name: Install latest Godot
         run: |
-          set -e
-      
-          GODOT_VER=4.4.1
-          INSTALL_DIR=/opt/godot/${GODOT_VER}
+          GODOT_TAG=$(curl -s https://api.github.com/repos/godotengine/godot/releases/latest \
+            | jq -r .tag_name)
+          GODOT_VER=${GODOT_TAG#v}
+          INSTALL_DIR=/opt/godot/$GODOT_VER
           ZIP_NAME=Godot_v${GODOT_VER}-stable_linux.x86_64.zip
-          DOWNLOAD_URL="https://github.com/godotengine/godot/releases/download/${GODOT_VER}-stable/${ZIP_NAME}"
-      
-          sudo mkdir -p "${INSTALL_DIR}"
-          wget --tries=3 --timeout=60 \
-            "${DOWNLOAD_URL}" \
-            -O godot.zip
-      
-          sudo apt-get update -qq && sudo apt-get install -yqq unzip
-      
-          sudo unzip -q godot.zip -d "${INSTALL_DIR}"
-      
-          ls -l "${INSTALL_DIR}"
-      
-          sudo ln -sf "${INSTALL_DIR}/Godot_v${GODOT_VER}-stable_linux.x86_64" /usr/local/bin/godot
-          sudo chmod +x /usr/local/bin/godot
-      
+          DOWNLOAD_URL="https://github.com/godotengine/godot/releases/download/${GODOT_TAG}/${ZIP_NAME}"
+          sudo mkdir -p $INSTALL_DIR
+          wget -q $DOWNLOAD_URL -O godot.zip
+          sudo unzip -q godot.zip -d $INSTALL_DIR
+          sudo ln -sf $INSTALL_DIR/Godot_v${GODOT_VER}-stable_linux.x86_64 /usr/local/bin/godot
           godot --version
 
-      # 5) Prepare directories for Godot export
-      - name: Prepare directories
+      # 5) Prepare project for import/export
+      - name: Prepare Godot workspace
         run: mkdir -p .godot web
 
-      # 6) Run asset import via Godot CLI
+      # 6) Import assets (Blender detected automatically)
       - name: Import Godot assets
         run: |
-          which blender
-          godot --help
-          godot --headless --editor --quit --import --set-setting editor/import/blender/blender_path="$(which blender)"
-          
-      # 7) Export HTML5 build
+          godot --headless --editor --path . --quit --import
+
+      # 7) Build HTML5 export
       - name: Export HTML5 build
         run: godot --headless --export-release "HTML5" web/index.html
 
-      # 8) Deploy to itch.io (only on main branch)
+      # 8) Publish to itch.io (main branch only)
       - name: Publish to itch.io
         if: ${{ github.ref == 'refs/heads/main' }}
         env:
