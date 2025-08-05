@@ -84,5 +84,5 @@ jobs:
         env:
           BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
         run: |
-          echo "Uploading game.zip to itch target = ${{ secrets.ITCHIO_GAME }}"
-          ./butler push game.zip "${{ secrets.ITCHIO_GAME }}
+          echo "Uploading game.zip to itch target = ${{ secrets.ITCHIO_GAME }}:html5"
+          ./butler push game.zip "${{ secrets.ITCHIO_GAME }}:html5"
