@@ -31,39 +31,35 @@ jobs:
           echo "Checking for any changes inside web/..."
           git fetch origin ${{ github.base_ref }}
           if [ -z "$(git diff --name-only origin/${{ github.base_ref }} -- web)" ]; then
-            echo "No changes detected in web/. Please rebuild your game and include web/ artifacts."
+            echo "No changes in web/, please rebuild."
             exit 1
           fi
 
       # 3) Sanity-check web/ folder
-      - name: Ensure web/ exists and is non-empty
+      - name: Ensure web/ exists and non-empty
         run: |
           if [ ! -d web ]; then
-            echo "web/ directory is missing. Did you forget to commit your build?"
+            echo "Missing web/ directory"
             exit 1
           fi
           if [ -z "$(ls -A web)" ]; then
-            echo "web/ is empty. Make sure your build output is in web/."
+            echo "web/ folder is empty"
             exit 1
           fi
 
       # 4) Verify index.html
       - name: Verify web/index.html
         run: |
-          if [ ! -f web/index.html ]; then
-            echo "web/index.html not found. Expected the HTML5 entrypoint there."
-            exit 1
-          fi
-          if [ ! -s web/index.html ]; then
-            echo "web/index.html exists but is empty."
+          if [ ! -f web/index.html ] || [ ! -s web/index.html ]; then
+            echo "web/index.html missing or empty"
             exit 1
           fi
 
-      # 5) Setup butler (stable .zip)
-      - name: Setup butler (stable)
+      # 5) Setup butler (stable)
+      - name: Setup butler
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
-          echo "Downloading butler stable .zip from broth"
+          echo "Downloading butler"
           curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
           unzip butler.zip
           chmod +x butler
@@ -79,10 +75,10 @@ jobs:
           cd ..
 
       # 7) Publish to itch.io
-      - name: Publish to itch.io
+      - name: Publish to itch.io (explicit html5 channel)
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         env:
           BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
         run: |
-          echo "Uploading game.zip to itch target = ${{ secrets.ITCHIO_GAME }}:html5"
+          echo "Uploading game.zip to target = ${{ secrets.ITCHIO_GAME }}:html5"
           ./butler push game.zip "${{ secrets.ITCHIO_GAME }}:html5"
