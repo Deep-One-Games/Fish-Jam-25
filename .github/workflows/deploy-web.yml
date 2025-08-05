@@ -22,7 +22,7 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git lfs pull
 
-      # 2) Install core dependencies
+      # 2) Install system packages
       - name: Install system packages
         run: |
           sudo apt-get update
@@ -32,53 +32,58 @@ jobs:
             libxi6 libxrender1 libxrandr2 \
             libxinerama1 libxcursor1
 
-      # 3) Install latest Blender
+      # 3) Install latest stable Blender
       - name: Install latest Blender
         run: |
-          # Fetch latest version folder from Blender release index
-          BLENDER_VER=$(curl -s https://download.blender.org/release/ \
-            | grep -Po 'blender-[0-9]+\.[0-9]+\.[0-9]+/' \
-            | sed 's|blender-||; s|/||' \
-            | sort -V \
-            | tail -1)
-          INSTALL_DIR=/opt/blender/$BLENDER_VER
-          mkdir -p $INSTALL_DIR
-          wget -q \
-            https://download.blender.org/release/Blender${BLENDER_VER%.*}/blender-$BLENDER_VER-linux-x64.tar.xz \
-            -O blender.tar.xz
-          sudo tar -xJf blender.tar.xz -C $INSTALL_DIR --strip-components=1
-          sudo ln -sf $INSTALL_DIR/blender /usr/local/bin/blender
+          BASE="https://download.blender.org/release"
+          # 1) Find latest BlenderX.Y/ directory
+          DIR=$(curl -s "${BASE}/" \
+            | grep -Eo 'Blender[0-9]+\.[0-9]+/' \
+            | sed 's#/##' \
+            | sort -V | tail -1)
+          VER=${DIR#Blender}
+          # 2) In that directory, pick the highest patch blender-x.y.z file
+          FILE=$(curl -s "${BASE}/${DIR}/" \
+            | grep -Eo "blender-${VER}\.[0-9]+-linux-x64\\.tar\\.xz" \
+            | sort -V | tail -1)
+          INSTALL_DIR=/opt/blender/${FILE%.tar.xz}
+          mkdir -p "$INSTALL_DIR"
+          wget -q "${BASE}/${DIR}/${FILE}" -O blender.tar.xz
+          sudo tar -xJf blender.tar.xz -C "$INSTALL_DIR" --strip-components=1
+          sudo ln -sf "$INSTALL_DIR/blender" /usr/local/bin/blender
           blender --version
 
-      # 4) Install latest Godot
+      # 4) Install latest stable Godot
       - name: Install latest Godot
         run: |
-          GODOT_TAG=$(curl -s https://api.github.com/repos/godotengine/godot/releases/latest \
+          # Query GitHub API for the latest non-prerelease
+          TAG=$(curl -s https://api.github.com/repos/godotengine/godot/releases/latest \
             | jq -r .tag_name)
-          GODOT_VER=${GODOT_TAG#v}
-          INSTALL_DIR=/opt/godot/$GODOT_VER
-          ZIP_NAME=Godot_v${GODOT_VER}-stable_linux.x86_64.zip
-          DOWNLOAD_URL="https://github.com/godotengine/godot/releases/download/${GODOT_TAG}/${ZIP_NAME}"
-          sudo mkdir -p $INSTALL_DIR
-          wget -q $DOWNLOAD_URL -O godot.zip
-          sudo unzip -q godot.zip -d $INSTALL_DIR
-          sudo ln -sf $INSTALL_DIR/Godot_v${GODOT_VER}-stable_linux.x86_64 /usr/local/bin/godot
+          # Strip leading 'v' and any '-stable' suffix
+          VER=${TAG#v}
+          VER=${VER%-stable}
+          INSTALL_DIR=/opt/godot/$VER
+          ZIP=Godot_v${VER}-stable_linux.x86_64.zip
+          URL="https://github.com/godotengine/godot/releases/download/${TAG}/${ZIP}"
+          sudo mkdir -p "$INSTALL_DIR"
+          wget -q "$URL" -O godot.zip
+          sudo unzip -q godot.zip -d "$INSTALL_DIR"
+          sudo ln -sf "$INSTALL_DIR/Godot_v${VER}-stable_linux.x86_64" /usr/local/bin/godot
           godot --version
 
-      # 5) Prepare project for import/export
+      # 5) Prepare for import/export
       - name: Prepare Godot workspace
         run: mkdir -p .godot web
 
-      # 6) Import assets (Blender detected automatically)
+      # 6) Import assets (Blender is auto-detected)
       - name: Import Godot assets
-        run: |
-          godot --headless --editor --path . --quit --import
+        run: godot --headless --editor --path . --quit --import
 
-      # 7) Build HTML5 export
+      # 7) Export HTML5 build
       - name: Export HTML5 build
         run: godot --headless --export-release "HTML5" web/index.html
 
-      # 8) Publish to itch.io (main branch only)
+      # 8) Publish to itch.io (only on main)
       - name: Publish to itch.io
         if: ${{ github.ref == 'refs/heads/main' }}
         env:
