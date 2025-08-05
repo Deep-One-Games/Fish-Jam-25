@@ -22,72 +22,31 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git lfs pull
 
-      # 2) Install system packages
-      - name: Install system packages
+      # 2) Sanity-check web/ folder
+      - name: Ensure web/ exists and is non-empty
         run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            xz-utils wget unzip curl jq \
-            libgl1 libglx-mesa0 libglu1-mesa \
-            libxi6 libxrender1 libxrandr2 \
-            libxinerama1 libxcursor1
+          if [ ! -d web ]; then
+            echo "❌ web/ directory is missing. Did you forget to commit your build?"
+            exit 1
+          fi
+          if [ -z "$(ls -A web)" ]; then
+            echo "❌ web/ is empty. Make sure your build output is in web/."
+            exit 1
+          fi
 
-      # 3) Install latest Blender
-      - name: Install latest Blender
+      # 3) Check for index.html
+      - name: Verify web/index.html
         run: |
-          BASE="https://download.blender.org/release"
-          DIR=$(curl -s "${BASE}/" \
-            | grep -Eo 'Blender[0-9]+\.[0-9]+/' \
-            | sed 's#/##' \
-            | sort -V | tail -1)
-          VER=${DIR#Blender}
-          FILE=$(curl -s "${BASE}/${DIR}/" \
-            | grep -Eo "blender-${VER}\.[0-9]+-linux-x64\\.tar\\.xz" \
-            | sort -V | tail -1)
-          INSTALL_DIR=/opt/blender/${FILE%.tar.xz}
-          mkdir -p "$INSTALL_DIR"
-          wget -q "${BASE}/${DIR}/${FILE}" -O blender.tar.xz
-          sudo tar -xJf blender.tar.xz -C "$INSTALL_DIR" --strip-components=1
-          sudo ln -sf "$INSTALL_DIR/blender" /usr/local/bin/blender
-          blender --version
+          if [ ! -f web/index.html ]; then
+            echo "❌ web/index.html not found. Expected the HTML5 entrypoint there."
+            exit 1
+          fi
+          if [ ! -s web/index.html ]; then
+            echo "❌ web/index.html exists but is empty."
+            exit 1
+          fi
 
-      # 4) Install latest Godot
-      - name: Install latest Godot
-        run: |
-          TAG=$(curl -s https://api.github.com/repos/godotengine/godot/releases/latest \
-            | jq -r .tag_name)
-          VER=${TAG#v}; VER=${VER%-stable}
-          INSTALL_DIR=/opt/godot/$VER
-          ZIP=Godot_v${VER}-stable_linux.x86_64.zip
-          URL="https://github.com/godotengine/godot/releases/download/${TAG}/${ZIP}"
-          sudo mkdir -p "$INSTALL_DIR"
-          wget -q "$URL" -O godot.zip
-          sudo unzip -q godot.zip -d "$INSTALL_DIR"
-          sudo ln -sf "$INSTALL_DIR/Godot_v${VER}-stable_linux.x86_64" /usr/local/bin/godot
-          godot --version
-
-      # 5) Prepare for import/export
-      - name: Prepare Godot workspace
-        run: mkdir -p .godot web
-
-      # 6) Configure Blender path for Godot’s importer
-      - name: Configure Godot Blender path
-        run: |
-          mkdir -p ~/.config/godot
-          printf '%s\n\n%s\n' \
-            '[gd_resource type="EditorSettings" load_steps=2 format=2]' \
-            'filesystem/import/blender/blender_path = "/usr/local/bin/blender";' \
-            > ~/.config/godot/editor_settings-4.tres
-
-      # 7) Import assets (now pointing to Blender)
-      - name: Import Godot assets
-        run: godot --headless --editor --path . --quit --import
-
-      # 8) Export HTML5 build
-      - name: Export HTML5 build
-        run: godot --headless --export-release "HTML5" web/index.html
-
-      # 9) Publish to itch.io (only on main)
+      # 4) Publish to itch.io (only on main)
       - name: Publish to itch.io
         if: ${{ github.ref == 'refs/heads/main' }}
         env:
