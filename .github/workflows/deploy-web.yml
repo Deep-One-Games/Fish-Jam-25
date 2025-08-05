@@ -70,13 +70,19 @@ jobs:
           echo "Butler version:"
           ./butler -V
 
-      # 6) Publish to itch.io using the local binary
+      # 6) Zip up HTML5 build
+      - name: Zip up HTML5 build
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        run: |
+          cd web
+          zip -r ../game.zip ./*
+          cd ..
+
+      # 7) Publish to itch.io
       - name: Publish to itch.io
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         env:
           BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
         run: |
-          echo "Which butler binary are we using?"
-          which butler || echo "System butler not found, using local ./butler"
-          echo "Pushing to itch target = ${{ secrets.ITCHIO_GAME }}"
-          ./butler push web "${{ secrets.ITCHIO_GAME }}"
+          echo "Uploading game.zip to itch target = ${{ secrets.ITCHIO_GAME }}:html5"
+          ./butler push game.zip "${{ secrets.ITCHIO_GAME }}:html5"
