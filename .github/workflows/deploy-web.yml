@@ -74,10 +74,11 @@ jobs:
       - name: Configure Godot Blender path
         run: |
           mkdir -p ~/.config/godot
-          cat <<EOF > ~/.config/godot/editor_settings-4.tres
-          [gd_resource type="EditorSettings" load_steps=2 format=2]
-          filesystem/import/blender/path = "/usr/local/bin/blender"
-          EOF
+          cat > ~/.config/godot/editor_settings-4.tres <<EOF
+[gd_resource type="EditorSettings" load_steps=2 format=2]
+
+filesystem/import/blender/path = "/usr/local/bin/blender"
+EOF
 
       # 7) Import assets (now that path is set)
       - name: Import Godot assets
