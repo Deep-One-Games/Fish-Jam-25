@@ -32,17 +32,15 @@ jobs:
             libxi6 libxrender1 libxrandr2 \
             libxinerama1 libxcursor1
 
-      # 3) Install latest stable Blender
+      # 3) Install latest Blender
       - name: Install latest Blender
         run: |
           BASE="https://download.blender.org/release"
-          # 1) Find latest BlenderX.Y/ directory
           DIR=$(curl -s "${BASE}/" \
             | grep -Eo 'Blender[0-9]+\.[0-9]+/' \
             | sed 's#/##' \
             | sort -V | tail -1)
           VER=${DIR#Blender}
-          # 2) In that directory, pick the highest patch blender-x.y.z file
           FILE=$(curl -s "${BASE}/${DIR}/" \
             | grep -Eo "blender-${VER}\.[0-9]+-linux-x64\\.tar\\.xz" \
             | sort -V | tail -1)
@@ -53,15 +51,12 @@ jobs:
           sudo ln -sf "$INSTALL_DIR/blender" /usr/local/bin/blender
           blender --version
 
-      # 4) Install latest stable Godot
+      # 4) Install latest Godot
       - name: Install latest Godot
         run: |
-          # Query GitHub API for the latest non-prerelease
           TAG=$(curl -s https://api.github.com/repos/godotengine/godot/releases/latest \
             | jq -r .tag_name)
-          # Strip leading 'v' and any '-stable' suffix
-          VER=${TAG#v}
-          VER=${VER%-stable}
+          VER=${TAG#v}; VER=${VER%-stable}
           INSTALL_DIR=/opt/godot/$VER
           ZIP=Godot_v${VER}-stable_linux.x86_64.zip
           URL="https://github.com/godotengine/godot/releases/download/${TAG}/${ZIP}"
@@ -75,15 +70,24 @@ jobs:
       - name: Prepare Godot workspace
         run: mkdir -p .godot web
 
-      # 6) Import assets (Blender is auto-detected)
+      # 6) Configure Blender path for Godot’s importer
+      - name: Configure Godot Blender path
+        run: |
+          mkdir -p ~/.config/godot
+          cat <<EOF > ~/.config/godot/editor_settings-4.tres
+          [gd_resource type="EditorSettings" load_steps=2 format=2]
+          filesystem/import/blender/path = "/usr/local/bin/blender"
+          EOF
+
+      # 7) Import assets (now that path is set)
       - name: Import Godot assets
         run: godot --headless --editor --path . --quit --import
 
-      # 7) Export HTML5 build
+      # 8) Export HTML5 build
       - name: Export HTML5 build
         run: godot --headless --export-release "HTML5" web/index.html
 
-      # 8) Publish to itch.io (only on main)
+      # 9) Publish to itch.io (only on main)
       - name: Publish to itch.io
         if: ${{ github.ref == 'refs/heads/main' }}
         env:
