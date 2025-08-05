@@ -70,11 +70,13 @@ jobs:
           echo "Butler version:"
           ./butler -V
 
-      # 6) Publish to itch.io (your original command)
+      # 6) Publish to itch.io using the local binary
       - name: Publish to itch.io
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         env:
           BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
         run: |
+          echo "Which butler binary are we using?"
+          which butler || echo "System butler not found, using local ./butler"
           echo "Pushing to itch target = ${{ secrets.ITCHIO_GAME }}"
-          butler push web "${{ secrets.ITCHIO_GAME }}"
+          ./butler push web "${{ secrets.ITCHIO_GAME }}"
