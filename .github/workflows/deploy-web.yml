@@ -74,11 +74,18 @@ jobs:
           zip -r ../game.zip ./*
           cd ..
 
-      # 7) Publish to itch.io
-      - name: Publish to itch.io (explicit html5 channel)
+      # 7) Publish to itch.io (build target into a variable)
+      - name: Publish to itch.io
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         env:
           BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
         run: |
-          echo "Uploading game.zip to target = ${{ secrets.ITCHIO_GAME }}:html5"
-          ./butler push game.zip "${{ secrets.ITCHIO_GAME }}:html5"
+          # Debug the raw secret (wrapped in delimiters so you see whitespace)
+          echo "Raw ITCHIO_GAME secret = >${{ secrets.ITCHIO_GAME }}<"
+          
+          # Build the target string, no extra quotes around it
+          TARGET="${{ secrets.ITCHIO_GAME }}:html5"
+          echo "Uploading game.zip to target = $TARGET"
+          
+          # Push with the unquoted variable
+          ./butler push game.zip $TARGET
