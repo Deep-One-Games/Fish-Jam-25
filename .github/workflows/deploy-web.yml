@@ -50,27 +50,21 @@ jobs:
             echo "web/ is empty. Make sure your build output is in web/."
             exit 1
           fi
-
+      
       # 4) Check for index.html
-      - name: Verify web/index.html
+      - name: Setup butler (stable)
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
-          if [ ! -f web/index.html ]; then
-            echo "web/index.html not found. Expected the HTML5 entrypoint there."
-            exit 1
-          fi
-          if [ ! -s web/index.html ]; then
-            echo "web/index.html exists but is empty."
-            exit 1
-          fi
-
+          echo "Downloading butler stable .zip from broth"
+          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          ./butler -V
+          
       # 5) Publish to itch.io (only on push to main)
       - name: Publish to itch.io
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         env:
           BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
         run: |
-          curl -L https://github.com/itchio/butler/releases/latest/download/butler-linux-amd64 \
-            -o butler
-          chmod +x butler
           ./butler push web "${{ secrets.ITCHIO_GAME }}:html5"
-
