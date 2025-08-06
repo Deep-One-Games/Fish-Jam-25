@@ -1,6 +1,9 @@
 class_name NPCPatrol extends Node3D
 
 @export var sequence: Array[Node]
+@export var dialogue_state: Array[String]
+
+@export_category("NPC Properties")
 @export var npc: NPCController
 @export var npc_info: SaveNPC
 
@@ -8,18 +11,22 @@ var path: LinearFollow
 func _ready() -> void:
 	npc.player_sensor.dialogue = npc_info.npc_dialogue
 
-	#npc.on_looking.connect(on_looking)
+	npc.on_looking.connect(on_looking)
 
 	for s in sequence: 
 		assert(s is LinearFollow or s is Timer, 
 				"LinearFollow and Timer types allowed only!!")
 	
 	while true:
-		for s in sequence:
+		for i in range(len(sequence)):
+			var s = sequence[i]
+			var d = dialogue_state[i]
+			
+			if d == "": assert("Dialogue Array must be defined!!")
 			if s is LinearFollow:
 				path = s
 				npc.fsm.change_state("WALK")
-				npc.player_sensor.title = "WALK"
+				npc.player_sensor.title = d
 				
 				# Move NPC to new path follow curve
 				npc.get_parent().remove_child(npc)
@@ -30,14 +37,15 @@ func _ready() -> void:
 				
 			if s is Timer:
 				npc.fsm.change_state("IDLE")
-				npc.player_sensor.title = "IDLE"
+				npc.player_sensor.title = d
 				
 				s.start()
 				await s.timeout # Wait for timeout
 
-#func on_looking(look_state: bool):
-		#path.following_path = !look_state
-		#if look_state:
-			#npc.fsm.change_state("IDLE")
-			#return
-		#npc.fsm.change_state("WALK")
+func on_looking(look_state: bool):
+		if path:
+			path.following_path = !look_state
+		if look_state:
+			npc.fsm.change_state("IDLE")
+			return
+		npc.fsm.change_state("WALK")

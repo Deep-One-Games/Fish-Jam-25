@@ -180,6 +180,7 @@ shape = SubResource("BoxShape3D_wag33")
 [node name="NPCPatrol" type="Node3D" parent="." node_paths=PackedStringArray("sequence", "npc")]
 script = ExtResource("12_vw06n")
 sequence = [NodePath("3S"), NodePath("LeftPatrol/LinearFollow"), NodePath("3S"), NodePath("ToOther/LinearFollow")]
+dialogue_state = Array[String](["IDLE", "CONVERSING", "IDLE", "WALK"])
 npc = NodePath("npc")
 npc_info = SubResource("Resource_0gfvo")
 metadata/_custom_type_script = "uid://b6f3f6630eo0r"
@@ -200,7 +201,7 @@ metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 curve = SubResource("Curve3D_xtds1")
 
 [node name="LinearFollow" type="PathFollow3D" parent="NPCPatrol/ToOther"]
-transform = Transform3D(-0.0117967, 0, -0.99993, 0, 1, 0, 0.99993, 0, -0.0117967, -6.15595, 0, -1.51783)
+transform = Transform3D(-0.0117974, 0, -0.999929, 0, 1, 0, 0.999929, 0, -0.0117974, -6.15595, 0, -1.51783)
 loop = false
 script = ExtResource("15_7rtbf")
 mps = 1.0

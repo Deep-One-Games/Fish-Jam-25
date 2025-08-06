@@ -9,6 +9,13 @@ Sandy Sardine: Here are some choices.
 Sandy Sardine: For more information see the online documentation.
 => END
 
+~ SITTING
+=> END
+
+~ CONVERSING
+Sandy Sardine: Hey There!! (Conversing)
+=> END
+
 ~ IDLE
 Sandy Sardine: What u looking at scrub? For more information see the online documentation.
 => END
