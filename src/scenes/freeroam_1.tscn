@@ -116,6 +116,7 @@ metadata/_custom_type_script = "uid://b6f3f6630eo0r"
 [node name="npc" parent="NPCPatrol" instance=ExtResource("11_f6ssj")]
 
 [node name="LeftPatrol" type="Path3D" parent="NPCPatrol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6739, 0, 0)
 curve = SubResource("Curve3D_xm32n")
 
 [node name="LinearFollow" type="PathFollow3D" parent="NPCPatrol/LeftPatrol"]
@@ -126,6 +127,7 @@ mps = 1.0
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="ToOther" type="Path3D" parent="NPCPatrol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6739, 0, 0)
 curve = SubResource("Curve3D_6vg5e")
 
 [node name="LinearFollow" type="PathFollow3D" parent="NPCPatrol/ToOther"]
