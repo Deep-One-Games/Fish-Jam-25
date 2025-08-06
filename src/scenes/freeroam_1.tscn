@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dy2enkbobri0r"]
+[gd_scene load_steps=21 format=3 uid="uid://dy2enkbobri0r"]
 
 [ext_resource type="Environment" uid="uid://pa607ivxbo2b" path="res://library/resources/world_env.tres" id="1_nwaox"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_piq2t"]
@@ -11,6 +11,8 @@
 [ext_resource type="Resource" uid="uid://bn7h46jwv1obf" path="res://src/000-Data/NPC/sandy_sardine.tres" id="9_70ium"]
 [ext_resource type="PackedScene" uid="uid://dxx8h5hb7toxy" path="res://src/npc/npc.tscn" id="11_f6ssj"]
 [ext_resource type="Script" uid="uid://cgx2wkvvgp00v" path="res://src/nodes/linear_follow.gd" id="12_g3h25"]
+[ext_resource type="ArrayMesh" uid="uid://bvda720p10jw3" path="res://library/models/Trees/Mesh/Bush_1.res" id="12_t1hkf"]
+[ext_resource type="ArrayMesh" uid="uid://wka7osdxnoh8" path="res://library/models/Trees/Mesh/Dark_Tree_1.res" id="13_343yg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2kdx"]
 render_priority = 0
@@ -66,6 +68,7 @@ camera_sens = 2.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Player"]
 transform = Transform3D(0.998094, 0, 0, 0, 0.998094, 0, 0, 0, 0.998094, 0, 0, -0.0488167)
+visible = false
 light_color = Color(0.444483, 0.883783, 0.753913, 1)
 light_energy = 9.111
 light_indirect_energy = 1.203
@@ -135,6 +138,14 @@ metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 [node name="3S" type="Timer" parent="NPCPatrol"]
 wait_time = 3.0
 
+[node name="Bush1" type="MeshInstance3D" parent="NPCPatrol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52811, 0.0758722, 4.10833)
+mesh = ExtResource("12_t1hkf")
+
+[node name="DarkTree1" type="MeshInstance3D" parent="NPCPatrol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37614, 0.0102558, 5.67897)
+mesh = ExtResource("13_343yg")
+
 [node name="FishingArea" type="Area3D" parent="." groups=["fishing_area"]]
 collision_layer = 8
 collision_mask = 8
@@ -143,3 +154,10 @@ collision_mask = 8
 transform = Transform3D(0.641945, 0, 0.766751, 0, 1, 0, -0.766751, 0, 0.641945, 52.2384, 2.90748, 32.4236)
 shape = SubResource("BoxShape3D_34se8")
 debug_color = Color(0, 0.427451, 0.890196, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.916433, -1.11138e-08, -0.400189, 0.0318162, 0.996835, 0.0728592, 0.398922, -0.079503, 0.913532, 0, 0, 0)
+light_color = Color(0.774009, 0.786811, 0.688946, 1)
+light_energy = 6.891
+shadow_enabled = true
+directional_shadow_mode = 0
