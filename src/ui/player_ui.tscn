@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://18k60p0d0xh1"]
+[gd_scene load_steps=6 format=3 uid="uid://18k60p0d0xh1"]
 
 [ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="1_354od"]
 [ext_resource type="Script" uid="uid://l4pqogg24mrk" path="res://src/ui/scripts/player_ui.gd" id="1_idx4u"]
 [ext_resource type="PackedScene" uid="uid://df0qay8pm5da4" path="res://src/ui/inventory.tscn" id="3_rp5hd"]
 [ext_resource type="PackedScene" uid="uid://bp3mxiywn45q" path="res://src/ui/interact.tscn" id="4_i84qp"]
+[ext_resource type="PackedScene" uid="uid://bl7biwf50kt81" path="res://src/ui/fish_interact.tscn" id="5_n76x1"]
 
-[node name="PlayerUI" type="Control" node_paths=PackedStringArray("options", "inventory", "show_interact")]
+[node name="PlayerUI" type="Control" node_paths=PackedStringArray("options", "inventory", "show_interact", "show_fish")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +17,7 @@ script = ExtResource("1_idx4u")
 options = NodePath("Options")
 inventory = NodePath("Inventory")
 show_interact = NodePath("Interact")
+show_fish = NodePath("FishInteract")
 
 [node name="Options" parent="." instance=ExtResource("1_354od")]
 layout_mode = 1
@@ -24,4 +26,7 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="Interact" parent="." instance=ExtResource("4_i84qp")]
+layout_mode = 1
+
+[node name="FishInteract" parent="." instance=ExtResource("5_n76x1")]
 layout_mode = 1
