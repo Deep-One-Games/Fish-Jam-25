@@ -1,10 +1,25 @@
-[gd_resource type="Resource" script_class="SaveFile" load_steps=7 format=3 uid="uid://cai54e51n76mr"]
+[gd_resource type="Resource" script_class="SaveFile" load_steps=10 format=3 uid="uid://cai54e51n76mr"]
 
 [ext_resource type="Script" uid="uid://gak3ble014rj" path="res://src/000-Data/gameitem.gd" id="1_vif7x"]
 [ext_resource type="Script" uid="uid://d3x7vtal6u5jc" path="res://src/000-Data/saveplayer.gd" id="2_3khmt"]
 [ext_resource type="Script" uid="uid://y8g386gw3dbm" path="res://src/000-Data/savefile.gd" id="2_8cvr1"]
 [ext_resource type="Resource" uid="uid://brqnqhxxnjqak" path="res://src/000-Data/Fish/fishdot.tres" id="2_w0etn"]
 [ext_resource type="Resource" uid="uid://bwwfbngfo52yu" path="res://src/000-Data/Fish/potion.tres" id="3_w0etn"]
+[ext_resource type="Texture2D" uid="uid://c4inl1k6qa8ev" path="res://icon.svg" id="4_nu7jx"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_p8qnt"]
+top_radius = 0.05
+bottom_radius = 0.05
+
+[sub_resource type="Resource" id="Resource_6hjcv"]
+script = ExtResource("1_vif7x")
+ref_id = "FISHING_ROD_REF"
+name = "Fishing Rod"
+desc = "Fishing Rod"
+lore = "Fishing Rod"
+thumb = ExtResource("4_nu7jx")
+mesh = SubResource("CylinderMesh_p8qnt")
+metadata/_custom_type_script = "uid://gak3ble014rj"
 
 [sub_resource type="Resource" id="Resource_w0etn"]
 script = ExtResource("2_3khmt")
@@ -14,5 +29,5 @@ metadata/_custom_type_script = "uid://d3x7vtal6u5jc"
 [resource]
 script = ExtResource("2_8cvr1")
 playerd = SubResource("Resource_w0etn")
-inventory = Array[ExtResource("1_vif7x")]([ExtResource("2_w0etn"), ExtResource("3_w0etn"), ExtResource("3_w0etn"), ExtResource("3_w0etn"), ExtResource("3_w0etn")])
+inventory = Array[ExtResource("1_vif7x")]([ExtResource("2_w0etn"), ExtResource("3_w0etn"), SubResource("Resource_6hjcv")])
 metadata/_custom_type_script = "uid://y8g386gw3dbm"

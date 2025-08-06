@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dy2enkbobri0r"]
+[gd_scene load_steps=19 format=3 uid="uid://dy2enkbobri0r"]
 
 [ext_resource type="Environment" uid="uid://pa607ivxbo2b" path="res://library/resources/world_env.tres" id="1_nwaox"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_piq2t"]
@@ -42,6 +42,9 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_34se8"]
+size = Vector3(5, 3.98752, 5)
+
 [node name="Root" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -57,6 +60,7 @@ player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("9_0uljx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.8254, 4.82019, 33.831)
+collision_mask = 9
 speed = 5.0
 camera_sens = 2.0
 
@@ -130,3 +134,12 @@ metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="3S" type="Timer" parent="NPCPatrol"]
 wait_time = 3.0
+
+[node name="FishingArea" type="Area3D" parent="." groups=["fishing_area"]]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FishingArea"]
+transform = Transform3D(0.641945, 0, 0.766751, 0, 1, 0, -0.766751, 0, 0.641945, 52.2384, 2.90748, 32.4236)
+shape = SubResource("BoxShape3D_34se8")
+debug_color = Color(0, 0.427451, 0.890196, 1)
