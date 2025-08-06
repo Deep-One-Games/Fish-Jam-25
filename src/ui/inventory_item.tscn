@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccu3ad3bxw81p"]
 
-[ext_resource type="Texture2D" uid="uid://gwn07sbnk7t" path="res://library/textures/comp020.jpg" id="1_nbnq0"]
 [ext_resource type="Script" uid="uid://c5gwanav7siyl" path="res://src/ui/scripts/inventory_item_ui.gd" id="1_nosni"]
+[ext_resource type="Texture2D" uid="uid://do05ddlyecarm" path="res://grey_square.jpg" id="2_1ff6i"]
 
 [node name="InventoryItem" type="Panel" node_paths=PackedStringArray("tex_display", "hover_display", "hover_label")]
 custom_minimum_size = Vector2(64, 64)
@@ -13,7 +13,9 @@ hover_display = NodePath("HoverText")
 hover_label = NodePath("HoverText/Label")
 
 [node name="bg" type="Sprite2D" parent="."]
-texture = ExtResource("1_nbnq0")
+position = Vector2(2, 2)
+scale = Vector2(0.0625, 0.0625)
+texture = ExtResource("2_1ff6i")
 centered = false
 
 [node name="item" type="Sprite2D" parent="."]
