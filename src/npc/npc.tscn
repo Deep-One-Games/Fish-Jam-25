@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxx8h5hb7toxy"]
+
+[ext_resource type="PackedScene" uid="uid://difpbrw6k4fvv" path="res://library/models/Fish_Men/Bob_Animations.blend" id="1_by1ew"]
+[ext_resource type="Script" uid="uid://bloryk8g6lwkm" path="res://src/npc/scripts/npc_controller.gd" id="2_ibmfo"]
+[ext_resource type="Script" uid="uid://c5en56ptkabt3" path="res://src/nodes/fsm.gd" id="2_mjhhr"]
+[ext_resource type="Script" uid="uid://nnmskbsx4364" path="res://src/npc/scripts/idle.gd" id="3_mjhhr"]
+[ext_resource type="Script" uid="uid://baqglivwvpd3k" path="res://src/npc/scripts/walk.gd" id="4_kexkh"]
+[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable.gd" id="6_oihyn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ibmfo"]
+size = Vector3(1.42177, 2.35596, 1.91753)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ibmfo"]
+radius = 0.627463
+height = 2.39276
+
+[node name="npc" node_paths=PackedStringArray("fsm", "player_sensor") instance=ExtResource("1_by1ew")]
+script = ExtResource("2_ibmfo")
+fsm = NodePath("FSM")
+player_sensor = NodePath("PlayerSensor")
+
+[node name="metarig" parent="." index="0"]
+transform = Transform3D(-0.837372, 0, -7.32054e-08, 0, 0.837372, 0, 7.32054e-08, 0, -0.837372, 0, 0, 0)
+
+[node name="Skeleton3D" parent="metarig" index="0"]
+bones/0/rotation = Quaternion(0.0743506, 0, 0, 0.997232)
+bones/1/rotation = Quaternion(-0.0406667, 1.19111e-07, -4.84784e-09, 0.999173)
+bones/2/rotation = Quaternion(-0.0454941, -1.19086e-07, -5.42332e-09, 0.998965)
+bones/3/rotation = Quaternion(-0.000613771, 1.19209e-07, -7.31674e-11, 1)
+bones/6/rotation = Quaternion(-0.373307, 0.646864, -0.4109, 0.522848)
+bones/7/rotation = Quaternion(0.135955, 0.108076, -0.0498453, 0.98354)
+bones/8/rotation = Quaternion(-0.03655, -0.00836609, -0.0225773, 0.999042)
+bones/10/rotation = Quaternion(-0.373307, -0.646864, 0.4109, 0.522848)
+bones/11/rotation = Quaternion(0.135955, -0.108076, 0.0498453, 0.98354)
+bones/12/rotation = Quaternion(-0.03655, 0.00836608, 0.0225773, 0.999042)
+bones/13/rotation = Quaternion(0.99262, 0.0208887, -0.00248544, 0.119431)
+bones/14/rotation = Quaternion(0.121191, -0.00267726, -0.0112198, 0.992562)
+bones/15/rotation = Quaternion(-0.195105, 0.00278057, 0.0323991, 0.980243)
+bones/16/rotation = Quaternion(9.55488e-08, 0.805472, -0.592633, 3.13345e-06)
+bones/17/rotation = Quaternion(0.99262, -0.0208887, 0.00248544, 0.119431)
+bones/18/rotation = Quaternion(0.121191, 0.00267726, 0.0112198, 0.992562)
+bones/19/rotation = Quaternion(-0.195105, -0.00278057, -0.0323991, 0.980243)
+bones/20/rotation = Quaternion(-9.55488e-08, 0.805472, -0.592633, -3.13345e-06)
+
+[node name="FSM" type="Node" parent="." index="2" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_mjhhr")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://c5en56ptkabt3"
+
+[node name="Idle" type="Node" parent="FSM" index="0" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("3_mjhhr")
+animation_player = NodePath("../../AnimationPlayer")
+state_id = "IDLE"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="Walk" type="Node" parent="FSM" index="1" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("4_kexkh")
+animation_player = NodePath("../../AnimationPlayer")
+state_id = "WALK"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="PlayerSensor" type="Area3D" parent="." index="3"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("6_oihyn")
+metadata/_custom_type_script = "uid://12ky23xpgrrg"
+
+[node name="CShapeArea" type="CollisionShape3D" parent="PlayerSensor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0451473, 0.677979, -0.0157989)
+shape = SubResource("BoxShape3D_ibmfo")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." index="4"]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" index="0"]
+transform = Transform3D(0.98366, 0, 0, 0, 0.98366, 0, 0, 0, 0.98366, 0, 0.713, 0)
+shape = SubResource("CapsuleShape3D_ibmfo")
