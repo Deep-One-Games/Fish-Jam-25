@@ -37,12 +37,12 @@ mesh = SubResource("QuadMesh_drfrh")
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("9_0uljx")]
-transform = Transform3D(1.00191, 0, 0, 0, 1.00191, 0, 0, 0, 1.00191, 45.8254, 4.82019, 33.831)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.8254, 4.82019, 33.831)
 speed = 5.0
 camera_sens = 2.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Player"]
-transform = Transform3D(0.998094, 0, 0, 0, 0.998094, 0, 0, 0, 0.998094, 0, 0, -0.0488148)
+transform = Transform3D(0.998094, 0, 0, 0, 0.998094, 0, 0, 0, 0.998094, 0, 0, -0.0488167)
 light_color = Color(0.444483, 0.883783, 0.753913, 1)
 light_energy = 9.111
 light_indirect_energy = 1.203

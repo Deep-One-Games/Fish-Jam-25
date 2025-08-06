@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdmht4f00dj51"]
+[gd_scene load_steps=26 format=3 uid="uid://bdmht4f00dj51"]
 
 [ext_resource type="Environment" uid="uid://pa607ivxbo2b" path="res://library/resources/world_env.tres" id="1_hsn40"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_tu4p0"]
@@ -9,6 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://bkptsroxo4as3" path="res://library/models/houses/house2.tscn" id="7_7rtbf"]
 [ext_resource type="PackedScene" uid="uid://dsdq3urr4o0jk" path="res://library/models/houses/house3.tscn" id="8_e6l7g"]
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="9_f1nyl"]
+[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable.gd" id="10_wag33"]
+[ext_resource type="Resource" uid="uid://defgqeurnf2ej" path="res://library/dialogue/example.dialogue" id="11_tk6tm"]
+[ext_resource type="Script" uid="uid://b6f3f6630eo0r" path="res://src/npc/scripts/npc_patrol.gd" id="12_vw06n"]
+[ext_resource type="Script" uid="uid://gak3ble014rj" path="res://src/000-Data/gameitem.gd" id="13_e6l7g"]
+[ext_resource type="PackedScene" uid="uid://dxx8h5hb7toxy" path="res://src/npc/npc.tscn" id="13_xtds1"]
+[ext_resource type="Script" uid="uid://bjtgvfvq7uaxh" path="res://src/000-Data/savenpc.gd" id="14_f1nyl"]
+[ext_resource type="Script" uid="uid://cgx2wkvvgp00v" path="res://src/nodes/linear_follow.gd" id="15_7rtbf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2kdx"]
 render_priority = 0
@@ -26,45 +33,72 @@ size = Vector3(58.1932, 0.0407715, 39.7175)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hbpvc"]
 
-[node name="Root" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wag33"]
+size = Vector3(2.63684, 1.77051, 2.16187)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_hsn40")
+[sub_resource type="Resource" id="Resource_0gfvo"]
+script = ExtResource("14_f1nyl")
+npc_name = "awdawdwa"
+inventory = Array[ExtResource("13_e6l7g")]([])
+metadata/_custom_type_script = "uid://bjtgvfvq7uaxh"
+
+[sub_resource type="Curve3D" id="Curve3D_vw06n"]
+closed = true
+_data = {
+"points": PackedVector3Array(-0.671837, 0, 0.715364, 0.671837, 0, -0.715364, -19.4, 0, -2.28376, -1.16255, 0, -0.641476, 1.16255, 0, 0.641476, -7.4768, 0, -2.33472, 1.28943, 0, -0.735452, -1.28943, 0, 0.735452, -7.57871, 0, -0.483388, 0, 0, 0, 0, 0, 0, -12.856, 0, -0.14513, 0, 0, 0, 0, 0, 0, -13.5463, 0, -0.168744, 0.49123, 0, 0.459119, -0.49123, 0, -0.459119, -19.5019, 0, -0.704189),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_xtds1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6.15595, 0, -1.51783, -1.22828, 0, 1.70374, 1.22828, 0, -1.70374, 3.2031, 0, -1.40741, 0, 0, 0, 0, 0, 0, 2.8686, 0, -4.85908),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[node name="Root" type="Node3D"]
 
 [node name="PS1_PP" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_f2kdx")
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_drfrh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Old" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Old"]
+environment = ExtResource("1_hsn40")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Old"]
 transform = Transform3D(3.025, 0, 0, 0, 3.025, 0, 0, 0, 3.025, 0, 0, 0)
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Old/StaticBody3D"]
 transform = Transform3D(0.330578, 0, 0, 0, 0.330578, 0, 0, 0, 0.330578, 1.07759, -0.00542351, 0.0620566)
 shape = SubResource("BoxShape3D_oqo2t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(8.77962, 0, 0, 0, 8.77962, 0, 0, 0, 8.77962, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Old/StaticBody3D"]
+transform = Transform3D(8.77962, 0, 0, 0, 8.77962, 0, 0, 0, 8.77962, 0.0182839, -0.0495138, 0.0496216)
 mesh = SubResource("PlaneMesh_hbpvc")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Old"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.438506, 0)
 mesh = SubResource("BoxMesh_hbpvc")
+skeleton = NodePath("../..")
 
-[node name="PlayerUi" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_wag33")]
+[node name="PlayerUi" parent="Old" node_paths=PackedStringArray("player") instance=ExtResource("3_wag33")]
 player = NodePath("../Player")
 
-[node name="Lights" type="Node3D" parent="."]
+[node name="Lights" type="Node3D" parent="Old"]
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Old/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.18886, 2.20316, 3.92658)
 light_color = Color(0.520709, 0.376202, 0.0784127, 1)
 light_energy = 11.14
 light_volumetric_fog_energy = 1.085
 shadow_enabled = true
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+[node name="OmniLight3D3" type="OmniLight3D" parent="Old/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.363482, 2.20316, 0.861502)
 light_color = Color(0.520709, 0.376202, 0.0784127, 1)
 light_energy = 13.115
@@ -73,56 +107,104 @@ shadow_enabled = true
 omni_range = 5.354
 omni_attenuation = 0.671
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+[node name="OmniLight3D4" type="OmniLight3D" parent="Old/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331277, 2.20316, -3.25228)
 light_color = Color(0.520709, 0.376202, 0.0784127, 1)
 light_energy = 11.14
 light_volumetric_fog_energy = 1.085
 shadow_enabled = true
 
-[node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
+[node name="OmniLight3D5" type="OmniLight3D" parent="Old/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.51095, 2.20316, -0.272613)
 light_color = Color(0.520709, 0.376202, 0.0784127, 1)
 light_energy = 11.14
 light_volumetric_fog_energy = 1.085
 shadow_enabled = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Old/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08164, 5.50787, -2.63864)
 light_color = Color(0.18359, 0.18359, 0.18359, 1)
 shadow_enabled = true
 sky_mode = 1
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Old/Lights"]
 transform = Transform3D(1, 0, 0, 0, 0.909628, 0.415424, 0, -0.415424, 0.909628, -1.99324, 3.14991, 4.49086)
 light_energy = 13.115
 spot_range = 7.387
 spot_attenuation = 0.35
 spot_angle = 57.7
 
-[node name="DarkTree1" type="MeshInstance3D" parent="."]
+[node name="DarkTree1" type="MeshInstance3D" parent="Old"]
 transform = Transform3D(0.999759, 0, 0, 0, 0.999759, 0, 0, 0, 0.999759, -1.12081, 0.0223278, 2.31587)
+visible = false
 mesh = ExtResource("4_tk6tm")
+skeleton = NodePath("../..")
 
-[node name="SmallTree" type="MeshInstance3D" parent="."]
+[node name="SmallTree" type="MeshInstance3D" parent="Old"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.613437, 0.0141292, 2.03709)
+visible = false
 mesh = ExtResource("5_vw06n")
+skeleton = NodePath("../..")
 
-[node name="House1" parent="." instance=ExtResource("6_xtds1")]
+[node name="House1" parent="Old" instance=ExtResource("6_xtds1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.76889, 0.143715, -6.88174)
 
-[node name="House2" parent="." instance=ExtResource("7_7rtbf")]
+[node name="House2" parent="Old" instance=ExtResource("7_7rtbf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0536, 0.126337, -7.8338)
 
-[node name="House3" parent="." instance=ExtResource("8_e6l7g")]
+[node name="House3" parent="Old" instance=ExtResource("8_e6l7g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0803, 0, -5.20862)
 
-[node name="Player" parent="." instance=ExtResource("9_f1nyl")]
+[node name="Player" parent="Old" instance=ExtResource("9_f1nyl")]
 transform = Transform3D(1.00191, 0, 0, 0, 1.00191, 0, 0, 0, 1.00191, -5.98246, 0.00397938, 1.05851)
 speed = 5.0
 camera_sens = 2.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Old"]
 transform = Transform3D(0.336666, 0.430021, -0.837698, -0.0110978, 0.891381, 0.453119, 0.941559, -0.143253, 0.30487, -3.38065, 2, 0)
 visible = false
 shadow_enabled = true
+
+[node name="InteractableArea" type="Area3D" parent="Old"]
+collision_layer = 5
+collision_mask = 0
+script = ExtResource("10_wag33")
+dialogue = ExtResource("11_tk6tm")
+title = "start"
+metadata/_custom_type_script = "uid://12ky23xpgrrg"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Old/InteractableArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0682983, 0.385254, -0.400024)
+shape = SubResource("BoxShape3D_wag33")
+
+[node name="NPCPatrol" type="Node3D" parent="." node_paths=PackedStringArray("sequence", "npc")]
+script = ExtResource("12_vw06n")
+sequence = [NodePath("3S"), NodePath("LeftPatrol/LinearFollow"), NodePath("3S"), NodePath("ToOther/LinearFollow")]
+npc = NodePath("npc")
+npc_info = SubResource("Resource_0gfvo")
+metadata/_custom_type_script = "uid://b6f3f6630eo0r"
+
+[node name="npc" parent="NPCPatrol" instance=ExtResource("13_xtds1")]
+
+[node name="LeftPatrol" type="Path3D" parent="NPCPatrol"]
+curve = SubResource("Curve3D_vw06n")
+
+[node name="LinearFollow" type="PathFollow3D" parent="NPCPatrol/LeftPatrol"]
+transform = Transform3D(0.728935, 0, -0.684582, 0, 1, 0, 0.684582, 0, 0.728935, -19.4, 0, -2.28376)
+loop = false
+script = ExtResource("15_7rtbf")
+mps = 1.0
+metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
+
+[node name="ToOther" type="Path3D" parent="NPCPatrol"]
+curve = SubResource("Curve3D_xtds1")
+
+[node name="LinearFollow" type="PathFollow3D" parent="NPCPatrol/ToOther"]
+transform = Transform3D(-0.0117967, 0, -0.99993, 0, 1, 0, 0.99993, 0, -0.0117967, -6.15595, 0, -1.51783)
+loop = false
+script = ExtResource("15_7rtbf")
+mps = 1.0
+metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
+
+[node name="3S" type="Timer" parent="NPCPatrol"]
+wait_time = 3.0

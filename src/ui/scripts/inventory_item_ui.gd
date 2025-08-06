@@ -26,7 +26,6 @@ func apply_item():
 	tex_display.texture = item_tex
 
 func set_hover(state: bool):
-	print("detected")
 	hover_label.text = hover_text
 	hover_state = state
 	hover_display.visible = hover_state

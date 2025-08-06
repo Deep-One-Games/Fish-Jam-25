@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://rkdcblewg50f"
+path="res://.godot/imported/sandy_sardine_dialogue.dialogue-b062672abf01aaf0f98dc145c68a381c.tres"
+
+[deps]
+
+source_file="res://src/000-Data/NPC/dialogue/sandy_sardine_dialogue.dialogue"
+dest_files=["res://.godot/imported/sandy_sardine_dialogue.dialogue-b062672abf01aaf0f98dc145c68a381c.tres"]
+
+[params]
+
+defaults=true
