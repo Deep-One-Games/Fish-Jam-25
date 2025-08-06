@@ -6,8 +6,8 @@
 radius = 0.3
 height = 1.8
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kaufh"]
-size = Vector3(2.04517, 1.8573, 1.33936)
+[sub_resource type="SphereShape3D" id="SphereShape3D_kaufh"]
+radius = 1.17957
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "interact_box")]
 collision_layer = 2
@@ -29,5 +29,5 @@ collision_layer = 2
 collision_mask = 1036
 
 [node name="InteractCShape" type="CollisionShape3D" parent="InteractBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.162476, 0.92865, -1.32573)
-shape = SubResource("BoxShape3D_kaufh")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121524, 0.92865, -1.39173)
+shape = SubResource("SphereShape3D_kaufh")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dy2enkbobri0r"]
+[gd_scene load_steps=18 format=3 uid="uid://dy2enkbobri0r"]
 
 [ext_resource type="Environment" uid="uid://pa607ivxbo2b" path="res://library/resources/world_env.tres" id="1_nwaox"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_piq2t"]
@@ -6,7 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://qmhe2mw2pt88" path="res://library/models/freeroam/freeroam_editable.tscn" id="5_0ij2y"]
 [ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable.gd" id="6_0jgi7"]
 [ext_resource type="Resource" uid="uid://defgqeurnf2ej" path="res://library/dialogue/example.dialogue" id="7_34se8"]
+[ext_resource type="Script" uid="uid://b6f3f6630eo0r" path="res://src/npc/scripts/npc_patrol.gd" id="8_t1hkf"]
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="9_0uljx"]
+[ext_resource type="Resource" uid="uid://bn7h46jwv1obf" path="res://src/000-Data/NPC/sandy_sardine.tres" id="9_70ium"]
+[ext_resource type="PackedScene" uid="uid://dxx8h5hb7toxy" path="res://src/npc/npc.tscn" id="11_f6ssj"]
+[ext_resource type="Script" uid="uid://cgx2wkvvgp00v" path="res://src/nodes/linear_follow.gd" id="12_g3h25"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2kdx"]
 render_priority = 0
@@ -22,6 +26,21 @@ size = Vector3(24.3681, 2.30354, 27)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0jgi7"]
 size = Vector3(1.62207, 2.5304, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_xm32n"]
+closed = true
+_data = {
+"points": PackedVector3Array(-0.671837, 0, 0.715364, 0.671837, 0, -0.715364, -19.4, 0, -2.28376, -1.16255, 0, -0.641476, 1.16255, 0, 0.641476, -7.4768, 0, -2.33472, 1.28943, 0, -0.735452, -1.28943, 0, 0.735452, -7.57871, 0, -0.483388, 0, 0, 0, 0, 0, 0, -12.856, 0, -0.14513, 0, 0, 0, 0, 0, 0, -13.5463, 0, -0.168744, 0.49123, 0, 0.459119, -0.49123, 0, -0.459119, -19.5019, 0, -0.704189),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_6vg5e"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6.15595, 0, -1.51783, -1.22828, 0, 1.70374, 1.22828, 0, -1.70374, 3.2031, 0, -1.40741, 0, 0, 0, 0, 0, 0, 2.8686, 0, -4.85908),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
 
 [node name="Root" type="Node3D"]
 
@@ -77,3 +96,37 @@ metadata/_custom_type_script = "uid://12ky23xpgrrg"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311035, 0.765198, 0)
 shape = SubResource("BoxShape3D_0jgi7")
+
+[node name="NPCPatrol" type="Node3D" parent="." node_paths=PackedStringArray("sequence", "npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.9547, 2.70171, 32.3389)
+script = ExtResource("8_t1hkf")
+sequence = [NodePath("3S"), NodePath("LeftPatrol/LinearFollow"), NodePath("3S"), NodePath("ToOther/LinearFollow")]
+dialogue_state = Array[String](["IDLE", "CONVERSING", "IDLE", "WALK"])
+npc = NodePath("npc")
+npc_info = ExtResource("9_70ium")
+metadata/_custom_type_script = "uid://b6f3f6630eo0r"
+
+[node name="npc" parent="NPCPatrol" instance=ExtResource("11_f6ssj")]
+
+[node name="LeftPatrol" type="Path3D" parent="NPCPatrol"]
+curve = SubResource("Curve3D_xm32n")
+
+[node name="LinearFollow" type="PathFollow3D" parent="NPCPatrol/LeftPatrol"]
+transform = Transform3D(0.728935, 0, -0.684582, 0, 1, 0, 0.684582, 0, 0.728935, -19.4, 0, -2.28376)
+loop = false
+script = ExtResource("12_g3h25")
+mps = 1.0
+metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
+
+[node name="ToOther" type="Path3D" parent="NPCPatrol"]
+curve = SubResource("Curve3D_6vg5e")
+
+[node name="LinearFollow" type="PathFollow3D" parent="NPCPatrol/ToOther"]
+transform = Transform3D(-0.0117974, 0, -0.999929, 0, 1, 0, 0.999929, 0, -0.0117974, -6.15595, 0, -1.51783)
+loop = false
+script = ExtResource("12_g3h25")
+mps = 1.0
+metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
+
+[node name="3S" type="Timer" parent="NPCPatrol"]
+wait_time = 3.0
