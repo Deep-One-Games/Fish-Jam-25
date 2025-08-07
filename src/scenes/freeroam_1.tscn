@@ -1,11 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://dy2enkbobri0r"]
+[gd_scene load_steps=25 format=3 uid="uid://dy2enkbobri0r"]
 
 [ext_resource type="Environment" uid="uid://pa607ivxbo2b" path="res://library/resources/world_env.tres" id="1_nwaox"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_piq2t"]
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="3_qktgv"]
 [ext_resource type="PackedScene" uid="uid://qmhe2mw2pt88" path="res://library/models/freeroam/freeroam_editable.tscn" id="5_0ij2y"]
+[ext_resource type="Script" uid="uid://dv1a6kje117xv" path="res://src/ui/scripts/fishing_controller.gd" id="5_f6ssj"]
 [ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable.gd" id="6_0jgi7"]
+[ext_resource type="PackedScene" uid="uid://ct6q5gb8nrrvn" path="res://src/scenes/bobber.tscn" id="6_1q5so"]
+[ext_resource type="PackedScene" uid="uid://bvrd3xrkoioir" path="res://src/scenes/fishing.tscn" id="6_g3h25"]
 [ext_resource type="Resource" uid="uid://defgqeurnf2ej" path="res://library/dialogue/example.dialogue" id="7_34se8"]
+[ext_resource type="PackedScene" uid="uid://6wuj2udnwtqk" path="res://src/scenes/fishing_rod.tscn" id="7_g3h25"]
 [ext_resource type="Script" uid="uid://b6f3f6630eo0r" path="res://src/npc/scripts/npc_patrol.gd" id="8_t1hkf"]
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="9_0uljx"]
 [ext_resource type="Resource" uid="uid://bn7h46jwv1obf" path="res://src/000-Data/NPC/sandy_sardine.tres" id="9_70ium"]
@@ -63,8 +67,6 @@ player = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("9_0uljx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.8254, 4.82019, 33.831)
 collision_mask = 9
-speed = 5.0
-camera_sens = 2.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Player"]
 transform = Transform3D(0.998094, 0, 0, 0, 0.998094, 0, 0, 0, 0.998094, 0, 0, -0.0488167)
@@ -76,6 +78,14 @@ light_volumetric_fog_energy = 1.27
 shadow_enabled = true
 omni_range = 10.834
 omni_attenuation = 0.15
+
+[node name="FishingController" type="Node" parent="Player"]
+script = ExtResource("5_f6ssj")
+bobber_scene = ExtResource("6_1q5so")
+player_path = NodePath("..")
+player_ui_path = NodePath("../../PlayerUi")
+ui_scene = ExtResource("6_g3h25")
+rod_scene = ExtResource("7_g3h25")
 
 [node name="freeroam" parent="." instance=ExtResource("5_0ij2y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5608, 0, 59.7419)
@@ -131,7 +141,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6739, 0, 0)
 curve = SubResource("Curve3D_6vg5e")
 
 [node name="LinearFollow" type="PathFollow3D" parent="NPCPatrol/ToOther"]
-transform = Transform3D(-0.0117974, 0, -0.999929, 0, 1, 0, 0.999929, 0, -0.0117974, -6.15595, 0, -1.51783)
+transform = Transform3D(-0.0117974, 0, -0.999928, 0, 1, 0, 0.999928, 0, -0.0117974, -6.15595, 0, -1.51783)
 loop = false
 script = ExtResource("12_g3h25")
 mps = 1.0
@@ -153,7 +163,7 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FishingArea"]
-transform = Transform3D(0.641945, 0, 0.766751, 0, 1, 0, -0.766751, 0, 0.641945, 52.2384, 2.90748, 32.4236)
+transform = Transform3D(0.641945, 0, 0.766751, 0, 1, 0, -0.766751, 0, 0.641945, 52.238, 1.3, 32.424)
 shape = SubResource("BoxShape3D_34se8")
 debug_color = Color(0, 0.427451, 0.890196, 1)
 
