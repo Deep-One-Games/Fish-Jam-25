@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dy2enkbobri0r"]
+[gd_scene load_steps=25 format=3 uid="uid://dy2enkbobri0r"]
 
 [ext_resource type="Environment" uid="uid://pa607ivxbo2b" path="res://library/resources/world_env.tres" id="1_nwaox"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_piq2t"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://qmhe2mw2pt88" path="res://library/models/freeroam/freeroam_editable.tscn" id="5_0ij2y"]
 [ext_resource type="Script" uid="uid://dv1a6kje117xv" path="res://src/ui/scripts/fishing_controller.gd" id="5_f6ssj"]
 [ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable.gd" id="6_0jgi7"]
+[ext_resource type="PackedScene" uid="uid://ct6q5gb8nrrvn" path="res://src/scenes/bobber.tscn" id="6_1q5so"]
 [ext_resource type="PackedScene" uid="uid://bvrd3xrkoioir" path="res://src/scenes/fishing.tscn" id="6_g3h25"]
 [ext_resource type="Resource" uid="uid://defgqeurnf2ej" path="res://library/dialogue/example.dialogue" id="7_34se8"]
 [ext_resource type="PackedScene" uid="uid://6wuj2udnwtqk" path="res://src/scenes/fishing_rod.tscn" id="7_g3h25"]
@@ -80,6 +81,7 @@ omni_attenuation = 0.15
 
 [node name="FishingController" type="Node" parent="Player"]
 script = ExtResource("5_f6ssj")
+bobber_scene = ExtResource("6_1q5so")
 player_path = NodePath("..")
 player_ui_path = NodePath("../../PlayerUi")
 ui_scene = ExtResource("6_g3h25")
@@ -161,7 +163,7 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FishingArea"]
-transform = Transform3D(0.641945, 0, 0.766751, 0, 1, 0, -0.766751, 0, 0.641945, 52.2384, 2.90748, 32.4236)
+transform = Transform3D(0.641945, 0, 0.766751, 0, 1, 0, -0.766751, 0, 0.641945, 52.238, 1.3, 32.424)
 shape = SubResource("BoxShape3D_34se8")
 debug_color = Color(0, 0.427451, 0.890196, 1)
 
