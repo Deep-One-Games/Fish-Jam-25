@@ -15,4 +15,5 @@ offset_bottom = 40.0
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "[WASD] to aim
-[Left-Click] to cast"
+[Left-Click] to cast
+[B] to exit"
