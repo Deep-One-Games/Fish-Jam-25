@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://6wuj2udnwtqk"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dfwy1"]
+top_radius = 0.02
+bottom_radius = 0.02
+height = 1.0
+
+[node name="FishingRod" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_dfwy1")
