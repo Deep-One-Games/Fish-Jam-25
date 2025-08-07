@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dy2enkbobri0r"]
+[gd_scene load_steps=32 format=3 uid="uid://dy2enkbobri0r"]
 
 [ext_resource type="Environment" uid="uid://pa607ivxbo2b" path="res://library/resources/world_env.tres" id="1_nwaox"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_piq2t"]
@@ -17,6 +17,9 @@
 [ext_resource type="Script" uid="uid://cgx2wkvvgp00v" path="res://src/nodes/linear_follow.gd" id="12_g3h25"]
 [ext_resource type="ArrayMesh" uid="uid://bvda720p10jw3" path="res://library/models/Trees/Mesh/Bush_1.res" id="12_t1hkf"]
 [ext_resource type="ArrayMesh" uid="uid://wka7osdxnoh8" path="res://library/models/Trees/Mesh/Dark_Tree_1.res" id="13_343yg"]
+[ext_resource type="Texture2D" uid="uid://b54rn8jp0l8of" path="res://library/models/4448097d4ef431cc.png" id="18_mh232"]
+[ext_resource type="ArrayMesh" uid="uid://coomdp6luq4yp" path="res://library/models/TreeLine.res" id="19_a3rph"]
+[ext_resource type="Texture2D" uid="uid://0bhf0nq3omkf" path="res://library/models/textures/TreeLine.png" id="20_wtqk5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2kdx"]
 render_priority = 0
@@ -50,6 +53,23 @@ point_count = 3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_34se8"]
 size = Vector3(5, 3.98752, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a3c7p"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lbwhc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvcn7"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("18_mh232")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2aq81"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.334995, 0.526664, 0.118606, 1)
+albedo_texture = ExtResource("20_wtqk5")
 
 [node name="Root" type="Node3D"]
 
@@ -168,8 +188,27 @@ shape = SubResource("BoxShape3D_34se8")
 debug_color = Color(0, 0.427451, 0.890196, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.916433, -1.11138e-08, -0.400189, 0.0318162, 0.996835, 0.0728592, 0.398922, -0.079503, 0.913532, 0, 0, 0)
+transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 0, 0)
 light_color = Color(0.774009, 0.786811, 0.688946, 1)
 light_energy = 6.891
 shadow_enabled = true
 directional_shadow_mode = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(366.188, 0, 0, 0, 366.188, 0, 0, 0, 366.188, 11.8307, 0.523134, 44.7635)
+mesh = SubResource("PlaneMesh_a3c7p")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-44.7, 11.8411, -5.17592e-07, -4.25197e-14, -2.02129e-06, -46.2417, -11.8411, -44.7, 1.9539e-06, -90.8229, 34.0401, 258.588)
+mesh = SubResource("PlaneMesh_lbwhc")
+surface_material_override/0 = SubResource("StandardMaterial3D_fvcn7")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-62.8487, 79.6431, -3.48131e-06, -9.84807e-14, -4.43471e-06, -101.454, -79.6431, -62.8487, 2.7472e-06, -146.501, 34.0401, 223.661)
+mesh = SubResource("PlaneMesh_lbwhc")
+surface_material_override/0 = SubResource("StandardMaterial3D_fvcn7")
+
+[node name="TreeLine" type="MeshInstance3D" parent="."]
+transform = Transform3D(45.8579, 0, 0, 0, 14.7678, 0, 0, 0, 45.8579, -14.9797, -1.60971, 45.0577)
+mesh = ExtResource("19_a3rph")
+surface_material_override/0 = SubResource("StandardMaterial3D_2aq81")
