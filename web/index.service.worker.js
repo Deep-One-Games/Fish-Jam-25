@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1754497371|7001382913';
+const CACHE_VERSION = '1754568516|30777791';
 /** @type {string} */
 const CACHE_PREFIX = 'Fish-Jam-25-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
