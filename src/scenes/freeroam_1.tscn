@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dy2enkbobri0r"]
+[gd_scene load_steps=24 format=3 uid="uid://dy2enkbobri0r"]
 
 [ext_resource type="Environment" uid="uid://pa607ivxbo2b" path="res://library/resources/world_env.tres" id="1_nwaox"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_piq2t"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cgx2wkvvgp00v" path="res://src/nodes/linear_follow.gd" id="12_g3h25"]
 [ext_resource type="ArrayMesh" uid="uid://bvda720p10jw3" path="res://library/models/Trees/Mesh/Bush_1.res" id="12_t1hkf"]
 [ext_resource type="ArrayMesh" uid="uid://wka7osdxnoh8" path="res://library/models/Trees/Mesh/Dark_Tree_1.res" id="13_343yg"]
+[ext_resource type="Texture2D" uid="uid://c2b7rxcfi3i1q" path="res://library/textures/factory_placeholder.png" id="14_5qmip"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2kdx"]
 render_priority = 0
@@ -46,6 +47,15 @@ point_count = 3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_34se8"]
 size = Vector3(5, 3.98752, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6ssj"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("14_5qmip")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_343yg"]
+material = SubResource("StandardMaterial3D_f6ssj")
 
 [node name="Root" type="Node3D"]
 
@@ -158,8 +168,12 @@ shape = SubResource("BoxShape3D_34se8")
 debug_color = Color(0, 0.427451, 0.890196, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.916433, -1.11138e-08, -0.400189, 0.0318162, 0.996835, 0.0728592, 0.398922, -0.079503, 0.913532, 0, 0, 0)
-light_color = Color(0.774009, 0.786811, 0.688946, 1)
-light_energy = 6.891
+transform = Transform3D(0.146447, 0.853553, -0.5, -0.5, 0.5, 0.707107, 0.853553, 0.146447, 0.5, 0, 12.97, 0)
+light_color = Color(0.34832, 0.353742, 0.248073, 1)
+light_energy = 5.651
 shadow_enabled = true
 directional_shadow_mode = 0
+
+[node name="Factory" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.32989, 14.8641, 1.37795e-06, -1.4896e-06, 7.44798e-07, -17.039, -14.8641, -8.32989, 9.35347e-07, -56.41, 16.458, 89.727)
+mesh = SubResource("PlaneMesh_343yg")
