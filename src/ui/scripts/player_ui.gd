@@ -10,6 +10,7 @@ var options_state := false
 var inventory_state := false
 var interact_state := false
 var fishing_state := false
+var in_fishing_mode := false
 var fishing_area: Area3D
 var interacting_with: InteractableArea
 
@@ -54,8 +55,9 @@ func _input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if event.is_action_pressed("fish") and fishing_state:
-		print("fishing")	
 		get_node("../Player/FishingController").enter_fishing_mode()
+		fishing_state = false
+		show_fish.visible = false
 		
 	if event.is_action_pressed("inventory"): 
 		inventory_state = !inventory_state
@@ -82,6 +84,11 @@ func _input(event: InputEvent) -> void:
 		clear_popups()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		player.disable = false
+
+func reset_fish_prompt() -> void:
+	if fishing_area != null:
+		fishing_state = true
+		show_fish.visible = true
 
 func free_mouse():
 	player.disable = false

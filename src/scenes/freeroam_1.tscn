@@ -81,6 +81,7 @@ omni_attenuation = 0.15
 script = ExtResource("5_f6ssj")
 player = NodePath("..")
 ui_scene = ExtResource("6_g3h25")
+player_ui_path = NodePath("../../PlayerUi")
 
 [node name="freeroam" parent="." instance=ExtResource("5_0ij2y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5608, 0, 59.7419)
