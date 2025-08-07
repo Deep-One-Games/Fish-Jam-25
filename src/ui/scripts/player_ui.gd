@@ -54,8 +54,8 @@ func _input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if event.is_action_pressed("fish") and fishing_state:
-		print("fishing")
-		SceneManager.switch(SceneManager.GameScene.fishing)
+		print("fishing")	
+		get_node("../Player/FishingController").enter_fishing_mode()
 		
 	if event.is_action_pressed("inventory"): 
 		inventory_state = !inventory_state

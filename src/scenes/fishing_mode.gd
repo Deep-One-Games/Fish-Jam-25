@@ -1,8 +1,6 @@
-extends Node3D
+extends Control
+signal exit_fishing
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		_exit_fishing()
-
-func _exit_fishing() -> void:
-	SceneManager.switch(SceneManager.GameScene.freeroam)
+		emit_signal("exit_fishing")
