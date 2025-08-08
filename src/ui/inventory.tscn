@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://df0qay8pm5da4"]
 
 [ext_resource type="Script" uid="uid://dobnn1ln2jhui" path="res://src/ui/scripts/inventory_ui.gd" id="1_nn0ug"]
-[ext_resource type="Resource" uid="uid://cai54e51n76mr" path="res://src/000-Data/SaveGameExample/testsave.tres" id="2_dagsi"]
+[ext_resource type="Resource" uid="uid://cai54e51n76mr" path="res://src/000-Data/Examples/testsave.tres" id="2_dagsi"]
 [ext_resource type="ArrayMesh" uid="uid://bvda720p10jw3" path="res://library/models/Trees/Mesh/Bush_1.res" id="3_l8kat"]
 [ext_resource type="PackedScene" uid="uid://ccu3ad3bxw81p" path="res://src/ui/inventory_item.tscn" id="4_asd7g"]
 [ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="4_w3dr0"]

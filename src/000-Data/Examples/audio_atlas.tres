@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AudioAtlas" load_steps=2 format=3 uid="uid://rio4i03bn6lo"]
+
+[ext_resource type="Script" uid="uid://dfdunw8p1hub5" path="res://src/000-Data/audioatlas.gd" id="1_iqm8j"]
+
+[resource]
+script = ExtResource("1_iqm8j")
+comment = "Documentation Here"
+audio = Array[AudioStream]([])
+metadata/_custom_type_script = "uid://dfdunw8p1hub5"
