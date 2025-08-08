@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AudioEnvironment" load_steps=4 format=3 uid="uid://vjohfv8cvb3x"]
+
+[ext_resource type="Resource" uid="uid://ca3q6x7xxj01f" path="res://src/000-Data/Examples/pmfcurve.tres" id="1_2fl46"]
+[ext_resource type="Script" uid="uid://djas5bhr7lu38" path="res://src/000-Data/audioenvironment.gd" id="1_8iugy"]
+[ext_resource type="AudioStream" uid="uid://dhnkudd6njjfq" path="res://library/music/drudmruss.wav" id="2_mdrcb"]
+
+[resource]
+script = ExtResource("1_8iugy")
+tracks = Array[AudioStream]([ExtResource("2_mdrcb")])
+pmf_curves = ExtResource("1_2fl46")
+metadata/_custom_type_script = "uid://djas5bhr7lu38"
