@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c5en56ptkabt3" path="res://src/nodes/fsm.gd" id="2_mjhhr"]
 [ext_resource type="Script" uid="uid://nnmskbsx4364" path="res://src/npc/scripts/idle.gd" id="3_mjhhr"]
 [ext_resource type="Script" uid="uid://baqglivwvpd3k" path="res://src/npc/scripts/walk.gd" id="4_kexkh"]
-[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable.gd" id="6_oihyn"]
+[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable_area.gd" id="6_oihyn"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oihyn"]
 radius = 1.6599

@@ -1,0 +1,165 @@
+[gd_scene load_steps=23 format=3 uid="uid://po307h6blgcm"]
+
+[ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="1_r1oxc"]
+[ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="2_1m4k0"]
+[ext_resource type="Script" uid="uid://djas5bhr7lu38" path="res://src/nodes/audio_environment.gd" id="3_1u8ik"]
+[ext_resource type="AudioStream" uid="uid://ca8qhtjr2sin1" path="res://library/sfx/bugs/normal/normal_bug_ambience_2.wav" id="5_l4gqt"]
+[ext_resource type="Script" uid="uid://cqhyphcfaylli" path="res://src/nodes/audio_environment_player.gd" id="5_qo1o7"]
+[ext_resource type="Script" uid="uid://bugwjbxs8ay2p" path="res://src/000-Data/pmfcurves.gd" id="6_224gd"]
+[ext_resource type="AudioStream" uid="uid://dc8b320dttvh5" path="res://library/sfx/bugs/normal/normal_bug_ambience_4.wav" id="7_i5vq0"]
+[ext_resource type="Curve" uid="uid://dd0tvoauoitiv" path="res://src/000-Data/Curves/mute.tres" id="8_224gd"]
+[ext_resource type="Script" uid="uid://dfdunw8p1hub5" path="res://src/000-Data/audioatlas.gd" id="8_t2052"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_txt1f"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1m4k0"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_224gd"]
+
+[sub_resource type="Resource" id="Resource_noq3q"]
+script = ExtResource("8_t2052")
+comment = "Documentation Here"
+audiostreams = Array[AudioStream]([ExtResource("5_l4gqt"), ExtResource("7_i5vq0")])
+metadata/_custom_type_script = "uid://dfdunw8p1hub5"
+
+[sub_resource type="Curve" id="Curve_0buyj"]
+_limits = [-40.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -14.7768), 0.0, 0.0, 0, 1, Vector2(0.240458, -14.7768), 0.0, 0.0, 0, 0, Vector2(0.519084, 1), 56.6236, 0.0, 1, 0, Vector2(0.767176, -19.8936), 0.0, 0.0, 0, 0, Vector2(1, -20.32), -1.83142, 0.0, 1, 0]
+point_count = 5
+
+[sub_resource type="Resource" id="Resource_t2052"]
+script = ExtResource("6_224gd")
+curves = Array[Curve]([SubResource("Curve_0buyj"), ExtResource("8_224gd")])
+metadata/_custom_type_script = "uid://bugwjbxs8ay2p"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1u8ik"]
+radius = 31.6307
+
+[sub_resource type="Curve" id="Curve_l4gqt"]
+_limits = [0.0, 40.0, 0.0, 1.0]
+_data = [Vector2(0, 27.104), 0.0, -52.7786, 0, 1, Vector2(0.510539, 0.158482), 0.0, 0.0, 0, 0, Vector2(1, 27.104), 55.0514, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Resource" id="Resource_1u8ik"]
+script = ExtResource("6_224gd")
+curves = Array[Curve]([ExtResource("8_224gd"), SubResource("Curve_l4gqt")])
+metadata/_custom_type_script = "uid://bugwjbxs8ay2p"
+
+[sub_resource type="Curve" id="Curve_h0rdu"]
+_limits = [-70.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0.267176, -45.864), 0.0, 0.0, 0, 0, Vector2(0.732824, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_224gd"]
+_limits = [-70.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.312977, 0), 0.0, 0.0, 0, 0, Vector2(0.503817, -69.5235), 0.0, 0.0, 0, 0, Vector2(1, -70), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Resource" id="Resource_i5vq0"]
+script = ExtResource("6_224gd")
+curves = Array[Curve]([SubResource("Curve_h0rdu"), SubResource("Curve_224gd")])
+metadata/_custom_type_script = "uid://bugwjbxs8ay2p"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_224gd"]
+radius = 21.5671
+
+[node name="AudioTest" type="Node3D"]
+
+[node name="other" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="other"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="other/StaticBody3D"]
+transform = Transform3D(46.4175, 0, 0, 0, 46.4175, 0, 0, 0, 46.4175, 0, 0, 0)
+mesh = SubResource("PlaneMesh_txt1f")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="other/StaticBody3D"]
+transform = Transform3D(46.4175, 0, 0, 0, 46.4175, 0, 0, 0, 46.4175, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_1m4k0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="other"]
+transform = Transform3D(1, 0, 0, 0, 0.893724, 0.448617, 0, -0.448617, 0.893724, 0, 0, 0)
+light_color = Color(0.606564, 0.441742, 0.321847, 1)
+shadow_enabled = true
+
+[node name="Player" parent="other" instance=ExtResource("1_r1oxc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6414, 0, 16.9959)
+
+[node name="PlayerUI" parent="other" node_paths=PackedStringArray("player") instance=ExtResource("2_1m4k0")]
+player = NodePath("../Player")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="other"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3728, 0, -21.4022)
+mesh = SubResource("CapsuleMesh_224gd")
+
+[node name="AudioEnvironment" type="Node3D" parent="." node_paths=PackedStringArray("environment_players", "player")]
+script = ExtResource("3_1u8ik")
+tracks = SubResource("Resource_noq3q")
+environment_players = [NodePath("AudioEnvironmentPlayer"), NodePath("AudioEnvironmentPlayer2"), NodePath("AudioEnvironmentPlayer3")]
+default_decay = 10.0
+transition_time = 0.3
+sample_rate = 0.4
+player = NodePath("../other/Player")
+metadata/_custom_type_script = "uid://djas5bhr7lu38"
+
+[node name="AudioEnvironmentPlayer" type="Area3D" parent="AudioEnvironment" node_paths=PackedStringArray("environment", "shape")]
+collision_layer = 2048
+collision_mask = 2
+script = ExtResource("5_qo1o7")
+pmf_curves = SubResource("Resource_t2052")
+environment = NodePath("..")
+shape = NodePath("CollisionShape3D")
+metadata/_custom_type_script = "uid://cqhyphcfaylli"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AudioEnvironment/AudioEnvironmentPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.4296, 0, -12.2817)
+shape = SubResource("SphereShape3D_1u8ik")
+
+[node name="AudioEnvironmentPlayer2" type="Area3D" parent="AudioEnvironment" node_paths=PackedStringArray("environment", "shape")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.4926, 0, -17.8097)
+collision_layer = 2048
+collision_mask = 2
+script = ExtResource("5_qo1o7")
+pmf_curves = SubResource("Resource_1u8ik")
+environment = NodePath("..")
+shape = NodePath("CollisionShape3D")
+metadata/_custom_type_script = "uid://cqhyphcfaylli"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AudioEnvironment/AudioEnvironmentPlayer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.447, 0, 66.894)
+shape = SubResource("SphereShape3D_1u8ik")
+
+[node name="AudioEnvironmentPlayer3" type="Area3D" parent="AudioEnvironment" node_paths=PackedStringArray("environment", "shape")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.253, 0, -115.22)
+collision_layer = 2048
+collision_mask = 2
+script = ExtResource("5_qo1o7")
+sampling_type = 1
+pmf_curves = SubResource("Resource_i5vq0")
+environment = NodePath("..")
+shape = NodePath("CollisionShape3D")
+metadata/_custom_type_script = "uid://cqhyphcfaylli"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AudioEnvironment/AudioEnvironmentPlayer3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.4585, -3.8147e-06, 93.8016)
+shape = SubResource("SphereShape3D_224gd")
+
+[node name="AudioEnvironmentPlayer4" type="Area3D" parent="AudioEnvironment" node_paths=PackedStringArray("environment", "shape")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.253, 0, -115.22)
+collision_layer = 2048
+collision_mask = 2
+script = ExtResource("5_qo1o7")
+sampling_type = 1
+pmf_curves = SubResource("Resource_i5vq0")
+environment = NodePath("..")
+shape = NodePath("CollisionShape3D")
+metadata/_custom_type_script = "uid://cqhyphcfaylli"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AudioEnvironment/AudioEnvironmentPlayer4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.4585, -3.8147e-06, 93.8016)
+shape = SubResource("SphereShape3D_224gd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_l4gqt")

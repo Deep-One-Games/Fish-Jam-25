@@ -1,22 +1,25 @@
 class_name FPController extends CharacterBody3D
+## First Person Controller for character movement in freeroam mode
+##
+## This controller requires a UI component to manage mouse capturing. This is
+## only the raw implementation of keyboard/mouse controls over a camera.
 
-@export_range(1, 35, 1) var speed: float = 10 # m/s
-@export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
+@export_range(1, 35, 1) var speed: float = 10 ## m/s
+@export_range(10, 400, 1) var acceleration: float = 100 ## m/s^2
 
-@export_range(0.1, 3.0, 0.1) var jump_height: float = 1 # m
+@export_range(0.1, 3.0, 0.1) var jump_height: float = 1 ## m
 @export_range(0.1, 3.0, 0.1, "or_greater") var camera_sens: float = 1
 
-var jumping: bool = false
-var mouse_captured: bool = false
+var jumping: bool = false ## Jumping state
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var move_dir: Vector2 # Input direction for movement
-var look_dir: Vector2 # 1put direction for look/aim
+var move_dir: Vector2 ## Input direction for movement
+var look_dir: Vector2 ## 1put direction for look/aim
 
-var walk_vel: Vector3 # Walking velocity 
-var grav_vel: Vector3 # Gravity velocity 
-var jump_vel: Vector3 # Jumping velocity
+var walk_vel: Vector3 ## Walking velocity 
+var grav_vel: Vector3 ## Gravity velocity 
+var jump_vel: Vector3 ## Jumping velocity
 
 var disable := false
 
