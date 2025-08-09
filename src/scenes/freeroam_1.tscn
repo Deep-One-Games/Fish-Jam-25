@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="3_qktgv"]
 [ext_resource type="PackedScene" uid="uid://qmhe2mw2pt88" path="res://library/models/freeroam/freeroam_editable.tscn" id="5_0ij2y"]
 [ext_resource type="Script" uid="uid://dv1a6kje117xv" path="res://src/ui/scripts/fishing_controller.gd" id="5_f6ssj"]
-[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable.gd" id="6_0jgi7"]
+[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable_area.gd" id="6_0jgi7"]
 [ext_resource type="PackedScene" uid="uid://ct6q5gb8nrrvn" path="res://src/scenes/bobber.tscn" id="6_1q5so"]
 [ext_resource type="PackedScene" uid="uid://bvrd3xrkoioir" path="res://src/scenes/fishing.tscn" id="6_g3h25"]
 [ext_resource type="Resource" uid="uid://defgqeurnf2ej" path="res://library/dialogue/example.dialogue" id="7_34se8"]

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bkptsroxo4as3" path="res://library/models/houses/house2.tscn" id="7_7rtbf"]
 [ext_resource type="PackedScene" uid="uid://dsdq3urr4o0jk" path="res://library/models/houses/house3.tscn" id="8_e6l7g"]
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="9_f1nyl"]
-[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable.gd" id="10_wag33"]
+[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable_area.gd" id="10_wag33"]
 [ext_resource type="Resource" uid="uid://defgqeurnf2ej" path="res://library/dialogue/example.dialogue" id="11_tk6tm"]
 [ext_resource type="Script" uid="uid://b6f3f6630eo0r" path="res://src/npc/scripts/npc_patrol.gd" id="12_vw06n"]
 [ext_resource type="Script" uid="uid://gak3ble014rj" path="res://src/000-Data/gameitem.gd" id="13_e6l7g"]
@@ -181,21 +181,23 @@ shape = SubResource("BoxShape3D_wag33")
 script = ExtResource("12_vw06n")
 sequence = [NodePath("3S"), NodePath("LeftPatrol/LinearFollow"), NodePath("3S"), NodePath("ToOther/LinearFollow")]
 dialogue_state = Array[String](["IDLE", "CONVERSING", "IDLE", "WALK"])
-npc = NodePath("npc")
+npc = NodePath("LeftPatrol/LinearFollow/npc")
 npc_info = SubResource("Resource_0gfvo")
 metadata/_custom_type_script = "uid://b6f3f6630eo0r"
-
-[node name="npc" parent="NPCPatrol" instance=ExtResource("13_xtds1")]
 
 [node name="LeftPatrol" type="Path3D" parent="NPCPatrol"]
 curve = SubResource("Curve3D_vw06n")
 
 [node name="LinearFollow" type="PathFollow3D" parent="NPCPatrol/LeftPatrol"]
-transform = Transform3D(0.728935, 0, -0.684582, 0, 1, 0, 0.684582, 0, 0.728935, -19.4, 0, -2.28376)
+transform = Transform3D(-0.535843, 0, -0.844307, 0, 1, 0, 0.844307, 0, -0.535843, -7.21114, 0, -2.17833)
+progress = 12.3332
 loop = false
 script = ExtResource("15_7rtbf")
 mps = 1.0
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
+
+[node name="npc" parent="NPCPatrol/LeftPatrol/LinearFollow" instance=ExtResource("13_xtds1")]
+transform = Transform3D(0.728936, 0, 0.684583, 0, 1, 0, -0.684583, 0, 0.728936, 0, 0, 0)
 
 [node name="ToOther" type="Path3D" parent="NPCPatrol"]
 curve = SubResource("Curve3D_xtds1")
