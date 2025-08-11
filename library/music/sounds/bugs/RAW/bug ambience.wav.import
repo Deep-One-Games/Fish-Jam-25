@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2rxub8ru3ro3"
+path="res://.godot/imported/bug ambience.wav-7d95e4f04a453ec59253bb52f0cce8b7.sample"
+
+[deps]
+
+source_file="res://library/music/sounds/bugs/RAW/bug ambience.wav"
+dest_files=["res://.godot/imported/bug ambience.wav-7d95e4f04a453ec59253bb52f0cce8b7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
