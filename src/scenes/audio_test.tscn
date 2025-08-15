@@ -38,7 +38,7 @@ radius = 31.6307
 
 [sub_resource type="Curve" id="Curve_l4gqt"]
 _limits = [0.0, 40.0, 0.0, 1.0]
-_data = [Vector2(0, 27.104), 0.0, -52.7786, 0, 1, Vector2(0.510539, 0.158482), 0.0, 0.0, 0, 0, Vector2(1, 27.104), 55.0514, 0.0, 1, 0]
+_data = [Vector2(0, 27.104), 0.0, -52.9944, 0, 1, Vector2(0.51145, 0), 0.0, 0.0, 0, 0, Vector2(1, 25.44), 52.0725, 0.0, 1, 0]
 point_count = 3
 
 [sub_resource type="Resource" id="Resource_1u8ik"]
@@ -48,7 +48,7 @@ metadata/_custom_type_script = "uid://bugwjbxs8ay2p"
 
 [sub_resource type="Curve" id="Curve_h0rdu"]
 _limits = [-70.0, 0.0, 0.0, 1.0]
-_data = [Vector2(0.267176, -45.864), 0.0, 0.0, 0, 0, Vector2(0.732824, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.251908, -36.4826), 0.0, 0.0, 0, 0, Vector2(0.732824, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_224gd"]
@@ -143,22 +143,7 @@ shape = NodePath("CollisionShape3D")
 metadata/_custom_type_script = "uid://cqhyphcfaylli"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AudioEnvironment/AudioEnvironmentPlayer3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.4585, -3.8147e-06, 93.8016)
-shape = SubResource("SphereShape3D_224gd")
-
-[node name="AudioEnvironmentPlayer4" type="Area3D" parent="AudioEnvironment" node_paths=PackedStringArray("environment", "shape")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.253, 0, -115.22)
-collision_layer = 2048
-collision_mask = 2
-script = ExtResource("5_qo1o7")
-sampling_type = 1
-pmf_curves = SubResource("Resource_i5vq0")
-environment = NodePath("..")
-shape = NodePath("CollisionShape3D")
-metadata/_custom_type_script = "uid://cqhyphcfaylli"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AudioEnvironment/AudioEnvironmentPlayer4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.4585, -3.8147e-06, 93.8016)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.48043, -3.8147e-06, 115.751)
 shape = SubResource("SphereShape3D_224gd")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

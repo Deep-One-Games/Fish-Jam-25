@@ -1,33 +1,28 @@
 class_name AudioEnvironmentPlayer extends Area3D
-## An area that admits to changing the audio of an [AudioEnvironment] node.
+## An area that admits changing the audio channels of an [AudioEnvironment] node.
 ##
 ## Define a set of curves with [PMFCurves]. This is then sampled by 
 ## [AudioEnvironment] to change the volume of different elements within its
 ## atlas over time. 
 ## [br][br]
 ## Constraints: [br] 
-## x domain limited to [0, +inf). Represents time. Loops on sample overflow [br]
-## y domain is not limited. Represents value to be added to volume. Setting range
-## [+x, 0] will make curve represent loudness. Setting range [0,-x] will make
-## curve represent quietness. 
+## x domain limited to [0, +inf). Represents time OR distance. Loops on sample overflow [br]
+## y domain is not limited. Represents value to be added to volume.
 
+## The kind of property to sample curves with. The X value
 enum SamplingTypes {
 	USE_TIME,
 	USE_RADIUS
 }
 
 @export_category("Setup")
-@export var sampling_type: SamplingTypes = SamplingTypes.USE_TIME
+@export var sampling_type: SamplingTypes = SamplingTypes.USE_TIME ## Current sampling type
 
 @export_category("Data")
-@export var pmf_curves: PMFCurves
-@export var environment: AudioEnvironment
-@export var shape: CollisionShape3D
+@export var pmf_curves: PMFCurves ## The curves to be sampled
+@export var environment: AudioEnvironment ## The environment to modify
+@export var shape: CollisionShape3D ## Pointer to collision data
 
-
-var process_lock := true
-var time_dt := 0.0
-var audio_sample_pos := 0.0
 var sample_res := 100 # Dont change unless you know what you're doing!!
 
 signal activate_player
@@ -64,10 +59,8 @@ func get_pos_y(t: float) -> Array[float]:
 			# origin of the player. So we clamp the value. Negatives are impossible
 			# only ~>1 values are
 			var d = center_pos.distance_to(player_pos)
-			var d_norm = float(int(clamp(d/radius, 0.0, 0.99) * sample_res + 0.5)) / sample_res
+			var d_norm = clamp(d/radius, 0.0, 0.99) # 1.0 causes floating errors causing audio overlaps!!
 			print("d: %s, norm: %s" % [d, d_norm])
-			var x = pmf_curves.pmf_weights(d_norm)
-			print(x)
-			return x
-
-	return pmf_curves.pmf_weights(t)
+			return pmf_curves.pmf_weights(d_norm)
+	
+	return [] # Impossible
