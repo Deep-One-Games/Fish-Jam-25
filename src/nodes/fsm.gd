@@ -1,4 +1,11 @@
 class_name FSM extends Node
+## Finite State Machine Node. Attach [FSMState]'s to it with a dictionary to add new states.
+##
+## This node only provides a library without any behaviors. In order to trigger different 
+## behaviors, you must call [callable FSM.change_state] from your own script process.
+## [br][br]
+## Constraints: [br]
+## - stateid's must be unique
 
 @export var initial_state: FSMState
 

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="3_qktgv"]
 [ext_resource type="PackedScene" uid="uid://qmhe2mw2pt88" path="res://library/models/freeroam/freeroam_editable.tscn" id="5_0ij2y"]
 [ext_resource type="Script" uid="uid://dv1a6kje117xv" path="res://src/ui/scripts/fishing_controller.gd" id="5_f6ssj"]
-[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable.gd" id="6_0jgi7"]
+[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable_area.gd" id="6_0jgi7"]
 [ext_resource type="PackedScene" uid="uid://ct6q5gb8nrrvn" path="res://src/scenes/bobber.tscn" id="6_1q5so"]
 [ext_resource type="PackedScene" uid="uid://bvrd3xrkoioir" path="res://src/scenes/fishing.tscn" id="6_g3h25"]
 [ext_resource type="Resource" uid="uid://defgqeurnf2ej" path="res://library/dialogue/example.dialogue" id="7_34se8"]
@@ -191,7 +191,7 @@ debug_color = Color(0, 0.427451, 0.890196, 1)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 0, 0)
 light_color = Color(0.774009, 0.786811, 0.688946, 1)
-light_energy = 6.891
+light_energy = 0.441
 shadow_enabled = true
 directional_shadow_mode = 0
 
@@ -214,3 +214,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fvcn7")
 transform = Transform3D(45.8579, 0, 0, 0, 14.7678, 0, 0, 0, 45.8579, -14.9797, -1.60971, 45.0577)
 mesh = ExtResource("19_a3rph")
 surface_material_override/0 = SubResource("StandardMaterial3D_2aq81")
+
+[node name="npc" parent="." instance=ExtResource("11_f6ssj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.7612, 2.70027, 34.5453)
