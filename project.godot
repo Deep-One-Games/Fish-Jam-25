@@ -35,6 +35,11 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gd-blender-3d-shortcuts/plugin.cfg")
 
+[filesystem]
+
+import/fbx2gltf/enabled.android=true
+import/fbx2gltf/enabled.web=true
+
 [importer_defaults]
 
 wav={
