@@ -4,8 +4,8 @@
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_piq2t"]
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="3_qktgv"]
 [ext_resource type="PackedScene" uid="uid://qmhe2mw2pt88" path="res://library/models/freeroam/freeroam_editable.tscn" id="5_0ij2y"]
-[ext_resource type="Script" uid="uid://dv1a6kje117xv" path="res://src/ui/scripts/fishing_controller.gd" id="5_f6ssj"]
-[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable_area.gd" id="6_0jgi7"]
+[ext_resource type="Script" path="res://src/ui/scripts/fishing_controller.gd" id="5_f6ssj"]
+[ext_resource type="Script" path="res://src/nodes/interactable.gd" id="6_0jgi7"]
 [ext_resource type="PackedScene" uid="uid://ct6q5gb8nrrvn" path="res://src/scenes/bobber.tscn" id="6_1q5so"]
 [ext_resource type="PackedScene" uid="uid://bvrd3xrkoioir" path="res://src/scenes/fishing.tscn" id="6_g3h25"]
 [ext_resource type="Resource" uid="uid://defgqeurnf2ej" path="res://library/dialogue/example.dialogue" id="7_34se8"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="9_0uljx"]
 [ext_resource type="Resource" uid="uid://bn7h46jwv1obf" path="res://src/000-Data/NPC/sandy_sardine.tres" id="9_70ium"]
 [ext_resource type="PackedScene" uid="uid://dxx8h5hb7toxy" path="res://src/npc/npc.tscn" id="11_f6ssj"]
-[ext_resource type="Script" uid="uid://cgx2wkvvgp00v" path="res://src/nodes/linear_follow.gd" id="12_g3h25"]
+[ext_resource type="Script" path="res://src/nodes/linear_follow.gd" id="12_g3h25"]
 [ext_resource type="ArrayMesh" uid="uid://bvda720p10jw3" path="res://library/models/Trees/Mesh/Bush_1.res" id="12_t1hkf"]
 [ext_resource type="ArrayMesh" uid="uid://wka7osdxnoh8" path="res://library/models/Trees/Mesh/Dark_Tree_1.res" id="13_343yg"]
 [ext_resource type="Material" uid="uid://b7io51mcjp48v" path="res://library/models/Water/new_water_shader_material.material" id="18_a3rph"]
@@ -155,7 +155,6 @@ transform = Transform3D(0.728935, 0, -0.684582, 0, 1, 0, 0.684582, 0, 0.728935, 
 loop = false
 script = ExtResource("12_g3h25")
 mps = 1.0
-metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="ToOther" type="Path3D" parent="NPCPatrol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6739, 0, 0)
@@ -166,7 +165,6 @@ transform = Transform3D(-0.0117974, 0, -0.999928, 0, 1, 0, 0.999928, 0, -0.01179
 loop = false
 script = ExtResource("12_g3h25")
 mps = 1.0
-metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="3S" type="Timer" parent="NPCPatrol"]
 wait_time = 3.0
