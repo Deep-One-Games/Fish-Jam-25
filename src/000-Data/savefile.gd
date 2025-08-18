@@ -11,6 +11,3 @@ class_name SaveFile extends Resource
 
 ## Data concerning the players inventory
 @export var inventory: Array[GameItem]
-
-#TODO: Write Deserializer!
-#TODO: Write Serializer!

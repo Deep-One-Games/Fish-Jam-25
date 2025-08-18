@@ -3,6 +3,8 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_toon, unshaded;
 
+uniform vec2 speed;
+
 uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color, filter_nearest, repeat_enable;
 uniform ivec2 albedo_texture_size;
@@ -29,6 +31,7 @@ uniform vec3 uv2_offset;
 
 void vertex() {
 	UV = UV * uv1_scale.xy + uv1_offset.xy;
+	UV += speed * TIME;
 }
 
 void fragment() {

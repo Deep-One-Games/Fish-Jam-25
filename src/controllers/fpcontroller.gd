@@ -27,6 +27,11 @@ var disable := false
 @export var camera: Camera3D
 @export var interact_box: Area3D
 
+func _ready() -> void:
+	#Read the position and rotation from the save file on the map
+	self.global_position   = Storage.sf.playerd.position
+	camera.global_rotation = Storage.sf.playerd.rotation
+
 func _input(event: InputEvent) -> void:
 	if disable: return
 	if event is InputEventMouseMotion:
@@ -38,10 +43,14 @@ func _physics_process(delta: float) -> void:
 	_handle_joypad_camera_rotation(delta)
 	velocity = _walk(delta) + _gravity(delta)
 	move_and_slide()
+	
+	Storage.sf.playerd.position = self.global_position
 
 func _rotate_camera(sens_mod: float = 1.0) -> void:
 	camera.rotation.y -= look_dir.x * camera_sens * sens_mod
 	camera.rotation.x = clamp(camera.rotation.x - look_dir.y * camera_sens * sens_mod, -1.5, 1.5)
+	
+	Storage.sf.playerd.rotation = camera.global_rotation
 
 func _handle_joypad_camera_rotation(delta: float, sens_mod: float = 1.0) -> void:
 	var joypad_dir: Vector2 = Input.get_vector(&"look_left", &"look_right", &"look_up", &"look_down")

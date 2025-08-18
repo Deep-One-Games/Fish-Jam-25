@@ -25,12 +25,10 @@ func _ready() -> void:
 		current_state = initial_state
 
 func _process(delta: float) -> void:
-	if current_state:
-		current_state.update(delta)
+	if current_state: current_state.update(delta)
 
 func _physics_process(delta: float) -> void:
-	if current_state:
-		current_state.physics_update(delta)
+	if current_state: current_state.physics_update(delta)
 
 func change_state(state_id: String) -> void:
 	var new_state: FSMState = states.get(state_id)

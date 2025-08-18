@@ -10,5 +10,5 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	# Listen for your new action
-	if event.is_action_pressed("exit_fish"):
-		emit_signal("exit_fishing")
+	if event.is_action_pressed("fish_exit"):
+		exit_fishing.emit()

@@ -26,6 +26,7 @@ item_display = ExtResource("4_asd7g")
 item_mesh = NodePath("SubViewport/MeshInstance3D")
 item_name = NodePath("HBoxContainer/ContextScreen/VBoxContainer/Item Name")
 item_lore = NodePath("HBoxContainer/ContextScreen/VBoxContainer/Lore")
+start_visible = true
 
 [node name="SubViewport" type="SubViewport" parent="."]
 own_world_3d = true

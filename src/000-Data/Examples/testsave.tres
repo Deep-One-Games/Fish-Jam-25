@@ -24,6 +24,9 @@ metadata/_custom_type_script = "uid://gak3ble014rj"
 [sub_resource type="Resource" id="Resource_w0etn"]
 script = ExtResource("2_3khmt")
 name = "TEST PLAYER"
+position = Vector3(0, 0, 0)
+rotation = Vector3(0, 0, 0)
+races_won = 0
 metadata/_custom_type_script = "uid://d3x7vtal6u5jc"
 
 [resource]

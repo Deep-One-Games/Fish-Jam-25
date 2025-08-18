@@ -24,6 +24,7 @@ layout_mode = 1
 
 [node name="Inventory" parent="." instance=ExtResource("3_rp5hd")]
 layout_mode = 1
+start_visible = false
 
 [node name="Interact" parent="." instance=ExtResource("4_i84qp")]
 layout_mode = 1

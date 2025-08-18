@@ -94,11 +94,6 @@ func reset_fish_prompt() -> void:
 		show_fish.visible = true
 
 func free_mouse() -> void:
-	if in_fishing_mode:
-		# stay in fishing mode: mouse visible, controller disabled
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		player.disable = true
-		return
 	player.disable = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bdcj2yb1gxlk" path="res://src/ui/scripts/options_ui.gd" id="1_1es2m"]
 [ext_resource type="AudioBusLayout" uid="uid://b0ciqypvtyv6d" path="res://library/resources/bus_layout.tres" id="2_kev30"]
 
-[node name="Options" type="Control" node_paths=PackedStringArray("close", "exit", "master", "music", "sfx", "toggle_fs")]
+[node name="Options" type="Control" node_paths=PackedStringArray("save_menu", "save_exit", "master", "music", "sfx", "toggle_fs")]
 z_index = 999
 layout_mode = 3
 anchors_preset = 8
@@ -15,8 +15,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1es2m")
 audioDriver = ExtResource("2_kev30")
-close = NodePath("PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Close")
-exit = NodePath("PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Exit")
+save_menu = NodePath("PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Save To Menu")
+save_exit = NodePath("PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Save To Exit")
 master = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Master_HSlider")
 music = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Music_HSlider")
 sfx = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/SFX_HSlider")
@@ -111,12 +111,12 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Close" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Save To Menu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Close"
+text = "Save & Menu"
 
-[node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Save To Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Save & Exit"

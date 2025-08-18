@@ -11,8 +11,10 @@ extends Control
 @export var item_name: Label
 @export var item_lore: Label
 
+@export var start_visible := false
+
 func _ready() -> void:
-	self.visible = false
+	self.visible = start_visible
 	for item_data in savefile.inventory:
 		var item: InventoryItem = item_display.instantiate()
 		item.item_tex = item_data.thumb

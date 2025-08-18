@@ -8,7 +8,7 @@
 
 [node name="Root" type="Node3D"]
 
-[node name="MainMenu" type="Control" parent="." node_paths=PackedStringArray("options", "credits", "btn_start", "btn_options", "btn_credits", "btn_exit")]
+[node name="MainMenu" type="Control" parent="." node_paths=PackedStringArray("options", "credits", "btn_new", "btn_continue", "btn_options", "btn_credits", "btn_exit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +18,8 @@ grow_vertical = 2
 script = ExtResource("1_w3pxu")
 options = NodePath("Options")
 credits = NodePath("Credits")
-btn_start = NodePath("Buttons/start")
+btn_new = NodePath("Buttons/start")
+btn_continue = NodePath("Buttons/continue")
 btn_options = NodePath("Buttons/options")
 btn_credits = NodePath("Buttons/credits")
 btn_exit = NodePath("Buttons/exit")
@@ -63,7 +64,12 @@ theme_override_constants/separation = 15
 [node name="start" type="Button" parent="MainMenu/Buttons"]
 layout_mode = 2
 theme = ExtResource("4_511x6")
-text = "Start Game"
+text = "New Game"
+
+[node name="continue" type="Button" parent="MainMenu/Buttons"]
+layout_mode = 2
+theme = ExtResource("4_511x6")
+text = "Continue"
 
 [node name="options" type="Button" parent="MainMenu/Buttons"]
 layout_mode = 2

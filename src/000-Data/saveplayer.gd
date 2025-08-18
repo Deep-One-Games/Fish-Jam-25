@@ -3,5 +3,8 @@ class_name SavePlayer extends Resource
 
 @export var name: String
 
-## Transform stores basis and origin of object relative to root
-var global_transform: Transform3D
+@export var position: Vector3
+@export var rotation: Vector3
+
+@export var races_won: int
+@export var opened_game_once: bool

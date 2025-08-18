@@ -5,8 +5,8 @@ signal on_options_close
 @export var audioDriver: AudioBusLayout
 
 @export_category("Control Buttons")
-@export var close: Button
-@export var exit: Button
+@export var save_menu: Button
+@export var save_exit: Button
 
 @export_group("Audio Sliders")
 @export var master: HSlider
@@ -24,8 +24,8 @@ func _ready() -> void:
 	
 	toggle_fs.toggled.connect(fs_toggle)
 	
-	close.pressed.connect(popup_close)
-	exit.pressed.connect(exit_game)
+	save_menu.pressed.connect(exit_menu.bind(true))
+	save_exit.pressed.connect(exit_game)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("options"): popup_close()
@@ -53,7 +53,16 @@ func fs_toggle(toggled_state: bool):
 	DisplayServer.window_set_size(Vector2i(1280, 720))
 
 func exit_game():
+	Storage.sf.playerd.opened_game_once = true
+	
+	Storage.save_process()
 	get_tree().quit()
+
+func exit_menu(save_too: bool):
+	Storage.sf.playerd.opened_game_once = true
+	if save_too: Storage.save_process()
+	popup_close()
+	SceneManager.switch(SceneManager.GameScene.main_menu)
 
 func popup_close():
 	on_options_close.emit()
