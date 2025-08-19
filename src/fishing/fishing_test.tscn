@@ -169,7 +169,7 @@ _data = {
 
 [node name="FishingMinigame" type="Node3D"]
 
-[node name="DEBUG" type="Control" parent="." node_paths=PackedStringArray("fsm", "state")]
+[node name="DEBUG" type="Control" parent="." node_paths=PackedStringArray("target", "fsm", "player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -177,27 +177,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_33dy4")
+target = NodePath("VBoxContainer")
 fsm = NodePath("../FSM")
-state = NodePath("VBoxContainer/HBoxContainer/State")
+player = NodePath("../Origin/Player")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DEBUG"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 0
+offset_right = 40.0
 offset_bottom = 40.0
-grow_horizontal = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="DEBUG/VBoxContainer"]
-layout_mode = 2
-
-[node name="Var" type="Label" parent="DEBUG/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "STATE:"
-
-[node name="State" type="Label" parent="DEBUG/VBoxContainer/HBoxContainer"]
-layout_mode = 2
 
 [node name="Origin" type="Node3D" parent="."]
 
@@ -217,7 +205,6 @@ transform = Transform3D(0.233334, 0, 0, 0, 0.220998, 0.0748639, 0, -0.0748639, 0
 
 [node name="Fishning_rod_Anim2" parent="Origin/Player/Camera3D" index="1" instance=ExtResource("3_xt171")]
 transform = Transform3D(1, 0, 0, 0, 0.845914, 0.533319, 0, -0.533319, 0.845914, 0.570945, -1.55296, 0.00787467)
-visible = false
 
 [node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_1lf7m")

@@ -1,9 +1,17 @@
 extends Control
 
+@export var target: Control
+
 @export var fsm: FSM
+@export var player: FPController
 
-@export_category("Controls")
-@export var state: Label
-
-func _process(delta: float) -> void:
-	state.text = fsm.current_state.state_id
+func _ready() -> void:
+	DebugMonitor.inject(target, fsm, [
+		"initial_state",
+		"current_state"])
+	
+	DebugMonitor.inject(target, player, [
+		"look_dir",
+		"disable_walking",
+		"disable_mouse",
+		"disable"])

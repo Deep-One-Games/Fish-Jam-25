@@ -16,8 +16,21 @@ shader_parameter/affine_mapping = 1.0
 [node name="Rod_Rig" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02431, 0)
 
+[node name="Skeleton3D" parent="Rod_Rig" index="0"]
+bones/0/position = Vector3(0.830968, -1.14728, -0.743225)
+bones/0/rotation = Quaternion(-0.355424, 0.000116679, -0.000309497, 0.934705)
+bones/1/rotation = Quaternion(-0.483449, -0.48345, -0.51602, 0.51602)
+bones/3/rotation = Quaternion(-0.00687199, -7.06175e-12, -1.34778e-11, 0.999976)
+bones/4/rotation = Quaternion(-0.0052381, -6.16615e-13, 6.569e-12, 0.999986)
+bones/5/rotation = Quaternion(-0.00633768, -1.19218e-07, 8.6461e-10, 0.99998)
+bones/6/rotation = Quaternion(-0.0167339, 1.87678e-13, 4.09015e-09, 0.99986)
+bones/7/rotation = Quaternion(-0.0259236, 4.04791e-12, 6.27592e-09, 0.999664)
+bones/8/rotation = Quaternion(-0.00523028, -1.79025e-11, 1.33963e-09, 0.999986)
+bones/9/rotation = Quaternion(-0.0114849, -9.15137e-12, 2.85061e-09, 0.999934)
+bones/10/rotation = Quaternion(0.000177838, 9.13296e-12, 6.14803e-11, 1)
+
 [node name="Reel" parent="Rod_Rig/Skeleton3D" index="0"]
-transform = Transform3D(1, -5.97311e-08, 3.3683e-08, 8.92173e-08, 1, -7.45058e-09, 6.54256e-08, 3.72529e-08, 1, 0.00955949, 0.57864, -0.123289)
+transform = Transform3D(1, 0.000495516, 0.000438157, -0.000661324, 0.747347, 0.664434, 1.87822e-06, -0.664434, 0.747347, 0.840877, -0.619347, -1.37756)
 
 [node name="Reel" parent="Rod_Rig/Skeleton3D/Reel" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_63t5d")
@@ -29,4 +42,4 @@ surface_material_override/0 = SubResource("ShaderMaterial_63t5d")
 surface_material_override/0 = SubResource("ShaderMaterial_63t5d")
 
 [node name="AnimationPlayer" parent="." index="1"]
-autoplay = "Idle"
+autoplay = "Rod_Throw"
