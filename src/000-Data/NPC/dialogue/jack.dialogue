@@ -1,0 +1,21 @@
+~ WALK
+Sandy Sardine: Hey there! You caught me on my little walk.
+Sandy Sardine: Here's some more dialogue
+Sandy Sardine: Here are some choices.
+- First one
+	Sandy Sardine: You picked the first one.
+- Second one
+	Sandy Sardine: You picked the second one.
+Sandy Sardine: For more information see the online documentation.
+=> END
+
+~ SITTING
+=> END
+
+~ CONVERSING
+Sandy Sardine: Hey There!! (Conversing)
+=> END
+
+~ IDLE
+Sandy Sardine: What u looking at scrub? For more information see the online documentation.
+=> END

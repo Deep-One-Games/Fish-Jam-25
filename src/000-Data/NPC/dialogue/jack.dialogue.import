@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bbbrn8cipcb3i"
+path="res://.godot/imported/jack.dialogue-d9d314d5844432e19745d69935117edf.tres"
+
+[deps]
+
+source_file="res://src/000-Data/NPC/dialogue/jack.dialogue"
+dest_files=["res://.godot/imported/jack.dialogue-d9d314d5844432e19745d69935117edf.tres"]
+
+[params]
+
+defaults=true
