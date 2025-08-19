@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcxyohctx2sch"]
+
+[ext_resource type="PackedScene" uid="uid://bl4j2pgha8a5u" path="res://src/maps/map_base.tscn" id="1_0b07p"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o31e2"]
+
+[sub_resource type="Sky" id="Sky_jfxqq"]
+sky_material = SubResource("ProceduralSkyMaterial_o31e2")
+
+[sub_resource type="Environment" id="Environment_ngxdi"]
+background_mode = 2
+sky = SubResource("Sky_jfxqq")
+ambient_light_color = Color(0.451692, 0.359096, 0.18486, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 4.46
+tonemap_mode = 3
+glow_enabled = true
+glow_bloom = 0.03
+fog_enabled = true
+fog_light_color = Color(0.434752, 0.453002, 0.272591, 1)
+fog_light_energy = 1.26
+fog_density = 0.0428
+fog_sky_affect = 0.247
+volumetric_fog_density = 0.2549
+adjustment_enabled = true
+adjustment_brightness = 1.34
+
+[node name="MapBaseNight" type="Node3D"]
+
+[node name="freeroam" parent="." instance=ExtResource("1_0b07p")]
+
+[node name="DirectionalLight3D" parent="freeroam/ENV" index="1"]
+light_color = Color(0.134091, 0.17757, 0.0251793, 1)
+light_energy = 3.338
+shadow_enabled = false
+
+[node name="WorldEnvironment" parent="freeroam/ENV" index="2"]
+environment = SubResource("Environment_ngxdi")
+
+[editable path="freeroam"]

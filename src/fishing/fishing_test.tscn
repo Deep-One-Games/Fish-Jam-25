@@ -1,12 +1,18 @@
-[gd_scene load_steps=12 format=4 uid="uid://1xopq2inxt2l"]
+[gd_scene load_steps=22 format=4 uid="uid://1xopq2inxt2l"]
 
 [ext_resource type="Script" uid="uid://c5en56ptkabt3" path="res://src/nodes/fsm.gd" id="1_1lf7m"]
+[ext_resource type="Script" uid="uid://ksfglxvrivso" path="res://src/fishing/scripts/debug.gd" id="1_33dy4"]
+[ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="2_lixjd"]
 [ext_resource type="Script" uid="uid://cevj3tq6mfnqu" path="res://src/fishing/scripts/fsm_select.gd" id="2_m5h01"]
+[ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="2_sspy6"]
 [ext_resource type="Script" uid="uid://cv5ien0tan8es" path="res://src/nodes/fsm_state.gd" id="3_jkjbs"]
+[ext_resource type="PackedScene" uid="uid://ckq2h4tf3tml7" path="res://src/ui/fishing_rod_item.tscn" id="3_phj5v"]
 [ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="3_x5vlk"]
+[ext_resource type="PackedScene" uid="uid://dpbgkoddye275" path="res://src/000-Data/Items/rod_a.tscn" id="3_xt171"]
 [ext_resource type="Texture2D" uid="uid://cipwq2mxjhqnh" path="res://library/models/textures/Material.001_Base_color.png" id="4_g2i1e"]
 [ext_resource type="Script" uid="uid://bljcsapxjhgw4" path="res://src/nodes/linear_rotate.gd" id="4_x5vlk"]
 [ext_resource type="Texture2D" uid="uid://b8v7xoryhpmda" path="res://library/models/textures/Material.001_Normal_OpenGL.png" id="5_x5vlk"]
+[ext_resource type="PackedScene" uid="uid://bl4j2pgha8a5u" path="res://src/maps/map_base.tscn" id="12_ab18c"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_jkjbs"]
 viewport_path = NodePath("FSM/SELECT/SELECT_C/SubViewport")
@@ -77,27 +83,160 @@ bind/9/name = &"Bone.008"
 bind/9/bone = -1
 bind/9/pose = Transform3D(1, 3.84168e-08, 2.35303e-07, 3.55271e-15, 0.986933, -0.161132, -2.38419e-07, 0.161132, 0.986933, -6.80449e-08, -2.8642, -0.285401)
 
-[node name="FishingTest" type="Node3D"]
+[sub_resource type="Animation" id="Animation_33dy4"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SELECT_C:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SELECT_C:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
-[node name="DEBUG" type="Control" parent="."]
+[sub_resource type="Animation" id="Animation_phj5v"]
+resource_name = "dropdown_rods"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SELECT_C:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SELECT_C:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-720, -0.25, 0, 0.566667, 5.935, 1.5, -0.366667, -49, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+
+[sub_resource type="Animation" id="Animation_sspy6"]
+resource_name = "dropup_rods"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SELECT_C:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SELECT_C:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.433333, -2.5, -720, -0.433333, 8.935, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_33dy4"]
+_data = {
+&"RESET": SubResource("Animation_33dy4"),
+&"dropdown_rods": SubResource("Animation_phj5v"),
+&"dropup_rods": SubResource("Animation_sspy6")
+}
+
+[node name="FishingMinigame" type="Node3D"]
+
+[node name="DEBUG" type="Control" parent="." node_paths=PackedStringArray("fsm", "state")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_33dy4")
+fsm = NodePath("../FSM")
+state = NodePath("VBoxContainer/HBoxContainer/State")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="DEBUG"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DEBUG/VBoxContainer"]
+layout_mode = 2
+
+[node name="Var" type="Label" parent="DEBUG/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "STATE:"
+
+[node name="State" type="Label" parent="DEBUG/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Origin" type="Node3D" parent="."]
+
+[node name="PlayerUI" parent="Origin" node_paths=PackedStringArray("player") instance=ExtResource("2_lixjd")]
+player = NodePath("../Player")
+
+[node name="Player" parent="Origin" instance=ExtResource("2_sspy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.962666, 1.36179, -3.58209)
+disable_walking = true
+skip_savefile = true
+
+[node name="Camera3D" parent="Origin/Player" index="1"]
+cull_mask = 1048573
+
+[node name="Fishning_rod_Anim" parent="Origin/Player/Camera3D" index="0" instance=ExtResource("3_xt171")]
+transform = Transform3D(0.233334, 0, 0, 0, 0.220998, 0.0748639, 0, -0.0748639, 0.220998, 0.0680611, -0.119333, 0.0963922)
+
+[node name="Fishning_rod_Anim2" parent="Origin/Player/Camera3D" index="1" instance=ExtResource("3_xt171")]
+transform = Transform3D(1, 0, 0, 0, 0.845914, 0.533319, 0, -0.533319, 0.845914, 0.570945, -1.55296, 0.00787467)
+visible = false
 
 [node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_1lf7m")
 initial_state = NodePath("SELECT")
 metadata/_custom_type_script = "uid://c5en56ptkabt3"
 
-[node name="SELECT" type="Node" parent="FSM" node_paths=PackedStringArray("select_control", "item")]
+[node name="SELECT" type="Node" parent="FSM" node_paths=PackedStringArray("FSM_Owner", "controller", "select_control", "item", "item_title", "item_desc", "rod_list_target", "inventory_btn", "accept_btn", "animation_player")]
 script = ExtResource("2_m5h01")
+FSM_Owner = NodePath("..")
+controller = NodePath("../../Origin/Player")
 select_control = NodePath("SELECT_C")
 item = NodePath("SELECT_C/SubViewport/RotPoint/Item")
+item_title = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/L_ItemTitle")
+item_desc = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/L_ItemDesc")
+rod_list_target = NodePath("SELECT_C/VBoxContainer/HBoxContainer/SelectMenu/RodTarget")
+item_ui = ExtResource("3_phj5v")
+inventory_btn = NodePath("../OpenInventory")
+accept_btn = NodePath("SELECT_C/VBoxContainer/HBoxContainer/SelectMenu/B_Continue")
+animation_player = NodePath("AnimationPlayer")
 state_id = "SELECT"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
 
@@ -111,17 +250,18 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="FSM/SELECT/SELECT_C"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -214.0
-offset_top = -158.5
+offset_top = 74.0
 offset_right = 214.0
-offset_bottom = 158.5
+offset_bottom = 418.0
 grow_horizontal = 2
-grow_vertical = 2
+
+[node name="L_Help" type="Label" parent="FSM/SELECT/SELECT_C/VBoxContainer"]
+layout_mode = 2
+text = "Select the Fishing Rod you will like to use."
 
 [node name="HBoxContainer" type="HBoxContainer" parent="FSM/SELECT/SELECT_C/VBoxContainer"]
 layout_mode = 2
@@ -129,22 +269,8 @@ layout_mode = 2
 [node name="SelectMenu" type="VBoxContainer" parent="FSM/SELECT/SELECT_C/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Panel" type="PanelContainer" parent="FSM/SELECT/SELECT_C/VBoxContainer/HBoxContainer/SelectMenu"]
+[node name="RodTarget" type="VBoxContainer" parent="FSM/SELECT/SELECT_C/VBoxContainer/HBoxContainer/SelectMenu"]
 layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="FSM/SELECT/SELECT_C/VBoxContainer/HBoxContainer/SelectMenu/Panel"]
-layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 5
-
-[node name="Label" type="Label" parent="FSM/SELECT/SELECT_C/VBoxContainer/HBoxContainer/SelectMenu/Panel/MarginContainer"]
-layout_mode = 2
-theme = ExtResource("3_x5vlk")
-theme_type_variation = &"HeaderMedium"
-text = "ROD A"
-horizontal_alignment = 1
 
 [node name="B_Continue" type="Button" parent="FSM/SELECT/SELECT_C/VBoxContainer/HBoxContainer/SelectMenu"]
 layout_mode = 2
@@ -170,15 +296,14 @@ text = "TITLE"
 horizontal_alignment = 1
 
 [node name="L_ItemDesc" type="Label" parent="FSM/SELECT/SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme = ExtResource("3_x5vlk")
 text = "Lorem ipsum dolor sit amet"
-
-[node name="L_Help" type="Label" parent="FSM/SELECT/SELECT_C/VBoxContainer"]
-layout_mode = 2
-text = "Select the Fishing Rod you will like to use."
+autowrap_mode = 3
 
 [node name="SubViewport" type="SubViewport" parent="FSM/SELECT/SELECT_C"]
+own_world_3d = true
 transparent_bg = true
 size = Vector2i(250, 250)
 
@@ -212,6 +337,12 @@ metadata/extras = {
 "ant_landscape": {}
 }
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FSM/SELECT"]
+libraries = {
+&"": SubResource("AnimationLibrary_33dy4")
+}
+autoplay = "dropdown_rods"
+
 [node name="FISHING" type="Node" parent="FSM"]
 script = ExtResource("3_jkjbs")
 state_id = "FISHING"
@@ -226,3 +357,21 @@ metadata/_custom_type_script = "uid://cv5ien0tan8es"
 script = ExtResource("3_jkjbs")
 state_id = "REELING"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="OpenInventory" type="Button" parent="FSM"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -44.0
+offset_right = 101.0
+offset_bottom = -13.0
+grow_vertical = 0
+theme = ExtResource("3_x5vlk")
+disabled = true
+text = "Open Inventory"
+
+[node name="map_base_day" parent="." instance=ExtResource("12_ab18c")]
+
+[editable path="Origin/Player"]
+[editable path="map_base_day"]

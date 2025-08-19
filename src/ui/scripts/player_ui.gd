@@ -16,7 +16,6 @@ var fishing_area: Area3D
 var interacting_with: InteractableArea
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	options.on_options_close.connect(free_mouse)
 	DialogueManager.dialogue_ended.connect(func x(y): free_mouse())
 	player.interact_box.area_entered.connect(_on_area_entered)

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckq2h4tf3tml7"]
+
+[ext_resource type="Script" uid="uid://doekr0a4pyps2" path="res://src/ui/scripts/fishing_rod_item_ui.gd" id="1_4mblf"]
+[ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="1_w31sk"]
+
+[node name="Panel" type="PanelContainer" node_paths=PackedStringArray("select_item")]
+script = ExtResource("1_4mblf")
+select_item = NodePath("Button")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("1_w31sk")
+theme_override_font_sizes/font_size = 31
+text = "ROD A"
+alignment = 0

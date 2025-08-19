@@ -43,8 +43,10 @@ script = ExtResource("1_rr73h")
 max_cast_distance_m = 5.0
 rig = ExtResource("1_ho6k1")
 ref_id = "rod_a"
-name = "Tutorial Rod"
-desc = "A sturdy wooden rod. Warn down over the years. It's pores exposed from the moisture in the air."
+name = "Simple Rod"
+desc = "Range: 5 meters
+
+A sturdy wooden rod. Warn down over the years. It's pores exposed from the moisture in the air."
 lore = ""
 thumb = ExtResource("2_ioioa")
 mesh = SubResource("ArrayMesh_phj5v")

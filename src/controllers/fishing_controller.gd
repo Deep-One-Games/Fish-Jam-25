@@ -16,45 +16,8 @@ var stored_acceleration: float
 
 var has_cast: bool = false
 
-func enter_fishing_mode() -> void:
-	# grab your FPS controller and *enable* it so it still processes look,
-	# but zero out movement speed so you can’t walk.
-	fps_controller = get_node(player_path) as FPController
-	stored_speed = fps_controller.speed
-	stored_acceleration = fps_controller.acceleration
-	fps_controller.speed = 0
-	fps_controller.acceleration = 0
-
-	# signal PlayerUI
-	var ui = get_node(player_ui_path)
-	ui.in_fishing_mode = true
-
-	# spawn overlay UI
-	fishing_ui = ui_scene.instantiate() as Control
-	get_tree().current_scene.add_child(fishing_ui)
-	fishing_ui.connect("exit_fishing", Callable(self, "_on_exit_fishing"))
-
-	# spawn the rod under the camera
-	var cam = fps_controller.camera
-	rod_instance = rod_scene.instantiate() as Node3D
-	cam.add_child(rod_instance)
-	var t = Transform3D()
-	t.basis = Basis().rotated(Vector3(1,0,0), deg_to_rad(-30))
-	t.origin = Vector3(0.3, -0.2, -0.5)
-	rod_instance.transform = t
-
-	# prepare for casting
-	has_cast = false
-	set_process_input(true)
-
-func _input(event: InputEvent) -> void:
-	# only while fishing and before casting
-	if not fishing_ui or has_cast:
-		return
-	if event is InputEventMouseButton \
-	and event.button_index == MOUSE_BUTTON_LEFT \
-	and event.pressed:
-		_cast_bobber()
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("cast"): _cast_bobber()
 
 func _cast_bobber() -> void:
 	has_cast = true
@@ -79,24 +42,3 @@ func _cast_bobber() -> void:
 	var arc_up = Vector3.UP * 2.0
 	
 	bobber_instance.linear_velocity = forward * 12.0 + arc_up
-
-func _on_exit_fishing() -> void:
-	# remove UI & rod
-	fishing_ui.queue_free()
-	rod_instance.queue_free()
-
-	# free the bobber if it still exists
-	if bobber_instance and bobber_instance.is_inside_tree():
-		bobber_instance.queue_free()
-
-	# restore FPS movement
-	fps_controller.speed = stored_speed
-	fps_controller.acceleration = stored_acceleration
-
-	# clear UI state
-	var ui = get_node(player_ui_path)
-	ui.in_fishing_mode = false
-	ui.reset_fish_prompt()
-
-	# stop listening for input
-	set_process_input(false)

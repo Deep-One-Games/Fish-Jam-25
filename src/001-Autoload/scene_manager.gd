@@ -12,7 +12,7 @@ enum GameScene {
 ## Define paths to scenes from [member SceneManager.GameScene] enum
 var SceneInstances := {
 	GameScene.main_menu: preload("res://src/ui/menu.tscn"),
-	GameScene.freeroam: preload("res://src/scenes/freeroam.tscn"),
+	GameScene.freeroam: preload("res://src/scenes/freeroam_night.tscn"),
 	GameScene.racing: preload("res://src/scenes/racing.tscn"),
 	GameScene.fishing: preload("res://src/scenes/fishing.tscn"),
 }

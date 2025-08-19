@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://tbg70wxm4qxj"]
+
+[ext_resource type="PackedScene" uid="uid://dcxyohctx2sch" path="res://src/maps/map_base_night.tscn" id="1_s0yj7"]
+[ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="2_jfxqq"]
+[ext_resource type="Script" uid="uid://dv1a6kje117xv" path="res://src/controllers/fishing_controller.gd" id="3_s7xdc"]
+[ext_resource type="PackedScene" uid="uid://ct6q5gb8nrrvn" path="res://src/fishing/old/bobber.tscn" id="4_32y1t"]
+[ext_resource type="PackedScene" uid="uid://bvrd3xrkoioir" path="res://src/scenes/fishing.tscn" id="5_s0yj7"]
+[ext_resource type="PackedScene" uid="uid://6wuj2udnwtqk" path="res://src/fishing/old/fishing_rod.tscn" id="6_h6adn"]
+[ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="7_msvn0"]
+[ext_resource type="ArrayMesh" uid="uid://wka7osdxnoh8" path="res://library/models/Trees/Mesh/Dark_Tree_1.res" id="8_s0yj7"]
+[ext_resource type="ArrayMesh" uid="uid://cqykelgo63pml" path="res://library/models/Trees/Mesh/Light_Tree_1.res" id="9_h6adn"]
+[ext_resource type="ArrayMesh" uid="uid://bc2bkot8qwua" path="res://library/models/Trees/Mesh/Light_Tree_2.res" id="10_msvn0"]
+[ext_resource type="ArrayMesh" uid="uid://brhwhvonkv21e" path="res://library/models/Trees/Mesh/Light_Tree_3.res" id="11_yer7s"]
+
+[node name="FreeroamNight" type="Node3D"]
+
+[node name="MapBaseNight" parent="." instance=ExtResource("1_s0yj7")]
+
+[node name="Origin" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.8411, 0, -63.5398)
+
+[node name="Player" parent="Origin" instance=ExtResource("2_jfxqq")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.962822, 14.2317, -3.7379)
+collision_mask = 9
+
+[node name="FishingController" type="Node" parent="Origin/Player"]
+script = ExtResource("3_s7xdc")
+bobber_scene = ExtResource("4_32y1t")
+player_path = NodePath("..")
+player_ui_path = NodePath("../../PlayerUI")
+ui_scene = ExtResource("5_s0yj7")
+rod_scene = ExtResource("6_h6adn")
+
+[node name="PlayerUI" parent="Origin" node_paths=PackedStringArray("player") instance=ExtResource("7_msvn0")]
+player = NodePath("../Player")
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.546, 11.0331, -42.996)
+light_color = Color(1, 0.413333, 0.12, 1)
+light_energy = 3.973
+shadow_enabled = true
+distance_fade_begin = 12.32
+distance_fade_shadow = 0.0
+omni_range = 20.1903
+omni_attenuation = 1.338
+
+[node name="DarkTree1" type="MeshInstance3D" parent="Lighting"]
+transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -53.5934, 6.31422, -35.2012)
+mesh = ExtResource("8_s0yj7")
+
+[node name="DarkTree2" type="MeshInstance3D" parent="Lighting"]
+transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -64.9977, 6.29327, -40.0423)
+mesh = ExtResource("8_s0yj7")
+
+[node name="LightTree1" type="MeshInstance3D" parent="Lighting"]
+transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -49.888, 6.38778, -44.161)
+mesh = ExtResource("9_h6adn")
+
+[node name="LightTree2" type="MeshInstance3D" parent="Lighting"]
+transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -56.9605, 6.12768, -43.0038)
+mesh = ExtResource("10_msvn0")
+
+[node name="LightTree3" type="MeshInstance3D" parent="Lighting"]
+transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -76.3989, 6.99792, -40.7954)
+mesh = ExtResource("11_yer7s")
+
+[node name="LightTree4" type="MeshInstance3D" parent="Lighting"]
+transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -61.584, 6.3136, -47.9512)
+mesh = ExtResource("11_yer7s")
+
+[node name="LightTree5" type="MeshInstance3D" parent="Lighting"]
+transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -72.5522, 6.54179, -52.3147)
+mesh = ExtResource("11_yer7s")

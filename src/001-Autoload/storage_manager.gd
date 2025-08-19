@@ -4,6 +4,8 @@ extends Node
 ## The save file being managed by the game
 var sf: SaveFile
 
+var disable_saving := true
+
 ## Variable to check if this is the first time playing the game or if this is
 ## a returning player
 var runtime_is_new := false
@@ -12,6 +14,10 @@ var SAVE_PATH := "user://save.tres"
 var DEF_PATH  := "res://defaultsave.tres"
 
 func _ready() -> void:
+	if disable_saving:
+		sf = ResourceLoader.load(DEF_PATH)
+		return
+	
 	if FileAccess.file_exists(SAVE_PATH):
 		sf = ResourceLoader.load(SAVE_PATH)
 		return

@@ -22,27 +22,32 @@ var grav_vel: Vector3 ## Gravity velocity
 var jump_vel: Vector3 ## Jumping velocity
 
 var disable := false
+@export var disable_walking := false
+@export var disable_mouse := false
+@export var skip_savefile := false
 
 @export_category("Node Declares")
 @export var camera: Camera3D
 @export var interact_box: Area3D
 
 func _ready() -> void:
-	#Read the position and rotation from the save file on the map
-	self.global_position   = Storage.sf.playerd.position
-	camera.global_rotation = Storage.sf.playerd.rotation
+	if not skip_savefile:
+		#Read the position and rotation from the save file on the map
+		self.global_position   = Storage.sf.playerd.position
+		camera.global_rotation = Storage.sf.playerd.rotation
 
 func _input(event: InputEvent) -> void:
 	if disable: return
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and not disable_mouse:
 		look_dir = event.relative * 0.001
 		_rotate_camera()
 
 func _physics_process(delta: float) -> void:
 	if disable: return
-	_handle_joypad_camera_rotation(delta)
-	velocity = _walk(delta) + _gravity(delta)
-	move_and_slide()
+	if not disable_mouse: _handle_joypad_camera_rotation(delta)
+	if not disable_walking: 
+		velocity = _walk(delta) + _gravity(delta)
+		move_and_slide()
 	
 	Storage.sf.playerd.position = self.global_position
 

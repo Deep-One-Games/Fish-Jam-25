@@ -265,7 +265,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-1680.93, -368.518)
 varyings/red = "0,5"
 varyings/green = "0,5"
 varyings/blue = "0,5"
