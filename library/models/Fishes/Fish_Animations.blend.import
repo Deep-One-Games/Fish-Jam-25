@@ -32,7 +32,22 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Carp": {
+"use_external/enabled": true,
+"use_external/path": "res://library/models/Fishes/mats/Carp.tres"
+},
+"Nalim": {
+"use_external/enabled": true,
+"use_external/path": "res://library/models/Fishes/mats/Nalim.tres"
+},
+"Pike": {
+"use_external/enabled": true,
+"use_external/path": "res://library/models/Fishes/mats/Pike.tres"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

@@ -30,7 +30,7 @@ bones/9/rotation = Quaternion(-0.0114849, -9.15137e-12, 2.85061e-09, 0.999934)
 bones/10/rotation = Quaternion(0.000177838, 9.13296e-12, 6.14803e-11, 1)
 
 [node name="Reel" parent="Rod_Rig/Skeleton3D" index="0"]
-transform = Transform3D(1, 0.000495516, 0.000438157, -0.000661324, 0.747347, 0.664434, 1.87822e-06, -0.664434, 0.747347, 0.840877, -0.619347, -1.37756)
+transform = Transform3D(1, 0.000494568, 0.000437139, -0.000660061, 0.747347, 0.664433, 1.9531e-06, -0.664433, 0.747348, 0.840878, -0.619343, -1.37756)
 
 [node name="Reel" parent="Rod_Rig/Skeleton3D/Reel" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_63t5d")

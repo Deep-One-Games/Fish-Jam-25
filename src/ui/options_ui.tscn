@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpn0ecxui5ep8"]
+[gd_scene load_steps=4 format=3 uid="uid://dpn0ecxui5ep8"]
 
 [ext_resource type="Script" uid="uid://bdcj2yb1gxlk" path="res://src/ui/scripts/options_ui.gd" id="1_1es2m"]
+[ext_resource type="Theme" uid="uid://d3xpj2jcaq3xd" path="res://library/themes/purplexed/theme.tres" id="1_mnmwk"]
 [ext_resource type="AudioBusLayout" uid="uid://b0ciqypvtyv6d" path="res://library/resources/bus_layout.tres" id="2_kev30"]
 
 [node name="Options" type="Control" node_paths=PackedStringArray("save_menu", "save_exit", "master", "music", "sfx", "toggle_fs")]
@@ -13,6 +14,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_mnmwk")
 script = ExtResource("1_1es2m")
 audioDriver = ExtResource("2_kev30")
 save_menu = NodePath("PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Save To Menu")

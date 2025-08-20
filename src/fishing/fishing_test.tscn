@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://1xopq2inxt2l"]
+[gd_scene load_steps=23 format=4 uid="uid://1xopq2inxt2l"]
 
 [ext_resource type="Script" uid="uid://c5en56ptkabt3" path="res://src/nodes/fsm.gd" id="1_1lf7m"]
 [ext_resource type="Script" uid="uid://ksfglxvrivso" path="res://src/fishing/scripts/debug.gd" id="1_33dy4"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bljcsapxjhgw4" path="res://src/nodes/linear_rotate.gd" id="4_x5vlk"]
 [ext_resource type="Texture2D" uid="uid://b8v7xoryhpmda" path="res://library/models/textures/Material.001_Normal_OpenGL.png" id="5_x5vlk"]
 [ext_resource type="PackedScene" uid="uid://bl4j2pgha8a5u" path="res://src/maps/map_base.tscn" id="12_ab18c"]
+[ext_resource type="PackedScene" uid="uid://cyu7hu6d673dj" path="res://src/fish/carp_base.tscn" id="14_pan0v"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_jkjbs"]
 viewport_path = NodePath("FSM/SELECT/SELECT_C/SubViewport")
@@ -195,7 +196,6 @@ player = NodePath("../Player")
 [node name="Player" parent="Origin" instance=ExtResource("2_sspy6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.962666, 1.36179, -3.58209)
 disable_walking = true
-skip_savefile = true
 
 [node name="Camera3D" parent="Origin/Player" index="1"]
 cull_mask = 1048573
@@ -359,6 +359,9 @@ disabled = true
 text = "Open Inventory"
 
 [node name="map_base_day" parent="." instance=ExtResource("12_ab18c")]
+
+[node name="CarpBase" parent="." instance=ExtResource("14_pan0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92405, 2.87775, -3.73736)
 
 [editable path="Origin/Player"]
 [editable path="map_base_day"]

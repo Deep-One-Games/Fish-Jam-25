@@ -4,7 +4,7 @@ extends Node
 ## The save file being managed by the game
 var sf: SaveFile
 
-var disable_saving := true
+var disable_saving := false 
 
 ## Variable to check if this is the first time playing the game or if this is
 ## a returning player
@@ -15,7 +15,7 @@ var DEF_PATH  := "res://defaultsave.tres"
 
 func _ready() -> void:
 	if disable_saving:
-		sf = ResourceLoader.load(DEF_PATH)
+		sf = copy_empty_save()
 		return
 	
 	if FileAccess.file_exists(SAVE_PATH):
@@ -25,9 +25,11 @@ func _ready() -> void:
 	# If save file not found, we do a new game
 	reset_save()
 
+func copy_empty_save(): return ResourceLoader.load(DEF_PATH).duplicate(true)
+
 func reset_save():
 	runtime_is_new = true
-	sf = ResourceLoader.load(DEF_PATH)
+	sf = copy_empty_save()
 	ResourceSaver.save(sf, SAVE_PATH)
 	
 func save_process() -> void: 

@@ -22,6 +22,9 @@ var grav_vel: Vector3 ## Gravity velocity
 var jump_vel: Vector3 ## Jumping velocity
 
 var disable := false
+
+@export_category("On Ready Options")
+@export var capture_mouse := false
 @export var disable_walking := false
 @export var disable_mouse := false
 @export var skip_savefile := false
@@ -35,6 +38,9 @@ func _ready() -> void:
 		#Read the position and rotation from the save file on the map
 		self.global_position   = Storage.sf.playerd.position
 		camera.global_rotation = Storage.sf.playerd.rotation
+	
+	if capture_mouse:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event: InputEvent) -> void:
 	if disable: return
