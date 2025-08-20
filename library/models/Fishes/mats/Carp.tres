@@ -1,6 +1,6 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cfgy08pu40gm4"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cwwfxwjxmem0o"]
 
-[ext_resource type="Texture2D" uid="uid://bd7anfo355lt8" path="res://library/models/Fishes/textures/Carp_Texture.png" id="1_h3isw"]
+[ext_resource type="Texture2D" uid="uid://brisjbvy6pp7i" path="res://library/models/Fishes/textures/Carp_Texture.png" id="1_h3isw"]
 
 [resource]
 resource_name = "Carp"

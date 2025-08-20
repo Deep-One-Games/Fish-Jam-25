@@ -2,12 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd7anfo355lt8"
+uid="uid://brisjbvy6pp7i"
 path.s3tc="res://.godot/imported/Carp_Texture.png-6de26e7144326065d47602d5f605ca90.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 

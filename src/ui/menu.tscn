@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdsex8i171oiq"]
+[gd_scene load_steps=8 format=3 uid="uid://cdsex8i171oiq"]
 
-[ext_resource type="Theme" uid="uid://d3xpj2jcaq3xd" path="res://library/themes/purplexed/theme.tres" id="1_7rifs"]
 [ext_resource type="Script" uid="uid://cl8i7aptmhiwn" path="res://src/ui/scripts/menu_ui.gd" id="1_w3pxu"]
 [ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="2_r1qqu"]
 [ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="4_511x6"]
@@ -23,7 +22,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_7rifs")
 script = ExtResource("1_w3pxu")
 options = NodePath("Options")
 credits = NodePath("Credits")

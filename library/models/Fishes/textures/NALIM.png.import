@@ -2,12 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4g8a7l26smnm"
+uid="uid://dhm83mw08yhmd"
 path.s3tc="res://.godot/imported/NALIM.png-49648045d817e59daae972a0e849378d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 

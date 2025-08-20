@@ -1,10 +1,12 @@
 shader_type spatial;
-render_mode world_vertex_coords, specular_disabled, vertex_lighting;
+render_mode world_vertex_coords, specular_disabled, vertex_lighting, cull_disabled;
 
 global uniform vec2 resolution;
 uniform sampler2D color_texture: source_color, filter_nearest;
 uniform float vertex_wobble: hint_range(0.0, 1.0, 0.01) = 1.0;
 uniform float affine_mapping: hint_range(0.0, 1.0, 0.01) = 1.0;
+uniform float alpha_cutoff: hint_range(0.0, 1.0, 0.01) = 0.5; // 👈 adjustable threshold
+
 varying vec2 original_uv;
 
 void vertex() {
@@ -19,5 +21,12 @@ void vertex() {
 
 void fragment() {
 	vec2 uv = mix(original_uv, UV / VERTEX.z, affine_mapping);
-	ALBEDO = texture(color_texture, uv).rgb;
+	vec4 tex = texture(color_texture, uv);
+
+	// alpha scissor: discard fragment if below threshold
+	if (tex.a < alpha_cutoff) {
+		discard;
+	}
+
+	ALBEDO = tex.rgb;
 }

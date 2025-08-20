@@ -1,0 +1,26 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://lyxy8vsafa4b"]
+
+[ext_resource type="Texture2D" uid="uid://0umsqm6f4av2" path="res://library/models/Trees/Mesh/textures/Tree_Atlas_1.png" id="1_xenkd"]
+[ext_resource type="Shader" uid="uid://dp6wyhvyfrd48" path="res://library/resources/ps1_shadeobj.gdshader" id="2_crb3l"]
+[ext_resource type="Texture2D" uid="uid://dyhsbmikyk2t3" path="res://library/models/Trees/Textures/Tree_Atlas_1.png" id="3_n70dx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gl673"]
+render_priority = 0
+shader = ExtResource("2_crb3l")
+shader_parameter/color_texture = ExtResource("3_n70dx")
+shader_parameter/vertex_wobble = 1.0
+shader_parameter/affine_mapping = 1.0
+shader_parameter/alpha_cutoff = 0.5
+
+[resource]
+resource_name = "Trees_1"
+next_pass = SubResource("ShaderMaterial_gl673")
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_xenkd")
+texture_filter = 2
+metadata/extras = {
+"mmd_material": {}
+}

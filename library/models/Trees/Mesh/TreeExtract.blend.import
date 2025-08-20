@@ -33,6 +33,16 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
+"materials": {
+"Trees_1": {
+"use_external/enabled": true,
+"use_external/path": "res://library/models/Trees/Mesh/mats/Trees_1.tres"
+},
+"Trees_2": {
+"use_external/enabled": true,
+"use_external/path": "res://library/models/Trees/Mesh/mats/Trees_2.tres"
+}
+},
 "meshes": {
 "TreeExtract_Bush1_001": {
 "generate/lightmap_uv": 0,
