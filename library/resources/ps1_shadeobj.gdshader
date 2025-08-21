@@ -5,7 +5,7 @@ global uniform vec2 resolution;
 uniform sampler2D color_texture: source_color, filter_nearest;
 uniform float vertex_wobble: hint_range(0.0, 1.0, 0.01) = 1.0;
 uniform float affine_mapping: hint_range(0.0, 1.0, 0.01) = 1.0;
-uniform float alpha_cutoff: hint_range(0.0, 1.0, 0.01) = 0.5; // 👈 adjustable threshold
+uniform float alpha_cutoff: hint_range(0.0, 1.0, 0.01) = 0.5;
 
 varying vec2 original_uv;
 

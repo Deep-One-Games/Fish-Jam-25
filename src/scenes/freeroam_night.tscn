@@ -48,135 +48,71 @@ player = NodePath("../Player")
 [node name="Lighting" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.546, 11.0331, -42.996)
-light_color = Color(1, 0.413333, 0.12, 1)
-light_energy = 3.973
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.4373, 7.8412, -54.5795)
+light_color = Color(0.11493, 0.442008, 0.711324, 1)
+light_energy = 10.42
 shadow_enabled = true
 distance_fade_begin = 12.32
 distance_fade_shadow = 0.0
-omni_range = 20.1903
-omni_attenuation = 1.338
-
-[node name="DarkTree1" type="MeshInstance3D" parent="Lighting"]
-transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -53.5934, 6.31422, -35.2012)
-mesh = ExtResource("8_s0yj7")
-
-[node name="DarkTree2" type="MeshInstance3D" parent="Lighting"]
-transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -64.9977, 6.29327, -40.0423)
-mesh = ExtResource("8_s0yj7")
-
-[node name="LightTree1" type="MeshInstance3D" parent="Lighting"]
-transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -49.888, 6.38778, -44.161)
-mesh = ExtResource("9_h6adn")
-
-[node name="LightTree2" type="MeshInstance3D" parent="Lighting"]
-transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -56.9605, 6.12768, -43.0038)
-mesh = ExtResource("10_msvn0")
-
-[node name="LightTree3" type="MeshInstance3D" parent="Lighting"]
-transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -76.3989, 6.99792, -40.7954)
-mesh = ExtResource("11_yer7s")
-
-[node name="LightTree4" type="MeshInstance3D" parent="Lighting"]
-transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -61.584, 6.3136, -47.9512)
-mesh = ExtResource("11_yer7s")
-
-[node name="LightTree5" type="MeshInstance3D" parent="Lighting"]
-transform = Transform3D(2.55373, 0, 0, 0, 2.55373, 0, 0, 0, 2.55373, -72.5522, 6.54179, -52.3147)
-mesh = ExtResource("11_yer7s")
-
-[node name="SpotLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9136, 1.6954, 2.4672)
-light_energy = 13.952
-
-[node name="SpotLight3D" type="OmniLight3D" parent="SpotLight3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43632, -1.83254, 2.4672)
-light_energy = 13.952
-
-[node name="SpotLight3D2" type="OmniLight3D" parent="SpotLight3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79678, -0.750116, -1.01967)
-light_energy = 13.952
-
-[node name="SpotLight3D" type="OmniLight3D" parent="SpotLight3D/SpotLight3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43632, -1.83254, 2.4672)
-light_energy = 13.952
-
-[node name="Fir" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.1271, 7.15769, -55.0441)
-mesh = ExtResource("12_h6adn")
-
-[node name="DarkTree1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3789, 7.17677, -53.6653)
-mesh = ExtResource("8_s0yj7")
-
-[node name="DarkTree2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.7346, 7.28581, -54.7712)
-mesh = ExtResource("8_s0yj7")
-
-[node name="DarkTree3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.1637, 7.23714, -52.888)
-mesh = ExtResource("13_msvn0")
-
-[node name="LightTree3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.8614, 7.2101, -54.1248)
-mesh = ExtResource("11_yer7s")
-
-[node name="SmallTree" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.1516, 7.03324, -53.8415)
-mesh = ExtResource("14_yer7s")
+omni_range = 11.8496
+omni_attenuation = 0.331
 
 [node name="Bush1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.7415, 4.25574, -13.2478)
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -46.9036, 5.44123, -48.4027)
 mesh = ExtResource("15_u36oj")
 
 [node name="Bush2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.8705, 4.14685, -12.9566)
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -46.8122, 6.01244, -53.4414)
 mesh = ExtResource("16_2u8uq")
 
 [node name="Bush3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.1006, 3.76595, -12.4536)
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -47.1129, 8.53313, -57.3743)
 mesh = ExtResource("17_ehran")
 
-[node name="DarkTree4" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.6442, 3.77899, -12.2524)
+[node name="DarkTree1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -54.1375, 6.06685, -47.9995)
 mesh = ExtResource("8_s0yj7")
 
-[node name="DarkTree5" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.146, 3.88819, -12.5473)
+[node name="DarkTree2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -58.5216, 8.04136, -58.6239)
 mesh = ExtResource("13_msvn0")
 
-[node name="Fir2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.2952, 4.0138, -11.9174)
+[node name="Fir" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -63.5815, 6.00921, -44.6667)
 mesh = ExtResource("12_h6adn")
 
 [node name="Grass" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.1306, 4.43836, -14.9227)
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -52.9758, 6.96526, -55.8233)
 mesh = ExtResource("18_dgoej")
 
 [node name="LightTree1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.7015, 4.22154, -15.0995)
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -65.397, 9.21128, -65.2327)
 mesh = ExtResource("9_h6adn")
 
 [node name="LightTree2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.3791, 4.12917, -15.1048)
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -74.1484, 7.10033, -48.2343)
 mesh = ExtResource("10_msvn0")
 
-[node name="LightTree4" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.839, 4.25725, -15.17)
+[node name="LightTree3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -59.1133, 8.82684, -62.5309)
 mesh = ExtResource("11_yer7s")
 
 [node name="Lily1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.8138, 4.36849, -16.5081)
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -75.5, 7.28847, -51.9525)
 mesh = ExtResource("19_iahvg")
 
 [node name="Reeds" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.5929, 4.44967, -16.9909)
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -51.255, 7.1507, -59.9743)
 mesh = ExtResource("20_ir1im")
 
 [node name="Lily2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.7074, 4.58829, -17.688)
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -44.1217, 6.71746, -57.3923)
 mesh = ExtResource("21_45b0u")
 
-[node name="SmallTree2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.337, 4.3201, -17.1296)
+[node name="Lily3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -48.9202, 6.01873, -53.9536)
+mesh = ExtResource("19_iahvg")
+
+[node name="SmallTree" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -61.0522, 6.37379, -49.5546)
 mesh = ExtResource("14_yer7s")

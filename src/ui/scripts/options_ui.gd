@@ -50,7 +50,10 @@ func fs_toggle(toggled_state: bool):
 	
 	DisplayServer.window_set_mode(
 		DisplayServer.WINDOW_MODE_WINDOWED)
+	DisplayServer.window_move_to_foreground()
+	await get_tree().process_frame # Wait one frame for hack
 	DisplayServer.window_set_size(Vector2i(1280, 720))
+
 
 func exit_game():
 	Storage.sf.playerd.opened_game_once = true

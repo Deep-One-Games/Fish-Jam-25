@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c1jkjfgp2o0b2"
-path="res://.godot/imported/Atlas_1.blend-0667cf04f1a8e948332029e19178a2e5.scn"
+path="res://.godot/imported/village.blend-bd97af75a94f402e38219d517c142b4f.scn"
 
 [deps]
 
-source_file="res://library/models/Atlas_1.blend"
-dest_files=["res://.godot/imported/Atlas_1.blend-0667cf04f1a8e948332029e19178a2e5.scn"]
+source_file="res://library/models/Village/village.blend"
+dest_files=["res://.godot/imported/village.blend-bd97af75a94f402e38219d517c142b4f.scn"]
 
 [params]
 
@@ -32,7 +32,14 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Buildings_Atlas_1": {
+"use_external/enabled": true,
+"use_external/path": "res://library/models/Village/mats/Buildings_Atlas_1.tres"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

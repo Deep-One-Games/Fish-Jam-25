@@ -8,8 +8,8 @@
 render_priority = 0
 shader = ExtResource("2_dma7i")
 shader_parameter/color_texture = ExtResource("3_woa7s")
-shader_parameter/vertex_wobble = 1.0
-shader_parameter/affine_mapping = 1.0
+shader_parameter/vertex_wobble = 0.57
+shader_parameter/affine_mapping = 0.5
 shader_parameter/alpha_cutoff = 0.5
 
 [node name="Fishning_rod_Anim" instance=ExtResource("1_u1xcc")]

@@ -29,7 +29,7 @@ Storage="*res://src/001-Autoload/storage_manager.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
 [editor_plugins]
@@ -164,9 +164,9 @@ anti_aliasing/screen_space_roughness_limiter/enabled=false
 
 resolution={
 "type": "vec2",
-"value": Vector2(1440, 1080)
+"value": Vector2(1280, 720)
 }
 color_depth={
 "type": "float",
-"value": 48.0
+"value": 92.0
 }

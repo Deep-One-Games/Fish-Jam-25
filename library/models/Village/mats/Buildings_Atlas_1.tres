@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cv1v5bcs77tly"]
+
+[ext_resource type="Texture2D" uid="uid://bqaaarp2qactn" path="res://library/models/Village/textures/Buildings_Atlas_1_Base_Color.png" id="1_0c08p"]
+[ext_resource type="Texture2D" uid="uid://db7i43vrdbajp" path="res://library/models/Village/textures/Buildings_Atlas_1_Normal.png" id="2_frct2"]
+
+[resource]
+resource_name = "Buildings_Atlas_1"
+cull_mode = 2
+albedo_texture = ExtResource("1_0c08p")
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_frct2")
+texture_filter = 2
+metadata/extras = {
+"mmd_material": {}
+}

@@ -12,6 +12,7 @@ radius = 1.17957
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "interact_box")]
 collision_layer = 2
 script = ExtResource("1_4anbu")
+speed = 7.0
 camera = NodePath("Camera3D")
 interact_box = NodePath("InteractBox")
 

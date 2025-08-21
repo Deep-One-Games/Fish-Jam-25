@@ -1,40 +1,82 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcxyohctx2sch"]
+[gd_scene load_steps=15 format=3 uid="uid://dcxyohctx2sch"]
 
 [ext_resource type="PackedScene" uid="uid://bl4j2pgha8a5u" path="res://src/maps/map_base.tscn" id="1_0b07p"]
+[ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_iljcc"]
+[ext_resource type="Environment" uid="uid://cnrr73v7kk8qq" path="res://library/resources/world_env_night.tres" id="3_7060y"]
+[ext_resource type="ArrayMesh" uid="uid://coomdp6luq4yp" path="res://library/models/TreeLine.res" id="3_p8p7f"]
+[ext_resource type="Texture2D" uid="uid://0bhf0nq3omkf" path="res://library/models/textures/TreeLine.png" id="4_7060y"]
+[ext_resource type="Texture2D" uid="uid://b54rn8jp0l8of" path="res://library/models/4448097d4ef431cc.png" id="5_aj6yt"]
+[ext_resource type="Material" uid="uid://b7io51mcjp48v" path="res://library/models/Water/new_water_shader_material.material" id="6_txmyl"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o31e2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2kdx"]
+render_priority = 0
+shader = ExtResource("2_iljcc")
+shader_parameter/dither_amount = 0.5
 
-[sub_resource type="Sky" id="Sky_jfxqq"]
-sky_material = SubResource("ProceduralSkyMaterial_o31e2")
+[sub_resource type="QuadMesh" id="QuadMesh_l31h2"]
+flip_faces = true
+size = Vector2(2, 2)
 
-[sub_resource type="Environment" id="Environment_ngxdi"]
-background_mode = 2
-sky = SubResource("Sky_jfxqq")
-ambient_light_color = Color(0.451692, 0.359096, 0.18486, 1)
-ambient_light_sky_contribution = 0.0
-ambient_light_energy = 4.46
-tonemap_mode = 3
-glow_enabled = true
-glow_bloom = 0.03
-fog_enabled = true
-fog_light_color = Color(0.434752, 0.453002, 0.272591, 1)
-fog_light_energy = 1.26
-fog_density = 0.0428
-fog_sky_affect = 0.247
-volumetric_fog_density = 0.2549
-adjustment_enabled = true
-adjustment_brightness = 1.34
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_f2kdx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c67t8"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.334995, 0.526664, 0.118606, 1)
+albedo_texture = ExtResource("4_7060y")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x66y7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yy8oq"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("5_aj6yt")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1l1ka"]
+size = Vector2(700, 700)
 
 [node name="MapBaseNight" type="Node3D"]
 
-[node name="freeroam" parent="." instance=ExtResource("1_0b07p")]
+[node name="map_base" parent="." instance=ExtResource("1_0b07p")]
 
-[node name="DirectionalLight3D" parent="freeroam/ENV" index="1"]
-light_color = Color(0.134091, 0.17757, 0.0251793, 1)
-light_energy = 3.338
-shadow_enabled = false
+[node name="ENV" type="Node3D" parent="."]
 
-[node name="WorldEnvironment" parent="freeroam/ENV" index="2"]
-environment = SubResource("Environment_ngxdi")
+[node name="PS1_PP" type="MeshInstance3D" parent="ENV"]
+material_override = SubResource("ShaderMaterial_f2kdx")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_l31h2")
 
-[editable path="freeroam"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="ENV"]
+transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 0, 0)
+light_color = Color(0, 0.653829, 0.934969, 1)
+light_energy = 10.952
+directional_shadow_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="ENV"]
+environment = ExtResource("3_7060y")
+camera_attributes = SubResource("CameraAttributesPractical_f2kdx")
+
+[node name="TreeLine" type="MeshInstance3D" parent="ENV"]
+transform = Transform3D(45.8579, 0, 0, 0, 14.7678, 0, 0, 0, 45.8579, -14.9797, -1.60971, 45.0577)
+mesh = ExtResource("3_p8p7f")
+surface_material_override/0 = SubResource("StandardMaterial3D_c67t8")
+
+[node name="Factory" type="Node3D" parent="ENV"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ENV/Factory"]
+transform = Transform3D(-44.7, 11.8411, -5.17592e-07, -4.25197e-14, -2.02129e-06, -46.2417, -11.8411, -44.7, 1.9539e-06, -90.8229, 34.0401, 258.588)
+mesh = SubResource("PlaneMesh_x66y7")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_yy8oq")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="ENV/Factory"]
+transform = Transform3D(-62.8487, 79.6431, -3.48131e-06, -9.84807e-14, -4.43471e-06, -101.454, -79.6431, -62.8487, 2.7472e-06, -146.501, 34.0401, 223.661)
+mesh = SubResource("PlaneMesh_x66y7")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_yy8oq")
+
+[node name="Water" type="MeshInstance3D" parent="ENV"]
+mesh = SubResource("PlaneMesh_1l1ka")
+surface_material_override/0 = ExtResource("6_txmyl")

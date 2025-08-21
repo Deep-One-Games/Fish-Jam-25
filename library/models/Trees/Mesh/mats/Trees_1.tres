@@ -9,7 +9,7 @@ render_priority = 0
 shader = ExtResource("2_crb3l")
 shader_parameter/color_texture = ExtResource("3_n70dx")
 shader_parameter/vertex_wobble = 1.0
-shader_parameter/affine_mapping = 1.0
+shader_parameter/affine_mapping = 0.32
 shader_parameter/alpha_cutoff = 0.5
 
 [resource]

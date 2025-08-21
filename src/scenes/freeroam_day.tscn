@@ -1,16 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://db663ao40lwaf"]
 
-[ext_resource type="PackedScene" uid="uid://bl4j2pgha8a5u" path="res://src/maps/map_base.tscn" id="1_qkkcl"]
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="2_ogo3t"]
 [ext_resource type="Script" uid="uid://dv1a6kje117xv" path="res://src/controllers/fishing_controller.gd" id="3_1cclu"]
 [ext_resource type="PackedScene" uid="uid://ct6q5gb8nrrvn" path="res://src/fishing/old/bobber.tscn" id="4_m3bce"]
 [ext_resource type="PackedScene" uid="uid://bvrd3xrkoioir" path="res://src/scenes/fishing.tscn" id="5_idqvi"]
 [ext_resource type="PackedScene" uid="uid://6wuj2udnwtqk" path="res://src/fishing/old/fishing_rod.tscn" id="6_3xhkp"]
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="7_1np5m"]
+[ext_resource type="PackedScene" uid="uid://djji8thnxchus" path="res://src/maps/map_base_day.tscn" id="7_4c5dx"]
 
 [node name="Freeroam" type="Node3D"]
 
-[node name="MapBaseDay" parent="." instance=ExtResource("1_qkkcl")]
+[node name="MapBaseDay" parent="." instance=ExtResource("7_4c5dx")]
 
 [node name="Origin" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.8411, 0, -63.5398)
