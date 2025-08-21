@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://0hqqoopyrrco"]
+
+[ext_resource type="PackedScene" uid="uid://c1jkjfgp2o0b2" path="res://library/models/Village/village.blend" id="1_tew5g"]
+[ext_resource type="Material" uid="uid://bacdk26un17xl" path="res://src/002-Props/village/village_ps_mat_default.tres" id="2_2q4cu"]
+
+[node name="village" instance=ExtResource("1_tew5g")]
+
+[node name="House_1" parent="." index="0"]
+visible = false
+surface_material_override/0 = ExtResource("2_2q4cu")
+
+[node name="Lantern_Pole" parent="." index="1"]
+visible = false
+surface_material_override/0 = ExtResource("2_2q4cu")
+
+[node name="Wooden_Tower" parent="." index="2"]
+visible = false
+surface_material_override/0 = ExtResource("2_2q4cu")
+
+[node name="House_2" parent="." index="3"]
+visible = false
+surface_material_override/0 = ExtResource("2_2q4cu")
+
+[node name="House_3" parent="." index="4"]
+visible = false
+surface_material_override/0 = ExtResource("2_2q4cu")
+
+[node name="Pier" parent="." index="5"]
+visible = false
+surface_material_override/0 = ExtResource("2_2q4cu")
+
+[node name="Well" parent="." index="6"]
+visible = false
+surface_material_override/0 = ExtResource("2_2q4cu")
+
+[node name="Bridge" parent="." index="7"]
+visible = false
+surface_material_override/0 = ExtResource("2_2q4cu")
+
+[node name="Sheriff" parent="." index="8"]
+surface_material_override/0 = ExtResource("2_2q4cu")
