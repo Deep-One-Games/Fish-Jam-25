@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://tbg70wxm4qxj"]
+[gd_scene load_steps=8 format=3 uid="uid://tbg70wxm4qxj"]
 
 [ext_resource type="PackedScene" uid="uid://dcxyohctx2sch" path="res://src/maps/map_base_night.tscn" id="1_s0yj7"]
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="2_jfxqq"]
@@ -7,20 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bvrd3xrkoioir" path="res://src/scenes/fishing.tscn" id="5_s0yj7"]
 [ext_resource type="PackedScene" uid="uid://6wuj2udnwtqk" path="res://src/fishing/old/fishing_rod.tscn" id="6_h6adn"]
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="7_msvn0"]
-[ext_resource type="ArrayMesh" uid="uid://wka7osdxnoh8" path="res://library/models/Trees/Mesh/Dark_Tree_1.res" id="8_s0yj7"]
-[ext_resource type="ArrayMesh" uid="uid://cqykelgo63pml" path="res://library/models/Trees/Mesh/Light_Tree_1.res" id="9_h6adn"]
-[ext_resource type="ArrayMesh" uid="uid://bc2bkot8qwua" path="res://library/models/Trees/Mesh/Light_Tree_2.res" id="10_msvn0"]
-[ext_resource type="ArrayMesh" uid="uid://brhwhvonkv21e" path="res://library/models/Trees/Mesh/Light_Tree_3.res" id="11_yer7s"]
-[ext_resource type="ArrayMesh" uid="uid://cwdwcxeapx73d" path="res://library/models/Trees/Mesh/Fir.res" id="12_h6adn"]
-[ext_resource type="ArrayMesh" uid="uid://rgv57uokr3x0" path="res://library/models/Trees/Mesh/Dark_Tree_2.res" id="13_msvn0"]
-[ext_resource type="ArrayMesh" uid="uid://drn74h63kh3p1" path="res://library/models/Trees/Mesh/Small_Tree.res" id="14_yer7s"]
-[ext_resource type="ArrayMesh" uid="uid://bvda720p10jw3" path="res://library/models/Trees/Mesh/Bush_1.res" id="15_u36oj"]
-[ext_resource type="ArrayMesh" uid="uid://24bqijtecp4x" path="res://library/models/Trees/Mesh/Bush_2.res" id="16_2u8uq"]
-[ext_resource type="ArrayMesh" uid="uid://2nbwlgq3iicq" path="res://library/models/Trees/Mesh/Bush_3.res" id="17_ehran"]
-[ext_resource type="ArrayMesh" uid="uid://dn4qptrf73tth" path="res://library/models/Trees/Mesh/Grass.res" id="18_dgoej"]
-[ext_resource type="ArrayMesh" uid="uid://c5uonswpmed36" path="res://library/models/Trees/Mesh/Lily_1.res" id="19_iahvg"]
-[ext_resource type="ArrayMesh" uid="uid://bpg8g5a7yd3ai" path="res://library/models/Trees/Mesh/Reeds.res" id="20_ir1im"]
-[ext_resource type="ArrayMesh" uid="uid://d6sxcqnl0xtw" path="res://library/models/Trees/Mesh/Lily_2.res" id="21_45b0u"]
 
 [node name="FreeroamNight" type="Node3D"]
 
@@ -31,7 +17,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.8411, 0, -63.5398)
 
 [node name="Player" parent="Origin" instance=ExtResource("2_jfxqq")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.962822, 14.2317, -3.7379)
-collision_mask = 9
 capture_mouse = true
 
 [node name="FishingController" type="Node" parent="Origin/Player"]
@@ -56,63 +41,3 @@ distance_fade_begin = 12.32
 distance_fade_shadow = 0.0
 omni_range = 11.8496
 omni_attenuation = 0.331
-
-[node name="Bush1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -46.9036, 5.44123, -48.4027)
-mesh = ExtResource("15_u36oj")
-
-[node name="Bush2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -46.8122, 6.01244, -53.4414)
-mesh = ExtResource("16_2u8uq")
-
-[node name="Bush3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -47.1129, 8.53313, -57.3743)
-mesh = ExtResource("17_ehran")
-
-[node name="DarkTree1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -54.1375, 6.06685, -47.9995)
-mesh = ExtResource("8_s0yj7")
-
-[node name="DarkTree2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -58.5216, 8.04136, -58.6239)
-mesh = ExtResource("13_msvn0")
-
-[node name="Fir" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -63.5815, 6.00921, -44.6667)
-mesh = ExtResource("12_h6adn")
-
-[node name="Grass" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -52.9758, 6.96526, -55.8233)
-mesh = ExtResource("18_dgoej")
-
-[node name="LightTree1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -65.397, 9.21128, -65.2327)
-mesh = ExtResource("9_h6adn")
-
-[node name="LightTree2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -74.1484, 7.10033, -48.2343)
-mesh = ExtResource("10_msvn0")
-
-[node name="LightTree3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -59.1133, 8.82684, -62.5309)
-mesh = ExtResource("11_yer7s")
-
-[node name="Lily1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -75.5, 7.28847, -51.9525)
-mesh = ExtResource("19_iahvg")
-
-[node name="Reeds" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -51.255, 7.1507, -59.9743)
-mesh = ExtResource("20_ir1im")
-
-[node name="Lily2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -44.1217, 6.71746, -57.3923)
-mesh = ExtResource("21_45b0u")
-
-[node name="Lily3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -48.9202, 6.01873, -53.9536)
-mesh = ExtResource("19_iahvg")
-
-[node name="SmallTree" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.704, 0, 0, 0, 1.704, 0, 0, 0, 1.704, -61.0522, 6.37379, -49.5546)
-mesh = ExtResource("14_yer7s")

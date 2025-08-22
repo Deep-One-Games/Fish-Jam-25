@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cvf1nr3tavsde"]
+
+[ext_resource type="Shader" uid="uid://dp6wyhvyfrd48" path="res://library/resources/ps1_shadeobj.gdshader" id="1_ym0sr"]
+[ext_resource type="Texture2D" uid="uid://buitf3ptdmuuv" path="res://library/models/Trees/Mesh/textures/Tree_Atlas_2.png" id="2_i26u6"]
+
+[resource]
+resource_name = "Trees_2"
+render_priority = 0
+shader = ExtResource("1_ym0sr")
+shader_parameter/color_texture = ExtResource("2_i26u6")
+shader_parameter/vertex_wobble = 0.28
+shader_parameter/affine_mapping = 0.37
+shader_parameter/alpha_cutoff = 0.5

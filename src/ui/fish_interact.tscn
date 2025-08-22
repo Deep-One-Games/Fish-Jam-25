@@ -28,6 +28,6 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="PanelContainer"]
 layout_mode = 2
-text = "Press F to fish"
+text = "Fish (E)"
 horizontal_alignment = 1
 vertical_alignment = 1

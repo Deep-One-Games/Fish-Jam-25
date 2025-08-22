@@ -9,12 +9,14 @@ height = 1.8
 [sub_resource type="SphereShape3D" id="SphereShape3D_kaufh"]
 radius = 1.17957
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "interact_box")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "interact_box", "fishing_rc")]
 collision_layer = 2
+collision_mask = 513
 script = ExtResource("1_4anbu")
 speed = 7.0
 camera = NodePath("Camera3D")
 interact_box = NodePath("InteractBox")
+fishing_rc = NodePath("Camera3D/RayCast3D")
 
 [node name="CShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901715, 0)
@@ -24,6 +26,12 @@ shape = SubResource("CapsuleShape3D_qnmj6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48184, 0)
 current = true
 fov = 85.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+visible = false
+target_position = Vector3(0, 0, -10)
+collision_mask = 9
+collide_with_areas = true
 
 [node name="InteractBox" type="Area3D" parent="."]
 collision_layer = 2

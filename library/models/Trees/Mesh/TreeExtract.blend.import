@@ -49,15 +49,23 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/path": "res://library/models/Trees/Mesh/Bush_2.res"
+},
+"TreeExtract_Cylinder_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://library/models/Trees/Mesh/Dark_Tree_3.res"
 },
 "TreeExtract_Cylinder_002": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/path": "res://library/models/Trees/Mesh/Light_Tree_3.res"
 },
 "TreeExtract_Cylinder_003": {
@@ -65,7 +73,7 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/path": "res://library/models/Trees/Mesh/Dark_Tree_1.res"
 },
 "TreeExtract_Cylinder_004": {
@@ -73,15 +81,15 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://library/models/Trees/Mesh/Light_Tree_2.res"
+"save_to_file/enabled": false,
+"save_to_file/path": "uid://cm7maa5matoik"
 },
 "TreeExtract_Cylinder_005": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/path": "res://library/models/Trees/Mesh/Light_Tree_1.res"
 },
 "TreeExtract_Cylinder_006": {
@@ -89,15 +97,31 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/path": "res://library/models/Trees/Mesh/Small_Tree.res"
+},
+"TreeExtract_Cylinder_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://library/models/Trees/Mesh/Dark_Tree_4.res"
+},
+"TreeExtract_Cylinder_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://library/models/Trees/Mesh/Dark_Log_1.res"
 },
 "TreeExtract_Cylinder_011": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/path": "res://library/models/Trees/Mesh/Dark_Tree_2.res"
 },
 "TreeExtract_Evergreen_a": {
@@ -105,15 +129,15 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://library/models/Trees/Mesh/Fir.res"
+"save_to_file/enabled": false,
+"save_to_file/path": "uid://dgxyu20fg373u"
 },
 "TreeExtract_Plane": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/path": "res://library/models/Trees/Mesh/Grass.res"
 },
 "TreeExtract_Plane_001": {
@@ -121,7 +145,7 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/path": "res://library/models/Trees/Mesh/Lily_1.res"
 },
 "TreeExtract_Plane_002": {
@@ -129,7 +153,7 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/path": "res://library/models/Trees/Mesh/Lily_2.res"
 },
 "TreeExtract_Plane_006": {
@@ -137,7 +161,7 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/path": "res://library/models/Trees/Mesh/Reeds.res"
 },
 "TreeExtract_Plane_008": {
@@ -145,7 +169,7 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/path": "res://library/models/Trees/Mesh/Bush_1.res"
 },
 "TreeExtract_Plane_033": {
@@ -153,7 +177,7 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/path": "res://library/models/Trees/Mesh/Bush_3.res"
 }
 }

@@ -10,6 +10,8 @@ class_name FPController extends CharacterBody3D
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 1 ## m
 @export_range(0.1, 3.0, 0.1, "or_greater") var camera_sens: float = 1
 
+@export var fishing_distance := 5.0
+
 var jumping: bool = false ## Jumping state
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -32,6 +34,7 @@ var disable := false
 @export_category("Node Declares")
 @export var camera: Camera3D
 @export var interact_box: Area3D
+@export var fishing_rc: RayCast3D
 
 func _ready() -> void:
 	if not skip_savefile:
@@ -41,6 +44,8 @@ func _ready() -> void:
 	
 	if capture_mouse:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	fishing_rc.target_position.z = -fishing_distance
 
 func _input(event: InputEvent) -> void:
 	if disable: return
