@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdsex8i171oiq"]
+[gd_scene load_steps=9 format=3 uid="uid://cdsex8i171oiq"]
 
 [ext_resource type="Script" uid="uid://cl8i7aptmhiwn" path="res://src/ui/scripts/menu_ui.gd" id="1_w3pxu"]
 [ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="2_r1qqu"]
 [ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="4_511x6"]
 [ext_resource type="PackedScene" uid="uid://k67glnpraysy" path="res://src/ui/credits.tscn" id="4_w3pxu"]
 [ext_resource type="AudioStream" uid="uid://cenb4kqg72p2y" path="res://library/music/fish_race22.wav" id="5_r1qqu"]
+[ext_resource type="PackedScene" uid="uid://djji8thnxchus" path="res://src/maps/map_base_day.tscn" id="6_7rifs"]
 
 [sub_resource type="Gradient" id="Gradient_7rifs"]
 offsets = PackedFloat32Array(0)
@@ -120,3 +121,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_511x6")
+
+[node name="MapBaseDay" parent="." instance=ExtResource("6_7rifs")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.334467, 0.189786, -0.9231, 0.0502491, 0.98171, 0.18363, 0.941067, 0.0150332, -0.337887, -47.3562, 12.73, -48.3639)
