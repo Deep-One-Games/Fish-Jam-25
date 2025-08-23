@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://djji8thnxchus"]
+[gd_scene load_steps=15 format=3 uid="uid://djji8thnxchus"]
 
 [ext_resource type="PackedScene" uid="uid://bl4j2pgha8a5u" path="res://src/maps/map_base.tscn" id="1_r15fa"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_e6i8k"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://0bhf0nq3omkf" path="res://library/models/textures/TreeLine.png" id="4_eo3qd"]
 [ext_resource type="Texture2D" uid="uid://b54rn8jp0l8of" path="res://library/models/4448097d4ef431cc.png" id="5_8bkja"]
 [ext_resource type="Material" uid="uid://b7io51mcjp48v" path="res://library/models/Water/new_water_shader_material.material" id="6_vlfsu"]
-[ext_resource type="PackedScene" uid="uid://wwhnlqf3gslj" path="res://src/npc/fishman_1.tscn" id="8_pmfrq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ctp3"]
 render_priority = 0
@@ -83,6 +82,3 @@ surface_material_override/0 = ExtResource("6_vlfsu")
 [node name="NPCS" type="Node3D" parent="."]
 
 [node name="map_base" parent="." instance=ExtResource("1_r15fa")]
-
-[node name="Fishman1" parent="." instance=ExtResource("8_pmfrq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1636, 4.61325, -24.7655)

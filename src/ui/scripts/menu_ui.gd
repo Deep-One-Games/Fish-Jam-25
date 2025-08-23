@@ -10,6 +10,9 @@ extends Control
 @export var btn_credits: Button
 @export var btn_exit: Button
 
+@export var night_b: Button
+@export var day_b: Button
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
@@ -23,6 +26,16 @@ func _ready() -> void:
 	btn_continue.visible = false
 	if not Storage.runtime_is_new and Storage.sf.playerd.opened_game_once:
 		btn_continue.visible = true
+	
+	night_b.pressed.connect(to_night)
+	day_b.pressed.connect(to_day)
+
+
+func to_day():
+	SceneManager.switch(SceneManager.GameScene.freeroam_day)
+
+func to_night():
+	SceneManager.switch(SceneManager.GameScene.freeroam_night)
 
 func btn_new_pressed():
 	Storage.reset_save()

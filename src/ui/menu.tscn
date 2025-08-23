@@ -15,7 +15,7 @@ gradient = SubResource("Gradient_7rifs")
 
 [node name="Root" type="Node3D"]
 
-[node name="MainMenu" type="Control" parent="." node_paths=PackedStringArray("options", "credits", "btn_new", "btn_continue", "btn_options", "btn_credits", "btn_exit")]
+[node name="MainMenu" type="Control" parent="." node_paths=PackedStringArray("options", "credits", "btn_new", "btn_continue", "btn_options", "btn_credits", "btn_exit", "night_b", "day_b")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,6 +30,8 @@ btn_continue = NodePath("Buttons/continue")
 btn_options = NodePath("Buttons/options")
 btn_credits = NodePath("Buttons/credits")
 btn_exit = NodePath("Buttons/exit")
+night_b = NodePath("Buttons/night")
+day_b = NodePath("Buttons/day")
 
 [node name="Title" type="Label" parent="MainMenu"]
 layout_mode = 1
@@ -67,6 +69,16 @@ offset_bottom = -28.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 15
+
+[node name="day" type="Button" parent="MainMenu/Buttons"]
+layout_mode = 2
+theme = ExtResource("4_511x6")
+text = "DAY STATE"
+
+[node name="night" type="Button" parent="MainMenu/Buttons"]
+layout_mode = 2
+theme = ExtResource("4_511x6")
+text = "NIGHT STATE"
 
 [node name="start" type="Button" parent="MainMenu/Buttons"]
 layout_mode = 2
