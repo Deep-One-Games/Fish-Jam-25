@@ -12,7 +12,6 @@ script = ExtResource("2_v2qsi")
 name = "Player"
 position = Vector3(-46.8343, 9.461, -70.9579)
 rotation = Vector3(0.0915005, 2.12121, 0)
-races_won = 0
 opened_game_once = false
 metadata/_custom_type_script = "uid://d3x7vtal6u5jc"
 
@@ -20,4 +19,8 @@ metadata/_custom_type_script = "uid://d3x7vtal6u5jc"
 script = ExtResource("3_q4y1q")
 playerd = SubResource("Resource_fdvkd")
 inventory = Array[ExtResource("1_pwlly")]([ExtResource("2_oki0i"), ExtResource("3_l7j12"), ExtResource("4_4beof")])
+world_state = 0
+story_complete = false
+fish_caught = 0
+races_won = 0
 metadata/_custom_type_script = "uid://y8g386gw3dbm"

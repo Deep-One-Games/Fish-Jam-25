@@ -29,30 +29,55 @@ uniform vec3 uv1_offset;
 uniform vec3 uv2_scale;
 uniform vec3 uv2_offset;
 
+uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
+
+uniform float camera_near;
+uniform float camera_far;
+
+float linearize_depth(float depth) {
+    return camera_near * camera_far / (camera_far - depth * (camera_far - camera_near));
+}
+
 void vertex() {
 	UV = UV * uv1_scale.xy + uv1_offset.xy;
 	UV += speed * TIME;
 }
 
 void fragment() {
-	vec2 base_uv = UV;
+    vec2 base_uv = UV;
 
-	{
-		// Height: Enabled
-		vec3 view_dir = normalize(normalize(-VERTEX + EYE_OFFSET) * mat3(TANGENT * heightmap_flip.x, -BINORMAL * heightmap_flip.y, NORMAL));
-		float depth = 1.0 - texture(texture_heightmap, base_uv).r;
-		vec2 ofs = base_uv - view_dir.xy * depth * heightmap_scale * 0.01;
-		base_uv = ofs;
-	}
+    // Heightmap offset
+    vec3 view_dir = normalize(normalize(-VERTEX + EYE_OFFSET) * mat3(TANGENT * heightmap_flip.x, -BINORMAL * heightmap_flip.y, NORMAL));
+    float depth = 1.0 - texture(texture_heightmap, base_uv).r;
+    vec2 ofs = base_uv - view_dir.xy * depth * heightmap_scale * 0.01;
+    base_uv = ofs;
 
-	vec4 albedo_tex = texture(texture_albedo, base_uv);
-	ALBEDO = albedo.rgb * albedo_tex.rgb;
+    // Depth test
+    //texture(DEPTH_TEXTURE, SCREEN_UV).r;
+    //float frag_depth_raw = FRAGCOORD.z;
 
-	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
-	METALLIC = metallic_tex * metallic;
-	SPECULAR = specular;
+    //float scene_depth = linearize_depth(scene_depth_raw);
+    //float frag_depth  = linearize_depth(frag_depth_raw);
 
-	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
-	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
-	ROUGHNESS = roughness_tex * roughness;
+    //if (scene_depth < frag_depth - 0.001) {
+        //vec4 albedo_tex = texture(texture_albedo, base_uv);
+        //ALBEDO = albedo.rgb * albedo_tex.rgb;
+//
+        //float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+        //METALLIC = metallic_tex * metallic;
+        //SPECULAR = specular;
+//
+        //float roughness_tex = dot(texture(texture_roughness, base_uv), vec4(1.0,0.0,0.0,0.0));
+        //ROUGHNESS = roughness_tex * roughness;
+    //} else {
+        vec4 albedo_tex = texture(texture_albedo, base_uv);
+        ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+        float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+        METALLIC = metallic_tex * metallic;
+        SPECULAR = specular;
+
+        float roughness_tex = dot(texture(texture_roughness, base_uv), vec4(1.0,0.0,0.0,0.0));
+        ROUGHNESS = roughness_tex * roughness;
+    //}
 }

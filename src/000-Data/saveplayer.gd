@@ -6,5 +6,4 @@ class_name SavePlayer extends Resource
 @export var position: Vector3
 @export var rotation: Vector3
 
-@export var races_won: int
 @export var opened_game_once: bool

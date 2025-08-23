@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://ct615jckf4dmx"]
+
+[ext_resource type="Script" uid="uid://bloryk8g6lwkm" path="res://src/controllers/npc_controller.gd" id="1_bcrwt"]
+[ext_resource type="Script" uid="uid://n2nxywgdnb5c" path="res://src/npc/scripts/npc_fsm.gd" id="2_lcw1r"]
+[ext_resource type="Script" uid="uid://nnmskbsx4364" path="res://src/npc/scripts/s_idle.gd" id="3_1uybt"]
+[ext_resource type="Script" uid="uid://ceit72o74oqlb" path="res://src/npc/scripts/s_sit_idle.gd" id="4_l67ql"]
+[ext_resource type="Script" uid="uid://dxu0n8j08ulb" path="res://src/npc/scripts/s_sit_action.gd" id="5_3dj5j"]
+[ext_resource type="Script" uid="uid://baqglivwvpd3k" path="res://src/npc/scripts/s_walk.gd" id="6_4sb7i"]
+[ext_resource type="Script" uid="uid://cgi5qhidvytvd" path="res://src/npc/scripts/s_work.gd" id="7_fi658"]
+[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable_area.gd" id="8_m53q0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kexkh"]
+radius = 1.6599
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ibmfo"]
+radius = 0.627463
+height = 2.39276
+
+[node name="Npc" type="Node3D" node_paths=PackedStringArray("fsm", "player_sensor")]
+script = ExtResource("1_bcrwt")
+fsm = NodePath("FSM")
+player_sensor = NodePath("PlayerSensor")
+metadata/_custom_type_script = "uid://bloryk8g6lwkm"
+
+[node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_lcw1r")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://n2nxywgdnb5c"
+
+[node name="Idle" type="Node" parent="FSM"]
+script = ExtResource("3_1uybt")
+state_id = "IDLE"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="Sit Idle" type="Node" parent="FSM"]
+script = ExtResource("4_l67ql")
+state_id = "WALK"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="Sit Action" type="Node" parent="FSM"]
+script = ExtResource("5_3dj5j")
+state_id = "WALK"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="Walk" type="Node" parent="FSM"]
+script = ExtResource("6_4sb7i")
+state_id = "WALK"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="Work" type="Node" parent="FSM"]
+script = ExtResource("7_fi658")
+state_id = "WALK"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="PlayerSensor" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("8_m53q0")
+metadata/_custom_type_script = "uid://12ky23xpgrrg"
+
+[node name="CShapeArea" type="CollisionShape3D" parent="PlayerSensor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0451473, 0.677979, -0.0157989)
+shape = SubResource("SphereShape3D_kexkh")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
+transform = Transform3D(0.98366, 0, 0, 0, 0.98366, 0, 0, 0, 0.98366, 0, 0.713, 0)
+shape = SubResource("CapsuleShape3D_ibmfo")

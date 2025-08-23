@@ -41,3 +41,6 @@ distance_fade_begin = 12.32
 distance_fade_shadow = 0.0
 omni_range = 11.8496
 omni_attenuation = 0.331
+
+[editable path="MapBaseNight"]
+[editable path="Origin/Player"]
