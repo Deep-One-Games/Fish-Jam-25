@@ -183,8 +183,8 @@ metadata/_custom_type_script = "uid://b6f3f6630eo0r"
 curve = SubResource("Curve3D_jlwkt")
 
 [node name="Patroller" type="PathFollow3D" parent="NPCS/PATROL_NPC3/Path"]
-transform = Transform3D(0.0152655, 0, 0.999774, 0, 0.999989, 0, -0.999774, 0, 0.0152655, 4.82654, 0, -27.1077)
-progress = 159.54
+transform = Transform3D(-0.117599, 0, 0.992951, 0, 0.999989, 0, -0.992951, 0, -0.117599, -0.343613, 0, -26.5904)
+progress = 165.465
 rotation_mode = 1
 script = ExtResource("10_5ctp3")
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"

@@ -1,6 +1,5 @@
 ~ NPC_start
-#if Storage.sf.NPC3_interactions % 2 == 0
-if StoryGlobals.mod(Storage.sf.NPC3_interactions, 2, 0)
+if Storage.sf.NPC3_interactions % 2 == 0
 	NPC: We wait for the race, Son will smile again. Yes. He will...
 	NPC: It's been so long... Every day we practise, every day we train the fish. We try, try our best!
 	NPC: I tie stones to their tails, fins, makes them stronger, yes? No? Maybe? They still lose...
@@ -10,7 +9,7 @@ if StoryGlobals.mod(Storage.sf.NPC3_interactions, 2, 0)
 	- [Stay silent]
 	    NPC: You... you understand, right? It's all for the race.
 
-if StoryGlobals.mod(Storage.sf.NPC3_interactions, 2, 1)
+if Storage.sf.NPC3_interactions % 2 == 1
 	NPC: If I clap three times before the race, they go quicker, I swear it! 
 	NPC: I saw another one doing it, long ago, when the Son was still invested in the races...
 	NPC: They clapped 3 times juuust before the race started, I've counted, 1.. 2.. 3! Their fish won that day!
