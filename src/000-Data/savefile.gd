@@ -32,3 +32,31 @@ enum WORLD_STATE {DAY, NIGHT}
 
 ## Used to track story progression and world state changes
 @export var races_won:   int
+
+@export_category("NPC1")
+@export var NPC1_name: String = "Flob" 
+@export var NPC1_interactions: int = 0
+
+@export_category("NPC2")
+@export var NPC2_name: String 
+@export var NPC2_interactions: int = 0
+
+@export_category("NPC3")
+@export var NPC3_name: String 
+@export var NPC3_interactions: int = 0
+
+@export_category("NPC4")
+@export var NPC4_name: String 
+@export var NPC4_interactions: int = 0
+
+@export_category("NPC5")
+@export var NPC5_name: String 
+@export var NPC5_interactions: int = 0
+
+@export_category("NPC6")
+@export var NPC6_name: String 
+@export var NPC6_interactions: int = 0
+
+@export_category("NPC7")
+@export var NPC7_name: String 
+@export var NPC7_interactions: int = 0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckgrvvgm6jgdh"]
 
-[ext_resource type="Script" uid="uid://cj25jfouf1eqb" path="res://src/controllers/fpcontroller.gd" id="1_4anbu"]
+[ext_resource type="Script" uid="uid://cj25jfouf1eqb" path="res://src/controllers/scripts/fpcontroller.gd" id="1_4anbu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qnmj6"]
 radius = 0.3
@@ -35,8 +35,8 @@ collide_with_areas = true
 
 [node name="InteractBox" type="Area3D" parent="."]
 collision_layer = 2
-collision_mask = 1036
+collision_mask = 1028
 
 [node name="InteractCShape" type="CollisionShape3D" parent="InteractBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121524, 0.92865, -1.39173)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121524, 0.92865, 0.132035)
 shape = SubResource("SphereShape3D_kaufh")

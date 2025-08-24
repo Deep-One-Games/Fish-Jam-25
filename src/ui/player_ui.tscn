@@ -37,7 +37,7 @@ grow_vertical = 2
 
 [node name="DialogLabel" type="Label" parent="DialogEvent"]
 layout_mode = 2
-text = "Fish (E)"
+text = "Talk (E)"
 horizontal_alignment = 1
 vertical_alignment = 1
 

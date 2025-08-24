@@ -5,9 +5,6 @@ class_name SaveNPC extends Resource
 ## It is recommended to save this file to disk to ensure it is unique 
 ## throughout the whole project.
 
-@export var npc_name: String
-@export var inventory: Array[GameItem]
-
 ## 2D Image representative of the NPC
 @export var profile: Texture2D
 

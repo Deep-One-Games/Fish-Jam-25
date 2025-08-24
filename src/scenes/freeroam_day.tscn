@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://db663ao40lwaf"]
 
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="2_ogo3t"]
-[ext_resource type="Script" uid="uid://dv1a6kje117xv" path="res://src/controllers/fishing_controller.gd" id="3_1cclu"]
+[ext_resource type="Script" uid="uid://dv1a6kje117xv" path="res://src/controllers/scripts/fishing_controller.gd" id="3_1cclu"]
 [ext_resource type="PackedScene" uid="uid://ct6q5gb8nrrvn" path="res://src/fishing/old/bobber.tscn" id="4_m3bce"]
 [ext_resource type="PackedScene" uid="uid://bvrd3xrkoioir" path="res://src/scenes/fishing.tscn" id="5_idqvi"]
 [ext_resource type="PackedScene" uid="uid://6wuj2udnwtqk" path="res://src/fishing/old/fishing_rod.tscn" id="6_3xhkp"]

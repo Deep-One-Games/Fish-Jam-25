@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cri3pr4rrbl2c"
+path="res://.godot/imported/log.fishman_1.dialogue-e2efbcc4d53e6ec5a9ba3ee7c8f4f10c.tres"
+
+[deps]
+
+source_file="res://src/npc/log.fishman_1.dialogue"
+dest_files=["res://.godot/imported/log.fishman_1.dialogue-e2efbcc4d53e6ec5a9ba3ee7c8f4f10c.tres"]
+
+[params]
+
+defaults=true

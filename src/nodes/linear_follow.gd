@@ -1,19 +1,16 @@
 class_name LinearFollow extends PathFollow3D
 
-@export var mps: float = 0.50 # Meters Per Second
+@export var mps: float = 1.50 # Meters Per Second
 
 signal path_completed
-signal play
 
 var curve: Curve3D
 var following_path := false
 
+var default_mps: float
 func _ready() -> void:
+	default_mps = mps
 	curve = self.get_parent().curve
-	play.connect(follow_path)
-
-func follow_path():
-	following_path = true
 
 func _process(delta: float) -> void:
 	if not following_path: return
@@ -22,5 +19,4 @@ func _process(delta: float) -> void:
 	if progress_ratio == 1.0:
 		# reset path
 		progress_ratio = 0.0
-		following_path = false
 		path_completed.emit()

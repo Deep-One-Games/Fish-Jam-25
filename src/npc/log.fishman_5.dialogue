@@ -1,0 +1,32 @@
+~ NPC_start
+if Storage.sf.NPC5_interactions % 3 == 0
+	NPC: Black gold, Black gold.
+	NPC: Burn away and leave your tar.
+	NPC: Burn for eternity, to promise prosperity.
+	NPC: Bringer of industry, electricity.
+	NPC: Blood of our creator's creator. The God of Gods.
+	NPC: What a delight, a delight indeed.
+
+if Storage.sf.NPC5_interactions % 3 == 1
+	NPC: Black gold, Black gold.
+	NPC: Oh! The provider, the wish granter.
+	NPC: Ruler of our dreams and nightmares!
+	NPC: I am connected, one with it, I carry its blood in me.
+	NPC: It whispers to me while I am sleeping, I know it.
+	NPC: Others might be lost, but I am not. I see the truth. Yes, I do.
+	NPC: To pray for you, thank you for my enlightenment.
+	NPC: To thank you for saving me from a life of aimless swimming and eating.
+	NPC: What a delight, a delight indeed.
+
+if Storage.sf.NPC5_interactions % 3 == 2
+	NPC: Black gold, Black gold.
+	NPC: Curse that Son! Why, why him? He needs to understand his mission, his destiny...
+	NPC: Obsessed with skin and fat. Hah! What a rat.
+	NPC: Racing fish, wasting time, instead of creating...
+	NPC: Doesn't deserve Its blood, no one in this damn village deserves it.
+	NPC: But here I am, sitting with my enlightenment, staring at each other.
+	NPC: What a delight it is, a delight indeed.
+
+set Storage.sf.NPC5_interactions += 1
+do  Storage.save_process()
+=> END

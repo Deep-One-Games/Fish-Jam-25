@@ -1,0 +1,38 @@
+~ NPC_start
+if Storage.sf.NPC1_interactions % 3 == 0
+	Flob: Have you heard about a "Mother"? It is this thing, who will take care of you when you are weak.
+	- [Listen quietly]
+	    NPC: Sounds... Like a lie. A lie that I'd like to believe in.
+	- [Tilt your head]
+	    NPC: Hm… you look unsure. That's alright. Doubt keeps us awake.
+	    NPC: Sounds... Like a lie. A lie that I'd like to believe in.
+
+if  Storage.sf.NPC1_interactions % 3 == 1
+	Flob: Son told us about it, he used to tell us many stories...
+	Flob: "Mothers make lemonades! Tasty lemonades. Makes you feel like you just jumped into a cold lake on a hot day!"
+	- [Smile faintly]
+	    Flob: Ah… you felt that, too? For a moment it’s almost real.
+	- [Keep listening]
+	Flob: I never understood what a "lemonade" is.
+	Flob: Once we asked, he told us: "That's what you make when life gives you lemons!"
+	Flob: Still have no clue what this "lemon" is.
+	Flob: But life doesn't seem to be interested in giving to me.
+	Flob: So I roam around the lakeside to find some; maybe if I bring it to him, he would smile once more! And tell more stories to us!
+	- [Nod]
+	    Flob: Yes… yes. A smile is worth a long walk.
+	- [Look down]
+	    Flob: You understand. The shore is heavy with footsteps like ours.
+
+if Storage.sf.NPC1_interactions % 3 == 2
+	Flob: Sometimes, I dream about it, being one of those "Mother". If I were to be a human, I would be one of the "Mother" ones.
+	- [Stay still]
+	- [Offer a gentle nod]
+	Flob: Why do I dream about that? It doesn't make sense! Why would a being sacrifice so much time for an ugly weakling? Stupid. Waste of energy.
+	Flob: We need to make him happy, that is what's important.
+set Storage.sf.NPC1_interactions += 1
+do  Storage.save_process()
+=> END
+
+~ NPC_describe_nature
+Flob: Even with the factory near our swamp.. still looks pretty.
+=> END

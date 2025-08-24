@@ -45,6 +45,11 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bridge/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_lol4i")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Bridge/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.186863, 0, 0)
+visible = false
+shape = SubResource("ConcavePolygonShape3D_lol4i")
+
 [node name="Sheriff" parent="." index="8"]
 visible = false
 surface_material_override/0 = ExtResource("2_2q4cu")

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bkptsroxo4as3" path="res://library/models/houses/house2.tscn" id="7_7rtbf"]
 [ext_resource type="PackedScene" uid="uid://dsdq3urr4o0jk" path="res://library/models/houses/house3.tscn" id="8_e6l7g"]
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="9_f1nyl"]
-[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable_area.gd" id="10_wag33"]
+[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/dialogue_area.gd" id="10_wag33"]
 [ext_resource type="Resource" uid="uid://defgqeurnf2ej" path="res://library/dialogue/general_npc.dialogue" id="11_tk6tm"]
 [ext_resource type="Script" uid="uid://b6f3f6630eo0r" path="res://src/npc/scripts/npc_patrol.gd" id="12_vw06n"]
 [ext_resource type="Script" uid="uid://gak3ble014rj" path="res://src/000-Data/gameitem.gd" id="13_e6l7g"]

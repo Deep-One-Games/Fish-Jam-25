@@ -1,4 +1,4 @@
-class_name InteractableArea extends Area3D
+class_name DialogueArea extends Area3D
 
 @export var dialogue: DialogueResource
 @export var title: String

@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dxx8h5hb7toxy"]
 
 [ext_resource type="PackedScene" uid="uid://difpbrw6k4fvv" path="res://library/models/Fish_Men/Bob_Animations.blend" id="1_18daj"]
-[ext_resource type="Script" uid="uid://bloryk8g6lwkm" path="res://src/controllers/npc_controller.gd" id="2_t766x"]
+[ext_resource type="Script" uid="uid://bloryk8g6lwkm" path="res://src/controllers/scripts/npc_controller.gd" id="2_t766x"]
 [ext_resource type="Script" uid="uid://c5en56ptkabt3" path="res://src/nodes/fsm.gd" id="3_s63gx"]
 [ext_resource type="Script" uid="uid://nnmskbsx4364" path="res://src/npc/scripts/s_idle.gd" id="4_30lbb"]
 [ext_resource type="Script" uid="uid://baqglivwvpd3k" path="res://src/npc/scripts/s_walk.gd" id="5_12bs0"]
-[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/interactable_area.gd" id="6_l7i3h"]
+[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/dialogue_area.gd" id="6_l7i3h"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oihyn"]
 radius = 1.6599
@@ -14,10 +14,9 @@ radius = 1.6599
 radius = 0.627463
 height = 2.39276
 
-[node name="npc" node_paths=PackedStringArray("fsm", "player_sensor") instance=ExtResource("1_18daj")]
+[node name="npc" node_paths=PackedStringArray("fsm") instance=ExtResource("1_18daj")]
 script = ExtResource("2_t766x")
 fsm = NodePath("FSM")
-player_sensor = NodePath("PlayerSensor")
 
 [node name="metarig" parent="." index="0"]
 transform = Transform3D(-0.837372, 0, -7.32054e-08, 0, 0.837372, 0, 7.32054e-08, 0, -0.837372, 0, 0, 0)

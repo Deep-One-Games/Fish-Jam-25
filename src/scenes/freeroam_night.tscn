@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dcxyohctx2sch" path="res://src/maps/map_base_night.tscn" id="1_s0yj7"]
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="2_jfxqq"]
-[ext_resource type="Script" uid="uid://dv1a6kje117xv" path="res://src/controllers/fishing_controller.gd" id="3_s7xdc"]
+[ext_resource type="Script" uid="uid://dv1a6kje117xv" path="res://src/controllers/scripts/fishing_controller.gd" id="3_s7xdc"]
 [ext_resource type="PackedScene" uid="uid://ct6q5gb8nrrvn" path="res://src/fishing/old/bobber.tscn" id="4_32y1t"]
 [ext_resource type="PackedScene" uid="uid://bvrd3xrkoioir" path="res://src/scenes/fishing.tscn" id="5_s0yj7"]
 [ext_resource type="PackedScene" uid="uid://6wuj2udnwtqk" path="res://src/fishing/old/fishing_rod.tscn" id="6_h6adn"]

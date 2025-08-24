@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://bmhwd8x4bscyh"]
 
 [ext_resource type="Texture2D" uid="uid://w815pi2ocdhe" path="res://library/textures/theme_bg.png" id="1_2cau3"]
-[ext_resource type="FontFile" uid="uid://b7ukvc56fs20p" path="res://library/fonts/DigitalDisco.ttf" id="2_o5yr1"]
+[ext_resource type="FontFile" uid="uid://dt3mcci6cdag7" path="res://library/fonts/alagard.ttf" id="2_o5yr1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5yr1"]
 
@@ -11,14 +11,14 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5yr1"]
 texture = ExtResource("1_2cau3")
-texture_margin_left = 29.0
-texture_margin_top = 29.0
-texture_margin_right = 29.0
-texture_margin_bottom = 29.0
+texture_margin_left = 40.0
+texture_margin_top = 35.0
+texture_margin_right = 35.0
+texture_margin_bottom = 35.0
 
 [resource]
 default_font = ExtResource("2_o5yr1")
-default_font_size = 24
+default_font_size = 38
 HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_o5yr1")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_teaap")
 HSlider/styles/slider = SubResource("StyleBoxEmpty_s6nl1")

@@ -11,12 +11,11 @@ var alt_a                := "Fishmen_Idle_Ver2"
 func enter() -> void:
 	fsm = get_parent() as NPCFSM;
 
-	fsm.animations.stop()
 	fsm.animations.play(default_a)
 
 	fsm.animations.animation_finished.connect(on_animation_finish)
 
-func on_animation_finish():
+func on_animation_finish(_a):
 	var r = randf()
 	if r <= alt_action_p:
 		fsm.animations.play(alt_a)

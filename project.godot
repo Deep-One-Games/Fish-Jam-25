@@ -28,6 +28,7 @@ buses/default_bus_layout="uid://b0ciqypvtyv6d"
 SceneManager="*res://src/001-Autoload/scene_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Storage="*res://src/001-Autoload/storage_manager.gd"
+StoryGlobals="*res://src/001-Autoload/StoryGlobals.gd"
 
 [display]
 
@@ -149,7 +150,7 @@ cast={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://src/000-Data/NPC/dialogue/sandy_sardine_dialogue.dialogue", "res://library/dialogue/general_npc.dialogue")
+locale/translations_pot_files=PackedStringArray("res://src/000-Data/NPC/dialogue/sandy_sardine_dialogue.dialogue", "res://library/dialogue/general_npc.dialogue", "res://src/npc/log.fishman_1.dialogue", "res://src/npc/log.fishman_3.dialogue", "res://src/npc/log.fishman_2.dialogue", "res://src/npc/log.fishman_4.dialogue", "res://src/npc/log.fishman_5.dialogue", "res://src/npc/log.fishman_6.dialogue", "res://src/npc/log.fishman_7.dialogue")
 
 [layer_names]
 

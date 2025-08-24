@@ -1,0 +1,26 @@
+~ NPC_start
+#if Storage.sf.NPC3_interactions % 2 == 0
+if StoryGlobals.mod(Storage.sf.NPC3_interactions, 2, 0)
+	NPC: We wait for the race, Son will smile again. Yes. He will...
+	NPC: It's been so long... Every day we practise, every day we train the fish. We try, try our best!
+	NPC: I tie stones to their tails, fins, makes them stronger, yes? No? Maybe? They still lose...
+	NPC: Stupid fish. Stupid, ugly fish. Can't do nothing right. Can't do nothing... But I try!
+	- [Encourage with a nod]
+	    NPC: Yes... trying is all we can do. The race will fix it.
+	- [Stay silent]
+	    NPC: You... you understand, right? It's all for the race.
+
+if StoryGlobals.mod(Storage.sf.NPC3_interactions, 2, 1)
+	NPC: If I clap three times before the race, they go quicker, I swear it! 
+	NPC: I saw another one doing it, long ago, when the Son was still invested in the races...
+	NPC: They clapped 3 times juuust before the race started, I've counted, 1.. 2.. 3! Their fish won that day!
+	NPC: Oh... the smile! His beautiful smile... 
+	NPC: Since then, I been learning their secret technique... 
+	NPC: But the second i cracked it, the Son locked himself away... 
+	NPC: And of course the technique doesnt work that way! He needs to witness it to work...
+	NPC: Human, he says, we need a real one. Only a real one can do it.
+	NPC: But, like... What does a human even smell like? I heard they smell like the swamp flowers. All I smell is rust these days.
+
+set Storage.sf.NPC3_interactions += 1
+do  Storage.save_process()
+=> END

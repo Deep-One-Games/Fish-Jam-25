@@ -1,4 +1,4 @@
-class_name FSM extends Node
+class_name FSM extends Node3D
 ## Finite State Machine Node. Attach [FSMState]'s to it with a dictionary to add new states.
 ##
 ## This node only provides a library without any behaviors. In order to trigger different 
@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 
 func change_state(state_id: String) -> void:
 	var new_state: FSMState = states.get(state_id)
-
+	
 	if !new_state: return
 	if current_state: current_state.exit()
 	

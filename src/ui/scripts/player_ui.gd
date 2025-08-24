@@ -9,7 +9,7 @@ extends Control
 @export var show_dialog: Control
 @export var dialog_lbl: Label
 var dialog_state := false
-var dialog_area: InteractableArea
+var dialog_area: DialogueArea
 
 @export_category("Fishing Controls")
 @export var show_fishing: Control
@@ -33,18 +33,18 @@ func _ready() -> void:
 	show_dialog.visible = false
 	
 
-func set_interact(area: InteractableArea, _visible: bool) -> void:
+func set_interact(area: DialogueArea, _visible: bool) -> void:
 	show_dialog.visible = _visible
 	dialog_state = _visible
 	dialog_area = area if _visible else null
 
 func _dialog_area_entered(area: Area3D) -> void:
-	if area is InteractableArea:
+	if area is DialogueArea:
 		set_interact(area, true)
 		return
 
 func _dialog_area_exited(area: Area3D) -> void:
-	if area is InteractableArea:
+	if area is DialogueArea:
 		set_interact(area, false)
 		return
 

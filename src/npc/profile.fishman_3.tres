@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SaveNPC" load_steps=4 format=3 uid="uid://bqcr4o1bmhsco"]
+
+[ext_resource type="Resource" uid="uid://3snsyqup1nre" path="res://src/npc/log.fishman_3.dialogue" id="1_5vnn6"]
+[ext_resource type="Texture2D" uid="uid://c4inl1k6qa8ev" path="res://icon.svg" id="2_7lvsn"]
+[ext_resource type="Script" uid="uid://bjtgvfvq7uaxh" path="res://src/000-Data/savenpc.gd" id="3_5cckl"]
+
+[resource]
+script = ExtResource("3_5cckl")
+profile = ExtResource("2_7lvsn")
+npc_dialogue = ExtResource("1_5vnn6")
+metadata/_custom_type_script = "uid://bjtgvfvq7uaxh"

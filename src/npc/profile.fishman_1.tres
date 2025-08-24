@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SaveNPC" load_steps=5 format=3 uid="uid://d1fb3ih3m3tsr"]
+
+[ext_resource type="Script" uid="uid://gak3ble014rj" path="res://src/000-Data/gameitem.gd" id="1_adw6k"]
+[ext_resource type="Resource" uid="uid://cri3pr4rrbl2c" path="res://src/npc/log.fishman_1.dialogue" id="2_adw6k"]
+[ext_resource type="Texture2D" uid="uid://c4inl1k6qa8ev" path="res://icon.svg" id="3_5v8vn"]
+[ext_resource type="Script" uid="uid://bjtgvfvq7uaxh" path="res://src/000-Data/savenpc.gd" id="4_nptvi"]
+
+[resource]
+script = ExtResource("4_nptvi")
+npc_name = "Fishman 1"
+inventory = Array[ExtResource("1_adw6k")]([])
+profile = ExtResource("3_5v8vn")
+npc_dialogue = ExtResource("2_adw6k")
+metadata/_custom_type_script = "uid://bjtgvfvq7uaxh"
