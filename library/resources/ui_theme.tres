@@ -1,26 +1,95 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bmhwd8x4bscyh"]
+[gd_resource type="Theme" load_steps=21 format=3 uid="uid://bmhwd8x4bscyh"]
 
-[ext_resource type="Texture2D" uid="uid://w815pi2ocdhe" path="res://library/textures/theme_bg.png" id="1_2cau3"]
+[ext_resource type="Texture2D" uid="uid://bp0m2pagcyc8c" path="res://library/textures/ui/button_pressed.png" id="1_b7qw8"]
+[ext_resource type="Texture2D" uid="uid://w815pi2ocdhe" path="res://library/textures/ui/theme_bg.png" id="1_o5yr1"]
+[ext_resource type="Texture2D" uid="uid://cmcaanf1r2sxj" path="res://library/textures/ui/button_normal.png" id="1_s6nl1"]
 [ext_resource type="FontFile" uid="uid://dt3mcci6cdag7" path="res://library/fonts/alagard.ttf" id="2_o5yr1"]
+[ext_resource type="Texture2D" uid="uid://duhesrjvcgrdy" path="res://library/textures/ui/button_a.png" id="3_b7qw8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s6nl1"]
+texture = ExtResource("1_b7qw8")
+texture_margin_left = 26.0
+texture_margin_top = 23.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b7qw8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b7qw8"]
+texture = ExtResource("1_s6nl1")
+texture_margin_left = 26.0
+texture_margin_top = 23.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68jpm"]
+texture = ExtResource("1_b7qw8")
+texture_margin_left = 26.0
+texture_margin_top = 23.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yk7ku"]
+texture = ExtResource("3_b7qw8")
+texture_margin_left = 26.0
+texture_margin_top = 23.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhjrv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68jpm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yk7ku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4khf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rskyh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5yr1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_teaap"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6nl1"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqit5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5yr1"]
-texture = ExtResource("1_2cau3")
+texture = ExtResource("1_o5yr1")
+texture_margin_left = 58.0
+texture_margin_top = 58.0
+texture_margin_right = 58.0
+texture_margin_bottom = 58.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_teaap"]
+texture = ExtResource("1_o5yr1")
 texture_margin_left = 40.0
-texture_margin_top = 35.0
-texture_margin_right = 35.0
-texture_margin_bottom = 35.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
 
 [resource]
 default_font = ExtResource("2_o5yr1")
-default_font_size = 38
+Button/styles/disabled = SubResource("StyleBoxTexture_s6nl1")
+Button/styles/focus = SubResource("StyleBoxEmpty_b7qw8")
+Button/styles/hover = SubResource("StyleBoxTexture_b7qw8")
+Button/styles/normal = SubResource("StyleBoxTexture_68jpm")
+Button/styles/pressed = SubResource("StyleBoxTexture_yk7ku")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_dhjrv")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_68jpm")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_yk7ku")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_t4khf")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_rskyh")
 HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_o5yr1")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_teaap")
-HSlider/styles/slider = SubResource("StyleBoxEmpty_s6nl1")
 HeaderLarge/font_sizes/font_size = 64
-Label/styles/normal = SubResource("StyleBoxTexture_o5yr1")
+InteractPanel/base_type = &"PanelContainer"
+InteractPanel/styles/panel = SubResource("StyleBoxEmpty_eqit5")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_o5yr1")
+RichTextLabel/colors/default_color = Color(0.82606, 0.82606, 0.82606, 1)
+RichTextLabel/colors/font_shadow_color = Color(0.0968858, 0.0860203, 0.0823187, 0.623529)
+RichTextLabel/constants/shadow_offset_x = 2
+RichTextLabel/constants/shadow_offset_y = 2
+RichTextLabel/constants/shadow_outline_size = 4
+RichTextLabel/font_sizes/normal_font_size = 26
+RichTextLabel/styles/normal = SubResource("StyleBoxTexture_teaap")
+TitleButton/base_type = &"Button"
+TitleButton/font_sizes/font_size = 23

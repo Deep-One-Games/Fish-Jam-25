@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dcxyohctx2sch"]
+[gd_scene load_steps=33 format=3 uid="uid://dcxyohctx2sch"]
 
 [ext_resource type="PackedScene" uid="uid://bl4j2pgha8a5u" path="res://src/maps/map_base.tscn" id="1_0b07p"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_iljcc"]
@@ -20,6 +20,7 @@
 [ext_resource type="ArrayMesh" uid="uid://4u1ridquan2r" path="res://library/models/Fish_People_Generic/meshes/fishman_4.res" id="18_524th"]
 [ext_resource type="Resource" uid="uid://defi0k78b0oo8" path="res://src/npc/profile.fishman_7.tres" id="19_506cy"]
 [ext_resource type="Curve3D" uid="uid://dcftycednt167" path="res://src/npc/night_path.fishman_7.tres" id="20_5iqux"]
+[ext_resource type="ArrayMesh" uid="uid://d0028fpv061vt" path="res://library/models/Fish_People_Generic/meshes/fishman_7.res" id="21_5iqux"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2kdx"]
 render_priority = 0
@@ -126,7 +127,7 @@ metadata/_custom_type_script = "uid://b6f3f6630eo0r"
 curve = ExtResource("10_5iqux")
 
 [node name="Patroller" type="PathFollow3D" parent="NPCS/PATROL_NPC6/Path"]
-transform = Transform3D(0.56428, 0, 0.825454, 0, 0.999989, 0, -0.825454, 0, 0.56428, -22.3025, 0, -7.93257)
+transform = Transform3D(0.564283, 0, 0.825452, 0, 0.999989, 0, -0.825452, 0, 0.564283, -22.3025, 0, -7.93255)
 progress = 78.3721
 rotation_mode = 1
 script = ExtResource("11_gg8rf")
@@ -283,7 +284,7 @@ script = ExtResource("11_gg8rf")
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="NPC7" parent="NPCS/PATROL_NPC7/Path/Patroller" instance=ExtResource("12_cmxqp")]
-mesh = ExtResource("18_524th")
+mesh = ExtResource("21_5iqux")
 
 [node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC7"]
 collision_layer = 1024

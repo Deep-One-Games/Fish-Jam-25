@@ -39,10 +39,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -213.5
-offset_top = 25.0
-offset_right = 213.5
-offset_bottom = 113.0
+offset_left = 21.0
+offset_top = 140.0
+offset_right = 448.0
+offset_bottom = 228.0
 grow_horizontal = 2
 theme = ExtResource("4_511x6")
 theme_type_variation = &"HeaderLarge"
@@ -69,42 +69,56 @@ offset_right = -26.0
 offset_bottom = -28.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_constants/separation = 15
+theme_override_constants/separation = -10
 
 [node name="day" type="Button" parent="MainMenu/Buttons"]
 layout_mode = 2
 theme = ExtResource("4_511x6")
-text = "DAY STATE"
+theme_type_variation = &"TitleButton"
+text = "DAY STATE        "
+alignment = 0
 
 [node name="night" type="Button" parent="MainMenu/Buttons"]
 layout_mode = 2
 theme = ExtResource("4_511x6")
-text = "NIGHT STATE"
+theme_type_variation = &"TitleButton"
+text = "NIGHT STATE        "
+alignment = 0
 
 [node name="start" type="Button" parent="MainMenu/Buttons"]
 layout_mode = 2
 theme = ExtResource("4_511x6")
-text = "New Game"
+theme_type_variation = &"TitleButton"
+text = "New Game        "
+alignment = 0
 
 [node name="continue" type="Button" parent="MainMenu/Buttons"]
 layout_mode = 2
 theme = ExtResource("4_511x6")
-text = "Continue"
+theme_type_variation = &"TitleButton"
+text = "Continue        "
+alignment = 0
 
 [node name="options" type="Button" parent="MainMenu/Buttons"]
 layout_mode = 2
 theme = ExtResource("4_511x6")
-text = "Options"
+theme_type_variation = &"TitleButton"
+text = "Options        "
+alignment = 0
 
 [node name="credits" type="Button" parent="MainMenu/Buttons"]
 layout_mode = 2
 theme = ExtResource("4_511x6")
-text = "Credits"
+theme_type_variation = &"TitleButton"
+text = "Credits        "
+alignment = 0
 
 [node name="exit" type="Button" parent="MainMenu/Buttons"]
 layout_mode = 2
 theme = ExtResource("4_511x6")
-text = "Exit"
+theme_type_variation = &"TitleButton"
+text = "Exit        "
+alignment = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_r1qqu")

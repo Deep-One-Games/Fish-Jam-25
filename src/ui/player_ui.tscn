@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://18k60p0d0xh1"]
+[gd_scene load_steps=5 format=3 uid="uid://18k60p0d0xh1"]
 
 [ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="1_354od"]
+[ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="1_i84qp"]
 [ext_resource type="Script" uid="uid://l4pqogg24mrk" path="res://src/ui/scripts/player_ui.gd" id="1_idx4u"]
 [ext_resource type="PackedScene" uid="uid://df0qay8pm5da4" path="res://src/ui/inventory.tscn" id="3_rp5hd"]
 
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_i84qp")
 script = ExtResource("1_idx4u")
 options = NodePath("Options")
 inventory = NodePath("Inventory")
@@ -20,20 +22,29 @@ show_fishing = NodePath("FishingEvent")
 fishing_lbl = NodePath("FishingEvent/FishLabel")
 
 [node name="Options" parent="." instance=ExtResource("1_354od")]
+visible = false
 layout_mode = 1
 
 [node name="Inventory" parent="." instance=ExtResource("3_rp5hd")]
+visible = false
 layout_mode = 1
 start_visible = false
 
 [node name="DialogEvent" type="PanelContainer" parent="."]
-layout_mode = 2
-offset_left = 781.5
-offset_top = 344.0
-offset_right = 836.5
-offset_bottom = 384.0
-grow_horizontal = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -689.0
+offset_top = -20.0
+offset_right = -626.0
+offset_bottom = 20.0
+grow_horizontal = 0
 grow_vertical = 2
+scale = Vector2(1.18, 1.18)
+theme_type_variation = &"InteractPanel"
 
 [node name="DialogLabel" type="Label" parent="DialogEvent"]
 layout_mode = 2
@@ -41,22 +52,31 @@ text = "Talk (E)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="MarginContainer" type="MarginContainer" parent="DialogEvent"]
+layout_mode = 2
+
 [node name="FishingEvent" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 149.0
-offset_top = -16.0
-offset_right = 189.0
-offset_bottom = 24.0
-grow_horizontal = 2
+offset_left = -701.0
+offset_top = -20.0
+offset_right = -626.0
+offset_bottom = 20.0
+grow_horizontal = 0
 grow_vertical = 2
+scale = Vector2(1.18, 1.18)
+theme_type_variation = &"InteractPanel"
 
 [node name="FishLabel" type="Label" parent="FishingEvent"]
 layout_mode = 2
 text = "Fish (E)"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="FishingEvent"]
+layout_mode = 2
+theme_override_constants/margin_left = 75

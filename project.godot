@@ -30,6 +30,10 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Storage="*res://src/001-Autoload/storage_manager.gd"
 StoryGlobals="*res://src/001-Autoload/StoryGlobals.gd"
 
+[dialogue_manager]
+
+runtime/balloon_path="res://src/ui/dialogue.tscn"
+
 [display]
 
 window/size/viewport_width=1280
@@ -49,6 +53,10 @@ import/fbx2gltf/enabled.web=true
 [global_group]
 
 fishing_zone=""
+
+[gui]
+
+theme/custom="uid://bmhwd8x4bscyh"
 
 [importer_defaults]
 

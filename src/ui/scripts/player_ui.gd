@@ -15,6 +15,8 @@ var dialog_area: DialogueArea
 @export var show_fishing: Control
 @export var fishing_lbl: Label
 
+
+var disable_options := false
 var options_state := false
 var inventory_state := false
 var fishing_available := false
@@ -39,11 +41,13 @@ func set_interact(area: DialogueArea, _visible: bool) -> void:
 	dialog_area = area if _visible else null
 
 func _dialog_area_entered(area: Area3D) -> void:
+	disable_options = true 
 	if area is DialogueArea:
 		set_interact(area, true)
 		return
 
 func _dialog_area_exited(area: Area3D) -> void:
+	disable_options = false 
 	if area is DialogueArea:
 		set_interact(area, false)
 		return
@@ -81,7 +85,7 @@ func _input(event: InputEvent) -> void:
 		return
 
 	# OPTIONS
-	if event.is_action_pressed("options"):
+	if event.is_action_pressed("options") and not disable_options:
 		if inventory_state:
 			inventory.visible = false
 		options_state = !options_state
