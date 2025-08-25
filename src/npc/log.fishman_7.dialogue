@@ -1,3 +1,8 @@
 ~ NPC_start
-NPC: ...
+...
+=> END
+
+
+~ NPC_describe_nature
+At night even with the factory near our swamp.. still looks pretty.
 => END
