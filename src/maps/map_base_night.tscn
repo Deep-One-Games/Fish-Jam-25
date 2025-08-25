@@ -126,8 +126,8 @@ metadata/_custom_type_script = "uid://b6f3f6630eo0r"
 curve = ExtResource("10_5iqux")
 
 [node name="Patroller" type="PathFollow3D" parent="NPCS/PATROL_NPC6/Path"]
-transform = Transform3D(-0.154647, 0, -0.987862, 0, 0.999989, 0, 0.987862, 0, -0.154647, -40.9933, 0, -46.3736)
-progress = 188.563
+transform = Transform3D(0.56428, 0, 0.825454, 0, 0.999989, 0, -0.825454, 0, 0.56428, -22.3025, 0, -7.93257)
+progress = 78.3721
 rotation_mode = 1
 script = ExtResource("11_gg8rf")
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
@@ -276,7 +276,7 @@ metadata/_custom_type_script = "uid://b6f3f6630eo0r"
 curve = ExtResource("20_5iqux")
 
 [node name="Patroller" type="PathFollow3D" parent="NPCS/PATROL_NPC7/Path"]
-transform = Transform3D(-0.888193, 0, -0.45918, 0, 0.999989, 0, 0.45918, 0, -0.888193, 28.2348, 0, 8.13984)
+transform = Transform3D(-0.888193, 0, -0.45918, 0, 0.999989, 0, 0.45918, 0, -0.888193, 28.2348, 0, 8.13982)
 progress = 57.9857
 rotation_mode = 1
 script = ExtResource("11_gg8rf")
@@ -326,8 +326,8 @@ mesh = ExtResource("18_524th")
 disable_floor_snapping = true
 initial_state = NodePath("Idle")
 
-[node name="NPC_6" parent="NPCS" node_paths=PackedStringArray("initial_state") instance=ExtResource("12_cmxqp")]
-transform = Transform3D(1.0574, 0, 0.700782, 0, 1.26854, 0, -0.700782, 0, 1.0574, -24.616, 10.2282, 6.77591)
+[node name="NPC_1" parent="NPCS" node_paths=PackedStringArray("initial_state") instance=ExtResource("12_cmxqp")]
+transform = Transform3D(0.799004, 0, 0.985283, 0, 1.26854, 0, -0.985283, 0, 0.799004, -16.8243, 10.2282, -21.6073)
 mesh = ExtResource("18_524th")
 disable_floor_snapping = true
 initial_state = NodePath("Idle")
