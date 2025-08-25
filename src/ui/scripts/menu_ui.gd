@@ -42,7 +42,7 @@ func btn_new_pressed():
 	SceneManager.switch(SceneManager.GameScene.freeroam)
 
 func btn_continue_pressed():
-	SceneManager.switch(SceneManager.GameScene.freeroam)
+	SceneManager.switch(SceneManager.freeroam_context())
 
 func btn_opt_pressed():
 	clear_popups()

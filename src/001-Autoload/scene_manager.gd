@@ -31,6 +31,10 @@ var SceneInstances := {
 ## the engine settings
 var active_scene: GameScene = GameScene.main_menu
 
+func freeroam_context():
+	if Storage.sf.is_daytime: return GameScene.freeroam_day
+	return GameScene.freeroam_night
+
 func create_transition_element() -> TextureRect:
 	var rect := TextureRect.new()
 	var grad2d := GradientTexture2D.new()

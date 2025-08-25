@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dcxyohctx2sch"]
+[gd_scene load_steps=32 format=3 uid="uid://dcxyohctx2sch"]
 
 [ext_resource type="PackedScene" uid="uid://bl4j2pgha8a5u" path="res://src/maps/map_base.tscn" id="1_0b07p"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_iljcc"]
@@ -7,6 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://0bhf0nq3omkf" path="res://library/models/textures/TreeLine.png" id="4_7060y"]
 [ext_resource type="Texture2D" uid="uid://b54rn8jp0l8of" path="res://library/models/4448097d4ef431cc.png" id="5_aj6yt"]
 [ext_resource type="Material" uid="uid://b7io51mcjp48v" path="res://library/models/Water/new_water_shader_material.material" id="6_txmyl"]
+[ext_resource type="Script" uid="uid://b6f3f6630eo0r" path="res://src/npc/scripts/npc_patrol.gd" id="8_5iqux"]
+[ext_resource type="Resource" uid="uid://byf7436ra0t4p" path="res://src/npc/profile.fishman_6.tres" id="9_5iqux"]
+[ext_resource type="Curve3D" uid="uid://cgeylophlelit" path="res://src/npc/night_path.fishman_6.tres" id="10_5iqux"]
+[ext_resource type="Script" uid="uid://cgx2wkvvgp00v" path="res://src/nodes/linear_follow.gd" id="11_gg8rf"]
+[ext_resource type="PackedScene" uid="uid://bgpm7y7sc3s08" path="res://src/npc/0_fishman_basic.tscn" id="12_cmxqp"]
+[ext_resource type="ArrayMesh" uid="uid://08kfjeg83y3h" path="res://library/models/Fish_People_Generic/meshes/fishman_1.res" id="13_vwc7b"]
+[ext_resource type="Script" uid="uid://bjgq4nmbgscik" path="res://src/nodes/area_event.gd" id="14_hmrd7"]
+[ext_resource type="Resource" uid="uid://hq5s14xndpw6" path="res://src/npc/profile.fishman_2.tres" id="15_c0j6w"]
+[ext_resource type="Resource" uid="uid://kywxclrt1di8" path="res://src/npc/profile.fishman_5.tres" id="16_6u5oi"]
+[ext_resource type="Curve3D" uid="uid://dt4bi4emydc7q" path="res://src/npc/night_path.fishman_5.tres" id="17_5iqux"]
+[ext_resource type="ArrayMesh" uid="uid://4u1ridquan2r" path="res://library/models/Fish_People_Generic/meshes/fishman_4.res" id="18_524th"]
+[ext_resource type="Resource" uid="uid://defi0k78b0oo8" path="res://src/npc/profile.fishman_7.tres" id="19_506cy"]
+[ext_resource type="Curve3D" uid="uid://dcftycednt167" path="res://src/npc/night_path.fishman_7.tres" id="20_5iqux"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2kdx"]
 render_priority = 0
@@ -36,6 +49,23 @@ albedo_texture = ExtResource("5_aj6yt")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1l1ka"]
 size = Vector2(700, 700)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4ksqv"]
+radius = 0.15879
+
+[sub_resource type="Curve3D" id="Curve3D_5iqux"]
+closed = true
+_data = {
+"points": PackedVector3Array(0.29868, 0, -0.0080595, -0.29868, 0, 0.0080595, -12.9355, 0, -5.6419, 0.170691, 0, -0.449511, -0.170691, 0, 0.449511, -15.5684, 0, -4.28248, -0.0843573, 0, -0.636544, 0.0843573, 0, 0.636544, -15.9986, 0, -0.858102, -0.420831, 0, -0.229974, 0.420831, 0, 0.229974, -14.8284, 0, 1.44776, -0.299747, 0, 0.512858, 0.299747, 0, -0.512858, -10.1651, 0, 0.811067, -0.11143, 0, 0.388641, 0.11143, 0, -0.388641, -10.3716, 0, -1.44317, -0.0370293, 0, 0.366884, 0.0370293, 0, -0.366884, -10.3716, 0, -3.55975, 0.312889, 0, 0.291468, -0.312889, 0, -0.291468, -11.1115, 0, -6.14093, 0.446554, 0, -0.10647, -0.446554, 0, 0.10647, -15.3275, 0, -6.5023, 0.202862, 0, -0.558351, -0.202862, 0, 0.558351, -17.6677, 0, -5.16008, 0, 0, 0, 0, 0, 0, -17.1343, 0, -1.90778, -0.294846, 0, -0.133345, 0.294846, 0, 0.133345, -16.033, 0, 1.17243, -0.185727, 0, 0.340425, 0.185727, 0, -0.340425, -12.5742, 0, 0.20879, -0.139576, 0, 0.203173, 0.139576, 0, -0.203173, -11.3868, 0, -2.33798, 0.0728998, 0, 0.185223, -0.0728998, 0, -0.185223, -11.3352, 0, -5.00521, 0.395626, 0, -0.0171638, -0.395626, 0, 0.0171638, -14.0024, 0, -5.72794, 0.236498, 0, -0.343571, -0.236498, 0, 0.343571, -17.8914, 0, -4.71268, -0.17173, 0, -0.378143, 0.17173, 0, 0.378143, -18.9927, 0, 0.157166, -0.417977, 0, 0.0297145, 0.417977, 0, -0.0297145, -15.2414, 0, 1.60263, -0.302593, 0, 0.337558, 0.302593, 0, -0.337558, -12.3849, 0, 0.690611, -0.0554495, 0, 0.47974, 0.0554495, 0, -0.47974, -11.7998, 0, -2.76818, 0.352927, 0, 0.521631, -0.352927, 0, -0.521631, -12.1612, 0, -4.90196, 0.163139, 0, 0.370265, -0.163139, 0, -0.370265, -15.8953, 0, -5.67632, 0, 0, 0, 0, 0, 0, -15.0865, 0, -7.82731, 0, 0, 0, 0, 0, 0, -12.5161, 0, -13.2142, -0.188747, 0, 0.208353, 0.188747, 0, -0.208353, -10.6748, 0, -17.1085, -0.297686, 0, 0.0729084, 0.297686, 0, -0.0729084, -6.02737, 0, -20.8423, -0.336585, 0, 0.282993, 0.336585, 0, -0.282993, -0.675104, 0, -22.6843, 0, 0, 0, 0, 0, 0, 1.443, 0, -24.5029, -0.156534, 0, -0.0758648, 0.156534, 0, 0.0758648, 3.88652, 0, -26.3441, 0, 0, 0, 0, 0, 0, 4.16185, 0, -25.5182, -0.0554123, 0, 0.0947132, 0.0554123, 0, -0.0947132, 4.14464, 0, -26.3269, 0, 0, 0, 0, 0, 0, 5.76219, 0, -26.413, -0.344765, 0, -0.227713, 0.344765, 0, 0.227713, 13.3077, 0, -25.3998, 0, 0, 0, 0, 0, 0, 19.0383, 0, -22.6809, 0.05369, 0, -0.215933, -0.05369, 0, 0.215933, 21.9666, 0, -19.2746, 0, 0, 0, 0, 0, 0, 21.5708, 0, -18.0012, 0.277229, 0, -0.174298, -0.277229, 0, 0.174298, 20.1081, 0, -15.9879, 0.461802, 0, -0.0490036, -0.461802, 0, 0.0490036, 16.8374, 0, -14.8477, 0, 0, 0, 0, 0, 0, 11.7951, 0, -15.4671, 0, 0, 0, 0, 0, 0, 8.21588, 0, -15.9834, 0.500587, 0, -0.0340786, -0.500587, 0, 0.0340786, 3.60786, 0, -16.8265, 0.254203, 0, -0.385635, -0.254203, 0, 0.385635, 1.0783, 0, -16.0177, 0, 0, 0, 0, 0, 0, 0.382287, 0, -12.1276, 0, 0, 0, 0, 0, 0, 0.365079, 0, -9.68405, -0.10367, 0, -0.256549, 0.10367, 0, 0.256549, 0.617831, 0, -6.62837, -0.251381, 0, -0.309305, 0.251381, 0, 0.309305, 2.96618, 0, -3.8786, 0, 0, 0, 0, 0, 0, 6.57901, 0, -1.77111, 0.0204487, 0, -0.333689, -0.0204487, 0, 0.333689, 11.6207, 0, 1.22127, 0.325945, 0, 0.0479951, -0.325945, 0, -0.0479951, 10.858, 0, 2.54597, 0.261992, 0, 0.1396, -0.261992, 0, -0.1396, 5.97025, 0, 0.360732, 0.288508, 0, 0.2707, -0.288508, 0, -0.2707, 2.55812, 0, -2.91089, 0, 0, 0, 0, 0, 0, -1.95918, 0, -4.04105, 0.36673, 0, 0.0213823, -0.36673, 0, -0.0213823, -5.30506, 0, -3.99054, 0, 0, 0, 0, 0, 0, -7.43275, 0, -4.53543, 0, 0, 0, 0, 0, 0, -10.1313, 0, -5.02843),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 56
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5iqux"]
+radius = 0.0281029
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c0j6w"]
+radius = 0.0354877
 
 [node name="MapBaseNight" type="Node3D"]
 
@@ -80,3 +110,224 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yy8oq")
 [node name="Water" type="MeshInstance3D" parent="ENV"]
 mesh = SubResource("PlaneMesh_1l1ka")
 surface_material_override/0 = ExtResource("6_txmyl")
+
+[node name="NPCS" type="Node3D" parent="."]
+
+[node name="PATROL_NPC6" type="Node3D" parent="NPCS" node_paths=PackedStringArray("patroller", "npc")]
+script = ExtResource("8_5iqux")
+npc_info = ExtResource("9_5iqux")
+default_state = "WALK"
+patrol_title = "NPC_start"
+patroller = NodePath("Path/Patroller")
+npc = NodePath("Path/Patroller/NPC6")
+metadata/_custom_type_script = "uid://b6f3f6630eo0r"
+
+[node name="Path" type="Path3D" parent="NPCS/PATROL_NPC6"]
+curve = ExtResource("10_5iqux")
+
+[node name="Patroller" type="PathFollow3D" parent="NPCS/PATROL_NPC6/Path"]
+transform = Transform3D(0.56428, 0, 0.825454, 0, 0.999989, 0, -0.825454, 0, 0.56428, -22.3025, 0, -7.93257)
+progress = 78.3721
+rotation_mode = 1
+script = ExtResource("11_gg8rf")
+metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
+
+[node name="NPC6" parent="NPCS/PATROL_NPC6/Path/Patroller" instance=ExtResource("12_cmxqp")]
+mesh = ExtResource("13_vwc7b")
+
+[node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC6"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("14_hmrd7")
+event_type = 1
+duration_s = 5.0
+metadata/_custom_type_script = "uid://bjgq4nmbgscik"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NPCS/PATROL_NPC6/Idling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.38835, 0, 23.3456)
+shape = SubResource("SphereShape3D_4ksqv")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="NPCS/PATROL_NPC6/Idling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.069, 0, 30.3897)
+shape = SubResource("SphereShape3D_4ksqv")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="NPCS/PATROL_NPC6/Idling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.37, 0, 27.0378)
+shape = SubResource("SphereShape3D_4ksqv")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="NPCS/PATROL_NPC6/Idling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5582, 0, -45.3806)
+shape = SubResource("SphereShape3D_4ksqv")
+
+[node name="PATROL_NPC2" type="Node3D" parent="NPCS" node_paths=PackedStringArray("patroller", "npc")]
+transform = Transform3D(1.04104, 0, 0, 0, 1.04104, 0, 0, 0, 1.04104, 0, 0, 0)
+script = ExtResource("8_5iqux")
+npc_info = ExtResource("15_c0j6w")
+default_state = "WALK"
+patrol_title = "NPC_start"
+patroller = NodePath("Path/Patroller")
+npc = NodePath("Path/Patroller/NPC")
+metadata/_custom_type_script = "uid://b6f3f6630eo0r"
+
+[node name="Path" type="Path3D" parent="NPCS/PATROL_NPC2"]
+curve = SubResource("Curve3D_5iqux")
+
+[node name="Patroller" type="PathFollow3D" parent="NPCS/PATROL_NPC2/Path"]
+transform = Transform3D(-0.0269708, 0, 0.999525, 0, 0.999989, 0, -0.999525, 0, -0.0269708, -12.9355, 0, -5.6419)
+rotation_mode = 1
+script = ExtResource("11_gg8rf")
+metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
+
+[node name="NPC" parent="NPCS/PATROL_NPC2/Path/Patroller" instance=ExtResource("12_cmxqp")]
+mesh = ExtResource("13_vwc7b")
+
+[node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC2"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("14_hmrd7")
+event_type = 1
+duration_s = 15.0
+dialogue_title = "NPC_describe_nature"
+metadata/_custom_type_script = "uid://bjgq4nmbgscik"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/PATROL_NPC2/Idling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5765, 0, -17.9989)
+shape = SubResource("SphereShape3D_4ksqv")
+
+[node name="Sitting" type="Area3D" parent="NPCS/PATROL_NPC2"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("14_hmrd7")
+event_type = 4
+duration_s = 15.0
+metadata/_custom_type_script = "uid://bjgq4nmbgscik"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/PATROL_NPC2/Sitting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8992, 0, 14.0401)
+shape = SubResource("SphereShape3D_4ksqv")
+
+[node name="SittingWorking" type="Area3D" parent="NPCS/PATROL_NPC2"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("14_hmrd7")
+event_type = 3
+duration_s = 15.0
+metadata/_custom_type_script = "uid://bjgq4nmbgscik"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/PATROL_NPC2/SittingWorking"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.677153, 0, -26.6237)
+shape = SubResource("SphereShape3D_4ksqv")
+
+[node name="PATROL_NPC5" type="Node3D" parent="NPCS" node_paths=PackedStringArray("patroller", "npc")]
+script = ExtResource("8_5iqux")
+npc_info = ExtResource("16_6u5oi")
+default_state = "WALK"
+patrol_title = "NPC_start"
+patroller = NodePath("Path/Patroller")
+npc = NodePath("Path/Patroller/NPC5")
+metadata/_custom_type_script = "uid://b6f3f6630eo0r"
+
+[node name="Path" type="Path3D" parent="NPCS/PATROL_NPC5"]
+curve = ExtResource("17_5iqux")
+
+[node name="Patroller" type="PathFollow3D" parent="NPCS/PATROL_NPC5/Path"]
+transform = Transform3D(0.118199, 0, -0.992867, 0, 0.999989, 0, 0.992867, 0, 0.118199, -97.3356, 0, -2.70889)
+rotation_mode = 1
+script = ExtResource("11_gg8rf")
+metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
+
+[node name="NPC5" parent="NPCS/PATROL_NPC5/Path/Patroller" instance=ExtResource("12_cmxqp")]
+mesh = ExtResource("18_524th")
+
+[node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC5"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("14_hmrd7")
+event_type = 1
+duration_s = 10.0
+metadata/_custom_type_script = "uid://bjgq4nmbgscik"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/PATROL_NPC5/Idling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.9207, 0, -47.5378)
+shape = SubResource("SphereShape3D_4ksqv")
+
+[node name="IdleLONG" type="Area3D" parent="NPCS/PATROL_NPC5"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("14_hmrd7")
+event_type = 1
+duration_s = 60.0
+metadata/_custom_type_script = "uid://bjgq4nmbgscik"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/PATROL_NPC5/IdleLONG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.451, 0, -34.8431)
+shape = SubResource("SphereShape3D_4ksqv")
+
+[node name="PATROL_NPC7" type="Node3D" parent="NPCS" node_paths=PackedStringArray("patroller", "npc")]
+script = ExtResource("8_5iqux")
+npc_info = ExtResource("19_506cy")
+default_state = "WALK"
+patrol_title = "NPC_start"
+patroller = NodePath("Path/Patroller")
+npc = NodePath("Path/Patroller/NPC7")
+metadata/_custom_type_script = "uid://b6f3f6630eo0r"
+
+[node name="Path" type="Path3D" parent="NPCS/PATROL_NPC7"]
+curve = ExtResource("20_5iqux")
+
+[node name="Patroller" type="PathFollow3D" parent="NPCS/PATROL_NPC7/Path"]
+transform = Transform3D(-0.888193, 0, -0.45918, 0, 0.999989, 0, 0.45918, 0, -0.888193, 28.2348, 0, 8.13982)
+progress = 57.9857
+rotation_mode = 1
+script = ExtResource("11_gg8rf")
+metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
+
+[node name="NPC7" parent="NPCS/PATROL_NPC7/Path/Patroller" instance=ExtResource("12_cmxqp")]
+mesh = ExtResource("18_524th")
+
+[node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC7"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("14_hmrd7")
+event_type = 1
+duration_s = 10.0
+dialogue_title = "NPC_describe_nature"
+metadata/_custom_type_script = "uid://bjgq4nmbgscik"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/PATROL_NPC7/Idling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.6777, 0, 13.5953)
+shape = SubResource("SphereShape3D_4ksqv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NPCS/PATROL_NPC7/Idling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9772, 0, 3.49692)
+shape = SubResource("SphereShape3D_5iqux")
+
+[node name="Working" type="Area3D" parent="NPCS/PATROL_NPC7"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("14_hmrd7")
+event_type = 2
+duration_s = 10.0
+metadata/_custom_type_script = "uid://bjgq4nmbgscik"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/PATROL_NPC7/Working"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.903207, 0, -27.744)
+shape = SubResource("SphereShape3D_c0j6w")
+
+[node name="NPC_3" parent="NPCS" node_paths=PackedStringArray("initial_state") instance=ExtResource("12_cmxqp")]
+transform = Transform3D(0.44647, 0, 1.18737, 0, 1.26854, 0, -1.18737, 0, 0.44647, -24.2515, 10.212, 7.98879)
+mesh = ExtResource("13_vwc7b")
+disable_floor_snapping = true
+initial_state = NodePath("Idle")
+
+[node name="NPC_4" parent="NPCS" node_paths=PackedStringArray("initial_state") instance=ExtResource("12_cmxqp")]
+transform = Transform3D(0.177182, 0, 1.25611, 0, 1.26854, 0, -1.25611, 0, 0.177182, -9.09102, 10.212, -34.1104)
+mesh = ExtResource("18_524th")
+disable_floor_snapping = true
+initial_state = NodePath("Idle")
+
+[node name="NPC_1" parent="NPCS" node_paths=PackedStringArray("initial_state") instance=ExtResource("12_cmxqp")]
+transform = Transform3D(0.799004, 0, 0.985283, 0, 1.26854, 0, -0.985283, 0, 0.799004, -16.8243, 10.2282, -21.6073)
+mesh = ExtResource("18_524th")
+disable_floor_snapping = true
+initial_state = NodePath("Idle")

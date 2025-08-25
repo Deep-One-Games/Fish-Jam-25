@@ -397,6 +397,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0499, -2.59236, -10.0203)
 shape = SubResource("CylinderShape3D_7tvku")
 
 [node name="MapBounds" type="StaticBody3D" parent="." index="1"]
+visible = false
 collision_layer = 512
 collision_mask = 0
 
@@ -1929,6 +1930,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_8xc4p")
 transform = Transform3D(0.320093, 0.0298861, -0.0247187, -0.0287438, 0.313611, 0.03582, 0.0216862, -0.0254524, 0.412331, -54.5788, 10.4634, -44.1361)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Town/TOWN3" index="0"]
+visible = false
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Town/TOWN3/StaticBody3D" index="0"]
@@ -1973,3 +1975,5 @@ transform = Transform3D(0.763056, -0.165384, -0.624815, 0.21062, 0.977567, -0.00
 
 [node name="village24" parent="Town" index="26" instance=ExtResource("25_ywq17")]
 transform = Transform3D(-0.796637, -0.185193, -1.08659, 0.0140065, 1.33886, -0.238458, 1.10217, -0.15087, -0.782342, -44.3753, 11.3792, -41.4114)
+
+[node name="Path3D" type="Path3D" parent="." index="9"]
