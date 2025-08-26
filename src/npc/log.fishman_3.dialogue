@@ -5,7 +5,7 @@ if Storage.sf.NPC3_interactions % 2 == 0
 	I tie stones to their tails, fins, makes them stronger, yes? No? Maybe? They still lose...
 	Stupid fish. Stupid, ugly fish. Can't do nothing right. Can't do nothing... But I try!
 	- [Encourage with a nod]
-	    Yes... trying is all we can do. The race will fix it.
+		Yes... trying is all we can do. The race will fix it.
 	- [Stay silent]
 	    You... you understand, right? It's all for the race.
 
