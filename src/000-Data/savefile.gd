@@ -50,10 +50,12 @@ enum WORLD_STATE {DAY, NIGHT}
 @export_category("NPC7")
 @export var NPC7_interactions: int = 0
 
-func pass_time():
-	if is_daytime:
+func pass_time(): # always save on call
+	if is_daytime: # transition day -> night
 		is_daytime = false
+		Storage.save_process()
 		return
+	# transition night -> day
 	days += 1
 	is_daytime = true
 	Storage.save_process()

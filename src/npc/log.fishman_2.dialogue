@@ -11,7 +11,6 @@ if Storage.sf.NPC2_interactions % 2 == 0
 		Forget it! I don’t need to see. It’s probably black with tar, rotten and foul anyway...
 	...
 
-
 if Storage.sf.NPC2_interactions % 2 == 1
 	You blink slow, I blink fast. Which is right?
 	- [Blink slowly]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://bl4j2pgha8a5u"]
+[gd_scene load_steps=71 format=4 uid="uid://bl4j2pgha8a5u"]
 
 [ext_resource type="PackedScene" uid="uid://dceftca3qspku" path="res://library/models/freeroam/freeroam.glb" id="1_5hikl"]
 [ext_resource type="Texture2D" uid="uid://e5kl18spayjg" path="res://library/models/freeroam/freeroam_blank.png" id="2_d21su"]
@@ -22,6 +22,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dmkoy7vr2lr8i" path="res://library/models/Trees/Mesh/Reeds.res" id="18_gwdm8"]
 [ext_resource type="ArrayMesh" uid="uid://jaef7lm0yo27" path="res://library/models/Trees/Mesh/Dark_Tree_4.res" id="20_pg3em"]
 [ext_resource type="ArrayMesh" uid="uid://ctrsiii1l54xb" path="res://library/models/Trees/Mesh/Dark_Log_1.res" id="22_4gaty"]
+[ext_resource type="PackedScene" uid="uid://bn7hcswbsynlm" path="res://src/002-Props/village/shack.tscn" id="24_0owk0"]
 [ext_resource type="PackedScene" uid="uid://dbv470b3ip8eu" path="res://src/002-Props/village/lantern.tscn" id="25_ywq17"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7tvku"]
@@ -272,7 +273,6 @@ shadow_mesh = SubResource("ArrayMesh_k7ju2")
 
 [node name="FishingZones" type="StaticBody3D" parent="." index="0" groups=["fishing_zone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55248, 0)
-visible = false
 collision_layer = 8
 collision_mask = 0
 
@@ -317,82 +317,138 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.0735, -2.59236, 34.5305)
 shape = SubResource("CylinderShape3D_7tvku")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="FishingZones" index="10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.4295, -2.59236, 34.3799)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.136, -2.59236, 39.5537)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D12" type="CollisionShape3D" parent="FishingZones" index="11"]
+[node name="CollisionShape3D31" type="CollisionShape3D" parent="FishingZones" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.4254, -2.59236, 46.021)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D32" type="CollisionShape3D" parent="FishingZones" index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.2015, -2.59236, 38.8482)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D33" type="CollisionShape3D" parent="FishingZones" index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.227, -2.59236, 45.5507)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D34" type="CollisionShape3D" parent="FishingZones" index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.161, -2.59236, 43.5517)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D35" type="CollisionShape3D" parent="FishingZones" index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.333, -2.59236, 28.383)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D36" type="CollisionShape3D" parent="FishingZones" index="16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0574, -2.59236, 41.5527)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D37" type="CollisionShape3D" parent="FishingZones" index="17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6708, -2.59236, 7.92279)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D38" type="CollisionShape3D" parent="FishingZones" index="18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.6688, -2.59236, -12.773)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D39" type="CollisionShape3D" parent="FishingZones" index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2628, -2.59236, -12.773)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D40" type="CollisionShape3D" parent="FishingZones" index="20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7578, -2.59236, 28.9705)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D41" type="CollisionShape3D" parent="FishingZones" index="21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0604, -2.59236, 40.0237)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D42" type="CollisionShape3D" parent="FishingZones" index="22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89166, -2.59236, 44.0216)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D43" type="CollisionShape3D" parent="FishingZones" index="23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10019, -2.59236, 41.7875)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D44" type="CollisionShape3D" parent="FishingZones" index="24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10019, -2.59236, 41.7875)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="FishingZones" index="25"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.368, -2.59236, 24.9443)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D13" type="CollisionShape3D" parent="FishingZones" index="12"]
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="FishingZones" index="26"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.3481, -2.59236, 9.2349)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D14" type="CollisionShape3D" parent="FishingZones" index="13"]
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="FishingZones" index="27"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.4106, -2.59236, -1.90721)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D15" type="CollisionShape3D" parent="FishingZones" index="14"]
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="FishingZones" index="28"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.0677, -2.59236, -6.57485)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D16" type="CollisionShape3D" parent="FishingZones" index="15"]
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="FishingZones" index="29"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131851, -2.59236, 11.2425)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D17" type="CollisionShape3D" parent="FishingZones" index="16"]
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="FishingZones" index="30"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.18446, -2.59236, 19.574)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D18" type="CollisionShape3D" parent="FishingZones" index="17"]
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="FishingZones" index="31"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8588, -2.59236, 4.11555)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D19" type="CollisionShape3D" parent="FishingZones" index="18"]
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="FishingZones" index="32"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7386, -2.59236, 16.8637)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D20" type="CollisionShape3D" parent="FishingZones" index="19"]
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="FishingZones" index="33"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5699, -2.59236, 11.2425)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D21" type="CollisionShape3D" parent="FishingZones" index="20"]
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="FishingZones" index="34"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.8276, -2.59236, 0.953601)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D22" type="CollisionShape3D" parent="FishingZones" index="21"]
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="FishingZones" index="35"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9651, -2.59236, 26.6532)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D23" type="CollisionShape3D" parent="FishingZones" index="22"]
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="FishingZones" index="36"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6606, -2.59236, 26.7703)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D24" type="CollisionShape3D" parent="FishingZones" index="23"]
+[node name="CollisionShape3D24" type="CollisionShape3D" parent="FishingZones" index="37"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.69212, -2.59236, 31.8806)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D25" type="CollisionShape3D" parent="FishingZones" index="24"]
+[node name="CollisionShape3D25" type="CollisionShape3D" parent="FishingZones" index="38"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.3206, -2.59236, 17.4443)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D26" type="CollisionShape3D" parent="FishingZones" index="25"]
+[node name="CollisionShape3D26" type="CollisionShape3D" parent="FishingZones" index="39"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2604, -2.59236, 25.8051)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D27" type="CollisionShape3D" parent="FishingZones" index="26"]
+[node name="CollisionShape3D27" type="CollisionShape3D" parent="FishingZones" index="40"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.456, -2.59236, 35.0313)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D28" type="CollisionShape3D" parent="FishingZones" index="27"]
+[node name="CollisionShape3D28" type="CollisionShape3D" parent="FishingZones" index="41"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.452, -2.59236, 29.2176)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D29" type="CollisionShape3D" parent="FishingZones" index="28"]
+[node name="CollisionShape3D29" type="CollisionShape3D" parent="FishingZones" index="42"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.039, -2.59236, 34.9049)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D30" type="CollisionShape3D" parent="FishingZones" index="29"]
+[node name="CollisionShape3D30" type="CollisionShape3D" parent="FishingZones" index="43"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0499, -2.59236, -10.0203)
 shape = SubResource("CylinderShape3D_7tvku")
 
@@ -894,7 +950,6 @@ transform = Transform3D(-0.378794, 0, 0.925481, 0, 1, 0, -0.925481, 0, -0.378794
 shape = SubResource("BoxShape3D_pg3em")
 
 [node name="EnvCol" type="StaticBody3D" parent="." index="2"]
-visible = false
 collision_mask = 0
 
 [node name="SURFACE" type="CollisionShape3D" parent="EnvCol" index="0"]
@@ -1976,4 +2031,13 @@ transform = Transform3D(0.763056, -0.165384, -0.624815, 0.21062, 0.977567, -0.00
 [node name="village24" parent="Town" index="26" instance=ExtResource("25_ywq17")]
 transform = Transform3D(-0.796637, -0.185193, -1.08659, 0.0140065, 1.33886, -0.238458, 1.10217, -0.15087, -0.782342, -44.3753, 11.3792, -41.4114)
 
-[node name="Path3D" type="Path3D" parent="." index="9"]
+[node name="Shack" parent="." index="9" instance=ExtResource("24_0owk0")]
+transform = Transform3D(0.722838, -0.0884864, 0.685328, 0.0881723, 0.995471, 0.0355324, -0.685369, 0.0347428, 0.727367, -156.078, 2.76265, -41.5946)
+
+[node name="BobberCollisions" type="StaticBody3D" parent="." index="10"]
+collision_layer = 2147483648
+collision_mask = 0
+
+[node name="SURFACE2" type="CollisionShape3D" parent="BobberCollisions" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.6841, -0.143296, -22.9249)
+shape = SubResource("BoxShape3D_gwdm8")

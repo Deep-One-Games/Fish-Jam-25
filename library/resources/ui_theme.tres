@@ -1,13 +1,14 @@
-[gd_resource type="Theme" load_steps=21 format=3 uid="uid://bmhwd8x4bscyh"]
+[gd_resource type="Theme" load_steps=22 format=3 uid="uid://bmhwd8x4bscyh"]
 
 [ext_resource type="Texture2D" uid="uid://bp0m2pagcyc8c" path="res://library/textures/ui/button_pressed.png" id="1_b7qw8"]
+[ext_resource type="Texture2D" uid="uid://be2t1rytsb8k5" path="res://library/textures/ui/button_disabled.png" id="1_dhjrv"]
 [ext_resource type="Texture2D" uid="uid://w815pi2ocdhe" path="res://library/textures/ui/theme_bg.png" id="1_o5yr1"]
 [ext_resource type="Texture2D" uid="uid://cmcaanf1r2sxj" path="res://library/textures/ui/button_normal.png" id="1_s6nl1"]
 [ext_resource type="FontFile" uid="uid://dt3mcci6cdag7" path="res://library/fonts/alagard.ttf" id="2_o5yr1"]
 [ext_resource type="Texture2D" uid="uid://duhesrjvcgrdy" path="res://library/textures/ui/button_a.png" id="3_b7qw8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s6nl1"]
-texture = ExtResource("1_b7qw8")
+texture = ExtResource("1_dhjrv")
 texture_margin_left = 26.0
 texture_margin_top = 23.0
 texture_margin_right = 21.0

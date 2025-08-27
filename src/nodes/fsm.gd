@@ -12,6 +12,8 @@ class_name FSM extends Node3D
 var current_state: FSMState
 var states: Dictionary[String, FSMState] = {}
 
+signal state_changed
+
 func _ready() -> void:
 	for child in get_children(): if child is FSMState:
 		child.state_machine = self
@@ -38,3 +40,4 @@ func change_state(state_id: String) -> void:
 	
 	new_state.enter()
 	current_state = new_state
+	state_changed.emit(state_id)

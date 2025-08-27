@@ -12,18 +12,6 @@
 
 [node name="MapBaseNight" parent="." instance=ExtResource("1_s0yj7")]
 
-[node name="Patroller" parent="MapBaseNight/NPCS/PATROL_NPC6/Path" index="0"]
-transform = Transform3D(0.564283, 0, 0.825452, 0, 0.999989, 0, -0.825452, 0, 0.564283, -22.3025, 0, -7.93255)
-
-[node name="Patroller" parent="MapBaseNight/NPCS/PATROL_NPC2/Path" index="0"]
-transform = Transform3D(-0.0269708, 0, 0.999525, 0, 0.999989, 0, -0.999525, 0, -0.0269708, -12.9355, 0, -5.6419)
-
-[node name="Patroller" parent="MapBaseNight/NPCS/PATROL_NPC5/Path" index="0"]
-transform = Transform3D(0.118199, 0, -0.992867, 0, 0.999989, 0, 0.992867, 0, 0.118199, -97.3356, 0, -2.70889)
-
-[node name="Patroller" parent="MapBaseNight/NPCS/PATROL_NPC7/Path" index="0"]
-transform = Transform3D(-0.888193, 0, -0.45918, 0, 0.999989, 0, 0.45918, 0, -0.888193, 28.2348, 0, 8.13982)
-
 [node name="Origin" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.8411, 0, -63.5398)
 
@@ -40,6 +28,7 @@ ui_scene = ExtResource("5_s0yj7")
 rod_scene = ExtResource("6_h6adn")
 
 [node name="PlayerUI" parent="Origin" node_paths=PackedStringArray("player") instance=ExtResource("7_msvn0")]
+visible = true
 player = NodePath("../Player")
 
 [node name="Lighting" type="Node3D" parent="."]

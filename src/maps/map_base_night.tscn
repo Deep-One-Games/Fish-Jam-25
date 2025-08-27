@@ -127,7 +127,7 @@ metadata/_custom_type_script = "uid://b6f3f6630eo0r"
 curve = ExtResource("10_5iqux")
 
 [node name="Patroller" type="PathFollow3D" parent="NPCS/PATROL_NPC6/Path"]
-transform = Transform3D(0.564283, 0, 0.825452, 0, 0.999989, 0, -0.825452, 0, 0.564283, -22.3025, 0, -7.93255)
+transform = Transform3D(0.564281, 0, 0.82545, 0, 0.999989, 0, -0.82545, 0, 0.564281, -22.3025, 0, -7.93255)
 progress = 78.3721
 rotation_mode = 1
 script = ExtResource("11_gg8rf")

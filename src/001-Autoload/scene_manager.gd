@@ -22,7 +22,7 @@ var SceneInstances := {
 	GameScene.main_menu: preload("res://src/ui/menu.tscn"),
 	GameScene.freeroam: preload("res://src/scenes/freeroam_night.tscn"),
 	GameScene.racing: preload("res://src/scenes/racing.tscn"),
-	GameScene.fishing: preload("res://src/scenes/fishing.tscn"),
+	GameScene.fishing: preload("res://src/fishing/fishing_test.tscn"),
 	GameScene.freeroam_day: preload("res://src/scenes/freeroam_day.tscn"),
 	GameScene.freeroam_night: preload("res://src/scenes/freeroam_night.tscn"),
 }

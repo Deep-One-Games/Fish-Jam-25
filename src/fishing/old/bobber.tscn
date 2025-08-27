@@ -1,13 +1,114 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct6q5gb8nrrvn"]
+[gd_scene load_steps=8 format=3 uid="uid://ct6q5gb8nrrvn"]
 
 [ext_resource type="Script" uid="uid://ceoftg3vsamgl" path="res://src/fishing/old/bobber.gd" id="1_wjlbv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vmxpm"]
+friction = 69420.0
+rough = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_52w5q"]
 radius = 0.1
 height = 0.2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vmxpm"]
+size = Vector3(0.206665, 0.235107, 0.243896)
+
+[sub_resource type="Animation" id="Animation_vmxpm"]
+resource_name = "bobber_updown"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.99, 4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.0676604, -0.633333, -0.056807, 0.733333, -0.0501499, -0.0401841, -1.1, 0.0812162, 0.25, 0, -0.000241713, -0.466667, -0.00621327, 0.466667, 0.00621327),
+"times": PackedFloat32Array(0, 2, 3.93333, 5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.99, 4)
+}
+
+[sub_resource type="Animation" id="Animation_ky078"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ky078"]
+_data = {
+&"RESET": SubResource("Animation_ky078"),
+&"bobber_updown": SubResource("Animation_vmxpm")
+}
+
 [node name="Bobber" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 2147483648
+physics_material_override = SubResource("PhysicsMaterial_vmxpm")
 script = ExtResource("1_wjlbv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
 mesh = SubResource("SphereMesh_52w5q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00115967, 0.0174561, -0.000366211)
+shape = SubResource("BoxShape3D_vmxpm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ky078")
+}
+autoplay = "bobber_updown"
