@@ -1,0 +1,30 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://bp702cddrippg"]
+
+[ext_resource type="Texture2D" uid="uid://c442od0m160i4" path="res://library/models/textures/Shack_Base_color.png" id="1_l2wib"]
+[ext_resource type="Texture2D" uid="uid://bqmhjhktj33o7" path="res://library/models/textures/Shack_Normal_OpenGL.png" id="2_eek2j"]
+[ext_resource type="Shader" uid="uid://dp6wyhvyfrd48" path="res://library/resources/ps1_shadeobj.gdshader" id="2_pd2yd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2k5lj"]
+render_priority = 0
+shader = ExtResource("2_pd2yd")
+shader_parameter/color_texture = ExtResource("1_l2wib")
+shader_parameter/vertex_wobble = 0.15
+shader_parameter/affine_mapping = 0.47
+shader_parameter/alpha_cutoff = 0.5
+
+[resource]
+resource_name = "Shack"
+next_pass = SubResource("ShaderMaterial_2k5lj")
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = ExtResource("1_l2wib")
+roughness = 0.791339
+normal_enabled = true
+normal_texture = ExtResource("2_eek2j")
+texture_filter = 2
+metadata/extras = {
+"mmd_material": {}
+}

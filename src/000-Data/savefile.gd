@@ -27,33 +27,21 @@ enum WORLD_STATE {DAY, NIGHT}
 ## automated!!
 @export var story_complete: bool = false
 @export var is_daytime: bool = true
-@export var days: int
+@export var days: int = 0
 
-@export_category("NPC1")
-@export var NPC1_interactions: int = 0
+## STORY VARIABLES
+@export var talked_once_merchant: bool = false
+@export var tickets: int = 0
+@export var rods_recieved: int = 0
+@export var unlock_10m = true
 
-@export_category("NPC2")
-@export var NPC2_interactions: int = 0
 
-@export_category("NPC3")
-@export var NPC3_interactions: int = 0
-
-@export_category("NPC4")
-@export var NPC4_interactions: int = 0
-
-@export_category("NPC5")
-@export var NPC5_interactions: int = 0
-
-@export_category("NPC6")
-@export var NPC6_interactions: int = 0
-
-@export_category("NPC7")
-@export var NPC7_interactions: int = 0
-
-func pass_time():
-	if is_daytime:
+func pass_time(): # always save on call
+	if is_daytime: # transition day -> night
 		is_daytime = false
+		Storage.save_process()
 		return
+	# transition night -> day
 	days += 1
 	is_daytime = true
 	Storage.save_process()

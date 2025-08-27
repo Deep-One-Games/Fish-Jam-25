@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cw5rwsju0wtqq"
+path="res://.godot/imported/log.salesman.dialogue-10073c595ff256e902482df606bab3f0.tres"
+
+[deps]
+
+source_file="res://src/npc/log.salesman.dialogue"
+dest_files=["res://.godot/imported/log.salesman.dialogue-10073c595ff256e902482df606bab3f0.tres"]
+
+[params]
+
+defaults=true

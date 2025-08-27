@@ -1,15 +1,16 @@
 ~ NPC_start
-if Storage.sf.NPC3_interactions % 2 == 0
-	We wait for the race, Son will smile again. Yes. He will...
-	It's been so long... Every day we practise, every day we train the fish. We try, try our best!
+%
+	We wait for the race... 
+	Son will smile again. Yes. He will... It's been so long... 
+	Every day we practise, every day we train the fish. We try, try our best!
 	I tie stones to their tails, fins, makes them stronger, yes? No? Maybe? They still lose...
 	Stupid fish. Stupid, ugly fish. Can't do nothing right. Can't do nothing... But I try!
 	- [Encourage with a nod]
-		Yes... trying is all we can do. The race will fix it.
+	 Yes... trying is all we can do. The race will fix it.
 	- [Stay silent]
 	    You... you understand, right? It's all for the race.
 
-if Storage.sf.NPC3_interactions % 2 == 1
+%
 	If I clap three times before the race, they go quicker, I swear it! 
 	I saw another one doing it, long ago, when the Son was still invested in the races...
 	They clapped 3 times juuust before the race started, I've counted, 1.. 2.. 3! Their fish won that day!
@@ -19,7 +20,4 @@ if Storage.sf.NPC3_interactions % 2 == 1
 	And of course the technique doesnt work that way! He needs to witness it to work...
 	Human, he says, we need a real one. Only a real one can do it.
 	But, like... What does a human even smell like? I heard they smell like the swamp flowers. All I smell is rust these days.
-
-set Storage.sf.NPC3_interactions += 1
-do  Storage.save_process()
 => END

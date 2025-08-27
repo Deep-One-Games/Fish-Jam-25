@@ -1,6 +1,5 @@
 extends RigidBody3D
 
-@export var float_strength: float = 5.0
 @export var gravity_override: Vector3 = Vector3.DOWN * ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _physics_process(delta: float) -> void:
@@ -19,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	# perform the raycast
 	var result = space_state.intersect_ray(params)
 
-	if result and result.collider.is_in_group("fishing_area"):
+	if result and result.collider.is_in_group("fishing_zone"):
 		# snap to float on water surface
 		var water_y = result.position.y
 		global_transform.origin.y = water_y + 0.05

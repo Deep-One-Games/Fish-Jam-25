@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2i4o1fmeyxrq"]
+
+[ext_resource type="Script" uid="uid://col5phoa2cnm8" path="res://src/ui/scripts/power_gradient.gd" id="1_byfcs"]
+[ext_resource type="Texture2D" uid="uid://c168q7bfyj8fh" path="res://library/textures/ui/power_gradient.png" id="1_ptena"]
+[ext_resource type="Resource" uid="uid://cf8frrh43kf4i" path="res://src/000-Data/Items/rod_a.tres" id="2_7h7yg"]
+[ext_resource type="Texture2D" uid="uid://b3k6jbeyki0py" path="res://library/textures/ui/power_slider.png" id="2_byfcs"]
+
+[node name="PowerGradient" type="Control" node_paths=PackedStringArray("slider")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.245, 0.245)
+script = ExtResource("1_byfcs")
+MIN_POWER_Y = 1000.0
+speed_mult = 0.5
+rod_item = ExtResource("2_7h7yg")
+slider = NodePath("TextureRect2")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 2
+offset_top = 1000.0
+offset_right = 250.0
+offset_bottom = 1035.0
+pivot_offset = Vector2(119, 9)
+texture = ExtResource("2_byfcs")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 250.0
+offset_bottom = 1000.0
+scale = Vector2(0.915, 1)
+pivot_offset = Vector2(125, 0)
+texture = ExtResource("1_ptena")
+flip_v = true

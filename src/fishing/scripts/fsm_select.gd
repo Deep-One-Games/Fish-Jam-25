@@ -1,4 +1,4 @@
-extends FSMState
+class_name FSMFishingSelect extends FSMState
 
 @export_category("Setup")
 @export var use_savefile := true
@@ -11,6 +11,7 @@ extends FSMState
 @export var item: MeshInstance3D
 @export var item_title: Label
 @export var item_desc: Label
+@export var leave_btn: Button
 
 @export_category("Rod Lists")
 @export var rod_list_target: Control
@@ -44,6 +45,7 @@ func _ready() -> void:
 	
 	inventory_btn.pressed.connect(inv_pressed)
 	accept_btn.pressed.connect(accept_pressed)
+	accept_btn.disabled = true
 
 	# Initialize states
 	update_popup(popup_state)
@@ -71,9 +73,11 @@ func update_popup(to_open: bool):
 	if to_open:
 		animation_player.play(&"dropdown_rods")
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		leave_btn.disabled = true
 		return
 	animation_player.play(&"dropup_rods")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	leave_btn.disabled = false
 	
 
 func update_rod_ui(rod: RodItem, rod_ui: FishingRodItemUI):
@@ -91,3 +95,4 @@ func select_rod(rod: RodItem, rod_ui: FishingRodItemUI):
 	prev_selected_rod = rod_ui
 
 	prev_selected_rod.select_item.disabled = true
+	accept_btn.disabled = false

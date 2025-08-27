@@ -14,10 +14,10 @@ collision_layer = 2
 collision_mask = 513
 script = ExtResource("1_4anbu")
 speed = 7.0
-fishing_distance = 10.0
+fishing_distance = 20.0
 camera = NodePath("Camera3D")
 interact_box = NodePath("InteractBox")
-fishing_rc = NodePath("Camera3D/RayCast3D")
+fishing_rc = NodePath("Camera3D/s")
 
 [node name="CShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901715, 0)
@@ -28,8 +28,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48184, 0)
 current = true
 fov = 85.0
 
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.113094, 0)
+[node name="s" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.225141, 0)
 visible = false
 target_position = Vector3(0, 0, -10)
 collision_mask = 9

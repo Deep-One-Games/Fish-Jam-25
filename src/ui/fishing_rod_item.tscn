@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="1_w31sk"]
 
 [node name="Panel" type="PanelContainer" node_paths=PackedStringArray("select_item")]
+theme_type_variation = &"InteractPanel"
 script = ExtResource("1_4mblf")
 select_item = NodePath("Button")
 

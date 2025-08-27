@@ -1,6 +1,5 @@
-[gd_scene load_steps=22 format=4 uid="uid://1xopq2inxt2l"]
+[gd_scene load_steps=27 format=4 uid="uid://1xopq2inxt2l"]
 
-[ext_resource type="Script" uid="uid://c5en56ptkabt3" path="res://src/nodes/fsm.gd" id="1_1lf7m"]
 [ext_resource type="Script" uid="uid://ksfglxvrivso" path="res://src/fishing/scripts/debug.gd" id="1_33dy4"]
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="2_lixjd"]
 [ext_resource type="Script" uid="uid://cevj3tq6mfnqu" path="res://src/fishing/scripts/fsm_select.gd" id="2_m5h01"]
@@ -10,9 +9,15 @@
 [ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="3_x5vlk"]
 [ext_resource type="PackedScene" uid="uid://dpbgkoddye275" path="res://src/000-Data/Items/rod_a.tscn" id="3_xt171"]
 [ext_resource type="Texture2D" uid="uid://cipwq2mxjhqnh" path="res://library/models/textures/Material.001_Base_color.png" id="4_g2i1e"]
+[ext_resource type="Script" uid="uid://kw3xcoga74da" path="res://src/fishing/scripts/fishing_fsm.gd" id="4_pan0v"]
 [ext_resource type="Script" uid="uid://bljcsapxjhgw4" path="res://src/nodes/linear_rotate.gd" id="4_x5vlk"]
 [ext_resource type="Texture2D" uid="uid://b8v7xoryhpmda" path="res://library/models/textures/Material.001_Normal_OpenGL.png" id="5_x5vlk"]
-[ext_resource type="PackedScene" uid="uid://bl4j2pgha8a5u" path="res://src/maps/map_base.tscn" id="12_ab18c"]
+[ext_resource type="Script" uid="uid://coqxi3tfkml6w" path="res://src/fishing/scripts/fsm_fish.gd" id="11_td38c"]
+[ext_resource type="PackedScene" uid="uid://ct6q5gb8nrrvn" path="res://src/fishing/old/bobber.tscn" id="12_2m8sg"]
+[ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="12_45rk3"]
+[ext_resource type="Script" uid="uid://drnft836dst8h" path="res://src/nodes/freeroam_ctx.gd" id="13_45rk3"]
+[ext_resource type="PackedScene" uid="uid://djji8thnxchus" path="res://src/maps/map_base_day.tscn" id="13_pan0v"]
+[ext_resource type="PackedScene" uid="uid://dcxyohctx2sch" path="res://src/maps/map_base_night.tscn" id="14_45rk3"]
 
 [sub_resource type="Animation" id="Animation_33dy4"]
 length = 0.001
@@ -187,29 +192,11 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="UI PROJECTION" type="SubViewportContainer" parent="."]
-visible = false
-z_index = 4096
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 0
-stretch = true
-mouse_target = true
-
-[node name="SubViewport" type="SubViewport" parent="UI PROJECTION"]
-handle_input_locally = false
-size = Vector2i(1280, 720)
-render_target_update_mode = 0
-
 [node name="Origin" type="Node3D" parent="."]
 
 [node name="Player" parent="Origin" instance=ExtResource("2_sspy6")]
-transform = Transform3D(-0.767546, 0, -0.640994, 0, 1, 0, 0.640994, 0, -0.767546, -1.81202, 1.36179, -5.05747)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 disable_walking = true
-skip_savefile = true
 
 [node name="Camera3D" parent="Origin/Player" index="1"]
 cull_mask = 1048573
@@ -217,15 +204,19 @@ cull_mask = 1048573
 [node name="Fishning_rod_Anim" parent="Origin/Player/Camera3D" index="0" instance=ExtResource("3_xt171")]
 transform = Transform3D(0.233264, -0.00183165, 0.00540707, 3.21135e-09, 0.220998, 0.0748639, -0.00570867, -0.0748415, 0.220932, 0.0461992, -0.112565, 0.146239)
 
-[node name="PlayerUI" parent="Origin/Player" node_paths=PackedStringArray("player") instance=ExtResource("2_lixjd")]
-player = NodePath("..")
+[node name="s" parent="Origin/Player/Camera3D" index="1"]
+visible = true
 
-[node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("1_1lf7m")
+[node name="FSM" type="Node3D" parent="." node_paths=PackedStringArray("options_ui", "leave", "fsm_select", "fpcontroller", "initial_state")]
+script = ExtResource("4_pan0v")
+options_ui = NodePath("Options")
+leave = NodePath("HBoxContainer/Leave")
+fsm_select = NodePath("SELECT")
+fpcontroller = NodePath("../Origin/Player")
 initial_state = NodePath("SELECT")
 metadata/_custom_type_script = "uid://c5en56ptkabt3"
 
-[node name="SELECT" type="Node" parent="FSM" node_paths=PackedStringArray("FSM_Owner", "controller", "select_control", "item", "item_title", "item_desc", "rod_list_target", "inventory_btn", "accept_btn", "animation_player")]
+[node name="SELECT" type="Node" parent="FSM" node_paths=PackedStringArray("FSM_Owner", "controller", "select_control", "item", "item_title", "item_desc", "leave_btn", "rod_list_target", "inventory_btn", "accept_btn", "animation_player")]
 script = ExtResource("2_m5h01")
 FSM_Owner = NodePath("..")
 controller = NodePath("../../Origin/Player")
@@ -233,9 +224,10 @@ select_control = NodePath("SELECT_C")
 item = NodePath("SubViewport/RotPoint/Item")
 item_title = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/L_ItemTitle")
 item_desc = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/L_ItemDesc")
+leave_btn = NodePath("../HBoxContainer/Leave")
 rod_list_target = NodePath("SELECT_C/VBoxContainer/HBoxContainer/SelectMenu/RodTarget")
 item_ui = ExtResource("3_phj5v")
-inventory_btn = NodePath("../../OpenInventory")
+inventory_btn = NodePath("../HBoxContainer/Inventory")
 accept_btn = NodePath("SELECT_C/VBoxContainer/HBoxContainer/SelectMenu/B_Continue")
 animation_player = NodePath("AnimationPlayer")
 state_id = "SELECT"
@@ -344,10 +336,28 @@ theme = ExtResource("3_x5vlk")
 text = "Lorem ipsum dolor sit amet"
 autowrap_mode = 3
 
-[node name="FISHING" type="Node" parent="FSM"]
-script = ExtResource("3_jkjbs")
+[node name="FISHING" type="Node" parent="FSM" node_paths=PackedStringArray("cam", "origin", "fish_ui", "player_ui")]
+script = ExtResource("11_td38c")
+cam = NodePath("../../Origin/Player/Camera3D")
+origin = NodePath("../../Origin")
+bobber = ExtResource("12_2m8sg")
+fish_ui = NodePath("FISH_C")
+player_ui = NodePath("FISH_C/DO NOT TOUCH!!!! I WILL KIULL YOU")
 state_id = "FISHING"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="FISH_C" type="Control" parent="FSM/FISHING"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DO NOT TOUCH!!!! I WILL KIULL YOU" parent="FSM/FISHING/FISH_C" node_paths=PackedStringArray("player") instance=ExtResource("2_lixjd")]
+layout_mode = 1
+player = NodePath("../../../../Origin/Player")
+currently_fishing = true
 
 [node name="LR" type="Node" parent="FSM"]
 script = ExtResource("3_jkjbs")
@@ -359,20 +369,31 @@ script = ExtResource("3_jkjbs")
 state_id = "REELING"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
 
-[node name="map_base_day" parent="." instance=ExtResource("12_ab18c")]
+[node name="Options" parent="FSM" instance=ExtResource("12_45rk3")]
 
-[node name="OpenInventory" type="Button" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="FSM"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 14.0
-offset_top = 1396.0
-offset_right = 143.0
-offset_bottom = 1427.0
+offset_left = 13.0
+offset_top = -75.0
+offset_right = 132.0
+offset_bottom = -16.0
 grow_vertical = 0
-theme = ExtResource("3_x5vlk")
-disabled = true
-text = "Open Inventory"
+theme_override_constants/separation = 10
+
+[node name="Leave" type="Button" parent="FSM/HBoxContainer"]
+layout_mode = 2
+text = "Leave"
+
+[node name="Inventory" type="Button" parent="FSM/HBoxContainer"]
+layout_mode = 2
+text = "Inventory"
+
+[node name="FreeroamCtx" type="Node3D" parent="."]
+script = ExtResource("13_45rk3")
+day_scene = ExtResource("13_pan0v")
+night_scene = ExtResource("14_45rk3")
+metadata/_custom_type_script = "uid://drnft836dst8h"
 
 [editable path="Origin/Player"]
-[editable path="map_base_day"]

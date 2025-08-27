@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://bl4j2pgha8a5u"]
+[gd_scene load_steps=80 format=4 uid="uid://bl4j2pgha8a5u"]
 
 [ext_resource type="PackedScene" uid="uid://dceftca3qspku" path="res://library/models/freeroam/freeroam.glb" id="1_5hikl"]
 [ext_resource type="Texture2D" uid="uid://e5kl18spayjg" path="res://library/models/freeroam/freeroam_blank.png" id="2_d21su"]
@@ -22,7 +22,13 @@
 [ext_resource type="ArrayMesh" uid="uid://dmkoy7vr2lr8i" path="res://library/models/Trees/Mesh/Reeds.res" id="18_gwdm8"]
 [ext_resource type="ArrayMesh" uid="uid://jaef7lm0yo27" path="res://library/models/Trees/Mesh/Dark_Tree_4.res" id="20_pg3em"]
 [ext_resource type="ArrayMesh" uid="uid://ctrsiii1l54xb" path="res://library/models/Trees/Mesh/Dark_Log_1.res" id="22_4gaty"]
+[ext_resource type="PackedScene" uid="uid://bn7hcswbsynlm" path="res://src/002-Props/village/shack.tscn" id="24_0owk0"]
+[ext_resource type="PackedScene" uid="uid://ciblb1waj817q" path="res://src/002-Props/village/shop_stall.tscn" id="25_gt7wq"]
 [ext_resource type="PackedScene" uid="uid://dbv470b3ip8eu" path="res://src/002-Props/village/lantern.tscn" id="25_ywq17"]
+[ext_resource type="ArrayMesh" uid="uid://cjsvk4nw0baxv" path="res://library/models/bucket.res" id="26_gt7wq"]
+[ext_resource type="Texture2D" uid="uid://c8t2pqcj7m71l" path="res://library/models/textures/Bucket_Base_color.png" id="27_r3gye"]
+[ext_resource type="Shader" uid="uid://dp6wyhvyfrd48" path="res://library/resources/ps1_shadeobj.gdshader" id="28_vrxee"]
+[ext_resource type="Texture2D" uid="uid://b0lbmq43a5foq" path="res://library/models/textures/Bucket_Normal_OpenGL.png" id="29_cvsmu"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7tvku"]
 radius = 10.3916
@@ -268,11 +274,69 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k7ju2")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_na31w"]
+render_priority = 0
+shader = ExtResource("28_vrxee")
+shader_parameter/color_texture = ExtResource("27_r3gye")
+shader_parameter/vertex_wobble = 0.29
+shader_parameter/affine_mapping = 1.0
+shader_parameter/alpha_cutoff = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ei43f"]
+resource_name = "Bucket"
+next_pass = SubResource("ShaderMaterial_na31w")
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = ExtResource("27_r3gye")
+roughness = 0.486364
+normal_enabled = true
+normal_texture = ExtResource("29_cvsmu")
+texture_filter = 2
+metadata/extras = {
+"mmd_material": {}
+}
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e7mtl"]
+_surfaces = [{
+"aabb": AABB(-0.409151, 0, -0.419673, 0.818302, 0.87837, 0.797785),
+"format": 34896613377,
+"index_count": 372,
+"index_data": PackedByteArray("LgABAAIAAwACAAEALwAuAAIALgAwAAEAAAAwAC4AMQAAAC4AMQAuAC8AAAAyADAAMQAyAAAAMAAIAAEABgAxAC8ABgAyADEAMgAzADAAMAAzAAgAMgAHADMANAABAAgAAwABADQAMgA1AAcAMgAGADUABwA2ADMABwA1ADYAMwAJAAgAMwA2AAkANQAGADcACgAIAAkANAAIAAoANQA4ADYANQA3ADgANwAGADkANwA5ADgABgAvADkANgA4AAsANgALAAkAOAA5AAwAOAAMAAsAOQAvAAQAOQAEAAwALwACAAQAOgAJAAsACgAJADoADQALAAwAOgALAA0ABQAMAAQADQAMAAUAOwAEAAIABQAEADsAOwACAAMABQAOAA0AOwAQAAUABQAQAA4AAwA8ADsAOwA8ABAAAwASADwANAASAAMAEQAQADwAEQAOABAAEQA8ABIADQAOAD0AEQA9AA4ADQA9ADoANAA+ABIAEQASAD4ACgA+ADQAEQAPAD0AOgA9AA8AEQA+AA8AOgAPAAoACgAPAD4AEwAUABUAEwAWABQAFwATABUAFgA/ABQAFgAZAD8AGQAXABgAFwAVABgAGQAYAD8AFQAUABoAGAAVABwAFQAaABwAPwAYAB4AGAAcAB4AFAA/ABsAFAAbABoAPwAeABsAHAAaAB0AHgAcAEAAHAAdAEAAGwAeACAAHgBAACAAGgAbAEEAGgBBAB0AGwAgAEEAQAAdAEIAIABAAB8AQABCAB8AQQAgACEAIAAfACEAHQBBACIAHQAiAEIAQQAhACIAHwBCACMAIQAfAEMAHwAjAEMAIgAhACUAIQBDACUAQgAiACYAQgAmACMAIgAlACYAQwAjACkAJQBDACQAQwApACQAJgAlACcAJQAkACcAIwAmACgAIwAoACkAJgAnACgAJAApACsAKQAtACsAKQAoAC0AJAArACoAJwAkACoAKAAsAC0AJwAqACwAKAAnACwA"),
+"lods": [0.206118, PackedByteArray("AAABAAIAAwACAAEABAAAAAIABQAEAAIABQACAAMABgAAAAQAAAAHAAEABgAHAAAABwAIAAEAAwABAAgABwAJAAgAAwAIAAoACgAIAAkABwALAAkABwAGAAsACgAJAAsABgAEAAwACwAGAAwABQAMAAQADQALAAwACgALAA0ADQAMAAUADQAOAAoABQAOAA0ACgAOAA8ACgAPAAMABQAQAA4AEQAPAA4AEQAOABAAAwAPABIAEQASAA8AAwASAAUAEQAQABIABQASABAAEwAUABUAEwAWABQAFwATABUAFgAYABQAFwAVABgAFgAZABgAGQAXABgAFQAUABoAFAAbABoAFAAYABsAFQAaABwAGAAVABwAHAAaAB0AGgAbAB0AGAAcAB4AGAAeABsAHgAcAB8AHAAdAB8AGwAeACAAHgAfACAAGwAgACEAIAAfACEAHQAbACIAGwAhACIAHwAdACMAHQAiACMAIQAfACQAHwAjACQAIgAhACUAIQAkACUAIwAiACYAIgAlACYAJgAlACcAJQAkACcAIwAmACgAJgAnACgAJAAjACkAIwAoACkAJwAkACoAJAArACoAJAApACsAJwAqACwAKAAnACwAKQAtACsAKAAsAC0AKQAoAC0A")],
+"name": "Bucket",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 68,
+"vertex_data": PackedByteArray("/38AAEowAACk5sC7tDIAAP9/wLsAAAAA/3/Au2gRAABaGcC7tDIAAIsQwLvCoAAA5S0AAOOZAAAZ0gAA45kAAP//wLuhpAAA9rjAu///AABz78C7wqAAAAhHwLv//wAAAADAu6GkAABlTsC7T/AAAPJOi7Ik7wAAN+6LsnigAADHEYuyeKAAAPdOpMglkgAA/3+LsrQSAACvEXy15nAAACEhutVkmAAAMRus3HSUAACwFiKyrnUAANILIrKCdAAAMhT82vKbAADTEMiuSnkAAM0+0unSrAAA1jk86si3AAC+OufzbaoAANpoMfNWtwAAxzVR9GO1AADlmKz+aLcAAK5l//9BwgAA95n+/xfEAACRmIT0qsUAAIzB2+l3sQAAnOWt3KSbAAAiykj0lroAANnFO+q4vAAALuzd2n+jAADm5QnUHqcAAFTf2dVCnwAAge98teR4AAAx6keyb30AABj1/bHHfAAAyO/IrlKBAAD/f4cvfBsAAE0uhy/XQwAAsdGHL9dDAAAoPgAAz1AAANbBAADPUAAA3uWHL4SeAABg2cC7jj0AAImkAAB91AAAVa2HLzvnAAB1WwAAfdQAAKlShy875wAAIBqHL4SeAACZscC7T/AAAJ4mwLuOPQAAnCeLsl0+AAAMsYuyJO8AAGLYi7JdPgAAIhoK1OKfAACUZ6z+rLUAAPRmhPTrwwAAgJcy8/q4AADVxefzVa8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_q2fug"]
+resource_name = "bucket_Cylinder_053"
+_surfaces = [{
+"aabb": AABB(-0.409151, 0, -0.419673, 0.818302, 0.87837, 0.797785),
+"attribute_data": PackedByteArray("tl/AmjOyvn7erWmqtl+9Yt6tFFPbAwrQtFjF43kMEPu0WG6Q2wMppHkMI3lIBA0JtAQ8BZRQDQkoUDwFPLG1s79et88UYwykPLG46xRjYft/0vVXD7f7HoDoRCom8AuaEuwnnwjZn3cS7BZQJvAyVQDdyPKL2yj5PbnM3T2567Ehv8G0i9uQlgDd75wZ7a/zBunM+PzVQ9EG6bqpGe3Xru73o41O+HRnI/yqZyX0AY3u93sbJfQdHLb1tvuH+davh/lK+7b1aq/LpgIqn5qWI5+aAirLppYjc46WI3OOAiqfmr0Wy6YpHcumvRbLplEQn5pREHOOURBzjikdR4KWIxt2Aipzjr0WG3ZREEeCvRbwaZYjG3a9FsRdURAbdikdxF0CKvBpvRbEXb0WmFFREPBpKR2YUb0WxF0pHZhRKR3EXZYjmFGWI5hRAiqnRatMmzJ8fCkIQEcPXUJHgUW3KX9zt56rdr5+f3PGXn1ivn5oRYmKGD8Jqi1TB6wYPyrKLVMsyGhFquluKlIHbiooC3Kdvq9HmrfPcp2v73Sut8+A6GlGf9K4GNmqVjgPt7JRkt+fdyG/9tqF3EPRTvirQSP8dUGb85DVcfeQ1Z+aKR1HggIqR4IpHUeCURDwaVEQG3aWI/BpAiqnRatMkRAWbKdFq0yREBZsKQhAR6dFq0y5H7YpuR+2KadFq0yBRbcpp0WrTA9dQkemVBhsp0WrTKZUGGybMnx8"),
+"format": 34896613399,
+"index_count": 372,
+"index_data": PackedByteArray("WAABAAIAWABZAAEAWQAEAAEAAABZAFgAWQBaAAQAAABbAFkAWwBaAFkAWwADAFoAXAAJAAoAXABdAAkACABdAFwAXQAFAAkACABeAF0AXQBfAAUAXgBfAF0AXwAHAAUAXgBgAF8AXwBhAAcAYABhAF8AYAAGAGEACwBiAGMACwAMAGIAYwBiAA4AYwAOAA0AZAAQABEAZABlABAAZQATABAADwBlAGQAZQBmABMADwBnAGUAZwBmAGUAZwASAGYAaABpABYAFABpAGgAaQAUAGoAagAUAGsAaQBqABUAFwAZAGwAFwAYABkAbAAZABoAbAAaABsAHAAeAG0AHAAdAB4AbQAeAB8AbQAfACAAIAAfACEAIAAhACIAIwAlAG4AIwAkACUAbgAlACYAbgAmACcAKAApACoAKAArACkAKgApAG8AKgBvAHAAcABvAC0AcAAtACwAcQAwAC4AcQByADAAMQByAHEAMQAvAHIAMgAzADQAMgA1ADMANAAzADYANAA2ADcANQBzADMANQA5AHMAMwA+ADYAMwBzAD4ANwA2AD8ANwA/AHQANgA+AHUANgB1AD8AOQA4AHMAOQA6ADgAOgA8ADgAOgA7ADwAOAA8AD0AcwA4AEEAOAA9AEEAcwBBAD4AQQA9AHYAPgBBAEMAQQB2AEMAPgBDAHUAQwB2AEIAQwBCAEUAdQBDAEUARQBCAHcAdQBFAEcAPwB1AEcARQB3AEkARwBFAEkASQB3AEYAPwBHAHgAdAA/AHgAdAB4AEAAeABHAEwARwBJAEwAQAB4AEQAeABMAEQAQABEAHkASQBGAEoATABJAEoASgBGAEsASgBLAE0ATABKAE4ATgBKAE0ARABMAE4ATgBNAE8AeQBEAFAARABOAFAAUABOAE8AeQBQAEgAUABPAFEASABQAFEASABRAFIAegBUAHsAfAB9AH4AfwBVAIAAUwCBAFcAggCDAFYAhACFAIYAhwCIAIkA"),
+"lods": [0.206118, PackedByteArray("AAABAAIAAAADAAEAAwAEAAEABQAGAAcACAAGAAUACAAFAAkACAAJAAoACwAMAA0ADQAMAA4ADwAQABEADwASABAAEAASABMAFAAVABYAFwAYABkAFwAZABoAFwAaABsAHAAdAB4AHAAeAB8AHAAfACAAIAAfACEAIAAhACIAIwAkACUAIwAlACYAIwAmACcAKAApACoAKAArACkAKgApACwALAApAC0ALgAvADAAMQAvAC4AMgAzADQAMgA1ADMANAAzADYANAA2ADcANQA4ADMANQA5ADgAOQA6ADgAOgA7ADwAOgA8ADgAOAA8AD0AMwA+ADYAMwA4AD4ANwA2AD8ANgA+AD8ANwA/AEAAOAA9AEEAOABBAD4AQQA9AEIAPgBBAEMAQQBCAEMAQAA/AEQAQwBCAEUAPgBDAEUARQBCAEYAPwA+AEcAPgBFAEcAPwBHAEQAQABEAEgARQBGAEkARwBFAEkASQBGAEoASgBGAEsARwBJAEwATABJAEoARABHAEwASgBLAE0ATABKAE4ATgBKAE0ARABMAE4ATgBNAE8ARABOAFAAUABOAE8ASABEAFAAUABPAFEASABQAFEASABRAFIAUwBUAFUAUwBWAFQAUwBVAFcAUwBXAFYA")],
+"material": SubResource("StandardMaterial3D_ei43f"),
+"name": "Bucket",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 138,
+"vertex_data": PackedByteArray("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")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_e7mtl")
+
 [node name="map_base" instance=ExtResource("1_5hikl")]
 
 [node name="FishingZones" type="StaticBody3D" parent="." index="0" groups=["fishing_zone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55248, 0)
-visible = false
 collision_layer = 8
 collision_mask = 0
 
@@ -317,82 +381,138 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.0735, -2.59236, 34.5305)
 shape = SubResource("CylinderShape3D_7tvku")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="FishingZones" index="10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.4295, -2.59236, 34.3799)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.136, -2.59236, 39.5537)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D12" type="CollisionShape3D" parent="FishingZones" index="11"]
+[node name="CollisionShape3D31" type="CollisionShape3D" parent="FishingZones" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.4254, -2.59236, 46.021)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D32" type="CollisionShape3D" parent="FishingZones" index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.2015, -2.59236, 38.8482)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D33" type="CollisionShape3D" parent="FishingZones" index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.227, -2.59236, 45.5507)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D34" type="CollisionShape3D" parent="FishingZones" index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.161, -2.59236, 43.5517)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D35" type="CollisionShape3D" parent="FishingZones" index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.333, -2.59236, 28.383)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D36" type="CollisionShape3D" parent="FishingZones" index="16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0574, -2.59236, 41.5527)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D37" type="CollisionShape3D" parent="FishingZones" index="17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6708, -2.59236, 7.92279)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D38" type="CollisionShape3D" parent="FishingZones" index="18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.6688, -2.59236, -12.773)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D39" type="CollisionShape3D" parent="FishingZones" index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2628, -2.59236, -12.773)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D40" type="CollisionShape3D" parent="FishingZones" index="20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7578, -2.59236, 28.9705)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D41" type="CollisionShape3D" parent="FishingZones" index="21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0604, -2.59236, 40.0237)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D42" type="CollisionShape3D" parent="FishingZones" index="22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89166, -2.59236, 44.0216)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D43" type="CollisionShape3D" parent="FishingZones" index="23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10019, -2.59236, 41.7875)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D44" type="CollisionShape3D" parent="FishingZones" index="24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10019, -2.59236, 41.7875)
+shape = SubResource("CylinderShape3D_7tvku")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="FishingZones" index="25"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.368, -2.59236, 24.9443)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D13" type="CollisionShape3D" parent="FishingZones" index="12"]
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="FishingZones" index="26"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.3481, -2.59236, 9.2349)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D14" type="CollisionShape3D" parent="FishingZones" index="13"]
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="FishingZones" index="27"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.4106, -2.59236, -1.90721)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D15" type="CollisionShape3D" parent="FishingZones" index="14"]
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="FishingZones" index="28"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.0677, -2.59236, -6.57485)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D16" type="CollisionShape3D" parent="FishingZones" index="15"]
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="FishingZones" index="29"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131851, -2.59236, 11.2425)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D17" type="CollisionShape3D" parent="FishingZones" index="16"]
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="FishingZones" index="30"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.18446, -2.59236, 19.574)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D18" type="CollisionShape3D" parent="FishingZones" index="17"]
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="FishingZones" index="31"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8588, -2.59236, 4.11555)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D19" type="CollisionShape3D" parent="FishingZones" index="18"]
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="FishingZones" index="32"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7386, -2.59236, 16.8637)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D20" type="CollisionShape3D" parent="FishingZones" index="19"]
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="FishingZones" index="33"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5699, -2.59236, 11.2425)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D21" type="CollisionShape3D" parent="FishingZones" index="20"]
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="FishingZones" index="34"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.8276, -2.59236, 0.953601)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D22" type="CollisionShape3D" parent="FishingZones" index="21"]
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="FishingZones" index="35"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9651, -2.59236, 26.6532)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D23" type="CollisionShape3D" parent="FishingZones" index="22"]
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="FishingZones" index="36"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6606, -2.59236, 26.7703)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D24" type="CollisionShape3D" parent="FishingZones" index="23"]
+[node name="CollisionShape3D24" type="CollisionShape3D" parent="FishingZones" index="37"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.69212, -2.59236, 31.8806)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D25" type="CollisionShape3D" parent="FishingZones" index="24"]
+[node name="CollisionShape3D25" type="CollisionShape3D" parent="FishingZones" index="38"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.3206, -2.59236, 17.4443)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D26" type="CollisionShape3D" parent="FishingZones" index="25"]
+[node name="CollisionShape3D26" type="CollisionShape3D" parent="FishingZones" index="39"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2604, -2.59236, 25.8051)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D27" type="CollisionShape3D" parent="FishingZones" index="26"]
+[node name="CollisionShape3D27" type="CollisionShape3D" parent="FishingZones" index="40"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.456, -2.59236, 35.0313)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D28" type="CollisionShape3D" parent="FishingZones" index="27"]
+[node name="CollisionShape3D28" type="CollisionShape3D" parent="FishingZones" index="41"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.452, -2.59236, 29.2176)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D29" type="CollisionShape3D" parent="FishingZones" index="28"]
+[node name="CollisionShape3D29" type="CollisionShape3D" parent="FishingZones" index="42"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.039, -2.59236, 34.9049)
 shape = SubResource("CylinderShape3D_7tvku")
 
-[node name="CollisionShape3D30" type="CollisionShape3D" parent="FishingZones" index="29"]
+[node name="CollisionShape3D30" type="CollisionShape3D" parent="FishingZones" index="43"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0499, -2.59236, -10.0203)
 shape = SubResource("CylinderShape3D_7tvku")
 
@@ -894,7 +1014,6 @@ transform = Transform3D(-0.378794, 0, 0.925481, 0, 1, 0, -0.925481, 0, -0.378794
 shape = SubResource("BoxShape3D_pg3em")
 
 [node name="EnvCol" type="StaticBody3D" parent="." index="2"]
-visible = false
 collision_mask = 0
 
 [node name="SURFACE" type="CollisionShape3D" parent="EnvCol" index="0"]
@@ -1912,10 +2031,10 @@ transform = Transform3D(0.443357, 0, -1.65463, 0, 1.713, 0, 1.65463, 0, 0.443357
 transform = Transform3D(1.212, 1.49012e-08, 2.98023e-08, -0.00171813, 1.21333, -0.0447668, 0.000363141, 0.0761947, 1.20786, -14.9566, 5.51293, -2.46167)
 
 [node name="village13" parent="Town" index="13" instance=ExtResource("16_uvmrh")]
-transform = Transform3D(0.873083, 0, 0.793805, 0, 1.18, 0, -0.793805, 0, 0.873083, 25.9991, 2.43263, -1.90644)
+transform = Transform3D(0.873083, 0, 0.793805, 0, 1.18, 0, -0.793805, 0, 0.873083, 25.9991, 2.45124, -1.90644)
 
 [node name="village14" parent="Town" index="14" instance=ExtResource("16_uvmrh")]
-transform = Transform3D(1.07919, 0, 0.88554, 0, 1.396, 0, -0.88554, 0, 1.07919, 2.10256, 2.8848, 10.0828)
+transform = Transform3D(1.07919, 0, 0.88554, 0, 1.396, 0, -0.88554, 0, 1.07919, 2.10256, 2.92852, 10.0828)
 
 [node name="village18" parent="Town" index="15" instance=ExtResource("16_uvmrh")]
 transform = Transform3D(1.32905, 0, 0.427146, 0, 1.396, 0, -0.427146, 0, 1.32905, -1.29164, 2.8848, -0.64382)
@@ -1959,13 +2078,13 @@ transform = Transform3D(0.599366, -7.28078e-09, 1.26079, 7.45058e-09, 1.396, 1.4
 transform = Transform3D(0.977209, 3.18534e-09, 0.21228, 3.58559e-08, 1, 2.23517e-08, -0.21228, -6.91954e-10, 0.977209, -37.6604, 5.30997, -1.11459)
 
 [node name="village9" parent="Town" index="21" instance=ExtResource("16_uvmrh")]
-transform = Transform3D(1.00011, 0, 0.973961, 0, 1.396, 0, -0.973961, 0, 1.00011, -58.0725, 2.56623, 31.5075)
+transform = Transform3D(1.00011, 0, 0.973961, 0, 1.396, 0, -0.973961, 0, 1.00011, -58.0725, 2.65645, 31.5075)
 
 [node name="village19" parent="Town" index="22" instance=ExtResource("16_uvmrh")]
 transform = Transform3D(0.73138, 0, 1.18908, 0, 1.396, 0, -1.18908, 0, 0.73138, -67.151, 2.58346, 25.8538)
 
 [node name="village20" parent="Town" index="23" instance=ExtResource("16_uvmrh")]
-transform = Transform3D(1.23947, 0, -0.642287, 0, 1.396, 0, 0.642287, 0, 1.23947, -92.1881, 3.38207, 36.8327)
+transform = Transform3D(1.23947, 0, -0.642287, 0, 1.396, 0, 0.642287, 0, 1.23947, -92.1881, 3.41901, 36.8327)
 
 [node name="village21" parent="Town" index="24" instance=ExtResource("16_uvmrh")]
 transform = Transform3D(1.38798, 0, -0.149411, 0, 1.396, 0, 0.149411, 0, 1.38798, -90.7803, 3.38207, 24.2188)
@@ -1976,4 +2095,38 @@ transform = Transform3D(0.763056, -0.165384, -0.624815, 0.21062, 0.977567, -0.00
 [node name="village24" parent="Town" index="26" instance=ExtResource("25_ywq17")]
 transform = Transform3D(-0.796637, -0.185193, -1.08659, 0.0140065, 1.33886, -0.238458, 1.10217, -0.15087, -0.782342, -44.3753, 11.3792, -41.4114)
 
-[node name="Path3D" type="Path3D" parent="." index="9"]
+[node name="Shack" parent="." index="9" instance=ExtResource("24_0owk0")]
+transform = Transform3D(0.722838, -0.0884864, 0.685328, 0.0881723, 0.995471, 0.0355324, -0.685369, 0.0347428, 0.727367, -156.078, 2.76265, -41.5946)
+
+[node name="BobberCollisions" type="StaticBody3D" parent="." index="10"]
+collision_layer = 2147483648
+collision_mask = 0
+
+[node name="SURFACE2" type="CollisionShape3D" parent="BobberCollisions" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.6841, -0.143296, -22.9249)
+shape = SubResource("BoxShape3D_gwdm8")
+
+[node name="Merchant" type="Node3D" parent="." index="11"]
+
+[node name="Shop_Stall" parent="Merchant" index="0" instance=ExtResource("25_gt7wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.65609, 3.81498, -9.79523)
+
+[node name="Bucket" type="MeshInstance3D" parent="Merchant" index="1"]
+transform = Transform3D(0.232474, -0.101595, -0.967282, -0.114255, 0.984791, -0.130893, 0.965868, 0.140946, 0.21733, 8.27771, 3.76167, -9.85539)
+mesh = ExtResource("26_gt7wq")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
+
+[node name="Bucket5" type="MeshInstance3D" parent="Merchant" index="2"]
+transform = Transform3D(0.249531, 0.0019973, -0.0655325, -0.0282155, 0.236049, -0.100243, 0.059181, 0.104119, 0.228519, 7.12336, 3.84135, -9.54816)
+mesh = SubResource("ArrayMesh_q2fug")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
+
+[node name="Bucket6" type="MeshInstance3D" parent="Merchant" index="3"]
+transform = Transform3D(0.111863, -0.011308, -0.263667, -0.0924382, 0.266554, -0.0506497, 0.24719, 0.104797, 0.100379, 7.36648, 3.80858, -9.47589)
+mesh = SubResource("ArrayMesh_q2fug")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
+
+[node name="Bucket7" type="MeshInstance3D" parent="Merchant" index="4"]
+transform = Transform3D(0.267397, 0.0126533, 0.0773225, 0.0200809, 0.25473, -0.111129, -0.0757339, 0.112217, 0.24354, 7.60471, 3.78326, -9.42386)
+mesh = SubResource("ArrayMesh_q2fug")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")

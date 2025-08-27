@@ -13,6 +13,10 @@ var runtime_is_new := false
 var SAVE_PATH := "user://save.tres"
 var DEF_PATH  := "res://defaultsave.tres"
 
+var ROD_5M = preload("res://src/000-Data/Items/rod_a.tres")
+var ROD_10M = preload("res://src/000-Data/Items/rod_b.tres")
+var ROD_20M = preload("res://src/000-Data/Items/rod_c.tres")
+
 func _ready() -> void:
 	if disable_saving:
 		sf = copy_empty_save()

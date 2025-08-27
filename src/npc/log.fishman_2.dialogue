@@ -1,27 +1,21 @@
 ~ NPC_start
-if Storage.sf.NPC2_interactions % 2 == 0
-	Too many teeth on that one, not enough on the other. Oh the Cursed one, tell us, how many do we need?
-	- [Stay silent]
-		Look, I can speak! He can sing! WE DONT EVEN EAT!
-	I don't understand, just don't get it. How hard I try I just, just, fuck. What is wrong with me? I should try harder.
-	Show me teeth, how many do you have? I have to see!
-	- [Open mouth slightly]
-		So, white,[wait=1] What? Why? Disgusting... I don't like it, this can't be it. Go away, GO AWAY!
-	- [Keep it closed]
-		Forget it! I don’t need to see. It’s probably black with tar, rotten and foul anyway...
-	...
+% 	Too many teeth on that one, not enough on the other. Oh the Cursed one, tell us, how many do we need?
+% 	- [Stay silent]
+% 		Look, I can speak! He can sing! WE DONT EVEN EAT!
+% 	I don't understand, just don't get it. How hard I try I just, just, fuck. What is wrong with me? I should try harder.
+% 	Show me teeth, how many do you have? I have to see!
+% 	- [Open mouth slightly]
+% 		So, white,[wait=1] What? Why? Disgusting... I don't like it, this can't be it. Go away, GO AWAY!
+% 	- [Keep it closed]
+% 		Forget it! I don’t need to see. It’s probably black with tar, rotten and foul anyway...
+% 	...
 
-
-if Storage.sf.NPC2_interactions % 2 == 1
-	You blink slow, I blink fast. Which is right?
-	- [Blink slowly]
-		I did practise, I do practise it. See? Blink like this—no, like this.
-	Stupid neighbour says I blink too much, humans don't blink as much he says.
-	The fuck does he know about humans? Ugly ass fish.. Never seen one before, none of us had!
-	Only the Son, he knows it, but he won't tell us anymore!
-	We.. Forget you know? He told us yes, but it's hard to remember.
-	5 second memory he says, bullshit. I got at least 5 days of memory.
-
-set Storage.sf.NPC2_interactions += 1
-do  Storage.save_process()
+% You blink slow, I blink fast. Which is right?
+% - [Blink slowly]
+% 	I did practise, I do practise it. See? Blink like this—no, like this.
+% Stupid neighbour says I blink too much, humans don't blink as much he says.
+% The fuck does he know about humans? Ugly ass fish.. Never seen one before, none of us had!
+% Only the Son, he knows it, but he won't tell us anymore!
+% We.. Forget you know? He told us yes, but it's hard to remember.
+% 5 second memory he says, bullshit. I got at least 5 days of memory.
 => END

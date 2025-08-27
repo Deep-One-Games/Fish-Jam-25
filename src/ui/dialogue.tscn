@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://plg3xdqpkeqg" path="res://library/textures/npc-profiles/FINAL/npc_1.png" id="3_31wlh"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 
-[node name="ExampleBalloon" type="CanvasLayer"]
+[node name="ExampleBalloon" type="CanvasLayer" node_paths=PackedStringArray("profile")]
 layer = 100
 script = ExtResource("1_36de5")
+profile = NodePath("Balloon/Control/TextureRect2")
 
 [node name="Balloon" type="Control" parent="."]
 unique_name_in_owner = true
@@ -73,6 +74,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Balloon/HBoxContainer2/MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(745, 0)
 layout_mode = 2
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon/HBoxContainer2/MarginContainer/MarginContainer/VBoxContainer2"]
