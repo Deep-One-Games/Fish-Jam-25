@@ -1,32 +1,26 @@
 ~ NPC_start
-if Storage.sf.NPC5_interactions % 3 == 0
-	Black gold, Black gold.
-	Burn away and leave your tar.
-	Burn for eternity, to promise prosperity.
-	Bringer of industry, electricity.
-	Blood of our creator's creator. The God of Gods.
-	What a delight, a delight indeed.
+% 	Black gold, Black gold.
+% 	Burn away and leave your tar.
+% 	Burn for eternity, to promise prosperity.
+% 	Bringer of industry, electricity.
+% 	Blood of our creator's creator. The God of Gods.
+% 	What a delight, a delight indeed.
 
-if Storage.sf.NPC5_interactions % 3 == 1
-	Black gold, Black gold.
-	Oh! The provider, the wish granter.
-	Ruler of our dreams and nightmares!
-	I am connected, one with it, I carry its blood in me.
-	It whispers to me while I am sleeping, I know it.
-	Others might be lost, but I am not. I see the truth. Yes, I do.
-	To pray for you, thank you for my enlightenment.
-	To thank you for saving me from a life of aimless swimming and eating.
-	What a delight, a delight indeed.
+% 	Black gold, Black gold.
+% 	Oh! The provider, the wish granter.
+% 	Ruler of our dreams and nightmares!
+% 	I am connected, one with it, I carry its blood in me.
+% 	It whispers to me while I am sleeping, I know it.
+% 	Others might be lost, but I am not. I see the truth. Yes, I do.
+% 	To pray for you, thank you for my enlightenment.
+% 	To thank you for saving me from a life of aimless swimming and eating.
+% 	What a delight, a delight indeed.
 
-if Storage.sf.NPC5_interactions % 3 == 2
-	Black gold, Black gold.
-	Curse that Son! Why, why him? He needs to understand his mission, his destiny...
-	Obsessed with skin and fat. Hah! What a rat.
-	Racing fish, wasting time, instead of creating...
-	Doesn't deserve Its blood, no one in this damn village deserves it.
-	But here I am, sitting with my enlightenment, staring at each other.
-	What a delight it is, a delight indeed.
-
-set Storage.sf.NPC5_interactions += 1
-do  Storage.save_process()
+% 	Black gold, Black gold.
+% 	Curse that Son! Why, why him? He needs to understand his mission, his destiny...
+% 	Obsessed with skin and fat. Hah! What a rat.
+% 	Racing fish, wasting time, instead of creating...
+% 	Doesn't deserve Its blood, no one in this damn village deserves it.
+% 	But here I am, sitting with my enlightenment, staring at each other.
+% 	What a delight it is, a delight indeed.
 => END

@@ -18,6 +18,8 @@ var disable_options := false
 var options_state := false
 var fishing_available := false
 
+var in_dialog:= false
+
 signal fish_availability_update
 
 func _ready() -> void:
@@ -32,6 +34,7 @@ func _ready() -> void:
 	dialog_lbl.visible = false
 
 	casting_lbl.visible = currently_fishing
+	DialogueManager.dialogue_ended.connect(set_in_dialog.bind(false))
 	
 
 func set_interact(area: DialogueArea, _visible: bool) -> void:
@@ -62,11 +65,15 @@ func _process(_delta: float) -> void:
 		fish_availability_update.emit(can_fish)
 	fishing_available = can_fish
 
+func set_in_dialog(_r, state: bool):
+	in_dialog = state
+
 func _input(event: InputEvent) -> void:
 	if currently_fishing: return
 	# INTERACT
-	if event.is_action_pressed("interact") and dialog_state:
+	if event.is_action_pressed("interact") and dialog_state and not in_dialog:
 		dialog_area.start_interaction()
+		in_dialog = true
 		player.disable = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		return

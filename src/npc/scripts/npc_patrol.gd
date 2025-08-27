@@ -23,6 +23,7 @@ func _ready() -> void:
 
 	npc.change_state(default_state)
 	npc.player_sensor.title = patrol_title
+	npc.player_sensor.npc = npc_info # LMAO
 
 	patroller.following_path = true
 

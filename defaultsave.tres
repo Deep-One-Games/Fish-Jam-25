@@ -1,11 +1,8 @@
-[gd_resource type="Resource" script_class="SaveFile" load_steps=8 format=3 uid="uid://lbui84ltuwo7"]
+[gd_resource type="Resource" script_class="SaveFile" load_steps=5 format=3 uid="uid://lbui84ltuwo7"]
 
 [ext_resource type="Script" uid="uid://gak3ble014rj" path="res://src/000-Data/gameitem.gd" id="1_pwlly"]
-[ext_resource type="Resource" uid="uid://cf8frrh43kf4i" path="res://src/000-Data/Items/rod_a.tres" id="2_oki0i"]
 [ext_resource type="Script" uid="uid://d3x7vtal6u5jc" path="res://src/000-Data/saveplayer.gd" id="2_v2qsi"]
-[ext_resource type="Resource" uid="uid://cw6ufwj2pqhqv" path="res://src/000-Data/Items/rod_b.tres" id="3_l7j12"]
 [ext_resource type="Script" uid="uid://y8g386gw3dbm" path="res://src/000-Data/savefile.gd" id="3_q4y1q"]
-[ext_resource type="Resource" uid="uid://c0dle6dc5wxcr" path="res://src/000-Data/Items/rod_c.tres" id="4_4beof"]
 
 [sub_resource type="Resource" id="Resource_fdvkd"]
 script = ExtResource("2_v2qsi")
@@ -18,9 +15,13 @@ metadata/_custom_type_script = "uid://d3x7vtal6u5jc"
 [resource]
 script = ExtResource("3_q4y1q")
 playerd = SubResource("Resource_fdvkd")
-inventory = Array[ExtResource("1_pwlly")]([ExtResource("2_oki0i"), ExtResource("3_l7j12"), ExtResource("4_4beof")])
+inventory = Array[ExtResource("1_pwlly")]([])
 world_state = 0
 story_complete = false
-fish_caught = 0
-races_won = 0
+is_daytime = true
+days = 0
+talked_once_merchant = false
+tickets = 0
+rods_recieved = 0
+unlock_10m = true
 metadata/_custom_type_script = "uid://y8g386gw3dbm"

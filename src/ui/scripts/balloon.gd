@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name DialogBox extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
 ## The action to use for advancing the dialogue
@@ -8,6 +8,7 @@ extends CanvasLayer
 @export var skip_action: StringName = &"ui_cancel"
 
 @export var npc: SaveNPC
+@export var profile: TextureRect
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -64,6 +65,8 @@ func _ready() -> void:
 
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
 	add_child(mutation_cooldown)
+
+	profile.texture = npc.profile
 
 
 func _unhandled_input(_event: InputEvent) -> void:

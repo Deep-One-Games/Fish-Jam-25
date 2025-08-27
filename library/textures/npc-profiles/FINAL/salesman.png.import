@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkcbwuxmgls6w"
-path.s3tc="res://.godot/imported/Material.001_Base_color.png-2b2688b4bfa7e8b28c6a81af86bc053b.s3tc.ctex"
+uid="uid://dsptyrr7ynfhk"
+path.s3tc="res://.godot/imported/salesman.png-84a5f22140ad7ab36f333b4b50a8fab8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://library/models/Fish_Sales_man/textures/Material.001_Base_color.png"
-dest_files=["res://.godot/imported/Material.001_Base_color.png-2b2688b4bfa7e8b28c6a81af86bc053b.s3tc.ctex"]
+source_file="res://library/textures/npc-profiles/FINAL/salesman.png"
+dest_files=["res://.godot/imported/salesman.png-84a5f22140ad7ab36f333b4b50a8fab8.s3tc.ctex"]
 
 [params]
 

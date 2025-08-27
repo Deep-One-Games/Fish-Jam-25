@@ -158,7 +158,7 @@ cast={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://src/000-Data/NPC/dialogue/sandy_sardine_dialogue.dialogue", "res://library/dialogue/general_npc.dialogue", "res://src/npc/log.fishman_1.dialogue", "res://src/npc/log.fishman_3.dialogue", "res://src/npc/log.fishman_2.dialogue", "res://src/npc/log.fishman_4.dialogue", "res://src/npc/log.fishman_5.dialogue", "res://src/npc/log.fishman_6.dialogue", "res://src/npc/log.fishman_7.dialogue")
+locale/translations_pot_files=PackedStringArray("res://src/000-Data/NPC/dialogue/sandy_sardine_dialogue.dialogue", "res://library/dialogue/general_npc.dialogue", "res://src/npc/log.fishman_1.dialogue", "res://src/npc/log.fishman_3.dialogue", "res://src/npc/log.fishman_2.dialogue", "res://src/npc/log.fishman_4.dialogue", "res://src/npc/log.fishman_5.dialogue", "res://src/npc/log.fishman_6.dialogue", "res://src/npc/log.fishman_7.dialogue", "res://src/npc/log.salesman.dialogue")
 
 [layer_names]
 

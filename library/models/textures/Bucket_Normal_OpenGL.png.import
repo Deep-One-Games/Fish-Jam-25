@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkcbwuxmgls6w"
-path.s3tc="res://.godot/imported/Material.001_Base_color.png-2b2688b4bfa7e8b28c6a81af86bc053b.s3tc.ctex"
+uid="uid://b0lbmq43a5foq"
+path.s3tc="res://.godot/imported/Bucket_Normal_OpenGL.png-205bb06b86d5090f1610f19aec76599a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://library/models/Fish_Sales_man/textures/Material.001_Base_color.png"
-dest_files=["res://.godot/imported/Material.001_Base_color.png-2b2688b4bfa7e8b28c6a81af86bc053b.s3tc.ctex"]
+source_file="res://library/models/textures/Bucket_Normal_OpenGL.png"
+dest_files=["res://.godot/imported/Bucket_Normal_OpenGL.png-205bb06b86d5090f1610f19aec76599a.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +21,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://library/models/textures/Bucket_Normal_OpenGL.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

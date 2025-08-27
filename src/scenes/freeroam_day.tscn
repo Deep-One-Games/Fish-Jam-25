@@ -28,5 +28,4 @@ ui_scene = ExtResource("5_idqvi")
 rod_scene = ExtResource("6_3xhkp")
 
 [node name="PlayerUI" parent="Origin" node_paths=PackedStringArray("player") instance=ExtResource("7_1np5m")]
-visible = true
 player = NodePath("../Player")
