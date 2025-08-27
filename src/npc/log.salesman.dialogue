@@ -21,7 +21,7 @@ if Storage.sf.rods_recieved > 0
 if Storage.sf.rods_recieved < 2
 	Welcome back, traveler.
 else
-	Welcome back, fisherman.
+	Hello, fisherman.
 
 if Storage.sf.tickets == 0 and Storage.sf.rods_recieved == 0
 	...
