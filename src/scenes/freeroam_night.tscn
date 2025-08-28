@@ -15,27 +15,21 @@ transform = Transform3D(0.267, 0, 0, 0, 0.267, 0, 0, 0, 0.267, 0, 0, 0)
 
 [node name="PATROL_NPC6" parent="MapBaseNight/NPCS" index="0"]
 transform = Transform3D(-0.550562, 0, 0, 0, -0.550562, 0, 0, 0, -0.550562, 0, 0, 0)
-titles = Array[String](["A", "B"])
 
 [node name="Patroller" parent="MapBaseNight/NPCS/PATROL_NPC6/Path" index="0"]
 transform = Transform3D(0.564281, 0, 0.82545, 0, 0.999989, 0, -0.82545, 0, 0.564281, -22.3025, 0, -7.93255)
-
-[node name="PATROL_NPC2" parent="MapBaseNight/NPCS" index="1"]
-titles = Array[String](["A", "B"])
 
 [node name="Patroller" parent="MapBaseNight/NPCS/PATROL_NPC2/Path" index="0"]
 transform = Transform3D(-0.0269708, 0, 0.999525, 0, 0.999989, 0, -0.999525, 0, -0.0269708, -12.9355, 0, -5.6419)
 
 [node name="PATROL_NPC5" parent="MapBaseNight/NPCS" index="2"]
 transform = Transform3D(2.81648, 0, 0, 0, 2.81648, 0, 0, 0, 2.81648, 0, 0, 0)
-titles = Array[String](["A", "B", "C"])
 
 [node name="Patroller" parent="MapBaseNight/NPCS/PATROL_NPC5/Path" index="0"]
 transform = Transform3D(0.118199, 0, -0.992867, 0, 0.999989, 0, 0.992867, 0, 0.118199, -97.3356, 0, -2.70889)
 
 [node name="PATROL_NPC7" parent="MapBaseNight/NPCS" index="3"]
 transform = Transform3D(3.74532, 0, 0, 0, 3.74532, 0, 0, 0, 3.74532, 0, 0, 0)
-titles = Array[String](["A"])
 
 [node name="Patroller" parent="MapBaseNight/NPCS/PATROL_NPC7/Path" index="0"]
 transform = Transform3D(-0.888193, 0, -0.45918, 0, 0.999989, 0, 0.45918, 0, -0.888193, 28.2348, 0, 8.13982)
