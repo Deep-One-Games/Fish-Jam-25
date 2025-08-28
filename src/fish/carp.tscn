@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://j1s3bk07cjyv" path="res://src/fish/fish_npc.tscn" id="2_s4ht4"]
 [ext_resource type="Material" uid="uid://cwwfxwjxmem0o" path="res://library/models/Fishes/mats/Carp.tres" id="2_vf1x4"]
 
-[sub_resource type="Curve" id="Curve_vf1x4"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.286747, 0.934041), 0.0, 0.0, 0, 0, Vector2(0.595181, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
+[sub_resource type="Curve" id="Curve_r3wo6"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.493976, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Carp" node_paths=PackedStringArray("event_sensor") instance=ExtResource("1_74lli")]
 script = ExtResource("2_r3wo6")
@@ -23,7 +23,7 @@ bones/2/rotation = Quaternion(0.0248819, -9.53419e-07, -2.96626e-08, 0.99969)
 bones/3/rotation = Quaternion(0.999788, 2.45766e-09, -1.19184e-07, 0.0206164)
 
 [node name="Carp" parent="Carp_rig/Skeleton3D" index="0"]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0)
+transform = Transform3D(3.5, 0, -2.84217e-14, 0, 3.5, 0, 2.84217e-14, 0, 3.5, 0, 0, 0)
 surface_material_override/0 = ExtResource("2_vf1x4")
 
 [node name="Pike_rig" parent="." index="1"]
@@ -49,7 +49,7 @@ bones/3/rotation = Quaternion(0.999807, -2.34285e-09, -1.19187e-07, -0.0196532)
 autoplay = "Swimming"
 
 [node name="FishNpc" parent="." index="4" node_paths=PackedStringArray("mesh", "animations", "race_fish") instance=ExtResource("2_s4ht4")]
-jump_curve = SubResource("Curve_vf1x4")
+jump_curve = SubResource("Curve_r3wo6")
 mesh = NodePath("../Carp_rig")
 animations = NodePath("../AnimationPlayer")
 race_fish = NodePath("..")

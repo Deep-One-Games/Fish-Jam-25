@@ -579,6 +579,9 @@ transform = Transform3D(0.549117, 0.157641, 0.173288, -0.018482, 0.469385, -0.36
 [node name="Fishning_rod_Anim" parent="RodPivot" index="0" instance=ExtResource("6_efodv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.540187, -0.921272, 1.87631)
 
+[node name="Reel" parent="RodPivot/Fishning_rod_Anim/Rod_Rig/Skeleton3D" index="0"]
+transform = Transform3D(1, 0.000495136, 0.000436493, -0.0006217, 0.484426, 0.874832, 0.00022175, -0.874832, 0.484427, 0.562221, -0.512849, -1.38593)
+
 [node name="AnimationPlayer" parent="RodPivot/Fishning_rod_Anim" index="1"]
 autoplay = ""
 
@@ -587,6 +590,9 @@ transform = Transform3D(0.100632, -0.440432, 0.390259, 0.540134, 0.226258, 0.116
 
 [node name="Fishning_rod_Anim" parent="RodPivot2" index="0" instance=ExtResource("6_efodv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.540187, -0.921272, 1.87631)
+
+[node name="Reel" parent="RodPivot2/Fishning_rod_Anim/Rod_Rig/Skeleton3D" index="0"]
+transform = Transform3D(1, 0.000495136, 0.000436493, -0.0006217, 0.484426, 0.874832, 0.00022175, -0.874832, 0.484427, 0.562221, -0.512849, -1.38593)
 
 [node name="AnimationPlayer" parent="RodPivot2/Fishning_rod_Anim" index="1"]
 autoplay = ""

@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://hjyqv8noyhkx"]
+[gd_scene load_steps=7 format=3 uid="uid://hjyqv8noyhkx"]
 
 [ext_resource type="PackedScene" uid="uid://bta1bb6bl0ecj" path="res://library/models/Fishes/Fish_Animations.blend" id="1_7iuq4"]
+[ext_resource type="PackedScene" uid="uid://j1s3bk07cjyv" path="res://src/fish/fish_npc.tscn" id="2_jkcqc"]
+[ext_resource type="Script" uid="uid://c0gbd1o11etrt" path="res://src/fish/scripts/racefish.gd" id="2_mww8v"]
+[ext_resource type="Material" uid="uid://vbd624rcbra5" path="res://library/models/Fishes/mats/Pike.tres" id="3_3xd6b"]
+[ext_resource type="Material" uid="uid://cql1hghx531hh" path="res://library/models/Fishes/mats/Nalim.tres" id="4_do4d0"]
 
-[node name="Nalim" instance=ExtResource("1_7iuq4")]
+[sub_resource type="Curve" id="Curve_mww8v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.508434, 0.868081), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Nalim" node_paths=PackedStringArray("event_sensor") instance=ExtResource("1_7iuq4")]
+script = ExtResource("2_mww8v")
+event_sensor = NodePath("FishNpc/JumpSensor")
 
 [node name="Carp_rig" parent="." index="0"]
 visible = false
@@ -24,6 +34,9 @@ bones/1/rotation = Quaternion(0.0304035, -0.00174905, -0.111642, 0.993282)
 bones/2/rotation = Quaternion(0.04182, -0.00602055, -0.111494, 0.992867)
 bones/3/rotation = Quaternion(0.97782, 0.204204, 0.0104593, -0.0453715)
 
+[node name="Pike" parent="Pike_rig/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("3_3xd6b")
+
 [node name="Skeleton3D" parent="Nalim_Rig" index="0"]
 bones/0/position = Vector3(2.6238e-14, -0.0118942, -0.382477)
 bones/0/rotation = Quaternion(0.664541, -8.90796e-08, -7.92198e-08, 0.747252)
@@ -31,5 +44,17 @@ bones/1/rotation = Quaternion(0.0125405, -0.00375597, -0.111593, 0.993668)
 bones/2/rotation = Quaternion(0.0240817, -0.00801075, -0.111368, 0.993455)
 bones/3/rotation = Quaternion(0.978683, 0.204411, 0.00500119, -0.019238)
 
+[node name="Nalim" parent="Nalim_Rig/Skeleton3D" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+surface_material_override/0 = ExtResource("4_do4d0")
+
 [node name="AnimationPlayer" parent="." index="3"]
 autoplay = "Swimming"
+
+[node name="FishNpc" parent="." index="4" node_paths=PackedStringArray("mesh", "animations", "race_fish") instance=ExtResource("2_jkcqc")]
+jump_curve = SubResource("Curve_mww8v")
+mesh = NodePath("../Nalim_Rig")
+animations = NodePath("../AnimationPlayer")
+race_fish = NodePath("..")
+
+[editable path="FishNpc"]
