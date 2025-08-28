@@ -102,6 +102,7 @@ surface_material_override/0 = ExtResource("6_vlfsu")
 [node name="NPCS" type="Node3D" parent="."]
 
 [node name="PATROL_NPC1" type="Node3D" parent="NPCS" node_paths=PackedStringArray("patroller", "npc")]
+transform = Transform3D(0.373, 0, 0, 0, 0.373, 0, 0, 0, 0.373, 0, 0, 0)
 script = ExtResource("7_5ctp3")
 npc_info = ExtResource("8_8bkja")
 dialog_id = "F1"
@@ -116,7 +117,7 @@ metadata/_custom_type_script = "uid://b6f3f6630eo0r"
 curve = ExtResource("10_mcfkg")
 
 [node name="Patroller_NPC1" type="PathFollow3D" parent="NPCS/PATROL_NPC1/Path"]
-transform = Transform3D(0.105239, 0, -0.994339, 0, 0.999989, 0, 0.994339, 0, 0.105239, 5.45733, 0, -4.74726)
+transform = Transform3D(0.105237, 0, -0.994339, 0, 0.999989, 0, 0.994339, 0, 0.105237, 5.45734, 0, -4.74726)
 progress = 47.3818
 rotation_mode = 1
 script = ExtResource("10_5ctp3")
@@ -171,6 +172,7 @@ npc_info = ExtResource("15_jlwkt")
 dialog_id = "F3"
 default_state = "WALK"
 patrol_title = "NPC_start"
+titles = Array[String](["A", "B", "C"])
 patroller = NodePath("Path/Patroller")
 npc = NodePath("Path/Patroller/NPC")
 metadata/_custom_type_script = "uid://b6f3f6630eo0r"
@@ -245,6 +247,7 @@ npc_info = ExtResource("15_blc13")
 dialog_id = "F5"
 default_state = "WALK"
 patrol_title = "NPC_start"
+titles = Array[String](["A", "B", "C"])
 patroller = NodePath("Path/Patroller")
 npc = NodePath("Path/Patroller/NPC5")
 metadata/_custom_type_script = "uid://b6f3f6630eo0r"
@@ -292,6 +295,7 @@ npc_info = ExtResource("19_m4gby")
 dialog_id = "F7"
 default_state = "IDLE"
 patrol_title = "NPC_start"
+titles = Array[String](["A"])
 patroller = NodePath("Path/Patroller")
 npc = NodePath("Path/Patroller/NPC7")
 metadata/_custom_type_script = "uid://b6f3f6630eo0r"

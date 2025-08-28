@@ -1,21 +1,23 @@
-~ NPC_start
-% 	Too many teeth on that one, not enough on the other. Oh the Cursed one, tell us, how many do we need?
-% 	- [Stay silent]
-% 		Look, I can speak! He can sing! WE DONT EVEN EAT!
-% 	I don't understand, just don't get it. How hard I try I just, just, fuck. What is wrong with me? I should try harder.
-% 	Show me teeth, how many do you have? I have to see!
-% 	- [Open mouth slightly]
-% 		So, white,[wait=1] What? Why? Disgusting... I don't like it, this can't be it. Go away, GO AWAY!
-% 	- [Keep it closed]
-% 		Forget it! I don’t need to see. It’s probably black with tar, rotten and foul anyway...
-% 	...
+~ A
+Too many teeth on that one,[wait=0.2] not enough on the other. Oh the Cursed one,[wait=0.2] tell us,[wait=0.2] how many do we need?
+- [Stay silent]
+	Look,[wait=0.2] I can speak! He can sing! WE DONT EVEN EAT!
+I don't understand,[wait=0.2] just don't get it. How hard I try I just,[wait=0.2] just,[wait=0.4] fuck. What is wrong with me? I should try harder.
+[speed=0.5]how many do you have? Let me see.
+- [Open mouth slightly]
+	So,[wait=0.2] white,[wait=0.6] What? Why? Disgusting... I don't like it,[wait=0.2] this can't be it. Go away,[wait=0.2] GO AWAY!
+- [Keep it closed]
+	Forget it! I don’t need to see. It’s probably black with tar,[wait=0.2] rotten and foul anyway...
+...
+=> END
 
-% You blink slow, I blink fast. Which is right?
-% - [Blink slowly]
-% 	I did practise, I do practise it. See? Blink like this—no, like this.
-% Stupid neighbour says I blink too much, humans don't blink as much he says.
-% The fuck does he know about humans? Ugly ass fish.. Never seen one before, none of us had!
-% Only the Son, he knows it, but he won't tell us anymore!
-% We.. Forget you know? He told us yes, but it's hard to remember.
-% 5 second memory he says, bullshit. I got at least 5 days of memory.
+~ B
+You blink slow,[wait=0.2] I blink fast. Which is right?
+- [Blink slowly]
+	I did practise,[wait=0.2] I do practise it. See? Blink like this[wait=0.8]—no,[wait=0.2] like this[wait=0.6] ugh,[wait=0.2] thats not it.
+Stupid neighbour says I blink too much,[wait=0.2] humans don't blink as much he says.
+The fuck does he know about humans? Ugly ass fish.. Never seen one before,[wait=0.2] none of us had!
+Only the Son,[wait=0.2] he knows it,[wait=0.2] but he won't tell us anymore!
+We.. Forget you know? He told us yes,[wait=0.2] but it's hard to remember.
+5 second memory he says,[wait=0.2] bullshit. I got at least 5 days of memory.
 => END

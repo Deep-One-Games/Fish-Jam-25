@@ -1,34 +1,35 @@
 ~ A
-Have you heard about a "Mother"? It is this thing, who will take care of you when you are [shake rate=20 level=10]weak.[/shake]
+Have you heard about a "Mother"? It is this thing,[wait=0.2] who will take care of you when you are [shake rate=20 level=10]weak.[/shake]
 - [Listen quietly]
 - [Tilt your head]
-	Hm… you look unsure. That's alright. Doubt keeps us [shake rate=20 level=10]awake.[/shake]
-Sounds... Like a lie. A lie that I'd like to believe in.
+	Hm… you look unsure. That's alright. Doubt keeps us [speed=0.2]awake.
+Sounds [wait=0.6] like a lie. A lie that I'd like to believe in.
 => END
 
 
 ~ B
-Son told us about it, he used to tell us many stories...
+Son told us about it,[wait=0.2] he used to tell us many stories...
 "Mothers make lemonades! Tasty lemonades. Makes you feel like you just jumped into a cold lake on a hot day!"
 - [Smile faintly]
-	Ah… you felt that, too? For a moment it’s almost real.
+	Ah… you felt that,[wait=0.2] too? For a moment it’s almost real.
 - [Keep listening]
 	I never understood what a "lemonade" is.
-Once we asked, he told us: "That's what you make when life gives you lemons!"
+Once we asked,[wait=0.2] he told us,[wait=0.2] "That's what you make when life gives you[wait=0.2] lemons!"
 Still have no clue what this [shake rate=20 level=10]"lemon"[/shake] is.
 But life doesn't seem to be interested in giving to me.
-So I roam around the lakeside to find some, maybe if I bring it to [shake rate=20 level=10]him[/shake], he would smile once more! And tell more stories to us!
+So I roam around the lakeside to find some,[wait=0.2] maybe if I bring it to [shake rate=20 level=10]him[/shake],[wait=0.2] he would smile once more! And tell more stories to us!
 - [Nod]
-	Yes… yes. A smile is worth a long walk.
+	Yes [wait=0.2] yes. A smile is worth a long walk.
 - [Look down]
-	You understand. The shore is heavy with footsteps like ours.
+	You would understand. The shore is heavy with footsteps like ours.
 => END
 
 
 ~ C
-Sometimes, I dream about it, being one of those "Mother". If I were to be a human, I would be one of the "Mother" ones.
+Sometimes,[wait=0.2] I dream about it,[wait=0.2] being one of those "Mother". If I were to be a human,[wait=0.2] I would be one of the "Mother" ones.
 - [Stay still]
 - [Offer a gentle nod]
+	Did you also dream? I heard, [wait=0.2][wave amp=25 freq=5]they[/wave][wait=0.5] tell us what to dream.
 Why do I dream about that? It doesn't make sense! Why would a being sacrifice so much time for an ugly weakling? Stupid. Waste of energy.
-We need to make [shake rate=20 level=10]him[/shake] happy, that is what's important.
+We need to make [shake rate=20 level=10]him[/shake] happy,[wait=0.2] that is what's important.
 => END
