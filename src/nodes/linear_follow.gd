@@ -5,7 +5,7 @@ class_name LinearFollow extends PathFollow3D
 signal path_completed
 
 var curve: Curve3D
-var following_path := false
+@export var following_path := false
 
 var default_mps: float
 func _ready() -> void:

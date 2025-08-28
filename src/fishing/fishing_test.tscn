@@ -195,7 +195,6 @@ offset_bottom = 40.0
 [node name="Origin" type="Node3D" parent="."]
 
 [node name="Player" parent="Origin" instance=ExtResource("2_sspy6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 disable_walking = true
 
 [node name="Camera3D" parent="Origin/Player" index="1"]

@@ -36,6 +36,19 @@ enum WORLD_STATE {DAY, NIGHT}
 @export var unlock_10m = true
 
 
+@export var npc_itrs: Dictionary[String, int] = {}
+func get_npc_itr(id: String) -> int:
+	if id not in npc_itrs:
+		npc_itrs[id] = 0
+		return 0
+	return npc_itrs[id]
+
+func incr_npc_itr(id: String) -> void:
+	if id not in npc_itrs: 
+		npc_itrs[id] = 1
+		return
+	npc_itrs[id] += 1
+
 func pass_time(): # always save on call
 	if is_daytime: # transition day -> night
 		is_daytime = false

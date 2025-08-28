@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://j1s3bk07cjyv"]
+
+[ext_resource type="Script" uid="uid://deoyku05cpn65" path="res://src/fish/scripts/fish_behavior.gd" id="1_77won"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_77won"]
+height = 19.4907
+radius = 0.00976562
+
+[node name="FishNpc" type="Node3D" node_paths=PackedStringArray("event_sensor")]
+script = ExtResource("1_77won")
+event_sensor = NodePath("JumpSensor")
+
+[node name="JumpSensor" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpSensor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.073, 0)
+shape = SubResource("CylinderShape3D_77won")

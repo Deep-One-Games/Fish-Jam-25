@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://hjyqv8noyhkx"]
+
+[ext_resource type="PackedScene" uid="uid://bta1bb6bl0ecj" path="res://library/models/Fishes/Fish_Animations.blend" id="1_7iuq4"]
+
+[node name="Nalim" instance=ExtResource("1_7iuq4")]
+
+[node name="Carp_rig" parent="." index="0"]
+visible = false
+
+[node name="Skeleton3D" parent="Carp_rig" index="0"]
+bones/0/position = Vector3(3.59074e-15, 0.0278232, -0.105878)
+bones/0/rotation = Quaternion(0.698955, -8.52545e-08, -8.3322e-08, 0.715166)
+bones/1/rotation = Quaternion(0.00488764, -0.00461526, -0.111561, 0.993735)
+bones/2/rotation = Quaternion(0.0247262, -0.0079385, -0.111373, 0.993439)
+bones/3/rotation = Quaternion(0.978664, 0.204446, -0.00323273, 0.0201808)
+
+[node name="Pike_rig" parent="." index="1"]
+visible = false
+
+[node name="Skeleton3D" parent="Pike_rig" index="0"]
+bones/0/position = Vector3(-5.29041e-15, -0.0060898, -0.108748)
+bones/0/rotation = Quaternion(0.644345, -9.11635e-08, -7.68119e-08, 0.764735)
+bones/1/rotation = Quaternion(0.0304035, -0.00174905, -0.111642, 0.993282)
+bones/2/rotation = Quaternion(0.04182, -0.00602055, -0.111494, 0.992867)
+bones/3/rotation = Quaternion(0.97782, 0.204204, 0.0104593, -0.0453715)
+
+[node name="Skeleton3D" parent="Nalim_Rig" index="0"]
+bones/0/position = Vector3(2.6238e-14, -0.0118942, -0.382477)
+bones/0/rotation = Quaternion(0.664541, -8.90796e-08, -7.92198e-08, 0.747252)
+bones/1/rotation = Quaternion(0.0125405, -0.00375597, -0.111593, 0.993668)
+bones/2/rotation = Quaternion(0.0240817, -0.00801075, -0.111368, 0.993455)
+bones/3/rotation = Quaternion(0.978683, 0.204411, 0.00500119, -0.019238)
+
+[node name="AnimationPlayer" parent="." index="3"]
+autoplay = "Swimming"

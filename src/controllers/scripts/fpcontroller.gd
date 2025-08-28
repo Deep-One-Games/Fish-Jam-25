@@ -19,8 +19,8 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var move_dir: Vector2 ## Input direction for movement
 var look_dir: Vector2 ## 1put direction for look/aim
 
-var walk_vel: Vector3 ## Walking velocity 
-var grav_vel: Vector3 ## Gravity velocity 
+var walk_vel: Vector3 ## Walking velocity
+var grav_vel: Vector3 ## Gravity velocity
 var jump_vel: Vector3 ## Jumping velocity
 
 var disable := false

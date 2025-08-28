@@ -2,8 +2,10 @@ class_name NPCPatrol extends Node3D
 
 @export_category("NPC Properties")
 @export var npc_info: SaveNPC
+@export var dialog_id: String
 @export var default_state: String
 @export var patrol_title: String
+@export var titles: Array[String]
 
 @export_category("Dependencies")
 @export var patroller: LinearFollow
@@ -25,6 +27,9 @@ func _ready() -> void:
 	npc.player_sensor.title = patrol_title
 	npc.player_sensor.npc = npc_info # LMAO
 
+	npc.player_sensor.title_key = dialog_id
+	npc.player_sensor.titles = titles
+	
 	patroller.following_path = true
 
 func event_trigger(e: AreaEvent):
@@ -32,7 +37,7 @@ func event_trigger(e: AreaEvent):
 	event_active = true
 	patroller.following_path = false
 	if e.dialogue_title: npc.player_sensor.title = e.dialogue_title
-	
+
 	patroller.mps = patroller.default_mps
 	if e.overwrite_mps: patroller.mps = e.mps
 	

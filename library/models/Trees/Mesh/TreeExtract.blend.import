@@ -156,6 +156,14 @@ _subresources={
 "save_to_file/enabled": false,
 "save_to_file/path": "res://library/models/Trees/Mesh/Lily_2.res"
 },
+"TreeExtract_Plane_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://library/models/Trees/Mesh/race_goal.res"
+},
 "TreeExtract_Plane_006": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
