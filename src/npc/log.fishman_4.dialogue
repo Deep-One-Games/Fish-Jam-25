@@ -1,14 +1,20 @@
-~ NPC_start
-Scales too dull, won't catch Son's eye that way.
-Gills too obvious, but it is hard to breathe when I block it...
-Fins too big, gotta hide it somehow.
-- [Stay silent]
-	No, no, stop thinking about it, YOU ARE DOING IT AGAIN.
-It will just grow back, it always does, it will just grow back, it always does.
-That won't hide the disgusting stench anyway, it will follow me forever...
-There is no hope for me, no, no hope for me, but the next one, surely the next one will be beautiful. Yes, the next one...
-Saw a vibrant fish at the lake the other day, it looked amazing, had the most vibrant scales, had very big eyes, eyes, two eyes yes. Very beautiful fish.
-Took it to the Son, tried to show him, I yelled look! Look!
-I stayed all night, but he ignored me. He always ignores me.
-It must be the big fin, yes it's the big fin, of course! Maybe I can try cutting the fins again? Maybe this time it would work...
+~ A
+Scales too [wave amp=30 freq=2]dull[/wave],[wait=0.2] won't catch Son's eye that way.
+Gills too [wave amp=40 freq=3]obvious[/wave],[wait=0.2] but it is hard to [shake rate=20 level=10]breathe[/shake],[wait=0.2] when I block it...
+Fins too [wave amp=50 freq=4]BIG[/wave],[wait=0.2] gotta hide it,[wait=0.2] somehow.
+No,[wait=0.2] no,[wait=0.2] stop thinking about it,[wait=0.2] YOU ARE DOING IT AGAIN. YOU SAID NEVER AGAIN.
+It will just grow back,[wait=0.2] it [shake rate=20 level=10]always[/shake] does,[wait=0.2] it will just grow back,[wait=0.2] it always does.
+That won't hide the disgusting stench anyway,[wait=0.2] it will follow me forever[wave amp=25 freq=5].[wait=0.2].[wait=0.2].[/wave]
+=> END
+
+~ B
+There is no hope for me,[wait=0.2] no,[wait=0.2] no hope for me,[wait=0.2] but the next one,[wait=0.2] surely the next one will be beautiful. Yes,[wait=0.2] the next one...
+Saw a [wave amp=25 freq=5]vibrant[/wave] fish at the lake the other day,[wait=0.2] it looked amazing,[wait=0.2] had the most colourful scales,[wait=0.2] had very big eyes,[wait=0.2] eyes,[wait=0.2] two eyes yes. Very beautiful fish.
+Took it to the Son,[wait=0.2] tried to show him,[wait=0.2] I yelled look! Look!
+I stayed all night,[wait=0.2] but he ignored me. He always ignores me.
+=> END
+
+~ C
+It must be the big fin,[wait=0.2] yes it's the big fin,[wait=0.2] of course! 
+Maybe I can try it again? Maybe this time,[wait=0.2] surely,[wait=0.2] this time...
 => END

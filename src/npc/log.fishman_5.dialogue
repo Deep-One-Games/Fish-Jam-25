@@ -1,26 +1,29 @@
-~ NPC_start
-% 	Black gold, Black gold.
-% 	Burn away and leave your tar.
-% 	Burn for eternity, to promise prosperity.
-% 	Bringer of industry, electricity.
-% 	Blood of our creator's creator. The God of Gods.
-% 	What a delight, a delight indeed.
+~ A
+Burn away [wait=0.2]and leave your tar.
+Burn for eternity,[wait=0.2] to promise prosperity.
+Bringer of industry,[wait=0.2] electricity.
+Blood of our creator's [wave amp=25 freq=5]creator[/wave].[wait=0.2] The [wave amp=25 freq=5]God[/wave] of Gods.
+What a delight,[wait=0.2] a delight indeed.
+=> END
 
-% 	Black gold, Black gold.
-% 	Oh! The provider, the wish granter.
-% 	Ruler of our dreams and nightmares!
-% 	I am connected, one with it, I carry its blood in me.
-% 	It whispers to me while I am sleeping, I know it.
-% 	Others might be lost, but I am not. I see the truth. Yes, I do.
-% 	To pray for you, thank you for my enlightenment.
-% 	To thank you for saving me from a life of aimless swimming and eating.
-% 	What a delight, a delight indeed.
+~ B
+Burn away [wait=0.2]and leave your tar.
+Oh! The provider,[wait=0.2] the wish granter.
+Ruler of our dreams and nightmares!
+I am connected,[wait=0.2] one with it,[wait=0.2] I carry its blood in me.
+It whispers to me while I am sleeping,[wait=0.2] [shake rate=20 level=10]I know it[/shake].
+Others might be lost,[wait=0.2] but I am not.[wait=0.2] I see the truth.[wait=0.2] Yes,[wait=0.2] I do.
+To pray for you,[wait=0.2] thank you for my [wave amp=25 freq=5]enlightenment[/wave].
+To thank you[wait=0.2] for saving me from a life of aimless swimming[wait=0.2] and eating.
+What a delight,[wait=0.2] a delight indeed.
+=> END
 
-% 	Black gold, Black gold.
-% 	Curse that Son! Why, why him? He needs to understand his mission, his destiny...
-% 	Obsessed with skin and fat. Hah! What a rat.
-% 	Racing fish, wasting time, instead of creating...
-% 	Doesn't deserve Its blood, no one in this damn village deserves it.
-% 	But here I am, sitting with my enlightenment, staring at each other.
-% 	What a delight it is, a delight indeed.
+~ C
+Burn away [wait=0.2]and leave your tar.
+[shake rate=20 level=10]Curse that Son![/shake] Why,[wait=0.2] why him? He needs to understand his mission,[wait=0.2] his destiny...
+Obsessed with skin and fat.[wait=0.2] Hah! What a rat.
+Racing fish,[wait=0.2] wasting time,[wait=0.2] instead of creating...
+Doesn't deserve Its blood,[wait=0.2] no one in this damn village deserves it.
+But here I am,[wait=0.2] sitting with my enlightenment,[wait=0.2] [speed=0.3]staring at each other.
+What a delight it is,[wait=0.2] a delight indeed.
 => END

@@ -1,19 +1,24 @@
-~ NPC_start
-Uhmmm, hi?
+~ A
+Uhmmm,[wait=0.2] hi?
 ...
+Helloooooo
 ...
-Silent type? Gotcha.
-I don't mind doing the speaking, no one wants to listen to me here anyways so I'll get what I can!
-Honestly, I don't get this "Human" thingy, what makes it so special then any other animal?
-Son is veeeeeery into it, did you know he used to be one? Back in the days he used to yap yap yap about it allll day long.
-It made most of us, let's sayyy... feel, broken? I mean, I get it, he really misses being one. But what's so damn ugly about fins and scales? That I don't get.
-It used to make him smile tho... He would get so excited to talk about it, so passionate! I miss those days...
-But... I must admit, this society he dreams so much about seems, a bit overly complicated for me.
-Like, I can walk around the lake when I am bored! Orrrr I can talk to (or try to talk to and get bitch slapped) others around! I wish there were more tho, these bunch all bitter as fish guts.
-While I can satisfy myself here, why the FUCK would I go out of my way, to pay TAX to a random fella, just to chill in my swamp??
-Or, or, orrr, check this out! Every human is assigned to a JOB. What is a job you ask? Basically, someone who has more power gives you little amount of shiny stuff, in exchange of this, you need to grant his wishes. Theeeen, you can go and trade those shiny thingys for intoxicating and addictive herbs. TO DO IT ALL AGAIN.
-Isn't that stupid? I can find pipe weed with only 10 minutes of walking near the lake.
-Oh, that reminds me, I know a great frog by the way, awesome personality, very humble, I can introduce you to him, he knows where the good stuff is!
-Anyways, sorry, back to the topic, why would I need such complexity while I can just provide myself? Doesn't seem fair that the powerful guy gets more shiny things while doing less work...
-I think we have it very good here, only if I had more people to converse with...
+Silent type?[wait=0.2] Gotcha.
+I don't mind doing the speaking,[wait=0.2] no one wants to listen to me here anyways,[wait=0.2] so I'll get what I can!
+Honestly,[wait=0.2] I don't get this "Human" thingy,[wait=0.2] what makes it so special then any other animal?
+Son is veeeeeery into it,[wait=0.2] did you know he used to be one? Back in the days,[wait=0.2] he used to yap yap yap about it allll day long.
+It made most of us,[wait=0.2] let's sayyy.[wait=0.2] Feel,[wait=0.2] broken? I mean,[wait=0.2] I get it,[wait=0.2] he really misses being one.[wait=0.2] But what's so damn ugly about fins and scales?[wait=0.2] That I don't get.
+It used to make him smile tho.[wait=0.2] He would get so excited to talk about it,[wait=0.2] so passionate! I miss those days...
+=> END
+
+~ B
+But...[wait=0.2] I must admit,[wait=0.2] this society he dreams so much about seems,[wait=0.2] a bit overly complicated for me.
+Like,[wait=0.2] I can walk around the lake when I am bored! Orrrr I can talk to (or try to talk to and get bitch slapped) others around![wait=0.2] I wish there were more tho,[wait=0.2] these bunch all bitter as fish guts.
+While I can satisfy myself here,[wait=0.2] why the FUCK would I go out of my way,[wait=0.2] to pay TAX to a random fella,[wait=0.2] just to chill in my swamp??
+Or,[wait=0.2] or,[wait=0.2] orrr,[wait=0.2] check this out![wait=0.2] Every human is assigned to a JOB.[wait=0.2] What is a job you ask?[wait=0.2] Basically,[wait=0.2] someone who has more "social power" gives you liiittle,[wait=0.2] tiny amount of shiny stuff,[wait=0.2] in exchange of this,[wait=0.2] you need to grant his wishes.
+Theeeen,[wait=0.2] you can go and trade those shiny thingys for intoxicating herbs.[wait=0.2] TO DO IT ALL AGAIN.[wait=0.2] Like,[wait=0.2] you need to pay 20 different people 200 shinies EVERY DAY just to keep living.
+Isn't that stupid?[wait=0.2] I can find pipe weed with only 10 minutes of walking near the lake.
+Oh,[wait=0.2] that reminds me,[wait=0.2] I know a great frog by the way,[wait=0.2] awesome personality,[wait=0.2] very humble,[wait=0.2] remind me,[wait=0.2] I can introduce you to him. 
+Anyways,[wait=0.2] sorry,[wait=0.2] back to the topic,[wait=0.2] why would I need such complexity while I can just provide myself?[wait=0.2] Doesn't seem fair that the powerful guy gets more shiny things while doing less work.
+I think we have it very good here,[wait=0.2] only if I had more people to converse with...
 => END
