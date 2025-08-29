@@ -26,6 +26,9 @@ func select_racetrack() -> void:
 	for i in range(len(track_options)): if i != p:
 		track_options[i].queue_free()
 
+func reset_probabilities(d: FishData) -> void:
+	d.rng_keys = {}
+
 func populate_race() -> void:
 	var pos_curs := -2.5
 	for c in race_data.contestants:
@@ -37,6 +40,7 @@ func populate_race() -> void:
 
 		var track_follow = LinearFollow.new()
 		track_follow.loop = false
+		track_follow.path_completed.connect(reset_probabilities.bind(c))
 
 		selected_track.add_child(track_follow)
 		track_follow.add_child(fish)
@@ -63,3 +67,6 @@ func populate_race() -> void:
 	player_track.mps = starting_mps
 	player_track.default_mps = starting_mps
 	player_track.following_path = true
+	fish.follow_track.loop = false
+	player_track.path_completed.\
+			connect(reset_probabilities.bind(race_data.player_fish))

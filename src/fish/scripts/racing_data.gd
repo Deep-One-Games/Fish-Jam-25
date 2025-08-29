@@ -31,4 +31,4 @@ func compute_probability_landscape() -> void:
 
 	for c in contestants:
 		c.boost_probability = c.fitness() / sum
-	player_fish.boost_probability = player_fish.fitness()
+	player_fish.boost_probability = player_fish.fitness() / 100

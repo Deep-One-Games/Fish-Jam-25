@@ -13,7 +13,7 @@ var burst_event: RaceEvent3D
 var burst_time: float 
 
 func _ready() -> void:
-	event_sensor.area_entered.connect(on_speed_event) 
+	event_sensor.area_shape_entered.connect(on_speed_event) 
 
 func _process(delta: float) -> void:
 	if not bursting: return
@@ -24,10 +24,9 @@ func _process(delta: float) -> void:
 	if follow_track.mps == follow_track.default_mps:
 		bursting = false
 
-
-func on_speed_event(e: Area3D):
+func on_speed_event(r: RID, e: Area3D, area_shape_index: int, local_shape_index: int):
 	if e is not RaceEvent3D: return
+	if not fishinfo.will_accept_boost(r): return
 	if e.override_mps:
 		follow_track.mps = e.mps
-
 	bursting = e.burst_mode

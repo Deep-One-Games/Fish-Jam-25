@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bsltalvvyuuoj"]
+[gd_scene load_steps=22 format=3 uid="uid://bsltalvvyuuoj"]
 
 [ext_resource type="Script" uid="uid://c4wkbm0dwmlng" path="res://src/fish/scripts/race_track.gd" id="1_kfnei"]
 [ext_resource type="Script" uid="uid://y2upmnhr31if" path="res://src/fish/scripts/fish_data.gd" id="2_mg4ji"]
@@ -22,6 +22,7 @@ size = 80
 madness = 85
 boost_probability = 0.0
 racefish = ExtResource("3_d1su7")
+rng_keys = Dictionary[int, float]({})
 ref_id = "TEST"
 name = "TEST FISH (CARP)"
 desc = "BLAH BLAH BLAH"
@@ -45,24 +46,30 @@ _data = {
 }
 point_count = 23
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_cwops"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ksgyx"]
 size = Vector3(30.5222, 1, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ksgyx"]
-size = Vector3(22.6455, 1, 8.36281)
+[sub_resource type="BoxShape3D" id="BoxShape3D_kfnei"]
+size = Vector3(30.5222, 1, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5i3po"]
-size = Vector3(13.6382, 1, 15.3152)
+[sub_resource type="BoxShape3D" id="BoxShape3D_mg4ji"]
+size = Vector3(30.5222, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d1su7"]
-size = Vector3(5.24274, 1, 25.1498)
+size = Vector3(30.5222, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lr72o"]
+size = Vector3(30.5222, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_87non"]
+size = Vector3(30.5222, 1, 1)
 
 [node name="RaceTrack" type="Node3D" node_paths=PackedStringArray("track_options", "camera_options")]
 script = ExtResource("1_kfnei")
 race_data = SubResource("Resource_kk5tl")
 track_options = [NodePath("Track4")]
 camera_options = [NodePath("Track4/Track1_BASE/Fishcam")]
-starting_mps = 6.0
+starting_mps = 10.0
 
 [node name="Track4" type="Path3D" parent="."]
 curve = SubResource("Curve3D_sl2mw")
@@ -93,11 +100,11 @@ metadata/_custom_type_script = "uid://rp0wcakc58of"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Track4/JumpArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4805, 0, -12.0946)
-shape = SubResource("BoxShape3D_cwops")
+shape = SubResource("BoxShape3D_ksgyx")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Track4/JumpArea3D"]
 transform = Transform3D(-0.455902, 0, 0.89003, 0, 1, 0, -0.89003, 0, -0.455902, -2.67185, 0.379228, 19.0069)
-shape = SubResource("BoxShape3D_cwops")
+shape = SubResource("BoxShape3D_kfnei")
 
 [node name="RaceEvent3D" type="Area3D" parent="Track4"]
 collision_layer = 1024
@@ -109,11 +116,11 @@ metadata/_custom_type_script = "uid://clv23k3ud2t58"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Track4/RaceEvent3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.3525, 0, 1.75713)
-shape = SubResource("BoxShape3D_ksgyx")
+shape = SubResource("BoxShape3D_mg4ji")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Track4/RaceEvent3D"]
 transform = Transform3D(0.950331, 0, 0.31124, 0, 1, 0, -0.31124, 0, 0.950331, 10.6829, -9.53674e-07, 13.5497)
-shape = SubResource("BoxShape3D_5i3po")
+shape = SubResource("BoxShape3D_d1su7")
 
 [node name="JumpArea3D2" type="Area3D" parent="Track4"]
 collision_layer = 1024
@@ -128,7 +135,7 @@ metadata/_custom_type_script = "uid://rp0wcakc58of"
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Track4/JumpArea3D2"]
 transform = Transform3D(-0.471135, 0, 0.882061, 0, 1, 0, -0.882061, 0, -0.471135, 25.1254, 0.379228, 16.4059)
-shape = SubResource("BoxShape3D_cwops")
+shape = SubResource("BoxShape3D_lr72o")
 
 [node name="RaceEvent3D2" type="Area3D" parent="Track4"]
 collision_layer = 1024
@@ -140,7 +147,7 @@ metadata/_custom_type_script = "uid://clv23k3ud2t58"
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Track4/RaceEvent3D2"]
 transform = Transform3D(0.868943, 0, 0.494913, 0, 1, 0, -0.494913, 0, 0.868943, 34.5073, -9.53674e-07, 9.87128)
-shape = SubResource("BoxShape3D_d1su7")
+shape = SubResource("BoxShape3D_87non")
 
 [node name="Goalpost" type="Node3D" parent="Track4"]
 transform = Transform3D(0.97594, -0.218041, 0, 0.218041, 0.97594, 0, 0, 0, 1, -32.2815, -0.497484, 8.23718)

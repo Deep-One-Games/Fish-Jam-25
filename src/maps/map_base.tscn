@@ -337,7 +337,6 @@ shadow_mesh = SubResource("ArrayMesh_e7mtl")
 
 [node name="FishingZones" type="StaticBody3D" parent="." index="0" groups=["fishing_zone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55248, 0)
-visible = false
 collision_layer = 8
 collision_mask = 0
 
@@ -518,7 +517,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0499, -2.59236, -10.0203)
 shape = SubResource("CylinderShape3D_7tvku")
 
 [node name="MapBounds" type="StaticBody3D" parent="." index="1"]
-visible = false
 collision_layer = 512
 collision_mask = 0
 
@@ -1015,7 +1013,6 @@ transform = Transform3D(-0.378794, 0, 0.925481, 0, 1, 0, -0.925481, 0, -0.378794
 shape = SubResource("BoxShape3D_pg3em")
 
 [node name="EnvCol" type="StaticBody3D" parent="." index="2"]
-visible = false
 collision_mask = 0
 
 [node name="SURFACE" type="CollisionShape3D" parent="EnvCol" index="0"]

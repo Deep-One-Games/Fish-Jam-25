@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ct14vvqkf6utb"
+path="res://.godot/imported/log.jack.dialogue-90da9a2ac6d2b494889a42f14175a71e.tres"
+
+[deps]
+
+source_file="res://src/npc/log.jack.dialogue"
+dest_files=["res://.godot/imported/log.jack.dialogue-90da9a2ac6d2b494889a42f14175a71e.tres"]
+
+[params]
+
+defaults=true

@@ -18,7 +18,7 @@ var do_jump := false
 var jump_event: JumpAreaEvent
 
 func _ready() -> void:
-	event_sensor.area_entered.connect(on_jump_event)
+	event_sensor.area_shape_entered.connect(on_jump_event)
 	animations.play(&"Swimming")
 	animations.seek(randf())
 
@@ -34,16 +34,15 @@ func _process(delta: float) -> void:
 	mesh.position.y =\
 			jump_curve.sample(jump_time_elapsed/jump_time)*jump_event.max_jump_height
 
-func on_jump_event(e: Area3D):
+func on_jump_event(r: RID, e: Area3D, area_shape_index: int, local_shape_index: int):
 	if e is not JumpAreaEvent: return
-	var r = randf()
-	if r > race_fish.fishinfo.boost_probability: return
-	race_fish.on_speed_event(e)
+	if not race_fish.fishinfo.will_accept_boost(r): return
 	jump_event = e
-	jump_time = jump_event.jump_distance / race_fish.follow_track.mps 
+	jump_time = jump_event.jump_distance / jump_event.mps
 	animations.speed_scale = jump_orig_time / jump_time 
 	do_jump = true 
 	animations.play(&"Jumping")
 
 	await get_tree().create_timer(jump_time).timeout
+	print("finished")
 	animations.play(&"Swimming")
