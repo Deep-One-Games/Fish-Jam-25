@@ -1,0 +1,82 @@
+~ JACK_start
+Jack: Holy carp! A real Human!
+Jack: Oh, get your shells together, you been waiting for this moment.
+Jack: You can call me Jack! Welcome to the Black Lake. Oh, how fin-tastic to see you here!
+Jack: Not everyone has a name here, so you might say I am special! Not like they care but I kept my name so I can tell it to another Human! What is yours??
+- Stare at Jack’s face
+Jack: Come on now, I don't look that bad! I mean, I might not have smooth skin like yours, but I walk the same earth you do. Also, you should see the town… Then you will come running to me.
+Jack: Since you didn't bestow me your name, I will call you… Hmmm…
+Jack: Okay. It’s o-fish-ial. I name you, Bob! How cool! I named my first Human, can't wait to show you to the Son.
+Jack: No fins? How weird! you don't have gills either… I guess any-fin is possible!
+Jack: Don’t go fishing for compliments now, others will not even realise that you are a Human. Except for some.
+Jack: Speaking of fishing… Follow me, let me show you how we spend our days here.
+=> END
+
+~ JACK_patrol_tutorial
+Jack: Just over there! My favourite spot to fish, it will be so much fun!
+=> END
+
+~ JACK_tutorial_intro
+Jack: Come! come, oh! There should be some bait right over there. Now, just go ahead and put some in your mouth.
+- Look at the bucket
+	Jack: HAHAHA, STOPP!
+- Hell no
+	Jack: Ok, Ok. Clam down...
+Jack: Just squidding! It is for the fish, not for Humans! What a silly jellyball you are.
+=> JACK_tutorial_ui
+
+~ JACK_tutorial_ui
+Jack: Go ahead and open your inventory with “I”.
+=> JACK_tutorial_fish
+
+~ JACK_tutorial_fish
+Jack: Cast your line into the lake and reel when it bites!
+=> JACK_tutorial_outcome
+
+~ JACK_tutorial_outcome
+Jack: Holy mackerel, that is a big one! So its true... Humans catch better fish! We might have a chance after all!
+Jack: I am getting ahead of myself, you dont even know about our fish races.
+Jack: It’s time to shell-abrate.
+Jack: Every night, we gather together at the port to race our fishes, its really fun! Son used to come out to watch it, transform the best fish to a Human.
+Jack: Well, that was his plan. He tried to make us Human, but could not sucseed the way he envisioned. He wanted to create "Beautiful" creatures, not freaks of nature!
+Jack: I think that is a load of carp.
+Jack: After his many "failed" attempts, he turned bitter, angry, resentfull against us. Locked himself in his shack, told us to find a real Human to catch the fish. Wouldnt accept our fishes, even if they won the race!
+Jack: What a shellfish fella, am I right?
+Jack: He is kinda boring now... But, I do want more Fish-folk to talk with! I know everyone here already, been so long since we had a new face around.
+Jack: Like, krill out, man. Go smoke some swamp weed or something.
+Jack: Ugh, enoguh of that depressing shit. Also, since you are here, maybe we can finally put an end to this era of silence!
+Jack: Let me show you the town, its not much, but its everything we got!
+=> END
+
+~ JACK_patrol_town
+Jack: What do you call an octopus without shoes? 
+Jack: A sock-topus.
+Jack: Hehehehehe, gotta stay octo-mistic!
+=> END
+
+~ JACK_in_town
+Jack: Well, this is the town! Near the dock, you can find the stall, you will need it to upgrade your rod.
+Jack: I dont like the guy who works the stall, buuuut—
+Jack: As they say, keep your friends close, anemones closer ;)
+Jack: Dont forget! You can fish anywhere where there is water.
+Jack: NOW GO! Blend in, there is so much to do!
+=> END
+
+~ JACK_patrol_back_home
+Jack: What is a fish’s favorite type of joke? Whale jokes. They’re really a killer!
+=> END
+
+~ JACK_day2_start
+Jack: Morning, Bobsy! How can I kelp you today?
+- Look at towards the racing port
+	Jack: Be at the port by nightfall. Bring your fastest catch and some luck!
+- Look at towards Son's shack
+	Jack: Shelled up and sulking. But a real victory might reel him to the shore again.
+	Jack: He had a girlfriend, but then he lobster.
+	- Smile
+		Jack: Hahaha, I see you kraken up!
+	- DONT smile
+		Jack: oOoOoO. so-fish-ticated... Keep your smile, save it for another day.
+- Leave
+    Jack: Keep your line tight!
+=> END
