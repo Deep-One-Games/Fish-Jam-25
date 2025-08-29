@@ -22,6 +22,13 @@ func populate_ai() -> void:
 
 		contestants.append(fd)
 
+func compute_probability_landscape() -> void:
+	var sum := 0.0
+	for c in contestants:
+		sum += c.fitness()
+	
+	sum += player_fish.fitness()
 
-
-
+	for c in contestants:
+		c.boost_probability = c.fitness() / sum
+	player_fish.boost_probability = player_fish.fitness()

@@ -1,0 +1,153 @@
+[gd_scene load_steps=20 format=3 uid="uid://bsltalvvyuuoj"]
+
+[ext_resource type="Script" uid="uid://c4wkbm0dwmlng" path="res://src/fish/scripts/race_track.gd" id="1_kfnei"]
+[ext_resource type="Script" uid="uid://y2upmnhr31if" path="res://src/fish/scripts/fish_data.gd" id="2_mg4ji"]
+[ext_resource type="PackedScene" uid="uid://cro6nlaw2lami" path="res://src/fish/carp.tscn" id="3_d1su7"]
+[ext_resource type="PackedScene" uid="uid://hjyqv8noyhkx" path="res://src/fish/nalim.tscn" id="4_lr72o"]
+[ext_resource type="PackedScene" uid="uid://bdtf3xd2ydgc4" path="res://src/fish/pike.tscn" id="5_87non"]
+[ext_resource type="Script" uid="uid://jnpe8hwlhdfa" path="res://src/fish/scripts/racing_data.gd" id="6_tg1ey"]
+[ext_resource type="Script" uid="uid://cgx2wkvvgp00v" path="res://src/nodes/linear_follow.gd" id="7_8r13y"]
+[ext_resource type="Script" uid="uid://bolp7prdbatne" path="res://src/racing/fishcam.gd" id="8_1vccm"]
+[ext_resource type="Script" uid="uid://rp0wcakc58of" path="res://src/fish/scripts/jump_event.gd" id="9_dy6bs"]
+[ext_resource type="ArrayMesh" uid="uid://iq0r0jonlku0" path="res://library/models/Trees/Mesh/race_goal.res" id="10_ek8kg"]
+[ext_resource type="Script" uid="uid://clv23k3ud2t58" path="res://src/fish/scripts/race_event.gd" id="11_v2dpm"]
+[ext_resource type="PackedScene" uid="uid://djji8thnxchus" path="res://src/maps/map_base_day.tscn" id="12_ksgyx"]
+
+[sub_resource type="Resource" id="Resource_sl2mw"]
+script = ExtResource("2_mg4ji")
+sample_mean = 80.0
+std = 15.0
+weight = 70
+size = 80
+madness = 85
+boost_probability = 0.0
+racefish = ExtResource("3_d1su7")
+ref_id = "TEST"
+name = "TEST FISH (CARP)"
+desc = "BLAH BLAH BLAH"
+lore = "SO MUCH LORE!!!!"
+metadata/_custom_type_script = "uid://y2upmnhr31if"
+
+[sub_resource type="Resource" id="Resource_kk5tl"]
+script = ExtResource("6_tg1ey")
+racefish_options = Array[PackedScene]([ExtResource("3_d1su7"), ExtResource("4_lr72o"), ExtResource("5_87non")])
+ai_count = 3
+contestants = Array[ExtResource("2_mg4ji")]([])
+player_fish = SubResource("Resource_sl2mw")
+metadata/_custom_type_script = "uid://jnpe8hwlhdfa"
+
+[sub_resource type="Curve3D" id="Curve3D_sl2mw"]
+closed = true
+bake_interval = 2.59
+_data = {
+"points": PackedVector3Array(-0.527637, 0, -1.51975, 0.527637, 0, 1.51975, -35.4459, 0, 8.34734, -1.38664, 0, -1.35244, 1.38664, 0, 1.35244, -28.7014, 0, 18.5096, -2.10655, 0, -0.247894, 2.10655, 0, 0.247894, -19.675, 0, 20.7762, -1.91605, 0, 0.703037, 1.91605, 0, -0.703037, -7.18295, 0, 20.7955, -2.33427, 0, 0.787149, 2.33427, 0, -0.787149, -1.16154, -0.0326538, 17.9834, -1.4985, 0, 0.422813, 1.4985, 0, -0.422813, 7.08667, -0.0312271, 14.2912, -2.06806, -0.00292397, 0.19713, 2.06806, 0.00292397, -0.19713, 12.6271, -0.00313759, 13.3314, -1.29959, 0, 0.725145, 1.29959, 0, -0.725145, 20.2404, 0.00617218, 11.6954, 0, 0, 0, 0, 0, 0, 23.5155, 0.000640869, 9.0671, 0, 0, 0, 0, 0, 0, 28.9864, 0.000244141, 2.96648, -0.471722, 0, 0.669693, 0.471722, 0, -0.669693, 32.3346, 0.00152969, -5.05647, -0.265308, 0, 0.991571, 0.265308, 0, -0.991571, 35.1728, 0.00133514, -9.39493, -0.0926323, 0, 1.16335, 0.0926323, 0, -1.16335, 38.7467, 0, -17.5392, 0.406643, 0, 0.849796, -0.406643, 0, -0.849796, 36.9334, 0, -35.683, 0.730623, 0, 0.767612, -0.730623, 0, -0.767612, 30.4694, 0, -42.7541, 1.18954, 0, 0.361122, -1.18954, 0, -0.361122, 20.7105, -0.00135803, -43.9284, 1.32516, 0, 0.0199203, -1.32516, 0, -0.0199203, 1.6649, -0.00257301, -45.2111, 1.72359, 0, 0.235828, -1.72359, 0, -0.235828, -10.1188, -0.00163841, -46.1514, 1.63151, 0, -0.67144, -1.63151, 0, 0.67144, -21.887, -0.00464058, -45.324, 0.220505, 0, -1.03032, -0.220505, 0, 1.03032, -32.4706, 0.000318527, -30.6392, 0.169197, 0, -0.726343, -0.169197, 0, 0.726343, -32.6521, 0, -21.9492, 0.0278091, 0, -0.641534, -0.0278091, 0, 0.641534, -34.672, 0, -13.5667, 0, 0, 0, 0, 0, 0, -34.773, 0, -10.2339),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 23
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cwops"]
+size = Vector3(30.5222, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ksgyx"]
+size = Vector3(22.6455, 1, 8.36281)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5i3po"]
+size = Vector3(13.6382, 1, 15.3152)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d1su7"]
+size = Vector3(5.24274, 1, 25.1498)
+
+[node name="RaceTrack" type="Node3D" node_paths=PackedStringArray("track_options", "camera_options")]
+script = ExtResource("1_kfnei")
+race_data = SubResource("Resource_kk5tl")
+track_options = [NodePath("Track4")]
+camera_options = [NodePath("Track4/Track1_BASE/Fishcam")]
+starting_mps = 6.0
+
+[node name="Track4" type="Path3D" parent="."]
+curve = SubResource("Curve3D_sl2mw")
+
+[node name="Track1_BASE" type="PathFollow3D" parent="Track4"]
+transform = Transform3D(-0.944588, 0, -0.327949, 0, 0.999998, 0, 0.327949, 0, -0.94459, -35.4459, 0, 8.34734)
+loop = false
+script = ExtResource("7_8r13y")
+mps = 3.0
+metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
+
+[node name="Fishcam" type="Camera3D" parent="Track4/Track1_BASE" node_paths=PackedStringArray("path_follow")]
+transform = Transform3D(0.112602, -0.420765, 0.900266, -0.038039, 0.903448, 0.427012, -0.993011, -0.0823317, 0.0857217, 16.1588, 11, -1.4675)
+fov = 90.3
+script = ExtResource("8_1vccm")
+path_follow = NodePath("..")
+metadata/_custom_type_script = "uid://bolp7prdbatne"
+
+[node name="JumpArea3D" type="Area3D" parent="Track4"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("9_dy6bs")
+jump_distance = 15.0
+max_jump_height = 4.0
+override_mps = true
+mps = 25.0
+metadata/_custom_type_script = "uid://rp0wcakc58of"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Track4/JumpArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4805, 0, -12.0946)
+shape = SubResource("BoxShape3D_cwops")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Track4/JumpArea3D"]
+transform = Transform3D(-0.455902, 0, 0.89003, 0, 1, 0, -0.89003, 0, -0.455902, -2.67185, 0.379228, 19.0069)
+shape = SubResource("BoxShape3D_cwops")
+
+[node name="RaceEvent3D" type="Area3D" parent="Track4"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("11_v2dpm")
+override_mps = true
+mps = 5.0
+metadata/_custom_type_script = "uid://clv23k3ud2t58"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Track4/RaceEvent3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.3525, 0, 1.75713)
+shape = SubResource("BoxShape3D_ksgyx")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Track4/RaceEvent3D"]
+transform = Transform3D(0.950331, 0, 0.31124, 0, 1, 0, -0.31124, 0, 0.950331, 10.6829, -9.53674e-07, 13.5497)
+shape = SubResource("BoxShape3D_5i3po")
+
+[node name="JumpArea3D2" type="Area3D" parent="Track4"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("9_dy6bs")
+jump_distance = 12.0
+max_jump_height = 5.5
+burst_mode = false
+override_mps = true
+mps = 15.0
+metadata/_custom_type_script = "uid://rp0wcakc58of"
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Track4/JumpArea3D2"]
+transform = Transform3D(-0.471135, 0, 0.882061, 0, 1, 0, -0.882061, 0, -0.471135, 25.1254, 0.379228, 16.4059)
+shape = SubResource("BoxShape3D_cwops")
+
+[node name="RaceEvent3D2" type="Area3D" parent="Track4"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("11_v2dpm")
+override_mps = true
+mps = 5.0
+metadata/_custom_type_script = "uid://clv23k3ud2t58"
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Track4/RaceEvent3D2"]
+transform = Transform3D(0.868943, 0, 0.494913, 0, 1, 0, -0.494913, 0, 0.868943, 34.5073, -9.53674e-07, 9.87128)
+shape = SubResource("BoxShape3D_d1su7")
+
+[node name="Goalpost" type="Node3D" parent="Track4"]
+transform = Transform3D(0.97594, -0.218041, 0, 0.218041, 0.97594, 0, 0, 0, 1, -32.2815, -0.497484, 8.23718)
+
+[node name="RaceGoal" type="MeshInstance3D" parent="Track4/Goalpost"]
+transform = Transform3D(-3.40435e-08, -0.778824, -0.627243, 1, -4.37114e-08, 1.9761e-15, -2.74177e-08, -0.627243, 0.778824, -0.557426, 8.39602, 0.800971)
+mesh = ExtResource("10_ek8kg")
+skeleton = NodePath("../../JumpArea3D")
+
+[node name="MapBaseDay" parent="." instance=ExtResource("12_ksgyx")]

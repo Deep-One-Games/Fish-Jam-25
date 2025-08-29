@@ -12,6 +12,7 @@ var selected_track: Path3D
 var selected_camera: Camera3D
 func _ready() -> void:
 	race_data.populate_ai()
+	race_data.compute_probability_landscape()
 	select_racetrack()
 	populate_race()
 
@@ -31,19 +32,25 @@ func populate_race() -> void:
 		var fish = c.racefish.instantiate() as RaceFish
 		pos_curs += 2.5 # magic number. meters seperation between fish
 		fish.position.x = pos_curs
+		fish.data = race_data
+		fish.fishinfo = c
 
 		var track_follow = LinearFollow.new()
-		track_follow.mps = starting_mps
+		track_follow.loop = false
 
 		selected_track.add_child(track_follow)
 		track_follow.add_child(fish)
 		# link dependencies
 		fish.follow_track = track_follow
 		track_follow.following_path = true
+		track_follow.default_mps = starting_mps
+		track_follow.mps = starting_mps
 
 	var fish = race_data.player_fish.racefish.instantiate() as RaceFish
+	fish.fishinfo = race_data.player_fish
 	pos_curs += 2.5
 	fish.position.x = pos_curs
+	fish.data = race_data # link ptrs internally
 
 	# enable the camera on the selected race track
 	selected_camera.current = true
@@ -53,6 +60,6 @@ func populate_race() -> void:
 	var player_track = selected_camera.get_parent()
 	player_track.add_child(fish)
 	fish.follow_track = selected_camera.get_parent()
+	player_track.mps = starting_mps
+	player_track.default_mps = starting_mps
 	player_track.following_path = true
-
-

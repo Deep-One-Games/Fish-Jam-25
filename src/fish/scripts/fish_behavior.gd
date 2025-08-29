@@ -20,6 +20,7 @@ var jump_event: JumpAreaEvent
 func _ready() -> void:
 	event_sensor.area_entered.connect(on_jump_event)
 	animations.play(&"Swimming")
+	animations.seek(randf())
 
 func _process(delta: float) -> void:
 	if not do_jump: return
@@ -27,6 +28,7 @@ func _process(delta: float) -> void:
 	if jump_time_elapsed > jump_time: 
 		do_jump = false
 		mesh.position.y = 0.0
+		jump_time_elapsed = 0.0
 		return
 	
 	mesh.position.y =\
@@ -34,10 +36,11 @@ func _process(delta: float) -> void:
 
 func on_jump_event(e: Area3D):
 	if e is not JumpAreaEvent: return
+	var r = randf()
+	if r > race_fish.fishinfo.boost_probability: return
 	race_fish.on_speed_event(e)
 	jump_event = e
-	jump_time = jump_event.jump_distance / jump_event.track_follow.mps
-
+	jump_time = jump_event.jump_distance / race_fish.follow_track.mps 
 	animations.speed_scale = jump_orig_time / jump_time 
 	do_jump = true 
 	animations.play(&"Jumping")

@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://cwwfxwjxmem0o" path="res://library/models/Fishes/mats/Carp.tres" id="2_vf1x4"]
 
 [sub_resource type="Curve" id="Curve_r3wo6"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.493976, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.262651, 0.994004), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [node name="Carp" node_paths=PackedStringArray("event_sensor") instance=ExtResource("1_74lli")]
