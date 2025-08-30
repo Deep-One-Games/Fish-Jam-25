@@ -1,30 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://cro6nlaw2lami"]
+[gd_scene load_steps=7 format=3 uid="uid://hjyqv8noyhkx"]
 
-[ext_resource type="PackedScene" uid="uid://bta1bb6bl0ecj" path="res://library/models/Fishes/Fish_Animations.blend" id="1_r3wo6"]
-[ext_resource type="Script" uid="uid://c0gbd1o11etrt" path="res://src/fish/scripts/racefish.gd" id="2_bt5l7"]
-[ext_resource type="Material" uid="uid://cwwfxwjxmem0o" path="res://library/models/Fishes/mats/Carp.tres" id="3_cbdc4"]
-[ext_resource type="PackedScene" uid="uid://j1s3bk07cjyv" path="res://src/fish/fish_npc.tscn" id="4_0wtrs"]
+[ext_resource type="PackedScene" uid="uid://bta1bb6bl0ecj" path="res://library/models/Fishes/Fish_Animations.blend" id="1_7iuq4"]
+[ext_resource type="PackedScene" uid="uid://j1s3bk07cjyv" path="res://src/fish/fish_npc.tscn" id="2_jkcqc"]
+[ext_resource type="Script" uid="uid://c0gbd1o11etrt" path="res://src/fish/scripts/racefish.gd" id="2_mww8v"]
+[ext_resource type="Material" uid="uid://vbd624rcbra5" path="res://library/models/Fishes/mats/Pike.tres" id="3_3xd6b"]
+[ext_resource type="Material" uid="uid://cql1hghx531hh" path="res://library/models/Fishes/mats/Nalim.tres" id="4_do4d0"]
 
-[sub_resource type="Curve" id="Curve_r3wo6"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.262651, 0.994004), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_mww8v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.503614, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="Carp" node_paths=PackedStringArray("event_sensor") instance=ExtResource("1_r3wo6")]
-script = ExtResource("2_bt5l7")
+[node name="Burbot" node_paths=PackedStringArray("event_sensor") instance=ExtResource("1_7iuq4")]
+script = ExtResource("2_mww8v")
 event_sensor = NodePath("FishNpc/JumpSensor")
 
 [node name="Carp_rig" parent="." index="0"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+visible = false
 
 [node name="Skeleton3D" parent="Carp_rig" index="0"]
 bones/0/position = Vector3(1.32826e-16, 0.0082954, -0.105878)
 bones/1/rotation = Quaternion(0.00491842, 9.25527e-14, -1.17264e-09, 0.999988)
 bones/2/rotation = Quaternion(0.0248819, -9.53419e-07, -2.96626e-08, 0.99969)
 bones/3/rotation = Quaternion(0.999788, 2.45766e-09, -1.19184e-07, 0.0206164)
-
-[node name="Carp" parent="Carp_rig/Skeleton3D" index="0"]
-transform = Transform3D(3.5, 0, -2.84217e-14, 0, 3.5, 0, 2.84217e-14, 0, 3.5, 0, 0, 0)
-surface_material_override/0 = ExtResource("3_cbdc4")
 
 [node name="Pike_rig" parent="." index="1"]
 visible = false
@@ -35,8 +32,8 @@ bones/1/rotation = Quaternion(0.0305948, -4.79881e-16, -7.29437e-09, 0.999532)
 bones/2/rotation = Quaternion(0.0420833, -9.5285e-07, -5.01681e-08, 0.999114)
 bones/3/rotation = Quaternion(0.998925, -5.52539e-09, -1.19083e-07, -0.0463508)
 
-[node name="Nalim_Rig" parent="." index="2"]
-visible = false
+[node name="Pike" parent="Pike_rig/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("3_3xd6b")
 
 [node name="Skeleton3D" parent="Nalim_Rig" index="0"]
 bones/0/position = Vector3(5.18772e-16, -0.0313356, -0.380642)
@@ -45,12 +42,16 @@ bones/1/rotation = Quaternion(0.0126195, 3.84917e-13, -3.00873e-09, 0.99992)
 bones/2/rotation = Quaternion(0.0242334, -9.53415e-07, -2.88889e-08, 0.999706)
 bones/3/rotation = Quaternion(0.999807, -2.34285e-09, -1.19187e-07, -0.0196532)
 
+[node name="Nalim" parent="Nalim_Rig/Skeleton3D" index="0"]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 0, 0, 0)
+surface_material_override/0 = ExtResource("4_do4d0")
+
 [node name="AnimationPlayer" parent="." index="3"]
 autoplay = "Swimming"
 
-[node name="FishNpc" parent="." index="4" node_paths=PackedStringArray("mesh", "animations", "race_fish") instance=ExtResource("4_0wtrs")]
-jump_curve = SubResource("Curve_r3wo6")
-mesh = NodePath("../Carp_rig")
+[node name="FishNpc" parent="." index="4" node_paths=PackedStringArray("mesh", "animations", "race_fish") instance=ExtResource("2_jkcqc")]
+jump_curve = SubResource("Curve_mww8v")
+mesh = NodePath("../Nalim_Rig")
 animations = NodePath("../AnimationPlayer")
 race_fish = NodePath("..")
 

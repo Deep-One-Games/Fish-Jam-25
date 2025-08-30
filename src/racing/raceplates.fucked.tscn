@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://3kdxi3cnngxu"]
+
+[ext_resource type="PackedScene" uid="uid://cf4t6f5kd5tb8" path="res://src/racing/race_plate.tscn" id="1_we4xo"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -353.0
+offset_top = -210.0
+offset_right = -10.0
+offset_bottom = -58.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Raceplate" parent="VBoxContainer" instance=ExtResource("1_we4xo")]
+layout_mode = 2
+
+[node name="Raceplate2" parent="VBoxContainer" instance=ExtResource("1_we4xo")]
+layout_mode = 2
+
+[node name="Raceplate3" parent="VBoxContainer" instance=ExtResource("1_we4xo")]
+layout_mode = 2
+
+[node name="Raceplate4" parent="VBoxContainer" instance=ExtResource("1_we4xo")]
+layout_mode = 2

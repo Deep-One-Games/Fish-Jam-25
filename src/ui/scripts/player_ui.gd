@@ -13,10 +13,13 @@ var dialog_area: DialogueArea
 @export var casting_lbl: Label
 @export var currently_fishing: bool = false
 
+@export_category("Racing Controls")
+@export var race_lbl: Label
 
 var disable_options := false
 var options_state := false
 var fishing_available := false
+var racing_available := false
 
 var in_dialog:= false
 
@@ -32,6 +35,7 @@ func _ready() -> void:
 	fish_availability_update.connect(fishing_ui_update)
 	fishing_lbl.visible = false
 	dialog_lbl.visible = false
+	race_lbl.visible = false
 
 	casting_lbl.visible = currently_fishing
 	DialogueManager.dialogue_ended.connect(set_in_dialog.bind(false))
@@ -43,12 +47,20 @@ func set_interact(area: DialogueArea, _visible: bool) -> void:
 	dialog_area = area if _visible else null
 
 func _dialog_area_entered(area: Area3D) -> void:
+	if area.is_in_group("racing"): 
+		racing_available = true
+		race_lbl.visible = true 
+		return
 	disable_options = true 
 	if area is DialogueArea:
 		set_interact(area, true)
 		return
 
 func _dialog_area_exited(area: Area3D) -> void:
+	if area.is_in_group("racing"): 
+		racing_available = false
+		race_lbl.visible = false
+		return
 	disable_options = false 
 	if area is DialogueArea:
 		set_interact(area, false)
@@ -82,6 +94,10 @@ func _input(event: InputEvent) -> void:
 		Storage.save_process()
 		SceneManager.switch(SceneManager.GameScene.fishing)
 		return
+
+	if event.is_action_pressed("interact") and racing_available:
+		Storage.save_process()
+		SceneManager.switch(SceneManager.GameScene.racing)
 
 	# OPTIONS
 	if event.is_action_pressed("options") and not disable_options:

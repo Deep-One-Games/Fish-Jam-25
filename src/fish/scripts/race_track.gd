@@ -7,9 +7,13 @@ class_name RaceTrack3D extends Node3D
 @export var camera_options: Array[Camera3D]
 
 @export var starting_mps: float = 3.0 
+@export var announcer: SaveNPC
 
 var selected_track: Path3D
 var selected_camera: Camera3D
+var live_fish: Array[RaceFish]
+
+const dialogue_box = preload("res://src/ui/dialogue.tscn")
 func _ready() -> void:
 	race_data.populate_ai()
 	race_data.compute_probability_landscape()
@@ -25,6 +29,17 @@ func select_racetrack() -> void:
 
 	for i in range(len(track_options)): if i != p:
 		track_options[i].queue_free()
+
+func start_game() -> void:
+	var b: DialogBox = dialogue_box.instantiate()
+	b.npc = announcer 
+	get_tree().current_scene.add_child(b)
+	b.start(announcer.npc_dialogue, "JACK_count_race")
+
+	await DialogueManager.dialogue_ended
+
+	for lf in live_fish:
+		lf.follow_track.following_path = true
 
 func reset_probabilities(d: FishData) -> void:
 	d.rng_keys = {}
@@ -46,9 +61,9 @@ func populate_race() -> void:
 		track_follow.add_child(fish)
 		# link dependencies
 		fish.follow_track = track_follow
-		track_follow.following_path = true
 		track_follow.default_mps = starting_mps
 		track_follow.mps = starting_mps
+		live_fish.append(fish)
 
 	var fish = race_data.player_fish.racefish.instantiate() as RaceFish
 	fish.fishinfo = race_data.player_fish
@@ -66,7 +81,8 @@ func populate_race() -> void:
 	fish.follow_track = selected_camera.get_parent().get_parent()
 	player_track.mps = starting_mps
 	player_track.default_mps = starting_mps
-	player_track.following_path = true
+	player_track.following_path = false 
 	fish.follow_track.loop = false
+	live_fish.append(fish)
 	player_track.path_completed.\
 			connect(reset_probabilities.bind(race_data.player_fish))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://bl4j2pgha8a5u"]
+[gd_scene load_steps=81 format=4 uid="uid://bl4j2pgha8a5u"]
 
 [ext_resource type="PackedScene" uid="uid://dceftca3qspku" path="res://library/models/freeroam/freeroam.glb" id="1_5hikl"]
 [ext_resource type="Texture2D" uid="uid://e5kl18spayjg" path="res://library/models/freeroam/freeroam_blank.png" id="2_d21su"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://c8t2pqcj7m71l" path="res://library/models/textures/Bucket_Base_color.png" id="27_r3gye"]
 [ext_resource type="Shader" uid="uid://dp6wyhvyfrd48" path="res://library/resources/ps1_shadeobj.gdshader" id="28_vrxee"]
 [ext_resource type="Texture2D" uid="uid://b0lbmq43a5foq" path="res://library/models/textures/Bucket_Normal_OpenGL.png" id="29_cvsmu"]
+[ext_resource type="PackedScene" uid="uid://b7226ibff5amn" path="res://src/racing/start_racing.tscn" id="30_vrxee"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7tvku"]
 radius = 10.3916
@@ -2129,3 +2130,6 @@ skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/Do
 transform = Transform3D(0.267397, 0.0126533, 0.0773225, 0.0200809, 0.25473, -0.111129, -0.0757339, 0.112217, 0.24354, 7.60471, 3.78326, -9.42386)
 mesh = SubResource("ArrayMesh_q2fug")
 skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
+
+[node name="StartRacing" parent="." index="12" instance=ExtResource("30_vrxee")]
+transform = Transform3D(-0.820132, 0, -0.572175, 0, 1, 0, 0.572175, 0, -0.820132, 4.41621, 2.56624, 23.7922)

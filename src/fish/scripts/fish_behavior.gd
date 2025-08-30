@@ -44,5 +44,4 @@ func on_jump_event(r: RID, e: Area3D, area_shape_index: int, local_shape_index: 
 	animations.play(&"Jumping")
 
 	await get_tree().create_timer(jump_time).timeout
-	print("finished")
 	animations.play(&"Swimming")

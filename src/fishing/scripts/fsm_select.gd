@@ -1,8 +1,13 @@
 class_name FSMFishingSelect extends FSMState
 
+enum Types { Rods, Fish }
+enum GameType { Fishing, Racing }
+
 @export_category("Setup")
 @export var use_savefile := true
-@export var inventory: Array
+var inventory: Array
+@export var item_type: Types = Types.Rods
+@export var game_type: GameType = GameType.Fishing
 
 @export_category("Internal Dependencies")
 @export var FSM_Owner: FSM
@@ -12,6 +17,8 @@ class_name FSMFishingSelect extends FSMState
 @export var item_title: Label
 @export var item_desc: Label
 @export var leave_btn: Button
+@export var item_view: Control
+@export var viewport_texture: TextureRect
 
 @export_category("Rod Lists")
 @export var rod_list_target: Control
@@ -24,18 +31,33 @@ class_name FSMFishingSelect extends FSMState
 @export_category("Animations")
 @export var animation_player: AnimationPlayer
 
-signal rod_selected(rod: RodItem, ui_rod: FishingRodItemUI)
-signal rod_confirmed(rod: RodItem)
+signal rod_selected(rod: GameItem, ui_rod: FishingRodItemUI)
+signal rod_confirmed(rod: GameItem)
 
 var prev_selected_rod: FishingRodItemUI
+
+var rod_lore: String = ""
+var rod_desc: String = ""
+var stats: String = ""
+var rod_name: String = ""
 var popup_state := true
 
+var page_i: int = 0
+
 func _ready() -> void:
-	# Load Inventory
-	if use_savefile:
-		inventory = Storage.sf.inventory.\
+	item_view.visible = false
+	match item_type:
+		Types.Rods:
+			inventory = Storage.sf.inventory.\
 				filter(func x(i: GameItem): return i is RodItem)
-	
+			item.scale = Vector3(1,1,1)
+			item.position.y = 0
+		Types.Fish:
+			inventory = Storage.sf.inventory.\
+				filter(func x(i: GameItem): return i is FishData)
+			item.scale = Vector3(2.48, 2.48, 2.48)
+			item.position.y = 1.655
+
 	# Apply inventory to tree
 	for r in inventory:
 		var el = item_ui.instantiate() as FishingRodItemUI
@@ -52,12 +74,16 @@ func _ready() -> void:
 
 # FSM States *#*#*#
 func enter() -> void:
-	controller.disable_mouse = true
-	inventory_btn.disabled = false
+	match game_type:
+		GameType.Fishing:
+			controller.disable_mouse = true
+			inventory_btn.disabled = false
 
 func exit() -> void:
-	controller.disable_mouse = false
-	inventory_btn.disabled = true
+	match game_type:
+		GameType.Fishing:
+			controller.disable_mouse = false
+			inventory_btn.disabled = true
 # *#*#*#*#
 
 func inv_pressed():
@@ -67,7 +93,7 @@ func inv_pressed():
 func accept_pressed():
 	rod_confirmed.emit(rod_selected)
 	inv_pressed() # Simulate press the inventory btn
-	FSM_Owner.change_state("FISHING")
+	FSM_Owner.change_state("PLAY")
 
 func update_popup(to_open: bool):
 	if to_open:
@@ -78,21 +104,49 @@ func update_popup(to_open: bool):
 	animation_player.play(&"dropup_rods")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	leave_btn.disabled = false
-	
 
-func update_rod_ui(rod: RodItem, rod_ui: FishingRodItemUI):
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("page_left"):
+		page_i -= 1
+
+	if event.is_action_pressed("page_right"):
+		page_i += 1
+	page_i = clamp(page_i, 0, 1)
+
+	match page_i:
+		0: # Show details page
+			viewport_texture.visible = true
+			item_title.visible = true
+			item_title.text = rod_name 
+			var txt = rod_desc + "\n\n"
+			if game_type == GameType.Racing:
+				txt += stats
+			item_desc.text = txt 
+		1: # Show lore page
+			viewport_texture.visible = false
+			item_title.visible = false
+			item_desc.text = rod_lore
+
+
+func update_rod_ui(rod: GameItem, rod_ui: FishingRodItemUI):
 	item.mesh = rod.mesh
 	item_title.text = rod.name
 	item_desc.text = rod.desc
 
-func select_rod(rod: RodItem, rod_ui: FishingRodItemUI):
+func select_rod(rod: GameItem, rod_ui: FishingRodItemUI):
 	# Enable old rod and disable new rod
 	if prev_selected_rod:
 		prev_selected_rod.select_item.disabled = false
+	item_view.visible = true
 
 	rod_selected.emit(rod, rod_ui)
 	update_rod_ui(rod, rod_ui)
 	prev_selected_rod = rod_ui
+	rod_lore = rod.lore
+	rod_desc = rod.desc
+	rod_name = rod.name
+	if rod is FishData:
+		stats = rod.stats_str()
 
 	prev_selected_rod.select_item.disabled = true
 	accept_btn.disabled = false

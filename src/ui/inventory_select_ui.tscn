@@ -1,0 +1,259 @@
+[gd_scene load_steps=11 format=3 uid="uid://cqmdnj158df3e"]
+
+[ext_resource type="Script" uid="uid://cevj3tq6mfnqu" path="res://src/fishing/scripts/fsm_select.gd" id="1_f1v2w"]
+[ext_resource type="PackedScene" uid="uid://ckq2h4tf3tml7" path="res://src/ui/fishing_rod_item.tscn" id="2_717hl"]
+[ext_resource type="Script" uid="uid://bljcsapxjhgw4" path="res://src/nodes/linear_rotate.gd" id="3_u2xdy"]
+[ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="6_byxbj"]
+
+[sub_resource type="Animation" id="Animation_33dy4"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SELECT_C:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SELECT_C:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_phj5v"]
+resource_name = "dropdown_rods"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SELECT_C:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SELECT_C:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-720, -0.25, 0, 0.566667, 5.935, 1.5, -0.366667, -49, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+
+[sub_resource type="Animation" id="Animation_sspy6"]
+resource_name = "dropup_rods"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SELECT_C:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SELECT_C:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.433333, -2.5, -720, -0.433333, 8.935, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_33dy4"]
+_data = {
+&"RESET": SubResource("Animation_33dy4"),
+&"dropdown_rods": SubResource("Animation_phj5v"),
+&"dropup_rods": SubResource("Animation_sspy6")
+}
+
+[sub_resource type="Skin" id="Skin_33dy4"]
+resource_name = "Skin"
+bind_count = 10
+bind/0/name = &"Bone"
+bind/0/bone = -1
+bind/0/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.237393, 0)
+bind/1/name = &"Bone.009"
+bind/1/bone = -1
+bind/1/pose = Transform3D(0, -0.0651063, 0.997878, 1, 0, 0, 0, 0.997878, 0.0651063, 0.1607, 0.0742276, -0.569386)
+bind/2/name = &"Bone.001"
+bind/2/bone = -1
+bind/2/pose = Transform3D(1, -2.18811e-16, 2.22021e-16, 2.22021e-16, 0.999894, -0.0145616, -2.18811e-16, 0.0145616, 0.999894, 1.26991e-16, -0.580305, -0.00845104)
+bind/3/name = &"Bone.002"
+bind/3/bone = -1
+bind/3/pose = Transform3D(1, -2.16304e-16, 2.2197e-16, 2.2197e-16, 0.999666, -0.0258534, -2.16304e-16, 0.0258534, 0.999666, 1.24297e-16, -1.07416, -0.0205839)
+bind/4/name = &"Bone.003"
+bind/4/bone = -1
+bind/4/pose = Transform3D(1, 9.37929e-09, 2.38234e-07, 0, 0.999226, -0.0393396, -2.38419e-07, 0.0393396, 0.999226, -9.25784e-09, -1.35201, -0.0388302)
+bind/5/name = &"Bone.004"
+bind/5/bone = -1
+bind/5/pose = Transform3D(1, 1.75406e-08, 2.37772e-07, -1.77636e-15, 0.99729, -0.0735706, -2.38419e-07, 0.0735706, 0.99729, -2.27935e-08, -1.65448, -0.0956029)
+bind/6/name = &"Bone.005"
+bind/6/bone = -1
+bind/6/pose = Transform3D(1, 3.00342e-08, 2.36519e-07, 0, 0.992034, -0.125973, -2.38419e-07, 0.125973, 0.992034, -4.72108e-08, -1.94008, -0.198016)
+bind/7/name = &"Bone.006"
+bind/7/bone = -1
+bind/7/pose = Transform3D(1, 3.26998e-08, 2.36165e-07, -3.55271e-15, 0.99055, -0.137153, -2.38419e-07, 0.137153, 0.99055, -5.32435e-08, -2.24227, -0.22332)
+bind/8/name = &"Bone.007"
+bind/8/bone = -1
+bind/8/pose = Transform3D(1, 3.8308e-08, 2.35321e-07, 3.55271e-15, 0.987007, -0.160676, -2.38419e-07, 0.160676, 0.987007, -6.77292e-08, -2.55093, -0.284077)
+bind/9/name = &"Bone.008"
+bind/9/bone = -1
+bind/9/pose = Transform3D(1, 3.84168e-08, 2.35303e-07, 3.55271e-15, 0.986933, -0.161132, -2.38419e-07, 0.161132, 0.986933, -6.80449e-08, -2.8642, -0.285401)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jkjbs"]
+viewport_path = NodePath("SubViewport")
+
+[node name="SELECT" type="Node" node_paths=PackedStringArray("select_control", "item", "item_title", "item_desc", "item_view", "viewport_texture", "rod_list_target", "accept_btn", "animation_player")]
+script = ExtResource("1_f1v2w")
+select_control = NodePath("SELECT_C")
+item = NodePath("SubViewport/RotPoint/Item")
+item_title = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/L_ItemTitle")
+item_desc = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/L_ItemDesc")
+item_view = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView")
+viewport_texture = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/TextureRect")
+rod_list_target = NodePath("SELECT_C/VBoxContainer/HBoxContainer/SelectMenu/RodTarget")
+item_ui = ExtResource("2_717hl")
+accept_btn = NodePath("SELECT_C/VBoxContainer/HBoxContainer/SelectMenu/B_Continue")
+animation_player = NodePath("AnimationPlayer")
+state_id = "SELECT"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_33dy4")
+}
+autoplay = "dropdown_rods"
+
+[node name="SubViewport" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+size = Vector2i(250, 250)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.991945, 0.126666, 0, -0.126666, 0.991945, 0, 1.98743, 2.58381)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport"]
+transform = Transform3D(0.834608, 0, 0.550845, -0.216886, 0.919225, 0.328613, -0.50635, -0.393733, 0.767192, 2.84904, 1.7297, 2.64034)
+light_energy = 3.765
+spot_range = 12.314
+spot_angle = 31.67
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/SpotLight3D"]
+transform = Transform3D(0.410723, 0.18046, -0.893723, -0.427023, 0.904137, -0.0136816, 0.80558, 0.38726, 0.44841, -7.08681, 1.11867, -2.10823)
+
+[node name="ApplyLinearRotation" type="Node3D" parent="SubViewport" node_paths=PackedStringArray("nodes")]
+script = ExtResource("3_u2xdy")
+v_rot = Vector3(0, 0.008, 0)
+nodes = [NodePath("../RotPoint")]
+metadata/_custom_type_script = "uid://bljcsapxjhgw4"
+
+[node name="RotPoint" type="Node3D" parent="SubViewport"]
+transform = Transform3D(-4.24603e-08, 0.237533, -0.971379, 1.03829e-08, 0.971379, 0.237533, 1, 1.65948e-15, -4.37114e-08, 0, 0, 0)
+
+[node name="Item" type="MeshInstance3D" parent="SubViewport/RotPoint"]
+transform = Transform3D(2.48, 0, 0, 0, 2.48, 0, 0, 0, 2.48, 0, 1.655, 0)
+skin = SubResource("Skin_33dy4")
+skeleton = NodePath("../..")
+metadata/extras = {
+"ant_landscape": {}
+}
+
+[node name="SELECT_C" type="Control" parent="."]
+z_index = 340
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SELECT_C"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -214.0
+offset_top = 74.0
+offset_right = 214.0
+offset_bottom = 418.0
+grow_horizontal = 2
+
+[node name="L_Help" type="Label" parent="SELECT_C/VBoxContainer"]
+layout_mode = 2
+text = "Select a Rod"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SELECT_C/VBoxContainer"]
+layout_mode = 2
+
+[node name="SelectMenu" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="RodTarget2" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/SelectMenu"]
+layout_mode = 2
+
+[node name="RodTarget3" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/SelectMenu"]
+layout_mode = 2
+
+[node name="RodTarget" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/SelectMenu"]
+layout_mode = 2
+
+[node name="B_Continue" type="Button" parent="SELECT_C/VBoxContainer/HBoxContainer/SelectMenu"]
+layout_mode = 2
+theme = ExtResource("6_byxbj")
+text = "CONTINUE"
+
+[node name="ItemView" type="PanelContainer" parent="SELECT_C/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/ItemView"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("ViewportTexture_jkjbs")
+
+[node name="L_ItemTitle" type="Label" parent="SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_byxbj")
+theme_type_variation = &"HeaderMedium"
+text = "TITLE"
+horizontal_alignment = 1
+
+[node name="L_ItemDesc" type="Label" parent="SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("6_byxbj")
+text = "Lorem ipsum dolor sit amet"
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Keys: < >"

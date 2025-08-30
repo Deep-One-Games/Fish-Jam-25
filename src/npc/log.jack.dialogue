@@ -80,3 +80,16 @@ Jack: Morning, Bobsy! How can I kelp you today?
 - Leave
     Jack: Keep your line tight!
 => END
+
+~ JACK_count_race
+Ready... Set... Go!! [next=1]
+=> END
+
+~ JACK_won_race
+Wow! You won a ticket!! Use this at the shopkeeper or as part of the ritual
+set Storage.sf.tickets += 1
+=> END
+
+~ JACK_lost_race
+Better luck next time!!
+=> END

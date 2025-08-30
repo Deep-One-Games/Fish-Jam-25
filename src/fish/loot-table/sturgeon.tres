@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=3 format=3 uid="uid://cc5y221mfhxl8"]
+
+[ext_resource type="Script" uid="uid://y2upmnhr31if" path="res://src/fish/scripts/fish_data.gd" id="1_ijchq"]
+[ext_resource type="Texture2D" uid="uid://cc730mv1233ru" path="res://src/fish/fish-profiles/sturgeon.png" id="2_ucyy7"]
+
+[resource]
+script = ExtResource("1_ijchq")
+sample_mean = 80.0
+std = 15.0
+weight = 0
+size = 0
+madness = 0
+boost_probability = 0.0
+rng_keys = Dictionary[int, float]({})
+ref_id = "FISH_STU"
+name = "Stugeon"
+desc = "Short description about the fish"
+lore = "Long description about the fish"
+thumb = ExtResource("2_ucyy7")
+metadata/_custom_type_script = "uid://y2upmnhr31if"

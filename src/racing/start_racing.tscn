@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7226ibff5amn"]
+
+[ext_resource type="ArrayMesh" uid="uid://iq0r0jonlku0" path="res://library/models/Trees/Mesh/race_goal.res" id="1_c42sj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c42sj"]
+size = Vector3(9.07617, 8.32422, 13.4346)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c42sj"]
+
+[node name="StartRacing" type="Node3D"]
+
+[node name="RaceGoal" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.21518e-08, -0.278, 0, 0.278, -1.21518e-08, 0, 0, 0, 0.278, 0.186149, 2.10965, 0.281692)
+mesh = ExtResource("1_c42sj")
+
+[node name="Area3D" type="Area3D" parent="." groups=["racing"]]
+transform = Transform3D(-1.21518e-08, -0.278, 0, 0.278, -1.21518e-08, 0, 0, 0, 0.278, 0.186149, 2.10965, 0.281692)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03809, 0.117187, -1.99121)
+shape = SubResource("BoxShape3D_c42sj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0316638, 5.96046e-08, -0.217101)
+shape = SubResource("CylinderShape3D_c42sj")

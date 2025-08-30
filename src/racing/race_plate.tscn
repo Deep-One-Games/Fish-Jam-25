@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf4t6f5kd5tb8"]
+
+[ext_resource type="Script" uid="uid://b2crspt04xjw1" path="res://src/racing/race_plate.gd" id="1_gxmv8"]
+[ext_resource type="Texture2D" uid="uid://gw11r6ob1mly" path="res://src/fish/fish-profiles/icon_burbot.png" id="1_vmwip"]
+
+[node name="MarginContainer2" type="MarginContainer" node_paths=PackedStringArray("rank_el", "name_el", "texture_el")]
+theme_type_variation = &"RacingPanel"
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+script = ExtResource("1_gxmv8")
+rank_el = NodePath("HBoxContainer/MarginContainer/rank")
+name_el = NodePath("HBoxContainer/HBoxContainer/MarginContainer/Name")
+texture_el = NodePath("HBoxContainer/HBoxContainer/TextureRect")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 35
+
+[node name="rank" type="Label" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+z_index = 6
+layout_mode = 2
+texture = ExtResource("1_vmwip")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="Panel" type="PanelContainer" parent="HBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"RacingPanel"
+
+[node name="Name" type="Label" parent="HBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "STURGEON 1/3 10000m"

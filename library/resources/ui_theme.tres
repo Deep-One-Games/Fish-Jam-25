@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=22 format=3 uid="uid://bmhwd8x4bscyh"]
+[gd_resource type="Theme" load_steps=23 format=3 uid="uid://bmhwd8x4bscyh"]
 
 [ext_resource type="Texture2D" uid="uid://bp0m2pagcyc8c" path="res://library/textures/ui/button_pressed.png" id="1_b7qw8"]
 [ext_resource type="Texture2D" uid="uid://be2t1rytsb8k5" path="res://library/textures/ui/button_disabled.png" id="1_dhjrv"]
@@ -60,6 +60,16 @@ texture_margin_top = 58.0
 texture_margin_right = 58.0
 texture_margin_bottom = 58.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dhjrv"]
+texture = ExtResource("1_s6nl1")
+texture_margin_left = 25.1038
+texture_margin_top = 23.0702
+texture_margin_right = 17.1968
+texture_margin_bottom = 19.2105
+expand_margin_left = 11.0
+expand_margin_top = 11.0
+expand_margin_right = 11.0
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_teaap"]
 texture = ExtResource("1_o5yr1")
 texture_margin_left = 40.0
@@ -69,6 +79,24 @@ texture_margin_bottom = 40.0
 
 [resource]
 default_font = ExtResource("2_o5yr1")
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
 Button/styles/disabled = SubResource("StyleBoxTexture_s6nl1")
 Button/styles/focus = SubResource("StyleBoxEmpty_b7qw8")
 Button/styles/hover = SubResource("StyleBoxTexture_b7qw8")
@@ -85,6 +113,8 @@ HeaderLarge/font_sizes/font_size = 64
 InteractPanel/base_type = &"PanelContainer"
 InteractPanel/styles/panel = SubResource("StyleBoxEmpty_eqit5")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_o5yr1")
+RacingPanel/base_type = &"PanelContainer"
+RacingPanel/styles/panel = SubResource("StyleBoxTexture_dhjrv")
 RichTextLabel/colors/default_color = Color(0.82606, 0.82606, 0.82606, 1)
 RichTextLabel/colors/font_shadow_color = Color(0.0968858, 0.0860203, 0.0823187, 0.623529)
 RichTextLabel/constants/shadow_offset_x = 2
