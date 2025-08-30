@@ -61,9 +61,9 @@ func populate_race() -> void:
 
 	# players fish exists on the race track with the camera on it. Lets
 	# The players fish always be in the middle
-	var player_track = selected_camera.get_parent()
+	var player_track = selected_camera.get_parent().get_parent()
 	player_track.add_child(fish)
-	fish.follow_track = selected_camera.get_parent()
+	fish.follow_track = selected_camera.get_parent().get_parent()
 	player_track.mps = starting_mps
 	player_track.default_mps = starting_mps
 	player_track.following_path = true

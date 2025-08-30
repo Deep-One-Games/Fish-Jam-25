@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bsltalvvyuuoj"]
+[gd_scene load_steps=23 format=3 uid="uid://7dvujjb4a52k"]
 
 [ext_resource type="Script" uid="uid://c4wkbm0dwmlng" path="res://src/fish/scripts/race_track.gd" id="1_kfnei"]
 [ext_resource type="Script" uid="uid://y2upmnhr31if" path="res://src/fish/scripts/fish_data.gd" id="2_mg4ji"]
@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bdtf3xd2ydgc4" path="res://src/fish/pike.tscn" id="5_87non"]
 [ext_resource type="Script" uid="uid://jnpe8hwlhdfa" path="res://src/fish/scripts/racing_data.gd" id="6_tg1ey"]
 [ext_resource type="Script" uid="uid://cgx2wkvvgp00v" path="res://src/nodes/linear_follow.gd" id="7_8r13y"]
-[ext_resource type="Script" uid="uid://bolp7prdbatne" path="res://src/racing/fishcam.gd" id="8_1vccm"]
+[ext_resource type="Script" path="res://src/racing/fishcam.gd" id="8_1vccm"]
+[ext_resource type="Script" path="res://src/racing/fishcam_pivot.gd" id="8_kfnei"]
 [ext_resource type="Script" uid="uid://rp0wcakc58of" path="res://src/fish/scripts/jump_event.gd" id="9_dy6bs"]
 [ext_resource type="ArrayMesh" uid="uid://iq0r0jonlku0" path="res://library/models/Trees/Mesh/race_goal.res" id="10_ek8kg"]
 [ext_resource type="Script" uid="uid://clv23k3ud2t58" path="res://src/fish/scripts/race_event.gd" id="11_v2dpm"]
@@ -46,29 +47,29 @@ _data = {
 }
 point_count = 23
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ksgyx"]
-size = Vector3(30.5222, 1, 1)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_kfnei"]
 size = Vector3(30.5222, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mg4ji"]
-size = Vector3(30.5222, 1, 1)
+size = Vector3(39.3426, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d1su7"]
-size = Vector3(30.5222, 1, 1)
+size = Vector3(30.5222, 1, 5.61987)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lr72o"]
-size = Vector3(30.5222, 1, 1)
+size = Vector3(7.11688, 1, 32.6927)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_87non"]
 size = Vector3(30.5222, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tg1ey"]
+size = Vector3(33.1629, 1, 5.86084)
 
 [node name="RaceTrack" type="Node3D" node_paths=PackedStringArray("track_options", "camera_options")]
 script = ExtResource("1_kfnei")
 race_data = SubResource("Resource_kk5tl")
 track_options = [NodePath("Track4")]
-camera_options = [NodePath("Track4/Track1_BASE/Fishcam")]
+camera_options = [NodePath("Track4/Track1_BASE/Node3D/Fishcam")]
 starting_mps = 10.0
 
 [node name="Track4" type="Path3D" parent="."]
@@ -81,12 +82,14 @@ script = ExtResource("7_8r13y")
 mps = 3.0
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
-[node name="Fishcam" type="Camera3D" parent="Track4/Track1_BASE" node_paths=PackedStringArray("path_follow")]
-transform = Transform3D(0.112602, -0.420765, 0.900266, -0.038039, 0.903448, 0.427012, -0.993011, -0.0823317, 0.0857217, 16.1588, 11, -1.4675)
+[node name="Node3D" type="Node3D" parent="Track4/Track1_BASE"]
+script = ExtResource("8_kfnei")
+
+[node name="Fishcam" type="Camera3D" parent="Track4/Track1_BASE/Node3D" node_paths=PackedStringArray("path_follow")]
+transform = Transform3D(0.112602, -0.420766, 0.900267, -0.038039, 0.903448, 0.427011, -0.993012, -0.0823272, 0.0857244, 16.1588, 11, -1.4675)
 fov = 90.3
 script = ExtResource("8_1vccm")
-path_follow = NodePath("..")
-metadata/_custom_type_script = "uid://bolp7prdbatne"
+path_follow = NodePath("../..")
 
 [node name="JumpArea3D" type="Area3D" parent="Track4"]
 collision_layer = 1024
@@ -100,11 +103,11 @@ metadata/_custom_type_script = "uid://rp0wcakc58of"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Track4/JumpArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4805, 0, -12.0946)
-shape = SubResource("BoxShape3D_ksgyx")
+shape = SubResource("BoxShape3D_kfnei")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Track4/JumpArea3D"]
-transform = Transform3D(-0.455902, 0, 0.89003, 0, 1, 0, -0.89003, 0, -0.455902, -2.67185, 0.379228, 19.0069)
-shape = SubResource("BoxShape3D_kfnei")
+transform = Transform3D(-0.455902, 0, 0.89003, 0, 1, 0, -0.89003, 0, -0.455902, -0.661221, 0.379228, 22.9321)
+shape = SubResource("BoxShape3D_mg4ji")
 
 [node name="RaceEvent3D" type="Area3D" parent="Track4"]
 collision_layer = 1024
@@ -115,12 +118,12 @@ mps = 5.0
 metadata/_custom_type_script = "uid://clv23k3ud2t58"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Track4/RaceEvent3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.3525, 0, 1.75713)
-shape = SubResource("BoxShape3D_mg4ji")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.3525, 0, 4.06707)
+shape = SubResource("BoxShape3D_d1su7")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Track4/RaceEvent3D"]
-transform = Transform3D(0.950331, 0, 0.31124, 0, 1, 0, -0.31124, 0, 0.950331, 10.6829, -9.53674e-07, 13.5497)
-shape = SubResource("BoxShape3D_d1su7")
+transform = Transform3D(0.950331, 0, 0.31124, 0, 1, 0, -0.31124, 0, 0.950331, 11.6045, -9.53674e-07, 23.5634)
+shape = SubResource("BoxShape3D_lr72o")
 
 [node name="JumpArea3D2" type="Area3D" parent="Track4"]
 collision_layer = 1024
@@ -135,7 +138,7 @@ metadata/_custom_type_script = "uid://rp0wcakc58of"
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Track4/JumpArea3D2"]
 transform = Transform3D(-0.471135, 0, 0.882061, 0, 1, 0, -0.882061, 0, -0.471135, 25.1254, 0.379228, 16.4059)
-shape = SubResource("BoxShape3D_lr72o")
+shape = SubResource("BoxShape3D_87non")
 
 [node name="RaceEvent3D2" type="Area3D" parent="Track4"]
 collision_layer = 1024
@@ -146,8 +149,8 @@ mps = 5.0
 metadata/_custom_type_script = "uid://clv23k3ud2t58"
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Track4/RaceEvent3D2"]
-transform = Transform3D(0.868943, 0, 0.494913, 0, 1, 0, -0.494913, 0, 0.868943, 34.5073, -9.53674e-07, 9.87128)
-shape = SubResource("BoxShape3D_87non")
+transform = Transform3D(0.831693, 0, -0.555237, 0, 1, 0, 0.555237, 0, 0.831693, 37.0093, -9.53674e-07, 3.32431)
+shape = SubResource("BoxShape3D_tg1ey")
 
 [node name="Goalpost" type="Node3D" parent="Track4"]
 transform = Transform3D(0.97594, -0.218041, 0, 0.218041, 0.97594, 0, 0, 0, 1, -32.2815, -0.497484, 8.23718)
