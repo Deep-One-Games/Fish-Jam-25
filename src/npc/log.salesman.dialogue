@@ -2,11 +2,10 @@
 if Storage.sf.talked_once_merchant
 	=> NPC_trade
 ...
-Welcome to my shop, traveler. 
-I sell fresh breaths, harvested at dawn.
-*He stares intently. He seems to be trying to get a reaction from you.*
-*Breaking his posture he clasps his hands, smiling.*
-I joke, traveler. I have a collection of fine rods for sale. Each one able to cast further than before. Catch new fish, yes?
+Welcome to my shop,[wait=0.2] traveler. 
+I sell fresh breaths,[wait=0.2] harvested at dawn.
+Hah!
+I joke,[wait=0.2] traveler. I have a collection of fine rods for sale. Each one able to cast further than before. Catch new fish,[wait=0.2] yes?
 Good.
 All I require is a winning race ticket.
 Bring me two tickets. For each ticket I give you a new fine rod.
@@ -16,27 +15,24 @@ do Storage.save_process()
 
 ~ NPC_trade
 if Storage.sf.rods_recieved > 0
-	*The merchant is noticabely more happy*
+	Nice to see you,[wait=0.2] traveler.
 
 if Storage.sf.rods_recieved < 2
-	Welcome back, traveler.
+	Welcome back,[wait=0.2] traveler.
 else
-	Hello, fisherman.
+	Hello,[wait=0.2] fisherman.
 
 if Storage.sf.tickets == 0 and Storage.sf.rods_recieved == 0
 	...
 	No tickets? That's a shame.
-	*He shuffles nervously, it appears he has never won before.*
 	=> END
 
 if Storage.sf.tickets > 0 and Storage.sf.rods_recieved == 0
-	*You notice his fishy eyes widen the moment he sees the winning ticket you hold in your hands.*
 	Ahh.. you must be a fellow skilled fisherman.
-	*He turns around and grabs a nice, shiny new fishing rod.*
-	Beautiful, isn't she? (Will increase cast to 10 meters)
-	- Sacrifice your winning ticket
-		*You perform an exchange with the merchant. You lost your ticket and gained a lovely new fishing rod.*
-		W-wow! T..t-thank you. *You see joy fill his eyes for a moment, before straightening himself up once more*
+	I got a new rod for ya.
+	Beautiful,[wait=0.2] isn't she? (Will increase cast to 10 meters)
+	- Sacrifice your winning ticket for the rod
+		W-wow! T..t-thank you.
 		Ahem.. it's been a while since I've had a customer
 		set Storage.sf.rods_recieved += 1
 		set Storage.sf.tickets -= 1
@@ -45,17 +41,15 @@ if Storage.sf.tickets > 0 and Storage.sf.rods_recieved == 0
 		=> END
 	- Walk away
 		...
-		I know you'll be back.. A skilled fisherman like yourself can't resist a good upgrade 
+		I know you'll be back.. A skilled fisherman like yourself can't resist a good upgrade.
 		=> END
 
 if Storage.sf.tickets > 0 and Storage.sf.rods_recieved == 1
-	Ah! You won again. With the help of my rod no doubt! *He laughs heartily. A strange occurance in this little town.*
-	*He turns around and grabs a nice, shiny new fishing rod.*
+	Ah! You won again. With the help of my rod no doubt!
 	This.. is my finest work. (Will increase cast to 20 meters)
-	- Sacrifice your winning ticket
-		*You perform an exchange with the merchant. You lost your ticket and gained a lovely new fishing rod.*
-		*You notice the merchant tuck the ticket under a bucket*
-		Thank you, pleasure doing business with you.
+	- Sacrifice your winning ticket for the rod
+		Let me... Tuck this awa first.
+		Thank you,[wait=0.2] pleasure doing business with you.
 		set Storage.sf.rods_recieved += 1
 		set Storage.sf.tickets -= 1
 		do Storage.sf.inventory.append(Storage.ROD_20M)
