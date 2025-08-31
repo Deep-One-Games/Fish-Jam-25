@@ -15,9 +15,9 @@ warnings/check_invalid_track_paths=false
 [application]
 
 config/name="Fish-Jam-25"
-run/main_scene="uid://cdsex8i171oiq"
+run/main_scene="uid://d0ykxt4jydddr"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://dk6xetj4c6l1h"
 
 [audio]
 

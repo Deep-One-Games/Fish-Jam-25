@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="2_r1qqu"]
 [ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="4_511x6"]
 [ext_resource type="PackedScene" uid="uid://k67glnpraysy" path="res://src/ui/credits.tscn" id="4_w3pxu"]
-[ext_resource type="AudioStream" uid="uid://cenb4kqg72p2y" path="res://library/music/fish_race22.wav" id="5_r1qqu"]
+[ext_resource type="AudioStream" uid="uid://m6ba8125o0uh" path="res://library/sounds and music/Fishman come to me.mp3" id="5_gofeh"]
 [ext_resource type="PackedScene" uid="uid://djji8thnxchus" path="res://src/maps/map_base_day.tscn" id="6_7rifs"]
 [ext_resource type="Script" uid="uid://drnft836dst8h" path="res://src/nodes/freeroam_ctx.gd" id="6_gofeh"]
 [ext_resource type="PackedScene" uid="uid://dcxyohctx2sch" path="res://src/maps/map_base_night.tscn" id="8_o476h"]
@@ -123,8 +123,7 @@ text = "Exit        "
 alignment = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_r1qqu")
-volume_db = -80.0
+stream = ExtResource("5_gofeh")
 autoplay = true
 bus = &"Music"
 
