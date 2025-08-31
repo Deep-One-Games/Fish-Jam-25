@@ -147,6 +147,8 @@ func select_rod(rod: GameItem, rod_ui: FishingRodItemUI):
 	rod_name = rod.name
 	if rod is FishData:
 		stats = rod.stats_str()
+	if rod is RodItem:
+		get_parent().rod = rod
 
 	prev_selected_rod.select_item.disabled = true
 	accept_btn.disabled = false

@@ -1,18 +1,24 @@
-[gd_scene load_steps=14 format=3 uid="uid://1xopq2inxt2l"]
+[gd_scene load_steps=17 format=3 uid="uid://1xopq2inxt2l"]
 
 [ext_resource type="Script" uid="uid://ksfglxvrivso" path="res://src/fishing/scripts/debug.gd" id="1_33dy4"]
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="2_lixjd"]
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="2_sspy6"]
 [ext_resource type="Script" uid="uid://cv5ien0tan8es" path="res://src/nodes/fsm_state.gd" id="3_jkjbs"]
 [ext_resource type="PackedScene" uid="uid://dpbgkoddye275" path="res://src/000-Data/Items/rod_a.tscn" id="3_xt171"]
+[ext_resource type="Script" uid="uid://ca8lghjw2s0dq" path="res://src/fishing/bob_start_point.gd" id="4_45rk3"]
 [ext_resource type="Script" uid="uid://kw3xcoga74da" path="res://src/fishing/scripts/fishing_fsm.gd" id="4_pan0v"]
 [ext_resource type="PackedScene" uid="uid://cqmdnj158df3e" path="res://src/ui/inventory_select_ui.tscn" id="5_lixjd"]
+[ext_resource type="PackedScene" uid="uid://d2i4o1fmeyxrq" path="res://src/ui/power_gradient.tscn" id="9_pan0v"]
 [ext_resource type="Script" uid="uid://coqxi3tfkml6w" path="res://src/fishing/scripts/fsm_fish.gd" id="11_td38c"]
 [ext_resource type="PackedScene" uid="uid://ct6q5gb8nrrvn" path="res://src/fishing/old/bobber.tscn" id="12_2m8sg"]
 [ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="12_45rk3"]
 [ext_resource type="Script" uid="uid://drnft836dst8h" path="res://src/nodes/freeroam_ctx.gd" id="13_45rk3"]
 [ext_resource type="PackedScene" uid="uid://djji8thnxchus" path="res://src/maps/map_base_day.tscn" id="13_pan0v"]
 [ext_resource type="PackedScene" uid="uid://dcxyohctx2sch" path="res://src/maps/map_base_night.tscn" id="14_45rk3"]
+
+[sub_resource type="Curve" id="Curve_lixjd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.94195, 0.0, 0, 0]
+point_count = 2
 
 [node name="FishingMinigame" type="Node3D"]
 
@@ -48,6 +54,16 @@ transform = Transform3D(0.233264, -0.00183165, 0.00540707, 3.21135e-09, 0.220998
 [node name="s" parent="Origin/Player/Camera3D" index="1"]
 visible = true
 
+[node name="BobStartPoint" type="Node3D" parent="Origin/Player/Camera3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.154477, -1.17898, -0.794734)
+script = ExtResource("4_45rk3")
+
+[node name="BobPlacer" type="RayCast3D" parent="Origin/Player/Camera3D/BobStartPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 31.6446, 0)
+target_position = Vector3(0, -100, 0)
+collision_mask = 9
+collide_with_areas = true
+
 [node name="FSM" type="Node3D" parent="." node_paths=PackedStringArray("options_ui", "leave", "fsm_select", "fpcontroller", "initial_state")]
 script = ExtResource("4_pan0v")
 options_ui = NodePath("Options")
@@ -63,15 +79,32 @@ controller = NodePath("../../Origin/Player")
 leave_btn = NodePath("../HBoxContainer/Leave")
 inventory_btn = NodePath("../HBoxContainer/Inventory")
 
-[node name="FISHING" type="Node" parent="FSM" node_paths=PackedStringArray("cam", "origin", "fish_ui", "player_ui")]
+[node name="FISHING" type="Node" parent="FSM" node_paths=PackedStringArray("cam", "origin", "fish_ui", "player_ui", "player", "power_grad", "bobcast", "cast_point")]
 script = ExtResource("11_td38c")
 cam = NodePath("../../Origin/Player/Camera3D")
 origin = NodePath("../../Origin")
-bobber = ExtResource("12_2m8sg")
 fish_ui = NodePath("FISH_C")
 player_ui = NodePath("FISH_C/DO NOT TOUCH!!!! I WILL KIULL YOU")
-state_id = "FISHING"
+player = NodePath("../../Origin/Player")
+power_grad = NodePath("PowerGradient")
+fall_curve = SubResource("Curve_lixjd")
+bobcast = NodePath("../../Origin/Player/Camera3D/BobStartPoint/BobPlacer")
+mps = 5.0
+bobber = ExtResource("12_2m8sg")
+cast_point = NodePath("../../Origin/Player/Camera3D/BobStartPoint")
+state_id = "PLAY"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="PowerGradient" parent="FSM/FISHING" instance=ExtResource("9_pan0v")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_left = 16.0
+offset_top = -336.0
+offset_right = 16.0
+offset_bottom = -336.0
+grow_horizontal = 1
+grow_vertical = 0
 
 [node name="FISH_C" type="Control" parent="FSM/FISHING"]
 layout_mode = 3

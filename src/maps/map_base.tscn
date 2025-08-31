@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://bl4j2pgha8a5u"]
+[gd_scene load_steps=87 format=4 uid="uid://bl4j2pgha8a5u"]
 
 [ext_resource type="PackedScene" uid="uid://dceftca3qspku" path="res://library/models/freeroam/freeroam.glb" id="1_5hikl"]
 [ext_resource type="Texture2D" uid="uid://e5kl18spayjg" path="res://library/models/freeroam/freeroam_blank.png" id="2_d21su"]
@@ -23,13 +23,16 @@
 [ext_resource type="ArrayMesh" uid="uid://jaef7lm0yo27" path="res://library/models/Trees/Mesh/Dark_Tree_4.res" id="20_pg3em"]
 [ext_resource type="ArrayMesh" uid="uid://ctrsiii1l54xb" path="res://library/models/Trees/Mesh/Dark_Log_1.res" id="22_4gaty"]
 [ext_resource type="PackedScene" uid="uid://bn7hcswbsynlm" path="res://src/002-Props/village/shack.tscn" id="24_0owk0"]
+[ext_resource type="PackedScene" uid="uid://o8f5velyagj6" path="res://src/tutorial/jack.tscn" id="24_5yr4q"]
+[ext_resource type="PackedScene" uid="uid://c1qpctt02ns60" path="res://src/lights/lamp.tscn" id="24_q2fug"]
+[ext_resource type="Script" uid="uid://cgx2wkvvgp00v" path="res://src/nodes/linear_follow.gd" id="25_5yr4q"]
 [ext_resource type="PackedScene" uid="uid://ciblb1waj817q" path="res://src/002-Props/village/shop_stall.tscn" id="25_gt7wq"]
-[ext_resource type="PackedScene" uid="uid://dbv470b3ip8eu" path="res://src/002-Props/village/lantern.tscn" id="25_ywq17"]
 [ext_resource type="ArrayMesh" uid="uid://cjsvk4nw0baxv" path="res://library/models/bucket.res" id="26_gt7wq"]
 [ext_resource type="Texture2D" uid="uid://c8t2pqcj7m71l" path="res://library/models/textures/Bucket_Base_color.png" id="27_r3gye"]
 [ext_resource type="Shader" uid="uid://dp6wyhvyfrd48" path="res://library/resources/ps1_shadeobj.gdshader" id="28_vrxee"]
 [ext_resource type="Texture2D" uid="uid://b0lbmq43a5foq" path="res://library/models/textures/Bucket_Normal_OpenGL.png" id="29_cvsmu"]
 [ext_resource type="PackedScene" uid="uid://b7226ibff5amn" path="res://src/racing/start_racing.tscn" id="30_vrxee"]
+[ext_resource type="PackedScene" uid="uid://bscno3hr61s7x" path="res://library/models/chair.blend" id="31_cvsmu"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7tvku"]
 radius = 10.3916
@@ -275,6 +278,27 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k7ju2")
 
+[sub_resource type="Curve3D" id="Curve3D_1o7s6"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -11.4556, 0, -13.0069, 0, 0, 0, 0, 0, 0, -14.4286, 0, -10.6093, 0, 0, 0, 0, 0, 0, -20.7298, 0, -7.10429, 0, 0, 0, 0, 0, 0, -26.6575, 0, -8.68621, 0, 0, 0, 0, 0, 0, -32.8261, 0, -7.97615, 0, 0, 0, 0, 0, 0, -39.616, 0, -5.4022, 0, 0, 0, 0, 0, 0, -44.2314, 0, -4.38149, 0, 0, 0, 0, 0, 0, -50.2486, 0, -5.67489, 0, 0, 0, 0, 0, 0, -54.1539, 0, -6.78435, 0, 0, 0, 0, 0, 0, -59.9929, 0, -10.4366, 0, 0, 0, 0, 0, 0, -63.7924, 0, -15.5772, 0, 0, 0, 0, 0, 0, -65.357, 0, -20.8296, 0, 0, 0, 0, 0, 0, -68.9331, 0, -25.2997, 0, 0, 0, 0, 0, 0, -73.2914, 0, -29.6581, 0, 0, 0, 0, 0, 0, -75.5265, 0, -34.5752, 0, 0, 0, 0, 0, 0, -73.6267, 0, -40.8333, 0, 0, 0, 0, 0, 0, -70.6094, 0, -44.2976, 0, 0, 0, 0, 0, 0, -62.5632, 0, -46.6445, 0, 0, 0, 0, 0, 0, -54.2935, 0, -48.3207, 0, 0, 0, 0, 0, 0, -47.0296, 0, -47.8737, 0, 0, 0, 0, 0, 0, -36.3106, 0, -48.3502, 0, 0, 0, 0, 0, 0, -36.4934, 0, -48.2756),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 22
+
+[sub_resource type="Curve3D" id="Curve3D_qlson"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -34.8932, 6.10352e-05, -46.3271, 0, 0, 0, 0, 0, 0, -34.8104, 5.78717e-05, -46.3224, 1.18706, 0, 0.166748, -1.18706, 0, -0.166748, -45.1634, 0, -47.115, 1.16543, 0, 0.750862, -1.16543, 0, -0.750862, -51.6935, 0, -49.8612, 1.22454, 0, 0.157864, -1.22454, 0, -0.157864, -57.9059, 0, -55.037, 1.13976, 0, -0.795815, -1.13976, 0, 0.795815, -64.9242, 0, -51.3143, 0.785339, 0, -1.24567, -0.785339, 0, 1.24567, -73.2851, 0, -41.4276, 0, 0, 0, 0, 0, 0, -77.3768, 0, -30.0546, -0.350304, 0, -1.24416, 0.350304, 0, 1.24416, -79.8639, 0, -19.6554, 0, 0, 0, 0, 0, 0, -76.3853, 0, -13.1253, -0.451004, 0, -2.06595, 0.451004, 0, 2.06595, -67.5465, 0, 0.454458, 0, 0, 0, 0, 0, 0, -66.7531, 0, 5.82497),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 12
+
+[sub_resource type="Curve3D" id="Curve3D_5yr4q"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -67.5537, 0, 5.1877, -0.913345, 0, 0.609264, 0.913345, 0, -0.609264, -64.5305, 0, -4.07364, -1.09047, 0, -0.333629, 1.09047, 0, 0.333629, -53.7063, 0, -6.52153, -0.993286, 0, 0.115999, 0.993286, 0, -0.115999, -49.8235, 0, -5.50861, -1.22763, 0, 0.155465, 1.22763, 0, -0.155465, -41.8889, 0, -5.28351, 0, 0, 0, 0, 0, 0, -33.1087, 0, -7.59634, -1.17987, 0, -0.434797, 1.17987, 0, 0.434797, -26.2433, 0, -8.94691, -1.50951, 0, -0.714175, 1.50951, 0, 0.714175, -21.0099, 0, -6.80851, -0.664231, 0, 0.870034, 0.664231, 0, -0.870034, -13.8218, 0, -9.33408, 0, 0, 0, 0, 0, 0, -11.3625, 0, -13.1132, 0, 0, 0, 0, 0, 0, -11.3923, 0, -13.0921),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 11
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_na31w"]
 render_priority = 0
 shader = ExtResource("28_vrxee")
@@ -340,6 +364,7 @@ shadow_mesh = SubResource("ArrayMesh_e7mtl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55248, 0)
 collision_layer = 8
 collision_mask = 0
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FishingZones" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.606, -2.59236, 0.574851)
@@ -520,6 +545,7 @@ shape = SubResource("CylinderShape3D_7tvku")
 [node name="MapBounds" type="StaticBody3D" parent="." index="1"]
 collision_layer = 512
 collision_mask = 0
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D24" type="CollisionShape3D" parent="MapBounds" index="0"]
 transform = Transform3D(-0.782322, -4.36472e-08, -0.622875, -5.44438e-09, 1, -6.32358e-08, 0.622875, -4.60796e-08, -0.782322, -68.2175, 1.48677, 26.6945)
@@ -1015,6 +1041,7 @@ shape = SubResource("BoxShape3D_pg3em")
 
 [node name="EnvCol" type="StaticBody3D" parent="." index="2"]
 collision_mask = 0
+metadata/_edit_lock_ = true
 
 [node name="SURFACE" type="CollisionShape3D" parent="EnvCol" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.6841, -1.02295, -22.9249)
@@ -1102,18 +1129,24 @@ shape = SubResource("BoxShape3D_4fwkt")
 
 [node name="Node3D" type="Node3D" parent="." index="3"]
 transform = Transform3D(0.320093, 0.0298861, -0.0247187, -0.0287438, 0.313611, 0.03582, 0.0216862, -0.0254524, 0.412331, -3.69286, 4.1108, -16.0058)
+metadata/_edit_lock_ = true
 
 [node name="TOWN" parent="." index="4"]
 transform = Transform3D(0.283875, 0.0109322, -0.0397784, -0.00579412, 0.284425, 0.0368188, 0.0408444, -0.0356326, 0.28169, -41.2736, 4.37679, -47.5302)
+visible = false
 surface_material_override/0 = SubResource("ShaderMaterial_8xc4p")
+metadata/_edit_lock_ = true
 
 [node name="SWAMP" parent="." index="5"]
 surface_material_override/0 = SubResource("ShaderMaterial_8xc4p")
+metadata/_edit_lock_ = true
 
 [node name="RITUAL" parent="." index="6"]
 surface_material_override/0 = SubResource("ShaderMaterial_8xc4p")
+metadata/_edit_lock_ = true
 
 [node name="Flora" type="Node3D" parent="." index="7"]
+metadata/_edit_lock_ = true
 
 [node name="DarkTree1" type="MeshInstance3D" parent="Flora" index="0"]
 transform = Transform3D(2.85304, 0.117701, -0.0121649, -0.105713, 3.17656, -0.328317, -1.18417e-07, 0.368243, 2.83603, -55.1418, 8.72161, -74.0607)
@@ -1989,63 +2022,82 @@ skeleton = NodePath("../..")
 
 [node name="Town" type="Node3D" parent="." index="8"]
 transform = Transform3D(0.977209, 0, -0.21228, 0, 1, 0, 0.21228, 0, 0.977209, 0.289194, -2.61798, 2.08763)
+metadata/_edit_lock_ = true
 
 [node name="village" parent="Town" index="0" instance=ExtResource("9_0wmfo")]
 transform = Transform3D(0.969077, 0.0694271, 0.236789, -0.114397, 0.976654, 0.181823, -0.218637, -0.203289, 0.954396, 1.85923, 6.44476, -34.1781)
+metadata/_edit_lock_ = true
 
 [node name="village5" parent="Town" index="1" instance=ExtResource("9_0wmfo")]
 transform = Transform3D(-0.998618, 0.0479536, 0.0214947, 0.0503324, 0.990381, 0.128889, -0.0151073, 0.129793, -0.991426, 10.0991, 5.97455, -16.4151)
+metadata/_edit_lock_ = true
 
 [node name="village2" parent="Town" index="2" instance=ExtResource("10_d21su")]
 transform = Transform3D(-0.18628, 0.0670104, -0.980209, 0.137356, 0.98965, 0.0415526, 0.972848, -0.126897, -0.193556, 12.7539, 5.75723, -33.212)
+metadata/_edit_lock_ = true
 
 [node name="village4" parent="Town" index="3" instance=ExtResource("10_d21su")]
 transform = Transform3D(-0.79051, 0.203317, 0.577716, 0.181036, 0.978709, -0.0967217, -0.585081, 0.0281277, -0.810487, 20.581, 5.30091, -21.2126)
+metadata/_edit_lock_ = true
 
 [node name="village3" parent="Town" index="4" instance=ExtResource("11_64hcp")]
 transform = Transform3D(0.316604, 0.144978, -0.937413, -0.0463907, 0.989435, 0.137355, 0.947423, 0, 0.319985, 20.2952, 5.83246, -29.497)
+metadata/_edit_lock_ = true
 
 [node name="village8" parent="Town" index="5" instance=ExtResource("11_64hcp")]
 transform = Transform3D(-0.997958, 0, -0.0638705, 0, 1, 0, 0.0638705, 0, -0.997958, -0.355156, 7.40103, -15.9878)
+metadata/_edit_lock_ = true
 
 [node name="village22" parent="Town" index="6" instance=ExtResource("11_64hcp")]
 transform = Transform3D(0.466821, -0.0541882, -1.15289, 0.117062, 1.23944, -0.0108558, 1.14822, -0.104332, 0.46983, -44.97, 10.6581, -45.0143)
+metadata/_edit_lock_ = true
 
 [node name="village6" parent="Town" index="7" instance=ExtResource("13_64hcp")]
 transform = Transform3D(0.719079, 0.12011, -0.719079, -0.029778, 1.014, 0.139594, 0.728433, -0.0771154, 0.715552, 11.5494, 6.40202, -24.936)
+metadata/_edit_lock_ = true
 
 [node name="village7" parent="Town" index="8" instance=ExtResource("14_5hikl")]
 transform = Transform3D(0.865367, -0.0215719, 0.500674, 0.0381789, 0.999007, -0.0229456, -0.499682, 0.0389716, 0.865332, -11.4214, 6.35219, -29.2541)
+metadata/_edit_lock_ = true
 
 [node name="village10" parent="Town" index="9" instance=ExtResource("15_4mjk8")]
 transform = Transform3D(1.19209e-07, 0, -1.713, 0, 1.713, 0, 1.713, 0, 1.19209e-07, -20.9745, 5.14447, -19.3705)
+metadata/_edit_lock_ = true
 
 [node name="village17" parent="Town" index="10" instance=ExtResource("15_4mjk8")]
 transform = Transform3D(-0.8565, 0, -1.4835, 0, 1.713, 0, 1.4835, 0, -0.8565, -15.9294, 5.14447, -32.9631)
+metadata/_edit_lock_ = true
 
 [node name="village11" parent="Town" index="11" instance=ExtResource("15_4mjk8")]
 transform = Transform3D(0.443357, 0, -1.65463, 0, 1.713, 0, 1.65463, 0, 0.443357, -22.2225, 5.14447, 10.5147)
+metadata/_edit_lock_ = true
 
 [node name="village12" parent="Town" index="12" instance=ExtResource("13_64hcp")]
 transform = Transform3D(1.212, 1.49012e-08, 2.98023e-08, -0.00171813, 1.21333, -0.0447668, 0.000363141, 0.0761947, 1.20786, -14.9566, 5.51293, -2.46167)
+metadata/_edit_lock_ = true
 
 [node name="village13" parent="Town" index="13" instance=ExtResource("16_uvmrh")]
 transform = Transform3D(0.873083, 0, 0.793805, 0, 1.18, 0, -0.793805, 0, 0.873083, 25.9991, 2.45124, -1.90644)
+metadata/_edit_lock_ = true
 
 [node name="village14" parent="Town" index="14" instance=ExtResource("16_uvmrh")]
 transform = Transform3D(1.07919, 0, 0.88554, 0, 1.396, 0, -0.88554, 0, 1.07919, 2.10256, 2.92852, 10.0828)
+metadata/_edit_lock_ = true
 
 [node name="village18" parent="Town" index="15" instance=ExtResource("16_uvmrh")]
 transform = Transform3D(1.32905, 0, 0.427146, 0, 1.396, 0, -0.427146, 0, 1.32905, -1.29164, 2.8848, -0.64382)
+metadata/_edit_lock_ = true
 
 [node name="TOWN2" type="MeshInstance3D" parent="Town" index="16"]
 transform = Transform3D(0.320093, 0.0298861, -0.0247187, -0.0287438, 0.313611, 0.03582, 0.0216862, -0.0254524, 0.412331, -54.5788, 10.4634, -44.1361)
 mesh = SubResource("ArrayMesh_lsokq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_8xc4p")
+metadata/_edit_lock_ = true
 
 [node name="TOWN3" type="Node3D" parent="Town" index="17"]
 transform = Transform3D(0.320093, 0.0298861, -0.0247187, -0.0287438, 0.313611, 0.03582, 0.0216862, -0.0254524, 0.412331, -54.5788, 10.4634, -44.1361)
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Town/TOWN3" index="0"]
 visible = false
@@ -2058,6 +2110,7 @@ shape = SubResource("ConcavePolygonShape3D_gwdm8")
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Town" index="18"]
 transform = Transform3D(0.320093, 0.0298862, -0.0247187, -0.0287438, 0.313611, 0.03582, 0.0216862, -0.0254524, 0.412331, -54.5788, 10.4634, -44.1361)
 multimesh = SubResource("MultiMesh_gwdm8")
+metadata/_edit_lock_ = true
 
 [node name="FAUNA_SURFACE_TOWN" type="MeshInstance3D" parent="Town/MultiMeshInstance3D" index="0"]
 transform = Transform3D(1, -9.31323e-09, -2.98023e-08, -2.23517e-08, 1, 0, 2.98023e-08, 3.72529e-09, 1, 1.52588e-05, -1.90735e-06, 7.62939e-06)
@@ -2072,41 +2125,84 @@ mesh = ExtResource("6_anr6o")
 
 [node name="village15" parent="Town" index="19" instance=ExtResource("16_uvmrh")]
 transform = Transform3D(0.599366, -7.28078e-09, 1.26079, 7.45058e-09, 1.396, 1.49012e-08, -1.26079, 1.58161e-09, 0.599366, 15.2677, 2.09165, -6.88993)
+metadata/_edit_lock_ = true
 
 [node name="village16" parent="Town" index="20" instance=ExtResource("5_djtdm")]
 transform = Transform3D(0.977209, 3.18534e-09, 0.21228, 3.58559e-08, 1, 2.23517e-08, -0.21228, -6.91954e-10, 0.977209, -37.6604, 5.30997, -1.11459)
+metadata/_edit_lock_ = true
 
 [node name="village9" parent="Town" index="21" instance=ExtResource("16_uvmrh")]
 transform = Transform3D(1.00011, 0, 0.973961, 0, 1.396, 0, -0.973961, 0, 1.00011, -58.0725, 2.65645, 31.5075)
+metadata/_edit_lock_ = true
 
 [node name="village19" parent="Town" index="22" instance=ExtResource("16_uvmrh")]
 transform = Transform3D(0.73138, 0, 1.18908, 0, 1.396, 0, -1.18908, 0, 0.73138, -67.151, 2.58346, 25.8538)
+metadata/_edit_lock_ = true
 
 [node name="village20" parent="Town" index="23" instance=ExtResource("16_uvmrh")]
 transform = Transform3D(1.23947, 0, -0.642287, 0, 1.396, 0, 0.642287, 0, 1.23947, -92.1881, 3.41901, 36.8327)
+metadata/_edit_lock_ = true
 
 [node name="village21" parent="Town" index="24" instance=ExtResource("16_uvmrh")]
 transform = Transform3D(1.38798, 0, -0.149411, 0, 1.396, 0, 0.149411, 0, 1.38798, -90.7803, 3.38207, 24.2188)
+metadata/_edit_lock_ = true
 
 [node name="village23" parent="Town" index="25" instance=ExtResource("13_64hcp")]
 transform = Transform3D(0.763056, -0.165384, -0.624815, 0.21062, 0.977567, -0.00153445, 0.611052, -0.130428, 0.780771, -50.0054, 9.42048, -44.5606)
+metadata/_edit_lock_ = true
 
-[node name="village24" parent="Town" index="26" instance=ExtResource("25_ywq17")]
-transform = Transform3D(-0.796637, -0.185193, -1.08659, 0.0140065, 1.33886, -0.238458, 1.10217, -0.15087, -0.782342, -44.3753, 11.3792, -41.4114)
+[node name="Lamp" parent="Town" index="26" instance=ExtResource("24_q2fug")]
+transform = Transform3D(-0.796635, -0.185193, -1.08659, 0.0140065, 1.33886, -0.238457, 1.10217, -0.15087, -0.782344, -44.3753, 11.3792, -41.4114)
+metadata/_edit_lock_ = true
+
+[node name="Lamp2" parent="Town" index="27" instance=ExtResource("24_q2fug")]
+transform = Transform3D(-0.803458, -0.104331, -1.09232, -0.239841, 1.3378, 0.0486381, 1.07076, 0.22137, -0.808742, -72.7802, 8.24952, -18.1425)
+metadata/_edit_lock_ = true
+
+[node name="Lamp3" parent="Town" index="28" instance=ExtResource("24_q2fug")]
+transform = Transform3D(0.96758, 0.207387, -0.93294, -0.239841, 1.3378, 0.0486381, 0.925129, 0.129924, 0.98836, -90.3814, 7.42256, 0.960852)
+metadata/_edit_lock_ = true
+
+[node name="Lamp4" parent="Town" index="29" instance=ExtResource("24_q2fug")]
+transform = Transform3D(0.96758, 0.207387, -0.93294, -0.239841, 1.3378, 0.0486381, 0.925129, 0.129924, 0.988359, -18.2234, 5.95805, -14.552)
+metadata/_edit_lock_ = true
+
+[node name="Lamp5" parent="Town" index="30" instance=ExtResource("24_q2fug")]
+transform = Transform3D(-1.27315, -0.274599, -0.391503, -0.299478, 1.32589, 0.0439177, 0.372816, 0.127324, -1.30169, -3.85348, 7.10434, -13.4965)
+metadata/_edit_lock_ = true
+
+[node name="Lamp6" parent="Town" index="31" instance=ExtResource("24_q2fug")]
+transform = Transform3D(0.404235, 0.0725742, -1.2965, -0.0177378, 1.35806, 0.0704891, 1.29841, -0.00404268, 0.404603, 7.36457, 7.10434, -32.171)
+metadata/_edit_lock_ = true
 
 [node name="Shack" parent="." index="9" instance=ExtResource("24_0owk0")]
 transform = Transform3D(0.722838, -0.0884864, 0.685328, 0.0881723, 0.995471, 0.0355324, -0.685369, 0.0347428, 0.727367, -156.078, 2.76265, -41.5946)
+metadata/_edit_lock_ = true
 
-[node name="BobberCollisions" type="StaticBody3D" parent="." index="10"]
-visible = false
-collision_layer = 2147483648
-collision_mask = 0
+[node name="JackPath3D" type="Path3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0296898, 6.10352e-05, -0.000732422)
+curve = SubResource("Curve3D_1o7s6")
 
-[node name="SURFACE2" type="CollisionShape3D" parent="BobberCollisions" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.6841, -0.143296, -22.9249)
-shape = SubResource("BoxShape3D_gwdm8")
+[node name="JackLinearFollow" type="PathFollow3D" parent="JackPath3D" index="0"]
+transform = Transform3D(-0.377839, 0, 0.925855, 0, 1, 0, -0.925855, 0, -0.377839, -36.4934, 0, -48.2756)
+progress = 129.568
+script = ExtResource("25_5yr4q")
+mps = 5.0
+metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
+
+[node name="Node3D" type="Node3D" parent="JackPath3D/JackLinearFollow" index="0"]
+transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 0, 0, 0)
+
+[node name="Jack" parent="JackPath3D/JackLinearFollow/Node3D" index="0" node_paths=PackedStringArray("path", "linear_follow") instance=ExtResource("24_5yr4q")]
+transform = Transform3D(1.178, 0, 0, 0, 1.178, 0, 0, 0, 1.178, 0, 0, 0)
+path = NodePath("../../..")
+linear_follow = NodePath("../..")
+c_home_to_lake = SubResource("Curve3D_qlson")
+c_lake_to_town = SubResource("Curve3D_5yr4q")
+c_town_to_home = SubResource("Curve3D_1o7s6")
 
 [node name="Merchant" type="Node3D" parent="." index="11"]
+metadata/_edit_lock_ = true
 
 [node name="Shop_Stall" parent="Merchant" index="0" instance=ExtResource("25_gt7wq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.65609, 3.81498, -9.79523)
@@ -2133,3 +2229,16 @@ skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/Do
 
 [node name="StartRacing" parent="." index="12" instance=ExtResource("30_vrxee")]
 transform = Transform3D(-0.820132, 0, -0.572175, 0, 1, 0, 0.572175, 0, -0.820132, 4.41621, 2.56624, 23.7922)
+metadata/_edit_lock_ = true
+
+[node name="chair" parent="." index="13" instance=ExtResource("31_cvsmu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.172, 2.95996, 27.6544)
+metadata/_edit_lock_ = true
+
+[node name="chair2" parent="." index="14" instance=ExtResource("31_cvsmu")]
+transform = Transform3D(0.998506, 0.0546365, 0, -0.0546365, 0.998506, 0, 0, 0, 1, -13.8605, 1.34883, 14.3037)
+metadata/_edit_lock_ = true
+
+[node name="chair3" parent="." index="15" instance=ExtResource("31_cvsmu")]
+transform = Transform3D(0.998506, 0.0546365, 0, -0.0546365, 0.998506, 0, 0, 0, 1, 4.41821, 5.15036, -26.7532)
+metadata/_edit_lock_ = true

@@ -1,6 +1,6 @@
 class_name NPCController extends Node3D
 
-@export var fsm: NPCFSM 
+@export var fsm: FSM 
 
 @export_category("NPC Behavior")
 @export var turn_speed := 10.0

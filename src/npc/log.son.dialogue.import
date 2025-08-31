@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://huhvgtry1mgg"
+path="res://.godot/imported/log.son.dialogue-001a35cfb795e91d30bef3b54aa0cf02.tres"
+
+[deps]
+
+source_file="res://src/npc/log.son.dialogue"
+dest_files=["res://.godot/imported/log.son.dialogue-001a35cfb795e91d30bef3b54aa0cf02.tres"]
+
+[params]
+
+defaults=true

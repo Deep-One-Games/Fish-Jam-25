@@ -39,7 +39,7 @@ func to_night():
 
 func btn_new_pressed():
 	Storage.reset_save()
-	SceneManager.switch(SceneManager.GameScene.freeroam)
+	btn_continue_pressed()
 
 func btn_continue_pressed():
 	SceneManager.switch(SceneManager.freeroam_context())

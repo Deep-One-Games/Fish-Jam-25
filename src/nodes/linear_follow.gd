@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 		loops += 1
 		progress_ratio = 0.0
 		path_completed.emit()
+		following_path = loop
 
 func _cumulative_distance() -> float:
 	var path_length := curve.get_baked_length()

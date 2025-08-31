@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1qpctt02ns60"]
+
+[ext_resource type="PackedScene" uid="uid://dbv470b3ip8eu" path="res://src/002-Props/village/lantern.tscn" id="1_7hn0q"]
+[ext_resource type="Script" uid="uid://deb6wc7oqlm7" path="res://src/lights/lamp.gd" id="1_nnl7l"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7hn0q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7hn0q"]
+albedo_color = Color(0.726896, 0.72473, 0.419815, 1)
+grow = true
+
+[node name="Lamp" type="Node3D" node_paths=PackedStringArray("light")]
+script = ExtResource("1_nnl7l")
+light = NodePath("OmniLight3D")
+
+[node name="village" parent="." instance=ExtResource("1_7hn0q")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.833117, 2.24764, 0.0423493)
+light_color = Color(0.633311, 0.719063, 0.275445, 1)
+light_energy = 0.65
+light_size = 0.142
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 6.559
+omni_attenuation = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.16836, 0, 0, 0, 0.270848, 0, 0, 0, 0.16192, 0.856, 2.51362, 0.055)
+mesh = SubResource("BoxMesh_7hn0q")
+surface_material_override/0 = SubResource("StandardMaterial3D_7hn0q")

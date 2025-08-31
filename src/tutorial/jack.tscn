@@ -1,0 +1,119 @@
+[gd_scene load_steps=15 format=3 uid="uid://o8f5velyagj6"]
+
+[ext_resource type="Script" uid="uid://d38l1jqcykl4u" path="res://src/tutorial/jack_npc.gd" id="1_qxbky"]
+[ext_resource type="Resource" uid="uid://c5nywjhcld2" path="res://src/npc/profile.jack.tres" id="2_g8e7n"]
+[ext_resource type="Script" uid="uid://bxm2gvmrf4t5y" path="res://src/tutorial/tutorial_fsm.gd" id="2_mox42"]
+[ext_resource type="Script" uid="uid://bloryk8g6lwkm" path="res://src/controllers/scripts/npc_controller.gd" id="3_06bl5"]
+[ext_resource type="Script" uid="uid://s8k18lu738d8" path="res://src/nodes/raycast_retarget.gd" id="3_f7e3s"]
+[ext_resource type="Script" uid="uid://cfh12k6500ey" path="res://src/tutorial/greet_state.gd" id="3_qxbky"]
+[ext_resource type="PackedScene" uid="uid://ca4pe45lg72yy" path="res://src/tutorial/jack_base.tscn" id="4_p8oh3"]
+[ext_resource type="Script" uid="uid://dfh4phops1hfh" path="res://src/tutorial/patrolling_to_lake.gd" id="7_p8oh3"]
+[ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/dialogue_area.gd" id="8_6drms"]
+[ext_resource type="Script" uid="uid://bxpyxcwxykn03" path="res://src/tutorial/explain_fishing_game.gd" id="9_yotyj"]
+[ext_resource type="Script" uid="uid://6wlgcrjnr1db" path="res://src/tutorial/patrolling_to_town.gd" id="10_v24dq"]
+[ext_resource type="Script" uid="uid://ccy3afrd2reck" path="res://src/tutorial/explain_town.gd" id="11_clop1"]
+[ext_resource type="Script" uid="uid://cv5kcnf5gi11g" path="res://src/tutorial/patrolling_to_home.gd" id="12_gil7i"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g8e7n"]
+radius = 1.50796
+
+[node name="Jack" type="Node3D" node_paths=PackedStringArray("fsm", "pivot", "animations")]
+script = ExtResource("1_qxbky")
+profile = ExtResource("2_g8e7n")
+fsm = NodePath("Origin/FSM")
+pivot = NodePath("Origin/Pivot")
+animations = NodePath("Origin/Pivot/Salesman/AnimationPlayer")
+
+[node name="RayCastRetarget" type="RayCast3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.0105, 0)
+target_position = Vector3(0, -60, 0)
+script = ExtResource("3_f7e3s")
+target = NodePath("../Origin")
+metadata/_custom_type_script = "uid://s8k18lu738d8"
+
+[node name="Origin" type="Node3D" parent="."]
+
+[node name="Pivot" type="Node3D" parent="Origin" node_paths=PackedStringArray("fsm")]
+script = ExtResource("3_06bl5")
+fsm = NodePath("../FSM")
+
+[node name="Salesman" parent="Origin/Pivot" instance=ExtResource("4_p8oh3")]
+
+[node name="Skeleton3D" parent="Origin/Pivot/Salesman/SalesMan_rig" index="0"]
+bones/0/rotation = Quaternion(0.0743506, 0, 0, 0.997232)
+bones/1/rotation = Quaternion(-0.0657369, 1.19195e-07, -1.85618e-09, 0.997837)
+bones/2/rotation = Quaternion(-0.0705576, -1.18912e-07, -8.41112e-09, 0.997508)
+bones/3/rotation = Quaternion(0.0761109, 1.19176e-07, -2.80807e-09, 0.997099)
+bones/4/position = Vector3(-1.07751e-09, 0.269211, 0.0045194)
+bones/4/rotation = Quaternion(0.16242, 1.37399e-09, 2.64166e-08, 0.986722)
+bones/5/rotation = Quaternion(-0.617911, -0.39082, -0.42936, 0.530184)
+bones/6/rotation = Quaternion(-0.126558, 0.940833, -0.177266, 0.259603)
+bones/7/rotation = Quaternion(0.734421, -0.0124626, -0.118981, 0.668067)
+bones/8/rotation = Quaternion(-0.309329, -0.0206129, -0.0706747, 0.948101)
+bones/9/rotation = Quaternion(-0.617912, 0.39082, 0.42936, 0.530184)
+bones/10/rotation = Quaternion(-0.126558, -0.940833, 0.177266, 0.259603)
+bones/11/rotation = Quaternion(0.734421, 0.0124626, 0.118981, 0.668067)
+bones/12/rotation = Quaternion(-0.309329, 0.0206128, 0.0706746, 0.948101)
+bones/13/position = Vector3(0.196549, 0.136815, 0.0332606)
+bones/13/rotation = Quaternion(0.986367, 0.0195939, -0.0534555, 0.154396)
+bones/14/rotation = Quaternion(0.20352, -0.00263272, -0.0157572, 0.97894)
+bones/15/rotation = Quaternion(-0.240893, 0.00373536, 0.0350584, 0.969911)
+bones/16/rotation = Quaternion(9.25399e-08, 0.805472, -0.592633, 3.13541e-06)
+bones/17/position = Vector3(-0.196549, 0.136815, 0.0332606)
+bones/17/rotation = Quaternion(0.986367, -0.0195939, 0.0534555, 0.154396)
+bones/18/rotation = Quaternion(0.20352, 0.00263272, 0.0157572, 0.97894)
+bones/19/rotation = Quaternion(-0.240893, -0.00373536, -0.0350584, 0.969911)
+bones/20/rotation = Quaternion(-9.03189e-08, 0.805472, -0.592633, -3.13552e-06)
+
+[node name="FSM" type="Node3D" parent="Origin" node_paths=PackedStringArray("player_sensor")]
+script = ExtResource("2_mox42")
+player_sensor = NodePath("../player_sensor")
+metadata/_custom_type_script = "uid://c5en56ptkabt3"
+
+[node name="GreetState" type="Node" parent="Origin/FSM" node_paths=PackedStringArray("jack")]
+script = ExtResource("3_qxbky")
+jack = NodePath("../../..")
+state_id = "Greet"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="PatrollingToLake" type="Node" parent="Origin/FSM" node_paths=PackedStringArray("jack")]
+script = ExtResource("7_p8oh3")
+jack = NodePath("../../..")
+state_id = "ToLake"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="ExplainFishingGame" type="Node" parent="Origin/FSM" node_paths=PackedStringArray("jack")]
+script = ExtResource("9_yotyj")
+jack = NodePath("../../..")
+state_id = "Fishing"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="PatrollingToTown" type="Node" parent="Origin/FSM" node_paths=PackedStringArray("jack")]
+script = ExtResource("10_v24dq")
+jack = NodePath("../../..")
+state_id = "ToTown"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="ExplainTown" type="Node" parent="Origin/FSM" node_paths=PackedStringArray("jack")]
+script = ExtResource("11_clop1")
+jack = NodePath("../../..")
+state_id = "Town"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="PatrollingToHome" type="Node" parent="Origin/FSM" node_paths=PackedStringArray("jack")]
+script = ExtResource("12_gil7i")
+jack = NodePath("../../..")
+state_id = "ToHome"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="player_sensor" type="Area3D" parent="Origin"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("8_6drms")
+metadata/_custom_type_script = "uid://12ky23xpgrrg"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Origin/player_sensor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.965392, 0.0106714)
+shape = SubResource("SphereShape3D_g8e7n")
+
+[editable path="Origin/Pivot/Salesman"]

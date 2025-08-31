@@ -1,17 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ct6q5gb8nrrvn"]
+[gd_scene load_steps=6 format=3 uid="uid://ct6q5gb8nrrvn"]
 
 [ext_resource type="Script" uid="uid://ceoftg3vsamgl" path="res://src/fishing/old/bobber.gd" id="1_wjlbv"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vmxpm"]
-friction = 69420.0
-rough = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_52w5q"]
 radius = 0.1
 height = 0.2
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_vmxpm"]
-size = Vector3(0.206665, 0.235107, 0.243896)
 
 [sub_resource type="Animation" id="Animation_ky078"]
 length = 0.001
@@ -93,23 +86,14 @@ _data = {
 &"bobber_updown": SubResource("Animation_vmxpm")
 }
 
-[node name="Bobber" type="RigidBody3D"]
-collision_layer = 0
-collision_mask = 2147483648
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-physics_material_override = SubResource("PhysicsMaterial_vmxpm")
-linear_damp = 6.574
+[node name="Bobber" type="Node3D" node_paths=PackedStringArray("mon", "animations")]
 script = ExtResource("1_wjlbv")
+mon = NodePath("")
+animations = NodePath("AnimationPlayer")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
 mesh = SubResource("SphereMesh_52w5q")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00115967, 0.0743954, -0.000366211)
-shape = SubResource("BoxShape3D_vmxpm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

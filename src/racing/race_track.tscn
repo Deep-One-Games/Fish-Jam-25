@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://7dvujjb4a52k"]
+[gd_scene load_steps=37 format=3 uid="uid://7dvujjb4a52k"]
 
 [ext_resource type="Script" uid="uid://c4wkbm0dwmlng" path="res://src/fish/scripts/race_track.gd" id="1_kfnei"]
 [ext_resource type="Script" uid="uid://y2upmnhr31if" path="res://src/fish/scripts/fish_data.gd" id="2_mg4ji"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://cf4t6f5kd5tb8" path="res://src/racing/race_plate.tscn" id="17_8r13y"]
 [ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="18_tg1ey"]
 [ext_resource type="Script" uid="uid://dhsp4oqpc268j" path="res://src/racing/race_finished_state.gd" id="19_1vccm"]
+[ext_resource type="Script" uid="uid://drnft836dst8h" path="res://src/nodes/freeroam_ctx.gd" id="22_ek8kg"]
+[ext_resource type="PackedScene" uid="uid://dcxyohctx2sch" path="res://src/maps/map_base_night.tscn" id="24_dpljv"]
 
 [sub_resource type="Resource" id="Resource_sl2mw"]
 script = ExtResource("2_mg4ji")
@@ -95,7 +97,6 @@ curve = ExtResource("8_dy6bs")
 
 [node name="Track1_BASE" type="PathFollow3D" parent="Track4"]
 transform = Transform3D(-0.944588, 0, -0.327949, 0, 0.999998, 0, 0.327949, 0, -0.94459, -35.4459, 0, 8.34734)
-loop = false
 script = ExtResource("7_8r13y")
 mps = 3.0
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
@@ -190,7 +191,7 @@ skeleton = NodePath("../../JumpArea3D")
 curve = ExtResource("15_ek8kg")
 
 [node name="Track1_BASE" type="PathFollow3D" parent="Track5"]
-transform = Transform3D(-0.00480527, -8.0177e-05, -0.999875, 3.63756e-12, 0.999998, -8.01689e-05, 0.999873, -3.85325e-07, -0.00480528, 28.0927, 0, 0.138148)
+transform = Transform3D(-0.00480527, -8.0177e-05, -0.999875, 3.63756e-12, 0.999998, -8.0169e-05, 0.999873, -3.85325e-07, -0.00480528, 28.0927, 0, 0.138148)
 loop = false
 script = ExtResource("7_8r13y")
 mps = 3.0
@@ -352,8 +353,6 @@ transform = Transform3D(-3.40435e-08, -0.778824, -0.627243, 1, -4.37114e-08, 1.9
 mesh = ExtResource("10_ek8kg")
 skeleton = NodePath("../../../Track5/JumpArea3D")
 
-[node name="MapBaseDay" parent="." instance=ExtResource("12_ksgyx")]
-
 [node name="FSM" type="Node3D" parent="." node_paths=PackedStringArray("options_ui", "fsm_select", "initial_state")]
 script = ExtResource("14_lr72o")
 options_ui = NodePath("Options")
@@ -402,8 +401,6 @@ theme_type_variation = &"HeaderMedium"
 text = "TEST"
 horizontal_alignment = 2
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FSM/RacePlayState"]
-
 [node name="RaceFinishedState" type="Node" parent="FSM" node_paths=PackedStringArray("race_track")]
 script = ExtResource("19_1vccm")
 race_track = NodePath("../..")
@@ -423,3 +420,9 @@ offset_right = 47.0
 offset_bottom = 44.0
 
 [node name="Options" parent="FSM" instance=ExtResource("18_tg1ey")]
+
+[node name="FreeroamCtx" type="Node3D" parent="."]
+script = ExtResource("22_ek8kg")
+day_scene = ExtResource("12_ksgyx")
+night_scene = ExtResource("24_dpljv")
+metadata/_custom_type_script = "uid://drnft836dst8h"

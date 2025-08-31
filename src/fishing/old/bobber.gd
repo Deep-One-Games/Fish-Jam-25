@@ -1,29 +1,41 @@
-extends RigidBody3D
+class_name Bobber3D extends Node3D 
 
-@export var gravity_override: Vector3 = Vector3.DOWN * ProjectSettings.get_setting("physics/3d/default_gravity")
+@export var travel_curve: Curve
+@export var travel_time : float
+@export var from: Vector3
+@export var to	: Vector3
 
-func _physics_process(delta: float) -> void:
-	# raycast down to find the water surface
-	var from = global_transform.origin
-	var to   = from + Vector3.DOWN * 5.0
-	var space_state = get_world_3d().direct_space_state
+@export_category("Dependencies")
+@export var mon: Control
+@export var animations: AnimationPlayer
+func _ready() -> void:
+	animations.pause()
 
-	# build parameters
-	var params = PhysicsRayQueryParameters3D.new()
-	params.from = from
-	params.to = to
-	params.exclude = [self]
-	params.collide_with_areas = true
+var elapsed := 0.0
 
-	# perform the raycast
-	var result = space_state.intersect_ray(params)
+func _process(delta: float) -> void:
+	# t is the time sampled from the curve
+	# .. complete the script here
+	if travel_time <= 0:
+		return
 
-	if result and result.collider.is_in_group("fishing_zone"):
-		# snap to float on water surface
-		var water_y = result.position.y
-		global_transform.origin.y = water_y + 0.05
-		linear_velocity = Vector3.ZERO
-		sleeping = true
-	else:
-		# otherwise, apply downward force
-		apply_central_force(gravity_override)
+	# Update elapsed time
+	elapsed += delta
+	var t := elapsed / travel_time
+	t = clamp(t, 0.0, 1.0)
+
+	# Sample the curve for vertical (y) and lateral (z) displacement
+	var curve_value := travel_curve.sample_baked(t)
+
+	# Interpolate x linearly from 'from' to 'to'
+	var x = lerp(from.x, to.x, t)
+
+	# y and z come from the curve (assuming curve_value.x is t, curve_value.y is y)
+	# Scale curve y to match the desired travel distance in y
+	var y = lerp(from.y, to.y, t) + curve_value 
+	var z = lerp(from.z, to.z, t) + t  # If you want lateral offset along z
+
+	global_transform.origin = Vector3(x, y, z)
+
+	if t == 1.0 and not animations.is_playing():
+		animations.play()

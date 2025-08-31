@@ -20,7 +20,6 @@ casting_lbl = NodePath("CastEvent/CastLabel")
 race_lbl = NodePath("RacingEvent/RaceLabel")
 
 [node name="Options" parent="." instance=ExtResource("1_354od")]
-visible = false
 layout_mode = 1
 
 [node name="DialogEvent" type="PanelContainer" parent="."]
@@ -66,7 +65,7 @@ theme_type_variation = &"InteractPanel"
 
 [node name="CastLabel" type="Label" parent="CastEvent"]
 layout_mode = 2
-text = "Cast (E)"
+text = "Cast (Hold Left)"
 horizontal_alignment = 1
 vertical_alignment = 1
 

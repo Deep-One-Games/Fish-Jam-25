@@ -26,6 +26,7 @@ enum WORLD_STATE {DAY, NIGHT}
 ## story progression. Therefore it relies on script triggers and wont be 
 ## automated!!
 @export var story_complete: bool = false
+@export var day_story_completed: int = 0
 @export var is_daytime: bool = true
 @export var days: int = 0
 
@@ -33,8 +34,11 @@ enum WORLD_STATE {DAY, NIGHT}
 @export var talked_once_merchant: bool = false
 @export var tickets: int = 0
 @export var rods_recieved: int = 0
+@export var fish_caught: int = 0
 @export var unlock_10m = true
-
+@export var jack_talked_once = false
+@export var jack_state:String = "Greet"
+signal jack_update
 
 @export var npc_itrs: Dictionary[String, int] = {}
 func get_npc_itr(id: String) -> int:

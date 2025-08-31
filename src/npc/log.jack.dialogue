@@ -1,4 +1,11 @@
 ~ JACK_start
+# CONDITION: Must be a new day to get the next dialog. Not exactly day two but
+# time must progress once. 
+if Storage.sf.story_complete and Storage.sf.days != Storage.sf.day_story_completed:
+	=> JACK_day2_start
+if Storage.sf.story_complete:
+	...
+	=> END!
 Jack: Holy carp! A real Human!
 Jack: Oh, get your shells together, you been waiting for this moment.
 Jack: You can call me Jack! Welcome to the Black Lake. Oh, how fin-tastic to see you here!
@@ -10,6 +17,8 @@ Jack: Okay. It’s o-fish-ial. I name you, Bob! How cool! I named my first Human
 Jack: No fins? How weird! you don't have gills either… I guess any-fin is possible!
 Jack: Don’t go fishing for compliments now, others will not even realise that you are a Human. Except for some.
 Jack: Speaking of fishing… Follow me, let me show you how we spend our days here.
+set Storage.sf.jack_state = "ToLake"
+do SceneManager.switch(SceneManager.freeroam_context())
 => END
 
 ~ JACK_patrol_tutorial
@@ -17,6 +26,8 @@ Jack: Just over there! My favourite spot to fish, it will be so much fun!
 => END
 
 ~ JACK_tutorial_intro
+if Storage.sf.fish_caught > 0:
+	=> JACK_tutorial_outcome
 Jack: Come! come, oh! There should be some bait right over there. Now, just go ahead and put some in your mouth.
 - Look at the bucket
 	Jack: HAHAHA, STOPP!
@@ -26,12 +37,12 @@ Jack: Just squidding! It is for the fish, not for Humans! What a silly jellyball
 => JACK_tutorial_ui
 
 ~ JACK_tutorial_ui
-Jack: Go ahead and open your inventory with “I”.
+Jack: Go ahead and open your logbook with “I”.
 => JACK_tutorial_fish
 
 ~ JACK_tutorial_fish
 Jack: Cast your line into the lake and reel when it bites!
-=> JACK_tutorial_outcome
+=> END
 
 ~ JACK_tutorial_outcome
 Jack: Holy mackerel, that is a big one! So its true... Humans catch better fish! We might have a chance after all!
@@ -46,7 +57,9 @@ Jack: He is kinda boring now... But, I do want more Fish-folk to talk with! I kn
 Jack: Like, krill out, man. Go smoke some swamp weed or something.
 Jack: Ugh, enoguh of that depressing shit. Also, since you are here, maybe we can finally put an end to this era of silence!
 Jack: Let me show you the town, its not much, but its everything we got!
-=> END
+set Storage.sf.jack_state = "ToTown"
+do SceneManager.switch(SceneManager.freeroam_context())
+=> END!
 
 ~ JACK_patrol_town
 Jack: What do you call an octopus without shoes? 
@@ -60,6 +73,8 @@ Jack: I dont like the guy who works the stall, buuuut—
 Jack: As they say, keep your friends close, anemones closer ;)
 Jack: Dont forget! You can fish anywhere where there is water.
 Jack: NOW GO! Blend in, there is so much to do!
+set Storage.sf.jack_state = "ToHome"
+do SceneManager.switch(SceneManager.freeroam_context())
 => END
 
 ~ JACK_patrol_back_home
@@ -79,7 +94,7 @@ Jack: Morning, Bobsy! How can I kelp you today?
 		Jack: oOoOoO. so-fish-ticated... Keep your smile, save it for another day.
 - Leave
     Jack: Keep your line tight!
-=> END
+=> END!
 
 ~ JACK_count_race
 Ready... Set... Go!! [next=1]

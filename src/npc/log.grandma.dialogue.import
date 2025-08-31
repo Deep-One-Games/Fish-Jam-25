@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dwptiegyfew1k"
+path="res://.godot/imported/log.grandma.dialogue-b37b07e788fff5f2e90406cdaa76cc52.tres"
+
+[deps]
+
+source_file="res://src/npc/log.grandma.dialogue"
+dest_files=["res://.godot/imported/log.grandma.dialogue-b37b07e788fff5f2e90406cdaa76cc52.tres"]
+
+[params]
+
+defaults=true

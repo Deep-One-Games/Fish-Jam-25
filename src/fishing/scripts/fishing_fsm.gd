@@ -7,6 +7,7 @@ class_name FishingFSM extends FSM
 @export var fsm_select: FSMFishingSelect 
 @export var fpcontroller: FPController
 
+@export var rod: RodItem
 var options_state := false
 func _ready() -> void:
 	super()

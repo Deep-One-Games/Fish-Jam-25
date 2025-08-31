@@ -15,6 +15,7 @@ var live_fish: Array[RaceFish]
 
 const dialogue_box = preload("res://src/ui/dialogue.tscn")
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	race_data.populate_ai()
 	race_data.compute_probability_landscape()
 	select_racetrack()
@@ -54,7 +55,6 @@ func populate_race() -> void:
 		fish.fishinfo = c
 
 		var track_follow = LinearFollow.new()
-		track_follow.loop = false
 		track_follow.path_completed.connect(reset_probabilities.bind(c))
 
 		selected_track.add_child(track_follow)
@@ -64,6 +64,7 @@ func populate_race() -> void:
 		track_follow.default_mps = starting_mps
 		track_follow.mps = starting_mps
 		live_fish.append(fish)
+		fish.follow_track.loop = true
 
 	var fish = race_data.player_fish.racefish.instantiate() as RaceFish
 	fish.fishinfo = race_data.player_fish
@@ -82,7 +83,7 @@ func populate_race() -> void:
 	player_track.mps = starting_mps
 	player_track.default_mps = starting_mps
 	player_track.following_path = false 
-	fish.follow_track.loop = false
+	fish.follow_track.loop = true
 	live_fish.append(fish)
 	player_track.path_completed.\
 			connect(reset_probabilities.bind(race_data.player_fish))

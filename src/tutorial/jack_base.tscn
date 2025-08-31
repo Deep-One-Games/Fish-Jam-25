@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca4pe45lg72yy"]
+
+[ext_resource type="PackedScene" uid="uid://bfhmfvjgfivk0" path="res://library/models/Fish_Sales_man/Salesman.blend" id="1_6u2oq"]
+[ext_resource type="Shader" uid="uid://dp6wyhvyfrd48" path="res://library/resources/ps1_shadeobj.gdshader" id="2_3ghax"]
+[ext_resource type="Texture2D" uid="uid://dkcbwuxmgls6w" path="res://library/models/Fish_Sales_man/textures/Material.001_Base_color.png" id="2_ifw5w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6u2oq"]
+render_priority = 0
+shader = ExtResource("2_3ghax")
+shader_parameter/color_texture = ExtResource("2_ifw5w")
+shader_parameter/vertex_wobble = 0.19
+shader_parameter/affine_mapping = 0.44
+shader_parameter/alpha_cutoff = 0.5
+
+[node name="Salesman" instance=ExtResource("1_6u2oq")]
+
+[node name="SalesMan" parent="SalesMan_rig/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_6u2oq")

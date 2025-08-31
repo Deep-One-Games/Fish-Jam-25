@@ -29,10 +29,11 @@ func _ready() -> void:
 	options.on_options_close.connect(free_mouse)
 	DialogueManager.dialogue_ended.connect(func x(_y): free_mouse())
 
-	player.interact_box.area_entered.connect(_dialog_area_entered)
-	player.interact_box.area_exited.connect(_dialog_area_exited)
+	if not currently_fishing:
+		player.interact_box.area_entered.connect(_dialog_area_entered)
+		player.interact_box.area_exited.connect(_dialog_area_exited)
 
-	fish_availability_update.connect(fishing_ui_update)
+		fish_availability_update.connect(fishing_ui_update)
 	fishing_lbl.visible = false
 	dialog_lbl.visible = false
 	race_lbl.visible = false

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://divnv38tjrrqu"
+path="res://.godot/imported/When the Fish Homeward Fly.mp3-1da89b1f3b47751d80acb0c8c5ddec54.mp3str"
+
+[deps]
+
+source_file="res://library/models/sounds and music/When the Fish Homeward Fly.mp3"
+dest_files=["res://.godot/imported/When the Fish Homeward Fly.mp3-1da89b1f3b47751d80acb0c8c5ddec54.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

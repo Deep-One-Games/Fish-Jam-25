@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://crdat7efqo7dg"
+path="res://.godot/imported/Walk_wood_3.wav-bcf4cd0f722641c2ea7dcf658543ac86.sample"
+
+[deps]
+
+source_file="res://library/models/sounds and music/walking/wood/Walk_wood_3.wav"
+dest_files=["res://.godot/imported/Walk_wood_3.wav-bcf4cd0f722641c2ea7dcf658543ac86.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
