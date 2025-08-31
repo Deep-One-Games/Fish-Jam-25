@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b2x7jy6avb8qc"
+path="res://.godot/imported/dialog.dialogue-f0aa72f6b1f5c271393d4c33df84f4ac.tres"
+
+[deps]
+
+source_file="res://src/ritual/dialog.dialogue"
+dest_files=["res://.godot/imported/dialog.dialogue-f0aa72f6b1f5c271393d4c33df84f4ac.tres"]
+
+[params]
+
+defaults=true

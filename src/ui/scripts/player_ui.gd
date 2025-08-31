@@ -13,6 +13,8 @@ var dialog_area: DialogueArea
 @export var casting_lbl: Label
 @export var currently_fishing: bool = false
 
+@export var ritual_lbl: Label
+
 @export_category("Racing Controls")
 @export var race_lbl: Label
 
@@ -20,6 +22,7 @@ var disable_options := false
 var options_state := false
 var fishing_available := false
 var racing_available := false
+var ritual_available := false
 
 var in_dialog:= false
 
@@ -37,6 +40,7 @@ func _ready() -> void:
 	fishing_lbl.visible = false
 	dialog_lbl.visible = false
 	race_lbl.visible = false
+	ritual_lbl.visible = false
 
 	casting_lbl.visible = currently_fishing
 	DialogueManager.dialogue_ended.connect(set_in_dialog.bind(false))
@@ -52,6 +56,14 @@ func _dialog_area_entered(area: Area3D) -> void:
 		racing_available = true
 		race_lbl.visible = true 
 		return
+	if area.is_in_group("ritual"):
+		ritual_available = true
+		if Storage.sf.fish_caught == 0:
+			ritual_lbl.text = "No Fish To Sacrifice"
+		else:
+			ritual_lbl.text = "Sacrifice (E)"
+		ritual_lbl.visible = true
+		return 
 	disable_options = true 
 	if area is DialogueArea:
 		set_interact(area, true)
@@ -62,6 +74,10 @@ func _dialog_area_exited(area: Area3D) -> void:
 		racing_available = false
 		race_lbl.visible = false
 		return
+	if area.is_in_group("ritual"):
+		ritual_available = false 
+		ritual_lbl.visible = false
+		return 
 	disable_options = false 
 	if area is DialogueArea:
 		set_interact(area, false)
@@ -90,6 +106,11 @@ func _input(event: InputEvent) -> void:
 		player.disable = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		return
+
+	if event.is_action_pressed("interact") and ritual_available and Storage.sf.fish_caught > 0:
+		Storage.sf.fish_caught -= 1
+		Storage.save_process()
+		SceneManager.switch(SceneManager.GameScene.ritual)
 
 	if event.is_action_pressed("interact") and fishing_available:
 		Storage.save_process()

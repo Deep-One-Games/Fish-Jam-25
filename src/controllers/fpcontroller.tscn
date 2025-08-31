@@ -58,8 +58,8 @@ shape = SubResource("SphereShape3D_kaufh")
 
 [node name="grass" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ug3cb")
-volume_db = -7.819
+volume_db = -80.0
 
 [node name="wood" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_xtt0o")
-volume_db = -7.819
+volume_db = -80.0

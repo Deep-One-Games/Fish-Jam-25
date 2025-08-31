@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=4 uid="uid://bl4j2pgha8a5u"]
+[gd_scene load_steps=108 format=4 uid="uid://bl4j2pgha8a5u"]
 
 [ext_resource type="PackedScene" uid="uid://dceftca3qspku" path="res://library/models/freeroam/freeroam.glb" id="1_5hikl"]
 [ext_resource type="Texture2D" uid="uid://e5kl18spayjg" path="res://library/models/freeroam/freeroam_blank.png" id="2_d21su"]
@@ -400,6 +400,9 @@ size = Vector3(3.36044, 8.60535, 10.9361)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m5qf2"]
 size = Vector3(5.03634, 8.60535, 13.6845)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4g7oc"]
+size = Vector3(4.43164, 7.30872, 6.2265)
 
 [node name="map_base" instance=ExtResource("1_5hikl")]
 
@@ -3917,5 +3920,13 @@ shape = SubResource("BoxShape3D_m5qf2")
 [node name="CollisionShape3D14" type="CollisionShape3D" parent="Audio/WoodAudio" index="13"]
 transform = Transform3D(0.750143, -2.04645e-08, -0.661276, 6.97984e-08, 1, 4.82314e-08, 0.661276, -8.23364e-08, 0.750143, -101.329, 3.5648, 22.8977)
 shape = SubResource("BoxShape3D_m5qf2")
+
+[node name="RitualStart" type="Area3D" parent="." index="19" groups=["ritual"]]
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RitualStart" index="0" groups=["ritual"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.342, 3.15436, -27.6081)
+shape = SubResource("BoxShape3D_4g7oc")
 
 [editable path="ritual_prototype"]

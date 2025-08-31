@@ -41,14 +41,15 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 21.0
-offset_top = 140.0
-offset_right = 448.0
-offset_bottom = 228.0
+offset_left = -64.0
+offset_top = 98.0
+offset_right = 363.0
+offset_bottom = 221.0
 grow_horizontal = 2
 theme = ExtResource("4_511x6")
 theme_type_variation = &"HeaderLarge"
-text = "Fish Game '25"
+text = "Wish Of The
+        Fish God"
 
 [node name="Options" parent="MainMenu" instance=ExtResource("2_r1qqu")]
 layout_mode = 1

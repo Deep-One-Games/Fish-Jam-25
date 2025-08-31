@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://6ktv3ym1ohjj"]
+
+[ext_resource type="Script" uid="uid://6g86mcylhcfr" path="res://src/ritual/ritual.gd" id="1_f16gr"]
+[ext_resource type="PackedScene" uid="uid://d1kix02ifxtym" path="res://src/ui/dialogue.tscn" id="1_jea3w"]
+[ext_resource type="Resource" uid="uid://b2x7jy6avb8qc" path="res://src/ritual/dialog.dialogue" id="2_f16gr"]
+[ext_resource type="Script" uid="uid://bjtgvfvq7uaxh" path="res://src/000-Data/savenpc.gd" id="2_mdg8x"]
+
+[sub_resource type="Gradient" id="Gradient_xm7v3"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7okhv"]
+gradient = SubResource("Gradient_xm7v3")
+
+[sub_resource type="Resource" id="Resource_f16gr"]
+script = ExtResource("2_mdg8x")
+npc_dialogue = ExtResource("2_f16gr")
+metadata/_custom_type_script = "uid://bjtgvfvq7uaxh"
+
+[node name="Ritual" type="Control" node_paths=PackedStringArray("balloon")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f16gr")
+balloon = NodePath("ExampleBalloon")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_7okhv")
+
+[node name="ExampleBalloon" parent="." instance=ExtResource("1_jea3w")]
+npc = SubResource("Resource_f16gr")

@@ -9,6 +9,7 @@ class_name DialogBox extends CanvasLayer
 
 @export var npc: SaveNPC
 @export var profile: TextureRect
+@export var profile_bubble: PanelContainer
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -66,7 +67,11 @@ func _ready() -> void:
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
 	add_child(mutation_cooldown)
 
-	profile.texture = npc.profile
+	if npc.profile:
+		profile_bubble.visible = true
+		profile.texture = npc.profile
+	else:
+		profile_bubble.visible = false
 
 
 func _unhandled_input(_event: InputEvent) -> void:
