@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://djji8thnxchus"]
+[gd_scene load_steps=32 format=3 uid="uid://djji8thnxchus"]
 
 [ext_resource type="PackedScene" uid="uid://bl4j2pgha8a5u" path="res://src/maps/map_base.tscn" id="1_r15fa"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_e6i8k"]
@@ -23,7 +23,6 @@
 [ext_resource type="ArrayMesh" uid="uid://c7ser82fhl3o4" path="res://library/models/Fish_People_SPLIT/mesh/Bob_7_Plane_004.res" id="23_b00ho"]
 [ext_resource type="ArrayMesh" uid="uid://dcffioo8i7c81" path="res://library/models/Fish_People_SPLIT/mesh/Bob_2_Plane_032.res" id="24_b00ho"]
 [ext_resource type="ArrayMesh" uid="uid://df35i3cdkqln6" path="res://library/models/Fish_People_SPLIT/mesh/Bob_4_Plane_001.res" id="25_3hqs4"]
-[ext_resource type="ArrayMesh" uid="uid://cbky1j0w0pega" path="res://library/models/Fish_People_SPLIT/mesh/Bob_6_Plane_003.res" id="26_3hqs4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ctp3"]
 render_priority = 0
@@ -189,7 +188,6 @@ script = ExtResource("10_5ctp3")
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="NPC" parent="NPCS/PATROL_NPC3/Path/Patroller" instance=ExtResource("8_pmfrq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("13_hqcbg")
 
 [node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC3"]
@@ -265,7 +263,7 @@ script = ExtResource("10_5ctp3")
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="NPC5" parent="NPCS/PATROL_NPC5/Path/Patroller" instance=ExtResource("8_pmfrq")]
-mesh = ExtResource("24_b00ho")
+mesh = ExtResource("13_hqcbg")
 
 [node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC5"]
 collision_layer = 1024
@@ -342,6 +340,6 @@ initial_state = NodePath("Idle")
 
 [node name="NPC_6" parent="NPCS" node_paths=PackedStringArray("initial_state") instance=ExtResource("8_pmfrq")]
 transform = Transform3D(1.0574, 0, 0.700782, 0, 1.26854, 0, -0.700782, 0, 1.0574, -24.616, 10.2282, 6.77591)
-mesh = ExtResource("26_3hqs4")
+mesh = ExtResource("25_3hqs4")
 disable_floor_snapping = true
 initial_state = NodePath("Idle")

@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bn7hcswbsynlm"]
+[gd_scene load_steps=11 format=4 uid="uid://bn7hcswbsynlm"]
 
 [ext_resource type="Material" uid="uid://bp702cddrippg" path="res://src/002-Props/village/Shack.tres" id="1_pm0os"]
 [ext_resource type="Script" uid="uid://12ky23xpgrrg" path="res://src/nodes/dialogue_area.gd" id="2_jvw1u"]
+[ext_resource type="Resource" uid="uid://huhvgtry1mgg" path="res://src/npc/log.son.dialogue" id="3_xavjl"]
+[ext_resource type="Texture2D" uid="uid://c2wndajugqj5s" path="res://library/textures/npc-profiles/image.png" id="4_15hdv"]
+[ext_resource type="Script" uid="uid://bjtgvfvq7uaxh" path="res://src/000-Data/savenpc.gd" id="5_nciec"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_w6id3"]
 _surfaces = [{
@@ -37,6 +40,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w6id3")
 
+[sub_resource type="Resource" id="Resource_u7h0y"]
+script = ExtResource("5_nciec")
+profile = ExtResource("4_15hdv")
+npc_dialogue = ExtResource("3_xavjl")
+metadata/_custom_type_script = "uid://bjtgvfvq7uaxh"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_bnv6l"]
 size = Vector3(1.02151, 2.23193, 2.21564)
 
@@ -52,6 +61,10 @@ mesh = SubResource("ArrayMesh_jvw1u")
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("2_jvw1u")
+dialogue = ExtResource("3_xavjl")
+npc = SubResource("Resource_u7h0y")
+titles = Array[String](["A", "B", "C"])
+title_key = "Son"
 metadata/_custom_type_script = "uid://12ky23xpgrrg"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueArea"]
