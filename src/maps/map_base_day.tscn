@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://djji8thnxchus"]
+[gd_scene load_steps=33 format=3 uid="uid://djji8thnxchus"]
 
 [ext_resource type="PackedScene" uid="uid://bl4j2pgha8a5u" path="res://src/maps/map_base.tscn" id="1_r15fa"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_e6i8k"]
@@ -12,16 +12,18 @@
 [ext_resource type="PackedScene" uid="uid://bgpm7y7sc3s08" path="res://src/npc/0_fishman_basic.tscn" id="8_pmfrq"]
 [ext_resource type="Script" uid="uid://cgx2wkvvgp00v" path="res://src/nodes/linear_follow.gd" id="10_5ctp3"]
 [ext_resource type="Curve3D" uid="uid://d1vevqt68wdbl" path="res://src/npc/day_path.fishman_1.tres" id="10_mcfkg"]
+[ext_resource type="ArrayMesh" uid="uid://cvm3j4as5fs4o" path="res://library/models/Fish_People_SPLIT/mesh/Bob_1_Plane_037.res" id="13_hqcbg"]
 [ext_resource type="Script" uid="uid://bjgq4nmbgscik" path="res://src/nodes/area_event.gd" id="13_mcfkg"]
-[ext_resource type="ArrayMesh" uid="uid://08kfjeg83y3h" path="res://library/models/Fish_People_Generic/meshes/fishman_1.res" id="13_p7s42"]
 [ext_resource type="Resource" uid="uid://kywxclrt1di8" path="res://src/npc/profile.fishman_5.tres" id="15_blc13"]
 [ext_resource type="Resource" uid="uid://bqcr4o1bmhsco" path="res://src/npc/profile.fishman_3.tres" id="15_jlwkt"]
 [ext_resource type="Curve3D" uid="uid://d0irytgd4o4qm" path="res://src/npc/day_path.fishman_3.tres" id="16_e6fal"]
 [ext_resource type="Curve3D" uid="uid://dna8b2uabsxha" path="res://src/npc/day_path.fishman_5.tres" id="16_l1x3w"]
-[ext_resource type="ArrayMesh" uid="uid://4u1ridquan2r" path="res://library/models/Fish_People_Generic/meshes/fishman_4.res" id="17_7t3y2"]
-[ext_resource type="ArrayMesh" uid="uid://c3trw8u5a57mf" path="res://library/models/Fish_People_Generic/meshes/fishmen_2.res" id="18_blc13"]
 [ext_resource type="Curve3D" uid="uid://ckyin3r1i767w" path="res://src/npc/day_path.fishman_7.tres" id="19_0k31l"]
 [ext_resource type="Resource" uid="uid://defi0k78b0oo8" path="res://src/npc/profile.fishman_7.tres" id="19_m4gby"]
+[ext_resource type="ArrayMesh" uid="uid://c7ser82fhl3o4" path="res://library/models/Fish_People_SPLIT/mesh/Bob_7_Plane_004.res" id="23_b00ho"]
+[ext_resource type="ArrayMesh" uid="uid://dcffioo8i7c81" path="res://library/models/Fish_People_SPLIT/mesh/Bob_2_Plane_032.res" id="24_b00ho"]
+[ext_resource type="ArrayMesh" uid="uid://df35i3cdkqln6" path="res://library/models/Fish_People_SPLIT/mesh/Bob_4_Plane_001.res" id="25_3hqs4"]
+[ext_resource type="ArrayMesh" uid="uid://cbky1j0w0pega" path="res://library/models/Fish_People_SPLIT/mesh/Bob_6_Plane_003.res" id="26_3hqs4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ctp3"]
 render_priority = 0
@@ -102,7 +104,6 @@ surface_material_override/0 = ExtResource("6_vlfsu")
 [node name="NPCS" type="Node3D" parent="."]
 
 [node name="PATROL_NPC1" type="Node3D" parent="NPCS" node_paths=PackedStringArray("patroller", "npc")]
-transform = Transform3D(0.373, 0, 0, 0, 0.373, 0, 0, 0, 0.373, 0, 0, 0)
 script = ExtResource("7_5ctp3")
 npc_info = ExtResource("8_8bkja")
 dialog_id = "F1"
@@ -117,14 +118,14 @@ metadata/_custom_type_script = "uid://b6f3f6630eo0r"
 curve = ExtResource("10_mcfkg")
 
 [node name="Patroller_NPC1" type="PathFollow3D" parent="NPCS/PATROL_NPC1/Path"]
-transform = Transform3D(0.105237, 0, -0.994339, 0, 0.999989, 0, 0.994339, 0, 0.105237, 5.45734, 0, -4.74726)
+transform = Transform3D(0.105249, 0, -0.994446, 0, 1, 0, 0.994446, 0, 0.105249, 5.45734, 0, -4.74726)
 progress = 47.3818
 rotation_mode = 1
 script = ExtResource("10_5ctp3")
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="NPC1" parent="NPCS/PATROL_NPC1/Path/Patroller_NPC1" instance=ExtResource("8_pmfrq")]
-mesh = ExtResource("13_p7s42")
+mesh = ExtResource("13_hqcbg")
 
 [node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC1"]
 collision_layer = 1024
@@ -188,7 +189,8 @@ script = ExtResource("10_5ctp3")
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="NPC" parent="NPCS/PATROL_NPC3/Path/Patroller" instance=ExtResource("8_pmfrq")]
-mesh = ExtResource("13_p7s42")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("13_hqcbg")
 
 [node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC3"]
 collision_layer = 1024
@@ -263,7 +265,7 @@ script = ExtResource("10_5ctp3")
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="NPC5" parent="NPCS/PATROL_NPC5/Path/Patroller" instance=ExtResource("8_pmfrq")]
-mesh = ExtResource("17_7t3y2")
+mesh = ExtResource("24_b00ho")
 
 [node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC5"]
 collision_layer = 1024
@@ -311,7 +313,7 @@ script = ExtResource("10_5ctp3")
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="NPC7" parent="NPCS/PATROL_NPC7/Path/Patroller" node_paths=PackedStringArray("initial_state") instance=ExtResource("8_pmfrq")]
-mesh = ExtResource("17_7t3y2")
+mesh = ExtResource("23_b00ho")
 initial_state = NodePath("Idle")
 
 [node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC7"]
@@ -328,18 +330,18 @@ shape = SubResource("SphereShape3D_mcfkg")
 
 [node name="NPC_2" parent="NPCS" node_paths=PackedStringArray("initial_state") instance=ExtResource("8_pmfrq")]
 transform = Transform3D(0.44647, 0, 1.18737, 0, 1.26854, 0, -1.18737, 0, 0.44647, -16.7474, 10.212, -21.4135)
-mesh = ExtResource("18_blc13")
+mesh = ExtResource("24_b00ho")
 disable_floor_snapping = true
 initial_state = NodePath("Idle")
 
 [node name="NPC_4" parent="NPCS" node_paths=PackedStringArray("initial_state") instance=ExtResource("8_pmfrq")]
 transform = Transform3D(0.177182, 0, 1.25611, 0, 1.26854, 0, -1.25611, 0, 0.177182, -9.09102, 10.212, -34.1104)
-mesh = ExtResource("17_7t3y2")
+mesh = ExtResource("25_3hqs4")
 disable_floor_snapping = true
 initial_state = NodePath("Idle")
 
 [node name="NPC_6" parent="NPCS" node_paths=PackedStringArray("initial_state") instance=ExtResource("8_pmfrq")]
 transform = Transform3D(1.0574, 0, 0.700782, 0, 1.26854, 0, -0.700782, 0, 1.0574, -24.616, 10.2282, 6.77591)
-mesh = ExtResource("17_7t3y2")
+mesh = ExtResource("26_3hqs4")
 disable_floor_snapping = true
 initial_state = NodePath("Idle")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://7dvujjb4a52k"]
+[gd_scene load_steps=40 format=3 uid="uid://7dvujjb4a52k"]
 
 [ext_resource type="Script" uid="uid://c4wkbm0dwmlng" path="res://src/fish/scripts/race_track.gd" id="1_kfnei"]
 [ext_resource type="Script" uid="uid://y2upmnhr31if" path="res://src/fish/scripts/fish_data.gd" id="2_mg4ji"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://dhsp4oqpc268j" path="res://src/racing/race_finished_state.gd" id="19_1vccm"]
 [ext_resource type="Script" uid="uid://drnft836dst8h" path="res://src/nodes/freeroam_ctx.gd" id="22_ek8kg"]
 [ext_resource type="PackedScene" uid="uid://dcxyohctx2sch" path="res://src/maps/map_base_night.tscn" id="24_dpljv"]
+[ext_resource type="AudioStream" uid="uid://3r4fv8xc5i47" path="res://library/sounds and music/Fish race.mp3" id="27_2iyce"]
 
 [sub_resource type="Resource" id="Resource_sl2mw"]
 script = ExtResource("2_mg4ji")
@@ -86,11 +87,12 @@ size = Vector3(18.1496, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dpljv"]
 size = Vector3(28.6562, 1, 1)
 
-[node name="RaceTrack" type="Node3D" node_paths=PackedStringArray("track_options", "camera_options")]
+[node name="RaceTrack" type="Node3D" node_paths=PackedStringArray("track_options", "camera_options", "music_player")]
 script = ExtResource("1_kfnei")
 race_data = SubResource("Resource_kk5tl")
 track_options = [NodePath("Track4"), NodePath("Track5"), NodePath("Track6")]
 camera_options = [NodePath("Track4/Track1_BASE/Node3D/Fishcam"), NodePath("Track5/Track1_BASE/Node3D/Fishcam"), NodePath("Track6/Track1_BASE/Node3D/Fishcam")]
+music_player = NodePath("AudioStreamPlayer")
 starting_mps = 8.0
 announcer = ExtResource("7_1vccm")
 
@@ -428,3 +430,6 @@ script = ExtResource("22_ek8kg")
 day_scene = ExtResource("12_ksgyx")
 night_scene = ExtResource("24_dpljv")
 metadata/_custom_type_script = "uid://drnft836dst8h"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_2iyce")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=4 uid="uid://bl4j2pgha8a5u"]
+[gd_scene load_steps=102 format=4 uid="uid://bl4j2pgha8a5u"]
 
 [ext_resource type="PackedScene" uid="uid://dceftca3qspku" path="res://library/models/freeroam/freeroam.glb" id="1_5hikl"]
 [ext_resource type="Texture2D" uid="uid://e5kl18spayjg" path="res://library/models/freeroam/freeroam_blank.png" id="2_d21su"]
@@ -39,6 +39,10 @@
 [ext_resource type="ArrayMesh" uid="uid://dnn47y1hmv8e2" path="res://library/models/Trees/Mesh/Lily_1.res" id="34_hqfy3"]
 [ext_resource type="PackedScene" uid="uid://kue4s47qerg6" path="res://library/models/ritual/ritual_prototype.blend" id="38_mw3la"]
 [ext_resource type="Texture2D" uid="uid://nv2toi8i0e1t" path="res://library/models/ritual/textures/Slab_Base_color.png" id="39_4fwkt"]
+[ext_resource type="AudioStream" uid="uid://divnv38tjrrqu" path="res://library/sounds and music/When the Fish Homeward Fly.mp3" id="41_5i3po"]
+[ext_resource type="AudioStream" uid="uid://d6yjdcd2icsu" path="res://library/sounds and music/wind/default/Wind_default_2.wav" id="41_sl2mw"]
+[ext_resource type="AudioStream" uid="uid://bi0n6ys7kogdo" path="res://library/sounds and music/wind/default/Wind_default_3.wav" id="42_5i3po"]
+[ext_resource type="AudioStream" uid="uid://8llnidkmi46k" path="res://library/sounds and music/bugs/default/default_bug_ambience_1.wav" id="43_5i3po"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7tvku"]
 radius = 10.3916
@@ -371,6 +375,18 @@ shader_parameter/color_texture = ExtResource("39_4fwkt")
 shader_parameter/vertex_wobble = 0.06
 shader_parameter/affine_mapping = 0.0
 shader_parameter/alpha_cutoff = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5i3po"]
+size = Vector3(6.91025, 8.60535, 10.9361)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cwops"]
+size = Vector3(3.73385, 8.60535, 10.9361)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kk5tl"]
+size = Vector3(3.36044, 8.60535, 10.9361)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m5qf2"]
+size = Vector3(5.03634, 8.60535, 13.6845)
 
 [node name="map_base" instance=ExtResource("1_5hikl")]
 
@@ -2269,1266 +2285,1357 @@ skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/Do
 transform = Transform3D(-0.820132, 0, -0.572175, 0, 1, 0, 0.572175, 0, -0.820132, 4.41621, 2.56624, 23.7922)
 metadata/_edit_lock_ = true
 
-[node name="Lilypad" parent="." index="13" instance=ExtResource("31_qlson")]
+[node name="Lilys" type="Node3D" parent="." index="13"]
+
+[node name="Lilypad" parent="Lilys" index="0" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.023, 0, 0, 0, 0.023, 0, 0, 0, 0.023, 13.755, 0, 17.8712)
 
-[node name="Lilypad2" parent="." index="14" instance=ExtResource("31_qlson")]
+[node name="Lilypad2" parent="Lilys" index="1" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.00775088, 0, -0.00631853, 0, 0.01, 0, 0.00631853, 0, 0.00775088, 13.6234, 0, 20.0996)
 
-[node name="Lilypad3" parent="." index="15" instance=ExtResource("31_qlson")]
+[node name="Lilypad3" parent="Lilys" index="2" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.013, 0, 0, 0, 0.013, 0, 0, 0, 0.013, 15.3072, 0, 16.2785)
 
-[node name="Lily2" type="MeshInstance3D" parent="." index="16"]
+[node name="Lily2" type="MeshInstance3D" parent="Lilys" index="3"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 21.3117, 0, 10.8874)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad4" parent="." index="17" instance=ExtResource("33_13cmi")]
+[node name="Lilypad4" parent="Lilys" index="4" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.974683, 0, -0.22359, 0, 1, 0, 0.22359, 0, 0.974683, 7.21677, 0, 22.1159)
 
-[node name="Lilypad5" parent="." index="18" instance=ExtResource("33_13cmi")]
+[node name="Lilypad5" parent="Lilys" index="5" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.781714, 0, -0.446008, 0, 0.9, 0, 0.446008, 0, 0.781714, 2.67469, 0, 23.8545)
 
-[node name="Lily1" type="MeshInstance3D" parent="." index="19"]
+[node name="Lily1" type="MeshInstance3D" parent="Lilys" index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98162, 0, 21.9867)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad6" parent="." index="20" instance=ExtResource("31_qlson")]
+[node name="Lilypad6" parent="Lilys" index="7" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.023, 0, 0, 0, 0.023, 0, 0, 0, 0.023, -2.81123, 0.356704, 23.6584)
 
-[node name="Lily3" type="MeshInstance3D" parent="." index="21"]
+[node name="Lily3" type="MeshInstance3D" parent="Lilys" index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28886, 0, 21.8248)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad7" parent="." index="22" instance=ExtResource("31_qlson")]
+[node name="Lilypad7" parent="Lilys" index="9" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0311204, 0, -0.0109782, 0, 0.033, 0, 0.0109782, 0, 0.0311204, -4.63307, 0, 16.8673)
 
-[node name="Lilypad8" parent="." index="23" instance=ExtResource("33_13cmi")]
+[node name="Lilypad8" parent="Lilys" index="10" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.905065, 0, -0.425274, 0, 1, 0, 0.425274, 0, 0.905065, -7.00489, 0, 23.8425)
 
-[node name="Lilypad9" parent="." index="24" instance=ExtResource("31_qlson")]
+[node name="Lilypad9" parent="Lilys" index="11" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.023, 0, 0, 0, 0.023, 0, 0, 0, 0.023, -14.54, 0, 25.714)
 
-[node name="Lilypad10" parent="." index="25" instance=ExtResource("33_13cmi")]
+[node name="Lilypad10" parent="Lilys" index="12" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.60629, 0, 26.2556)
 
-[node name="Lilypad11" parent="." index="26" instance=ExtResource("33_13cmi")]
+[node name="Lilypad11" parent="Lilys" index="13" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.71014, 0, 20.6916)
 
-[node name="Lily4" type="MeshInstance3D" parent="." index="27"]
+[node name="Lily4" type="MeshInstance3D" parent="Lilys" index="14"]
 transform = Transform3D(-0.272582, 0, 0.962132, 0, 1, 0, -0.962132, 0, -0.272582, 7.96341, 0, 16.2524)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily5" type="MeshInstance3D" parent="." index="28"]
+[node name="Lily5" type="MeshInstance3D" parent="Lilys" index="15"]
 transform = Transform3D(-0.306958, 0, -0.951723, 0, 1, 0, 0.951723, 0, -0.306958, 9.86726, 0, 16.2158)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad12" parent="." index="29" instance=ExtResource("33_13cmi")]
+[node name="Lilypad12" parent="Lilys" index="16" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.652892, 0, 0.757451, 0, 1, 0, -0.757451, 0, 0.652892, -17.8546, 0, 22.5237)
 
-[node name="Lilypad13" parent="." index="30" instance=ExtResource("31_qlson")]
+[node name="Lilypad13" parent="Lilys" index="17" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.00988911, 0, -0.00843834, 0, 0.013, 0, 0.00843834, 0, 0.00988911, -20.6582, 0, 23.35)
 
-[node name="Lilypad14" parent="." index="31" instance=ExtResource("33_13cmi")]
+[node name="Lilypad14" parent="Lilys" index="18" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 10.8815, 0, 20.9738)
 
-[node name="Lilypad15" parent="." index="32" instance=ExtResource("33_13cmi")]
+[node name="Lilypad15" parent="Lilys" index="19" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.523051, 0, -1.19013, 0, 1.3, 0, 1.19013, 0, 0.523051, 10.4733, 0, 12.2571)
 
-[node name="Lilypad16" parent="." index="33" instance=ExtResource("31_qlson")]
+[node name="Lilypad16" parent="Lilys" index="20" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0129239, 0, -0.0190256, 0, 0.023, 0, 0.0190256, 0, 0.0129239, 22.1876, 0, 18.246)
 
-[node name="Lilypad17" parent="." index="34" instance=ExtResource("33_13cmi")]
+[node name="Lilypad17" parent="Lilys" index="21" instance=ExtResource("33_13cmi")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 26.2872, 0, 13.9456)
 
-[node name="Lilypad18" parent="." index="35" instance=ExtResource("31_qlson")]
+[node name="Lilypad18" parent="Lilys" index="22" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0186352, 0, 0.0134807, 0, 0.023, 0, -0.0134807, 0, 0.0186352, 25.8052, 0, 19.2264)
 
-[node name="Lilypad19" parent="." index="36" instance=ExtResource("33_13cmi")]
+[node name="Lilypad19" parent="Lilys" index="23" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.517504, 0, -0.855681, 0, 1, 0, 0.855681, 0, 0.517504, 30.8468, 0, 17.4644)
 
-[node name="Lilypad20" parent="." index="37" instance=ExtResource("31_qlson")]
+[node name="Lilypad20" parent="Lilys" index="24" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0145096, 0, -0.0251092, 0, 0.029, 0, 0.0251092, 0, 0.0145096, 33.4621, 0, 17.94)
 
-[node name="Lilypad21" parent="." index="38" instance=ExtResource("31_qlson")]
+[node name="Lilypad21" parent="Lilys" index="25" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00448944, 0, 0.0225576, 0, 0.023, 0, -0.0225576, 0, -0.00448944, 34.1058, 0, 15.4822)
 
-[node name="Lilypad22" parent="." index="39" instance=ExtResource("33_13cmi")]
+[node name="Lilypad22" parent="Lilys" index="26" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.190132, 0, -0.232056, 0, 0.3, 0, 0.232056, 0, 0.190132, 36.266, 0, 11.1802)
 
-[node name="Lilypad23" parent="." index="40" instance=ExtResource("31_qlson")]
+[node name="Lilypad23" parent="Lilys" index="27" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.023, 0, 0, 0, 0.023, 0, 0, 0, 0.023, 33.9269, 0, 11.5268)
 
-[node name="Lilypad24" parent="." index="41" instance=ExtResource("33_13cmi")]
+[node name="Lilypad24" parent="Lilys" index="28" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 33.5716, 0, 7.24654)
 
-[node name="Lilypad25" parent="." index="42" instance=ExtResource("31_qlson")]
+[node name="Lilypad25" parent="Lilys" index="29" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0229459, 0, -0.00157717, 0, 0.023, 0, 0.00157717, 0, -0.0229459, 37.1204, 0, 9.79931)
 
-[node name="Lilypad26" parent="." index="43" instance=ExtResource("33_13cmi")]
+[node name="Lilypad26" parent="Lilys" index="30" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.853451, 0, 0.521173, 0, 1, 0, -0.521173, 0, 0.853451, 36.2288, 0, 3.92731)
 
-[node name="Lilypad27" parent="." index="44" instance=ExtResource("31_qlson")]
+[node name="Lilypad27" parent="Lilys" index="31" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.033, 0, 0, 0, 0.033, 0, 0, 0, 0.033, 30.6256, 0.0123997, 4.05711)
 
-[node name="Lilypad28" parent="." index="45" instance=ExtResource("33_13cmi")]
+[node name="Lilypad28" parent="Lilys" index="32" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.225263, 0, 0.435151, 0, 0.49, 0, -0.435151, 0, 0.225263, 35.4226, 0, 0.295777)
 
-[node name="Lilypad29" parent="." index="46" instance=ExtResource("31_qlson")]
+[node name="Lilypad29" parent="Lilys" index="33" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0198634, 0, -0.0115951, 0, 0.023, 0, 0.0115951, 0, 0.0198634, 33.0967, 0, 1.83241)
 
-[node name="Lilypad30" parent="." index="47" instance=ExtResource("33_13cmi")]
+[node name="Lilypad30" parent="Lilys" index="34" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.651247, 0, -0.351394, 0, 0.74, 0, 0.351394, 0, 0.651247, 38.8988, 0, -3.00477)
 
-[node name="Lilypad31" parent="." index="48" instance=ExtResource("31_qlson")]
+[node name="Lilypad31" parent="Lilys" index="35" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.002582, 0, -0.012741, 0, 0.013, 0, 0.012741, 0, 0.002582, 35.3873, 0, -2.28946)
 
-[node name="Lilypad32" parent="." index="49" instance=ExtResource("33_13cmi")]
+[node name="Lilypad32" parent="Lilys" index="36" instance=ExtResource("33_13cmi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.63, 0, 12.2934)
 
-[node name="Lilypad33" parent="." index="50" instance=ExtResource("31_qlson")]
+[node name="Lilypad33" parent="Lilys" index="37" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.019, 0, 0, 0, 0.019, 0, 0, 0, 0.019, 22.5331, 0, 11.4706)
 
-[node name="Lily6" type="MeshInstance3D" parent="." index="51"]
+[node name="Lily6" type="MeshInstance3D" parent="Lilys" index="38"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12.646, 0, 22.868)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad34" parent="." index="52" instance=ExtResource("33_13cmi")]
+[node name="Lilypad34" parent="Lilys" index="39" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.432077, 0, 0.789499, 0, 0.9, 0, -0.789499, 0, -0.432077, -47.3069, 0, 7.74103)
 
-[node name="Lily7" type="MeshInstance3D" parent="." index="53"]
+[node name="Lily7" type="MeshInstance3D" parent="Lilys" index="40"]
 transform = Transform3D(-0.851709, 0, 0.524016, 0, 1, 0, -0.524016, 0, -0.851709, -42.6164, 0, 12.8198)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad35" parent="." index="54" instance=ExtResource("31_qlson")]
+[node name="Lilypad35" parent="Lilys" index="41" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0195893, 0, 0.0120524, 0, 0.023, 0, -0.0120524, 0, -0.0195893, -42.7373, 0.356704, 10.7828)
 
-[node name="Lily8" type="MeshInstance3D" parent="." index="55"]
+[node name="Lily8" type="MeshInstance3D" parent="Lilys" index="42"]
 transform = Transform3D(-0.851709, 0, 0.524016, 0, 1, 0, -0.524016, 0, -0.851709, -44.143, 0, 12.0707)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad36" parent="." index="56" instance=ExtResource("31_qlson")]
+[node name="Lilypad36" parent="Lilys" index="43" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0207528, 0, 0.0256578, 0, 0.033, 0, -0.0256578, 0, -0.0207528, -44.7442, 0, 17.5214)
 
-[node name="Lilypad37" parent="." index="57" instance=ExtResource("33_13cmi")]
+[node name="Lilypad37" parent="Lilys" index="44" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.548001, 0, 0.836478, 0, 1, 0, -0.836478, 0, -0.548001, -39.6761, 0, 12.8235)
 
-[node name="Lilypad38" parent="." index="58" instance=ExtResource("31_qlson")]
+[node name="Lilypad38" parent="Lilys" index="45" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0195893, 0, 0.0120524, 0, 0.023, 0, -0.0120524, 0, -0.0195893, -32.2777, 0, 16.459)
 
-[node name="Lilypad39" parent="." index="59" instance=ExtResource("33_13cmi")]
+[node name="Lilypad39" parent="Lilys" index="46" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.511025, 0, 0.314409, 0, 0.6, 0, -0.314409, 0, -0.511025, -42.4025, 0, 7.93924)
 
-[node name="Lilypad40" parent="." index="60" instance=ExtResource("33_13cmi")]
+[node name="Lilypad40" parent="Lilys" index="47" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.255513, 0, 0.157205, 0, 0.3, 0, -0.157205, 0, -0.255513, -41.8229, 0, 14.8287)
 
-[node name="Lilypad41" parent="." index="61" instance=ExtResource("33_13cmi")]
+[node name="Lilypad41" parent="Lilys" index="48" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.95299, 0, -0.303002, 0, 1, 0, 0.303002, 0, -0.95299, -31.1264, 0, 20.9131)
 
-[node name="Lilypad42" parent="." index="62" instance=ExtResource("31_qlson")]
+[node name="Lilypad42" parent="Lilys" index="49" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00400082, 0, 0.0123691, 0, 0.013, 0, -0.0123691, 0, -0.00400082, -27.08, 0, 22.4325)
 
-[node name="Lily9" type="MeshInstance3D" parent="." index="63"]
+[node name="Lily9" type="MeshInstance3D" parent="Lilys" index="50"]
 transform = Transform3D(-1.70342, 0, 1.04803, 0, 2, 0, -1.04803, 0, -1.70342, -35.3822, 0, 17.8905)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad43" parent="." index="64" instance=ExtResource("33_13cmi")]
+[node name="Lilypad43" parent="Lilys" index="51" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.617585, 0, 0.786504, 0, 1, 0, -0.786504, 0, 0.617585, -24.4723, 0.356704, 23.038)
 
-[node name="Lilypad44" parent="." index="65" instance=ExtResource("31_qlson")]
+[node name="Lilypad44" parent="Lilys" index="52" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00340361, -0.00138051, 0.0124703, -0.000929797, 0.0129133, 0.00117577, -0.012512, -0.000584079, -0.00347965, -45.8214, -0.192881, -20.7407)
 
-[node name="Lily10" type="MeshInstance3D" parent="." index="66"]
+[node name="Lily10" type="MeshInstance3D" parent="Lilys" index="53"]
 transform = Transform3D(0.11049, 0, 1.1949, 0, 1.2, 0, -1.1949, 0, 0.11049, -45.5309, 0, -17.9212)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad45" parent="." index="67" instance=ExtResource("33_13cmi")]
+[node name="Lilypad45" parent="Lilys" index="54" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.312385, 0, 0.949956, 0, 1, 0, -0.949956, 0, 0.312385, -37.6905, 0, -12.3844)
 
-[node name="Lilypad46" parent="." index="68" instance=ExtResource("33_13cmi")]
+[node name="Lilypad46" parent="Lilys" index="55" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.51609, 0, 0.737327, 0, 0.9, 0, -0.737327, 0, 0.51609, -43.5986, 0, -10.5025)
 
-[node name="Lily11" type="MeshInstance3D" parent="." index="69"]
+[node name="Lily11" type="MeshInstance3D" parent="Lilys" index="56"]
 transform = Transform3D(0.0920751, 0, 0.995752, 0, 1, 0, -0.995752, 0, 0.0920751, -41.1837, 0, -1.2455)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad47" parent="." index="70" instance=ExtResource("31_qlson")]
+[node name="Lilypad47" parent="Lilys" index="57" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.00211773, 0, 0.0229023, 0, 0.023, 0, -0.0229023, 0, 0.00211773, -39.4114, 0.356704, -0.23907)
 
-[node name="Lily12" type="MeshInstance3D" parent="." index="71"]
+[node name="Lily12" type="MeshInstance3D" parent="Lilys" index="58"]
 transform = Transform3D(0.0920751, 0, 0.995752, 0, 1, 0, -0.995752, 0, 0.0920751, -41.1891, 0, -2.94598)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad48" parent="." index="72" instance=ExtResource("31_qlson")]
+[node name="Lilypad48" parent="Lilys" index="59" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0137969, 0, 0.0299774, 0, 0.033, 0, -0.0299774, 0, 0.0137969, -46.3414, 0, -1.06819)
 
-[node name="Lilypad49" parent="." index="73" instance=ExtResource("33_13cmi")]
+[node name="Lilypad49" parent="Lilys" index="60" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.506801, 0, 0.862063, 0, 1, 0, -0.862063, 0, 0.506801, -39.0071, 0, 1.9358)
 
-[node name="Lilypad50" parent="." index="74" instance=ExtResource("31_qlson")]
+[node name="Lilypad50" parent="Lilys" index="61" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.00211773, 0, 0.0229023, 0, 0.023, 0, -0.0229023, 0, 0.00211773, -38.4444, 0, 8.3302)
 
-[node name="Lilypad51" parent="." index="75" instance=ExtResource("33_13cmi")]
+[node name="Lilypad51" parent="Lilys" index="62" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.0552451, 0, 0.597451, 0, 0.6, 0, -0.597451, 0, 0.0552451, -36.7142, 0, -1.19975)
 
-[node name="Lilypad52" parent="." index="76" instance=ExtResource("33_13cmi")]
+[node name="Lilypad52" parent="Lilys" index="63" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.0276225, 0, 0.298726, 0, 0.3, 0, -0.298726, 0, 0.0276225, -42.6325, 0, 0.35643)
 
-[node name="Lilypad53" parent="." index="77" instance=ExtResource("31_qlson")]
+[node name="Lilypad53" parent="Lilys" index="64" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.023, 0, 0, 0, 0.023, 0, 0, 0, 0.023, -44.3812, 0.356704, 3.76157)
 
-[node name="Lilypad54" parent="." index="78" instance=ExtResource("33_13cmi")]
+[node name="Lilypad54" parent="Lilys" index="65" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.652508, 0, 0.757781, 0, 1, 0, -0.757781, 0, 0.652508, -48.1617, 0, 1.75711)
 
-[node name="Lily13" type="MeshInstance3D" parent="." index="79"]
+[node name="Lily13" type="MeshInstance3D" parent="Lilys" index="66"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.8601, 0.356704, -6.87439)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily14" type="MeshInstance3D" parent="." index="80"]
+[node name="Lily14" type="MeshInstance3D" parent="Lilys" index="67"]
 transform = Transform3D(0.0677715, 0, 0.997701, 0, 1, 0, -0.997701, 0, 0.0677715, -32.1743, 0.356704, -6.76541)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily15" type="MeshInstance3D" parent="." index="81"]
+[node name="Lily15" type="MeshInstance3D" parent="Lilys" index="68"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.105, 0.356704, -8.11799)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily16" type="MeshInstance3D" parent="." index="82"]
+[node name="Lily16" type="MeshInstance3D" parent="Lilys" index="69"]
 transform = Transform3D(-0.435043, 0, -0.90041, 0, 1, 0, 0.90041, 0, -0.435043, -36.4837, 0.356704, -5.77212)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily17" type="MeshInstance3D" parent="." index="83"]
+[node name="Lily17" type="MeshInstance3D" parent="Lilys" index="70"]
 transform = Transform3D(0.186305, 0, -1.9913, 0, 2, 0, 1.9913, 0, 0.186305, -44.74, 0.356704, -4.62182)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily18" type="MeshInstance3D" parent="." index="84"]
+[node name="Lily18" type="MeshInstance3D" parent="Lilys" index="71"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.6286, 0.356704, -5.9201)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily19" type="MeshInstance3D" parent="." index="85"]
+[node name="Lily19" type="MeshInstance3D" parent="Lilys" index="72"]
 transform = Transform3D(0.12659, 0, 0.586494, 0, 0.6, 0, -0.586494, 0, 0.12659, -41.3839, 0.356704, -4.67756)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily20" type="MeshInstance3D" parent="." index="86"]
+[node name="Lily20" type="MeshInstance3D" parent="Lilys" index="73"]
 transform = Transform3D(-1.18337, 0, 0.538172, 0, 1.3, 0, -0.538172, 0, -1.18337, -38.9957, 0.356704, -5.91972)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily21" type="MeshInstance3D" parent="." index="87"]
+[node name="Lily21" type="MeshInstance3D" parent="Lilys" index="74"]
 transform = Transform3D(0.0920751, 0, 0.995752, 0, 1, 0, -0.995752, 0, 0.0920751, -41.1837, 0, -1.2455)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad55" parent="." index="88" instance=ExtResource("31_qlson")]
+[node name="Lilypad55" parent="Lilys" index="75" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0137969, 0, 0.0299774, 0, 0.033, 0, -0.0299774, 0, 0.0137969, -46.3414, 0, -1.06819)
 
-[node name="Lilypad56" parent="." index="89" instance=ExtResource("33_13cmi")]
+[node name="Lilypad56" parent="Lilys" index="76" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.0276225, 0, 0.298726, 0, 0.3, 0, -0.298726, 0, 0.0276225, -42.6325, 0, 0.35643)
 
-[node name="Lilypad57" parent="." index="90" instance=ExtResource("33_13cmi")]
+[node name="Lilypad57" parent="Lilys" index="77" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.273673, 0, 0.465514, 0, 0.54, 0, -0.465514, 0, 0.273673, -41.8471, 0, 1.9358)
 
-[node name="Lilypad58" parent="." index="91" instance=ExtResource("33_13cmi")]
+[node name="Lilypad58" parent="Lilys" index="78" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.0702531, 0, 0.897254, 0, 0.9, 0, -0.897254, 0, -0.0702531, -42.8818, 0, -26.6616)
 
-[node name="Lily22" type="MeshInstance3D" parent="." index="92"]
+[node name="Lily22" type="MeshInstance3D" parent="Lilys" index="79"]
 transform = Transform3D(-0.561853, 0, 0.827237, 0, 1, 0, -0.827237, 0, -0.561853, -40.687, 0, -20.1058)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad59" parent="." index="93" instance=ExtResource("31_qlson")]
+[node name="Lilypad59" parent="Lilys" index="80" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0129226, 0, 0.0190265, 0, 0.023, 0, -0.0190265, 0, -0.0129226, -39.9618, 0.356704, -22.0132)
 
-[node name="Lily23" type="MeshInstance3D" parent="." index="94"]
+[node name="Lily23" type="MeshInstance3D" parent="Lilys" index="81"]
 transform = Transform3D(-0.561853, 0, 0.827237, 0, 1, 0, -0.827237, 0, -0.561853, -41.7721, 0, -21.4151)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad60" parent="." index="95" instance=ExtResource("31_qlson")]
+[node name="Lilypad60" parent="Lilys" index="82" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0189625, -0.00350437, 0.0267795, -0.00323997, 0.0327799, 0.00199536, -0.0268128, -0.00148266, -0.0191801, -43.8262, 0.192881, -16.9277)
 
-[node name="Lilypad61" parent="." index="96" instance=ExtResource("33_13cmi")]
+[node name="Lilypad61" parent="Lilys" index="83" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.15671, 0, 0.987645, 0, 1, 0, -0.987645, 0, -0.15671, -38.0069, 0, -18.8965)
 
-[node name="Lilypad62" parent="." index="97" instance=ExtResource("33_13cmi")]
+[node name="Lilypad62" parent="Lilys" index="84" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.337111, 0, 0.496342, 0, 0.6, 0, -0.496342, 0, -0.337111, -38.4902, 0, -24.4693)
 
-[node name="Lilypad63" parent="." index="98" instance=ExtResource("33_13cmi")]
+[node name="Lilypad63" parent="Lilys" index="85" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.168556, 0, 0.248171, 0, 0.3, 0, -0.248171, 0, -0.168556, -40.7873, 0, -17.9482)
 
-[node name="Lilypad64" parent="." index="99" instance=ExtResource("33_13cmi")]
+[node name="Lilypad64" parent="Lilys" index="86" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.674521, 0, 0.738255, 0, 1, 0, -0.738255, 0, 0.674521, -27.9853, 0, -42.0293)
 
-[node name="Lilypad65" parent="." index="100" instance=ExtResource("33_13cmi")]
+[node name="Lilypad65" parent="Lilys" index="87" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.773096, 0, 0.460785, 0, 0.9, 0, -0.460785, 0, 0.773096, -32.0173, 0, -41.779)
 
-[node name="Lily24" type="MeshInstance3D" parent="." index="101"]
+[node name="Lily24" type="MeshInstance3D" parent="Lilys" index="88"]
 transform = Transform3D(0.492378, 0, 0.870381, 0, 1, 0, -0.870381, 0, 0.492378, -33.6116, 0, -32.346)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad66" parent="." index="102" instance=ExtResource("31_qlson")]
+[node name="Lilypad66" parent="Lilys" index="89" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0113247, 0, 0.0200188, 0, 0.023, 0, -0.0200188, 0, 0.0113247, -32.408, 0.356704, -30.7013)
 
-[node name="Lily25" type="MeshInstance3D" parent="." index="103"]
+[node name="Lily25" type="MeshInstance3D" parent="Lilys" index="90"]
 transform = Transform3D(0.492378, 0, 0.870381, 0, 1, 0, -0.870381, 0, 0.492378, -32.9191, 0, -33.8991)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad67" parent="." index="104" instance=ExtResource("31_qlson")]
+[node name="Lilypad67" parent="Lilys" index="91" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0248782, 0, 0.0216812, 0, 0.033, 0, -0.0216812, 0, 0.0248782, -38.3882, 0, -34.2997)
 
-[node name="Lilypad68" parent="." index="105" instance=ExtResource("33_13cmi")]
+[node name="Lilypad68" parent="Lilys" index="92" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.815785, 0, 0.578356, 0, 1, 0, -0.578356, 0, 0.815785, -32.9313, 0, -28.5519)
 
-[node name="Lilypad69" parent="." index="106" instance=ExtResource("31_qlson")]
+[node name="Lilypad69" parent="Lilys" index="93" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0113247, 0, 0.0200188, 0, 0.023, 0, -0.0200188, 0, 0.0113247, -35.0407, 0, -22.4893)
 
-[node name="Lilypad70" parent="." index="107" instance=ExtResource("33_13cmi")]
+[node name="Lilypad70" parent="Lilys" index="94" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.295427, 0, 0.522229, 0, 0.6, 0, -0.522229, 0, 0.295427, -29.5541, 0, -30.4712)
 
-[node name="Lilypad71" parent="." index="108" instance=ExtResource("33_13cmi")]
+[node name="Lilypad71" parent="Lilys" index="95" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.147713, 0, 0.261114, 0, 0.3, 0, -0.261114, 0, 0.147713, -35.5899, 0, -31.4793)
 
-[node name="Lilypad72" parent="." index="109" instance=ExtResource("31_qlson")]
+[node name="Lilypad72" parent="Lilys" index="96" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0209765, 0, -0.00943335, 0, 0.023, 0, 0.00943335, 0, 0.0209765, -38.5813, 0.356704, -29.0909)
 
-[node name="Lilypad73" parent="." index="110" instance=ExtResource("33_13cmi")]
+[node name="Lilypad73" parent="Lilys" index="97" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.905902, 0, 0.423488, 0, 1, 0, -0.423488, 0, 0.905902, -41.2071, 0, -32.4696)
 
-[node name="Lily26" type="MeshInstance3D" parent="." index="111"]
+[node name="Lily26" type="MeshInstance3D" parent="Lilys" index="98"]
 transform = Transform3D(0.91202, 0, -0.410146, 0, 1, 0, 0.410146, 0, 0.91202, -27.3671, 0.350015, -35.5599)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily27" type="MeshInstance3D" parent="." index="112"]
+[node name="Lily27" type="MeshInstance3D" parent="Lilys" index="99"]
 transform = Transform3D(0.91202, 0, -0.410146, 0, 1, 0, 0.410146, 0, 0.91202, -25.7323, 0.350015, -35.9391)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily28" type="MeshInstance3D" parent="." index="113"]
+[node name="Lily28" type="MeshInstance3D" parent="Lilys" index="100"]
 transform = Transform3D(-0.766067, 0, -0.642761, 0, 1, 0, 0.642761, 0, -0.766067, -27.4759, 0.350015, -34.4002)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily29" type="MeshInstance3D" parent="." index="114"]
+[node name="Lily29" type="MeshInstance3D" parent="Lilys" index="101"]
 transform = Transform3D(-0.646811, 0, -1.89252, 0, 2, 0, 1.89252, 0, -0.646811, -35.4702, 0.356704, -36.8839)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily30" type="MeshInstance3D" parent="." index="115"]
+[node name="Lily30" type="MeshInstance3D" parent="Lilys" index="102"]
 transform = Transform3D(0.91202, 0, -0.410146, 0, 1, 0, 0.410146, 0, 0.91202, -33.012, 0.356704, -37.202)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily31" type="MeshInstance3D" parent="." index="116"]
+[node name="Lily31" type="MeshInstance3D" parent="Lilys" index="103"]
 transform = Transform3D(0.356001, 0, 0.482974, 0, 0.6, 0, -0.482974, 0, 0.356001, -32.3865, 0.356704, -35.5583)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily32" type="MeshInstance3D" parent="." index="117"]
+[node name="Lily32" type="MeshInstance3D" parent="Lilys" index="104"]
 transform = Transform3D(-0.858531, 0, 0.976179, 0, 1.3, 0, -0.976179, 0, -0.858531, -29.6989, 0.356704, -35.7116)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily33" type="MeshInstance3D" parent="." index="118"]
+[node name="Lily33" type="MeshInstance3D" parent="Lilys" index="105"]
 transform = Transform3D(0.492378, 0, 0.870381, 0, 1, 0, -0.870381, 0, 0.492378, -33.6116, 0, -32.346)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad74" parent="." index="119" instance=ExtResource("31_qlson")]
+[node name="Lilypad74" parent="Lilys" index="106" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0248782, 0, 0.0216812, 0, 0.033, 0, -0.0216812, 0, 0.0248782, -38.3882, 0, -34.2997)
 
-[node name="Lilypad75" parent="." index="120" instance=ExtResource("33_13cmi")]
+[node name="Lilypad75" parent="Lilys" index="107" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.147713, 0, 0.261114, 0, 0.3, 0, -0.261114, 0, 0.147713, -35.5899, 0, -31.4793)
 
-[node name="Lilypad76" parent="." index="121" instance=ExtResource("33_13cmi")]
+[node name="Lilypad76" parent="Lilys" index="108" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.440524, 0, 0.312312, 0, 0.54, 0, -0.312312, 0, 0.440524, -35.5214, 0, -29.7167)
 
-[node name="Lily34" type="MeshInstance3D" parent="." index="122"]
+[node name="Lily34" type="MeshInstance3D" parent="Lilys" index="109"]
 transform = Transform3D(0.579993, 0, -0.814622, 0, 1, 0, 0.814622, 0, 0.579993, -28.6544, 0, -17.6936)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad77" parent="." index="123" instance=ExtResource("31_qlson")]
+[node name="Lilypad77" parent="Lilys" index="110" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0133398, 0, -0.0187363, 0, 0.023, 0, 0.0187363, 0, 0.0133398, -29.3373, 0, -15.7706)
 
-[node name="Lilypad78" parent="." index="124" instance=ExtResource("33_13cmi")]
+[node name="Lilypad78" parent="Lilys" index="111" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.178493, 0, -0.983941, 0, 1, 0, 0.983941, 0, 0.178493, -31.3606, 0, -18.8434)
 
-[node name="Lilypad79" parent="." index="125" instance=ExtResource("33_13cmi")]
+[node name="Lilypad79" parent="Lilys" index="112" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.347995, 0, -0.488773, 0, 0.6, 0, 0.488773, 0, 0.347995, -30.7543, 0, -13.2827)
 
-[node name="Lilypad80" parent="." index="126" instance=ExtResource("33_13cmi")]
+[node name="Lilypad80" parent="Lilys" index="113" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.173998, 0, -0.244387, 0, 0.3, 0, 0.244387, 0, 0.173998, -27.0678, 0, -19.8529)
 
-[node name="Lilypad81" parent="." index="127" instance=ExtResource("31_qlson")]
+[node name="Lilypad81" parent="Lilys" index="114" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0108796, 0, -0.0202641, 0, 0.023, 0, 0.0202641, 0, -0.0108796, -32.7126, 0, -15.1859)
 
-[node name="Lily35" type="MeshInstance3D" parent="." index="128"]
+[node name="Lily35" type="MeshInstance3D" parent="Lilys" index="115"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0922, 0.356703, -23.818)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad82" parent="." index="129" instance=ExtResource("33_13cmi")]
+[node name="Lilypad82" parent="Lilys" index="116" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.685513, 0, -0.72806, 0, 1, 0, 0.72806, 0, 0.685513, -27.0068, 0.356704, -25.2005)
 
-[node name="Lilypad83" parent="." index="130" instance=ExtResource("31_qlson")]
+[node name="Lilypad83" parent="Lilys" index="117" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.000723652, 0, -0.0229886, 0, 0.023, 0, 0.0229886, 0, -0.000723652, -26.5844, 0.356704, -29.0835)
 
-[node name="Lilypad84" parent="." index="131" instance=ExtResource("31_qlson")]
+[node name="Lilypad84" parent="Lilys" index="118" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0236821, 0, -0.0229817, 0, 0.033, 0, 0.0229817, 0, -0.0236821, -41.6065, 0, -35.1836)
 
-[node name="Lilypad85" parent="." index="132" instance=ExtResource("33_13cmi")]
+[node name="Lilypad85" parent="Lilys" index="119" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.881938, 0, -0.471366, 0, 1, 0, 0.471366, 0, -0.881938, -38.8896, 0, -37.162)
 
-[node name="Lilypad86" parent="." index="133" instance=ExtResource("31_qlson")]
+[node name="Lilypad86" parent="Lilys" index="120" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0236821, 0, -0.0229817, 0, 0.033, 0, 0.0229817, 0, -0.0236821, -41.6065, 0, -35.1836)
 
-[node name="Lilypad87" parent="." index="134" instance=ExtResource("33_13cmi")]
+[node name="Lilypad87" parent="Lilys" index="121" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.351846, 0, 0.828374, 0, 0.9, 0, -0.828374, 0, -0.351846, -47.5889, 0, -26.1708)
 
-[node name="Lilypad88" parent="." index="135" instance=ExtResource("31_qlson")]
+[node name="Lilypad88" parent="Lilys" index="122" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0228872, 0, -0.00227556, 0, 0.023, 0, 0.00227556, 0, 0.0228872, -44.2838, 0.356704, -29.8413)
 
-[node name="Lilypad89" parent="." index="136" instance=ExtResource("33_13cmi")]
+[node name="Lilypad89" parent="Lilys" index="123" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.72428, 0, 0.689506, 0, 1, 0, -0.689506, 0, 0.72428, -47.8474, 0, -32.21)
 
-[node name="Lilypad90" parent="." index="137" instance=ExtResource("31_qlson")]
+[node name="Lilypad90" parent="Lilys" index="124" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0281391, 0, -0.0325145, 0, 0.043, 0, 0.0325145, 0, 0.0281391, -45.4338, 0, -38.1928)
 
-[node name="Lilypad91" parent="." index="138" instance=ExtResource("31_qlson")]
+[node name="Lilypad91" parent="Lilys" index="125" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0122263, -0.00126573, 0.00423279, -0.000929797, 0.0129133, 0.00117577, -0.00431903, 0.000803048, -0.0122352, -45.8469, -0.370865, -12.1087)
 
-[node name="Lily36" type="MeshInstance3D" parent="." index="139"]
+[node name="Lily36" type="MeshInstance3D" parent="Lilys" index="126"]
 transform = Transform3D(-0.999964, 0, 0.00855172, 0, 1, 0, -0.00855172, 0, -0.999964, -44.0978, -0.177984, -15.8226)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad92" parent="." index="140" instance=ExtResource("31_qlson")]
+[node name="Lilypad92" parent="Lilys" index="127" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0328388, -0.003213, -0.000538749, -0.00323998, 0.0327799, 0.00199536, 0.000340882, 0.00203851, -0.0329352, -41.576, 0.0148971, -11.5803)
 
-[node name="Lilypad93" parent="." index="141" instance=ExtResource("33_13cmi")]
+[node name="Lilypad93" parent="Lilys" index="128" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.299989, 0, 0.00256555, 0, 0.3, 0, -0.00256555, 0, -0.299989, -40.6864, -0.177984, -14.6601)
 
-[node name="Lilypad94" parent="." index="142" instance=ExtResource("33_13cmi")]
+[node name="Lilypad94" parent="Lilys" index="129" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.531317, 0, -0.726431, 0, 0.9, 0, 0.726431, 0, -0.531317, -52.66, 0, 12.74)
 
-[node name="Lily37" type="MeshInstance3D" parent="." index="143"]
+[node name="Lily37" type="MeshInstance3D" parent="Lilys" index="130"]
 transform = Transform3D(-0.11277, 0, -0.993621, 0, 1, 0, 0.993621, 0, -0.11277, -50.0536, 0, 6.33673)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad95" parent="." index="144" instance=ExtResource("31_qlson")]
+[node name="Lilypad95" parent="Lilys" index="131" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0025937, 0, -0.0228533, 0, 0.023, 0, 0.0228533, 0, -0.0025937, -51.8465, 0.356704, 7.31114)
 
-[node name="Lily38" type="MeshInstance3D" parent="." index="145"]
+[node name="Lily38" type="MeshInstance3D" parent="Lilys" index="132"]
 transform = Transform3D(-0.11277, 0, -0.993621, 0, 1, 0, 0.993621, 0, -0.11277, -50.0835, 0, 8.03696)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad96" parent="." index="146" instance=ExtResource("31_qlson")]
+[node name="Lilypad96" parent="Lilys" index="133" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0144176, 0, -0.0296839, 0, 0.033, 0, 0.0296839, 0, -0.0144176, -47.1261, 0, 12.5737)
 
-[node name="Lilypad97" parent="." index="147" instance=ExtResource("33_13cmi")]
+[node name="Lilypad97" parent="Lilys" index="134" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.0676617, 0, -0.596173, 0, 0.6, 0, 0.596173, 0, -0.0676617, -54.5631, 0, 8.21551)
 
-[node name="Lilypad98" parent="." index="148" instance=ExtResource("31_qlson")]
+[node name="Lilypad98" parent="Lilys" index="135" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0097664, 0, 0.0208235, 0, 0.023, 0, -0.0208235, 0, -0.0097664, -57.5053, 0.356704, 11.7809)
 
-[node name="Lilypad99" parent="." index="149" instance=ExtResource("33_13cmi")]
+[node name="Lilypad99" parent="Lilys" index="136" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.963144, 0, 0.268987, 0, 1, 0, -0.268987, 0, -0.963144, -57.7147, 0, 16.0548)
 
-[node name="Lilypad100" parent="." index="150" instance=ExtResource("31_qlson")]
+[node name="Lilypad100" parent="Lilys" index="137" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00161922, 0, 0.0229429, 0, 0.023, 0, -0.0229429, 0, -0.00161922, -55.6046, 0.356704, 4.19155)
 
-[node name="Lilypad101" parent="." index="151" instance=ExtResource("33_13cmi")]
+[node name="Lilypad101" parent="Lilys" index="138" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.0422405, 0, 0.598511, 0, 0.6, 0, -0.598511, 0, -0.0422405, -53.0986, 0, 2.80675)
 
-[node name="Lilypad102" parent="." index="152" instance=ExtResource("33_13cmi")]
+[node name="Lilypad102" parent="Lilys" index="139" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.897181, 0, 0.0711768, 0, 0.9, 0, -0.0711768, 0, -0.897181, -61.239, 0, 13.3544)
 
-[node name="Lilypad103" parent="." index="153" instance=ExtResource("31_qlson")]
+[node name="Lilypad103" parent="Lilys" index="140" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.020816, 0, -0.00978239, 0, 0.023, 0, 0.00978239, 0, -0.020816, -57.4153, 0.356704, 9.31632)
 
-[node name="Lilypad104" parent="." index="154" instance=ExtResource("33_13cmi")]
+[node name="Lilypad104" parent="Lilys" index="141" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.543025, 0, -0.255193, 0, 0.6, 0, 0.255193, 0, -0.543025, -59.6105, 0, 7.47817)
 
-[node name="Lilypad105" parent="." index="155" instance=ExtResource("33_13cmi")]
+[node name="Lilypad105" parent="Lilys" index="142" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.662886, 0, -0.447863, 0, 0.8, 0, 0.447863, 0, 0.662886, -10.2811, 0, -51.1661)
 
-[node name="Lilypad106" parent="." index="156" instance=ExtResource("33_13cmi")]
+[node name="Lilypad106" parent="Lilys" index="143" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.97835, 0, -0.206955, 0, 1, 0, 0.206955, 0, 0.97835, 2.79823, 0, -53.4769)
 
-[node name="Lilypad107" parent="." index="157" instance=ExtResource("33_13cmi")]
+[node name="Lilypad107" parent="Lilys" index="144" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.789197, 0, -0.432628, 0, 0.9, 0, 0.432628, 0, 0.789197, 0.537768, 0, -56.825)
 
-[node name="Lily39" type="MeshInstance3D" parent="." index="158"]
+[node name="Lily39" type="MeshInstance3D" parent="Lilys" index="145"]
 transform = Transform3D(0.999855, 0, 0.0170337, 0, 1, 0, -0.0170337, 0, 0.999855, -8.40072, 0, -53.4153)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad108" parent="." index="159" instance=ExtResource("31_qlson")]
+[node name="Lilypad108" parent="Lilys" index="146" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0229967, 0, 0.000391773, 0, 0.023, 0, -0.000391773, 0, 0.0229967, -9.20793, 0, -51.5438)
 
-[node name="Lily40" type="MeshInstance3D" parent="." index="160"]
+[node name="Lily40" type="MeshInstance3D" parent="Lilys" index="147"]
 transform = Transform3D(0.999855, 0, 0.0170337, 0, 1, 0, -0.0170337, 0, 0.999855, -6.71097, 0, -53.6061)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad109" parent="." index="161" instance=ExtResource("33_13cmi")]
+[node name="Lilypad109" parent="Lilys" index="148" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.912178, 0, -0.409796, 0, 1, 0, 0.409796, 0, 0.912178, -11.3258, 0, -50.9049)
 
-[node name="Lilypad110" parent="." index="162" instance=ExtResource("31_qlson")]
+[node name="Lilypad110" parent="Lilys" index="149" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0229967, 0, 0.000391773, 0, 0.023, 0, -0.000391773, 0, 0.0229967, -17.6207, 0, -49.6484)
 
-[node name="Lilypad111" parent="." index="163" instance=ExtResource("33_13cmi")]
+[node name="Lilypad111" parent="Lilys" index="150" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.599913, 0, 0.0102203, 0, 0.6, 0, -0.0102203, 0, 0.599913, -7.95892, 0, -48.9675)
 
-[node name="Lily41" type="MeshInstance3D" parent="." index="164"]
+[node name="Lily41" type="MeshInstance3D" parent="Lilys" index="151"]
 transform = Transform3D(0.109023, 0, -0.994039, 0, 1, 0, 0.994039, 0, 0.109023, -2.33401, 0, -49.7311)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily42" type="MeshInstance3D" parent="." index="165"]
+[node name="Lily42" type="MeshInstance3D" parent="Lilys" index="152"]
 transform = Transform3D(0.109023, 0, -0.994039, 0, 1, 0, 0.994039, 0, 0.109023, -1.17812, 0, -48.5145)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily43" type="MeshInstance3D" parent="." index="166"]
+[node name="Lily43" type="MeshInstance3D" parent="Lilys" index="153"]
 transform = Transform3D(-0.942472, 0, 0.334284, 0, 1, 0, -0.334284, 0, -0.942472, -3.38868, 0, -49.2368)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily44" type="MeshInstance3D" parent="." index="167"]
+[node name="Lily44" type="MeshInstance3D" parent="Lilys" index="154"]
 transform = Transform3D(0.109023, 0, -0.994039, 0, 1, 0, 0.994039, 0, 0.109023, -3.91151, 0, -55.3612)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily45" type="MeshInstance3D" parent="." index="168"]
+[node name="Lily45" type="MeshInstance3D" parent="Lilys" index="155"]
 transform = Transform3D(0.596799, 0, -0.0618942, 0, 0.6, 0, 0.0618942, 0, 0.596799, -5.01095, 0, -53.9885)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily46" type="MeshInstance3D" parent="." index="169"]
+[node name="Lily46" type="MeshInstance3D" parent="Lilys" index="156"]
 transform = Transform3D(0.405949, 0, 1.23499, 0, 1.3, 0, -1.23499, 0, 0.405949, -3.51582, 0, -51.7499)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily47" type="MeshInstance3D" parent="." index="170"]
+[node name="Lily47" type="MeshInstance3D" parent="Lilys" index="157"]
 transform = Transform3D(0.999855, 0, 0.0170337, 0, 1, 0, -0.0170337, 0, 0.999855, -8.40072, 0, -53.4153)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad112" parent="." index="171" instance=ExtResource("33_13cmi")]
+[node name="Lilypad112" parent="Lilys" index="158" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.492576, 0, -0.22129, 0, 0.54, 0, 0.22129, 0, 0.492576, -11.6354, 0, -53.7279)
 
-[node name="Lily48" type="MeshInstance3D" parent="." index="172"]
+[node name="Lily48" type="MeshInstance3D" parent="Lilys" index="159"]
 transform = Transform3D(-0.407964, 0, -0.912998, 0, 1, 0, 0.912998, 0, -0.407964, -18.5153, 0, -41.7122)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad113" parent="." index="173" instance=ExtResource("31_qlson")]
+[node name="Lilypad113" parent="Lilys" index="160" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00938317, 0, -0.020999, 0, 0.023, 0, 0.020999, 0, -0.00938317, -20.5189, 0, -41.3256)
 
-[node name="Lilypad114" parent="." index="174" instance=ExtResource("33_13cmi")]
+[node name="Lilypad114" parent="Lilys" index="161" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.757508, 0, -0.652826, 0, 1, 0, 0.652826, 0, -0.757508, -18.8967, 0, -44.6276)
 
-[node name="Lilypad115" parent="." index="175" instance=ExtResource("33_13cmi")]
+[node name="Lilypad115" parent="Lilys" index="162" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.244778, 0, -0.547799, 0, 0.6, 0, 0.547799, 0, -0.244778, -23.3818, 0, -41.285)
 
-[node name="Lilypad116" parent="." index="176" instance=ExtResource("33_13cmi")]
+[node name="Lilypad116" parent="Lilys" index="163" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.122389, 0, -0.273899, 0, 0.3, 0, 0.273899, 0, -0.122389, -15.8496, 0, -41.4397)
 
-[node name="Lilypad117" parent="." index="177" instance=ExtResource("31_qlson")]
+[node name="Lilypad117" parent="Lilys" index="164" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0229824, 0, -0.000899768, 0, 0.023, 0, 0.000899768, 0, -0.0229824, -22.7346, 0, -43.9381)
 
-[node name="Lily49" type="MeshInstance3D" parent="." index="178"]
+[node name="Lily49" type="MeshInstance3D" parent="Lilys" index="165"]
 transform = Transform3D(0.507132, 0, -0.861868, 0, 1, 0, 0.861868, 0, 0.507132, -14.4732, 0, -46.9191)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad118" parent="." index="179" instance=ExtResource("33_13cmi")]
+[node name="Lilypad118" parent="Lilys" index="166" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.279846, 0, -0.960045, 0, 1, 0, 0.960045, 0, -0.279846, -11.2098, 0, -44.0991)
 
-[node name="Lilypad119" parent="." index="180" instance=ExtResource("31_qlson")]
+[node name="Lilypad119" parent="Lilys" index="167" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0201801, 0, -0.0110346, 0, 0.023, 0, 0.0110346, 0, -0.0201801, -7.64891, 0, -45.7042)
 
-[node name="Lilypad120" parent="." index="181" instance=ExtResource("33_13cmi")]
+[node name="Lilypad120" parent="Lilys" index="168" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.72217, 0, 0.344195, 0, 0.8, 0, -0.344195, 0, 0.72217, -26.3286, 0, -45.1314)
 
-[node name="Lily50" type="MeshInstance3D" parent="." index="182"]
+[node name="Lily50" type="MeshInstance3D" parent="Lilys" index="169"]
 transform = Transform3D(0.91202, 0, -0.410146, 0, 1, 0, 0.410146, 0, 0.91202, -21.0616, 0, -51.253)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily51" type="MeshInstance3D" parent="." index="183"]
+[node name="Lily51" type="MeshInstance3D" parent="Lilys" index="170"]
 transform = Transform3D(0.91202, 0, -0.410146, 0, 1, 0, 0.410146, 0, 0.91202, -19.4268, 0, -51.6322)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily52" type="MeshInstance3D" parent="." index="184"]
+[node name="Lily52" type="MeshInstance3D" parent="Lilys" index="171"]
 transform = Transform3D(-0.766067, 0, -0.642761, 0, 1, 0, 0.642761, 0, -0.766067, -21.1704, 0, -50.0933)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad121" parent="." index="185" instance=ExtResource("33_13cmi")]
+[node name="Lilypad121" parent="Lilys" index="172" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.237771, 0, -0.971321, 0, 1, 0, 0.971321, 0, -0.237771, -28.4748, 0, -58.6162)
 
-[node name="Lilypad122" parent="." index="186" instance=ExtResource("33_13cmi")]
+[node name="Lilypad122" parent="Lilys" index="173" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.796473, 0, 0.0750364, 0, 0.8, 0, -0.0750364, 0, -0.796473, -32.1144, 0, -44.9735)
 
-[node name="Lilypad123" parent="." index="187" instance=ExtResource("31_qlson")]
+[node name="Lilypad123" parent="Lilys" index="174" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0199908, 0, -0.0113739, 0, 0.023, 0, 0.0113739, 0, -0.0199908, -28.7734, 0, -48.5496)
 
-[node name="Lilypad124" parent="." index="188" instance=ExtResource("33_13cmi")]
+[node name="Lilypad124" parent="Lilys" index="175" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.996958, 0, -0.0779372, 0, 1, 0, 0.0779372, 0, -0.996958, -27.2216, 0, -50.126)
 
-[node name="Lilypad125" parent="." index="189" instance=ExtResource("31_qlson")]
+[node name="Lilypad125" parent="Lilys" index="176" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0199908, 0, -0.0113739, 0, 0.023, 0, 0.0113739, 0, -0.0199908, -22.3007, 0, -54.2479)
 
-[node name="Lilypad126" parent="." index="190" instance=ExtResource("33_13cmi")]
+[node name="Lilypad126" parent="Lilys" index="177" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.538357, 0, -0.0420861, 0, 0.54, 0, 0.0420861, 0, -0.538357, -25.5958, 0, -47.7974)
 
-[node name="Lilypad127" parent="." index="191" instance=ExtResource("33_13cmi")]
+[node name="Lilypad127" parent="Lilys" index="178" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.351564, 0, 0.936164, 0, 1, 0, -0.936164, 0, 0.351564, -23.5892, 0, -59.2654)
 
-[node name="Lilypad128" parent="." index="192" instance=ExtResource("33_13cmi")]
+[node name="Lilypad128" parent="Lilys" index="179" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.0479628, 0, 0.59808, 0, 0.6, 0, -0.59808, 0, -0.0479628, -32.8711, 0, -57.0613)
 
-[node name="Lilypad129" parent="." index="193" instance=ExtResource("31_qlson")]
+[node name="Lilypad129" parent="Lilys" index="180" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0197347, 0, 0.0118128, 0, 0.023, 0, -0.0118128, 0, 0.0197347, -34.5154, 0, -54.3535)
 
-[node name="Lily53" type="MeshInstance3D" parent="." index="194"]
+[node name="Lily53" type="MeshInstance3D" parent="Lilys" index="181"]
 transform = Transform3D(-0.858378, 0, 0.513017, 0, 1, 0, -0.513017, 0, -0.858378, -26.3716, 0, -55.133)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad130" parent="." index="195" instance=ExtResource("33_13cmi")]
+[node name="Lilypad130" parent="Lilys" index="182" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.468589, 0, -0.648401, 0, 0.8, 0, 0.648401, 0, -0.468589, -28.4406, 0, -55.0997)
 
-[node name="Lily54" type="MeshInstance3D" parent="." index="196"]
+[node name="Lily54" type="MeshInstance3D" parent="Lilys" index="183"]
 transform = Transform3D(-0.996988, 0, -0.0775543, 0, 1, 0, 0.0775543, 0, -0.996988, -18.5117, 0, -54.4903)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily55" type="MeshInstance3D" parent="." index="197"]
+[node name="Lily55" type="MeshInstance3D" parent="Lilys" index="184"]
 transform = Transform3D(-0.996988, 0, -0.0775543, 0, 1, 0, 0.0775543, 0, -0.996988, -19.7643, 0, -53.3734)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily56" type="MeshInstance3D" parent="." index="198"]
+[node name="Lily56" type="MeshInstance3D" parent="Lilys" index="185"]
 transform = Transform3D(0.363902, 0, 0.931437, 0, 1, 0, -0.931437, 0, 0.363902, -18.9725, 0, -55.56)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad131" parent="." index="199" instance=ExtResource("33_13cmi")]
+[node name="Lilypad131" parent="Lilys" index="186" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.20351, 0, -0.500183, 0, 0.54, 0, 0.500183, 0, -0.20351, -21.7913, 0, -47.7974)
 
-[node name="Lilypad132" parent="." index="200" instance=ExtResource("31_qlson")]
+[node name="Lilypad132" parent="Lilys" index="187" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00221044, 0, -0.0228935, 0, 0.023, 0, 0.0228935, 0, -0.00221044, -20.5999, 0, -38.0503)
 
-[node name="Lilypad133" parent="." index="201" instance=ExtResource("33_13cmi")]
+[node name="Lilypad133" parent="Lilys" index="188" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.0576637, 0, -0.597223, 0, 0.6, 0, 0.597223, 0, -0.0576637, -23.3009, 0, -37.1005)
 
-[node name="Lilypad134" parent="." index="202" instance=ExtResource("33_13cmi")]
+[node name="Lilypad134" parent="Lilys" index="189" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.712513, 0, -0.363764, 0, 0.8, 0, 0.363764, 0, 0.712513, -39.8473, 0, -79.9174)
 
-[node name="Lilypad135" parent="." index="203" instance=ExtResource("33_13cmi")]
+[node name="Lilypad135" parent="Lilys" index="190" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.996276, 0, -0.0862167, 0, 1, 0, 0.0862167, 0, 0.996276, 9.16492, 0, -46.8176)
 
-[node name="Lilypad136" parent="." index="204" instance=ExtResource("33_13cmi")]
+[node name="Lilypad136" parent="Lilys" index="191" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.836027, 0, -0.333253, 0, 0.9, 0, 0.333253, 0, 0.836027, 6.51337, 0, -49.8654)
 
-[node name="Lily57" type="MeshInstance3D" parent="." index="205"]
+[node name="Lily57" type="MeshInstance3D" parent="Lilys" index="192"]
 transform = Transform3D(0.990331, 0, 0.138724, 0, 1, 0, -0.138724, 0, 0.990331, -38.255, 0, -82.3789)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad137" parent="." index="206" instance=ExtResource("31_qlson")]
+[node name="Lilypad137" parent="Lilys" index="193" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0227776, 0, 0.00319065, 0, 0.023, 0, -0.00319065, 0, 0.0227776, -38.8281, 0, -80.423)
 
-[node name="Lily58" type="MeshInstance3D" parent="." index="207"]
+[node name="Lily58" type="MeshInstance3D" parent="Lilys" index="194"]
 transform = Transform3D(0.990331, 0, 0.138724, 0, 1, 0, -0.138724, 0, 0.990331, -0.289191, 0, -45.7873)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad138" parent="." index="208" instance=ExtResource("33_13cmi")]
+[node name="Lilypad138" parent="Lilys" index="195" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.594199, 0, 0.0832344, 0, 0.6, 0, -0.0832344, 0, 0.594199, -10.2705, 0, -58.8024)
 
-[node name="Lily59" type="MeshInstance3D" parent="." index="209"]
+[node name="Lily59" type="MeshInstance3D" parent="Lilys" index="196"]
 transform = Transform3D(0.22932, 0, -0.973351, 0, 1, 0, 0.973351, 0, 0.22932, -4.78051, 0, -60.2456)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily60" type="MeshInstance3D" parent="." index="210"]
+[node name="Lily60" type="MeshInstance3D" parent="Lilys" index="197"]
 transform = Transform3D(0.22932, 0, -0.973351, 0, 1, 0, 0.973351, 0, 0.22932, -3.485, 0, -59.1789)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily61" type="MeshInstance3D" parent="." index="211"]
+[node name="Lily61" type="MeshInstance3D" parent="Lilys" index="198"]
 transform = Transform3D(-0.976179, 0, 0.216968, 0, 1, 0, -0.216968, 0, -0.976179, -5.76709, 0, -59.6265)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily62" type="MeshInstance3D" parent="." index="212"]
+[node name="Lily62" type="MeshInstance3D" parent="Lilys" index="199"]
 transform = Transform3D(0.22932, 0, -0.973351, 0, 1, 0, 0.973351, 0, 0.22932, 2.27558, 0, -47.8705)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily63" type="MeshInstance3D" parent="." index="213"]
+[node name="Lily63" type="MeshInstance3D" parent="Lilys" index="200"]
 transform = Transform3D(0.599894, 0, 0.0112777, 0, 0.6, 0, -0.0112777, 0, 0.599894, 1.35158, 0, -46.374)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily64" type="MeshInstance3D" parent="." index="214"]
+[node name="Lily64" type="MeshInstance3D" parent="Lilys" index="201"]
 transform = Transform3D(0.25246, 0, 1.27525, 0, 1.3, 0, -1.27525, 0, 0.25246, 3.1083, 0, -44.3343)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily65" type="MeshInstance3D" parent="." index="215"]
+[node name="Lily65" type="MeshInstance3D" parent="Lilys" index="202"]
 transform = Transform3D(0.990331, 0, 0.138724, 0, 1, 0, -0.138724, 0, 0.990331, -38.255, 0, -82.3789)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad139" parent="." index="216" instance=ExtResource("31_qlson")]
+[node name="Lilypad139" parent="Lilys" index="203" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0186854, 0, -0.013411, 0, 0.023, 0, 0.013411, 0, -0.0186854, -9.5652, 0, -55.6012)
 
-[node name="Lilypad140" parent="." index="217" instance=ExtResource("31_qlson")]
+[node name="Lilypad140" parent="Lilys" index="204" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.023, 0, 0, 0, 0.023, 0, 0, 0, 0.023, -16.5886, 0.356704, -53.1203)
 
-[node name="Lilypad141" parent="." index="218" instance=ExtResource("33_13cmi")]
+[node name="Lilypad141" parent="Lilys" index="205" instance=ExtResource("33_13cmi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1026, 0.356704, -56.9847)
 
-[node name="Lilypad142" parent="." index="219" instance=ExtResource("31_qlson")]
+[node name="Lilypad142" parent="Lilys" index="206" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.023, 0, 0, 0, 0.023, 0, 0, 0, 0.023, -32.5362, 0.356688, -51.9162)
 
-[node name="Lilypad143" parent="." index="220" instance=ExtResource("33_13cmi")]
+[node name="Lilypad143" parent="Lilys" index="207" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.225263, 0, 0.435151, 0, 0.49, 0, -0.435151, 0, 0.225263, 31.521, 0, -0.868033)
 
-[node name="Lilypad144" parent="." index="221" instance=ExtResource("31_qlson")]
+[node name="Lilypad144" parent="Lilys" index="208" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0198634, 0, -0.0115951, 0, 0.023, 0, 0.0115951, 0, 0.0198634, 29.0388, 0, 1.00265)
 
-[node name="Lilypad145" parent="." index="222" instance=ExtResource("33_13cmi")]
+[node name="Lilypad145" parent="Lilys" index="209" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.705228, 0, 0.224172, 0, 0.74, 0, -0.224172, 0, 0.705228, 32.7354, 0, -4.42612)
 
-[node name="Lilypad146" parent="." index="223" instance=ExtResource("31_qlson")]
+[node name="Lilypad146" parent="Lilys" index="210" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.002582, 0, -0.012741, 0, 0.013, 0, 0.012741, 0, 0.002582, 29.224, 0, -3.71081)
 
-[node name="Lilypad147" parent="." index="224" instance=ExtResource("33_13cmi")]
+[node name="Lilypad147" parent="Lilys" index="211" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.434299, 0, 0.226901, 0, 0.49, 0, -0.226901, 0, 0.434299, 29.1002, 0, -1.82929)
 
-[node name="Lilypad148" parent="." index="225" instance=ExtResource("31_qlson")]
+[node name="Lilypad148" parent="Lilys" index="212" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.00930614, 0, -0.0210332, 0, 0.023, 0, 0.0210332, 0, 0.00930614, 22.0809, 0, 8.31534)
 
-[node name="Lilypad149" parent="." index="226" instance=ExtResource("31_qlson")]
+[node name="Lilypad149" parent="Lilys" index="213" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0026421, 0, -0.00964465, 0, 0.01, 0, 0.00964465, 0, -0.0026421, 10.9012, 0, 14.3319)
 
-[node name="Lilypad150" parent="." index="227" instance=ExtResource("31_qlson")]
+[node name="Lilypad150" parent="Lilys" index="214" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.00525999, 0, -0.0118883, 0, 0.013, 0, 0.0118883, 0, 0.00525999, 24.1655, 0, 9.09035)
 
-[node name="Lilypad151" parent="." index="228" instance=ExtResource("31_qlson")]
+[node name="Lilypad151" parent="Lilys" index="215" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0205358, 0, -0.0103576, 0, 0.023, 0, 0.0103576, 0, -0.0205358, 13.2829, 0, 15.3836)
 
-[node name="Lilypad152" parent="." index="229" instance=ExtResource("31_qlson")]
+[node name="Lilypad152" parent="Lilys" index="216" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0097659, 0, 0.0021511, 0, 0.01, 0, -0.0021511, 0, -0.0097659, 12.3968, 0, 13.3347)
 
-[node name="Lilypad153" parent="." index="230" instance=ExtResource("31_qlson")]
+[node name="Lilypad153" parent="Lilys" index="217" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.013, 0, 0, 0, 0.013, 0, 0, 0, 0.013, 14.4578, 0, 11.6522)
 
-[node name="Lilypad154" parent="." index="231" instance=ExtResource("33_13cmi")]
+[node name="Lilypad154" parent="Lilys" index="218" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.72217, 0, 0.344195, 0, 0.8, 0, -0.344195, 0, 0.72217, -23.391, 0, -66.045)
 
-[node name="Lilypad155" parent="." index="232" instance=ExtResource("33_13cmi")]
+[node name="Lilypad155" parent="Lilys" index="219" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.64015, 0, -0.632619, 0, 0.9, 0, 0.632619, 0, 0.64015, -31.4177, 0, -73.5905)
 
-[node name="Lily66" type="MeshInstance3D" parent="." index="233"]
+[node name="Lily66" type="MeshInstance3D" parent="Lilys" index="220"]
 transform = Transform3D(0.492378, 0, 0.870381, 0, 1, 0, -0.870381, 0, 0.492378, -35.0987, 0, -77.001)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad156" parent="." index="234" instance=ExtResource("31_qlson")]
+[node name="Lilypad156" parent="Lilys" index="221" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0113247, 0, 0.0200188, 0, 0.023, 0, -0.0200188, 0, 0.0113247, -35.2513, 0.356704, -65.3686)
 
-[node name="Lily67" type="MeshInstance3D" parent="." index="235"]
+[node name="Lily67" type="MeshInstance3D" parent="Lilys" index="222"]
 transform = Transform3D(0.492378, 0, 0.870381, 0, 1, 0, -0.870381, 0, 0.492378, -35.838, 0, -79.7057)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad157" parent="." index="236" instance=ExtResource("31_qlson")]
+[node name="Lilypad157" parent="Lilys" index="223" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0248782, 0, 0.0216812, 0, 0.033, 0, -0.0216812, 0, 0.0248782, -29.1761, 0, -69.481)
 
-[node name="Lilypad158" parent="." index="237" instance=ExtResource("33_13cmi")]
+[node name="Lilypad158" parent="Lilys" index="224" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.815785, 0, 0.578356, 0, 1, 0, -0.578356, 0, 0.815785, -24.4701, 0, -63.3192)
 
-[node name="Lilypad159" parent="." index="238" instance=ExtResource("33_13cmi")]
+[node name="Lilypad159" parent="Lilys" index="225" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.295427, 0, 0.522229, 0, 0.6, 0, -0.522229, 0, 0.295427, -32.3974, 0, -65.1386)
 
-[node name="Lilypad160" parent="." index="239" instance=ExtResource("33_13cmi")]
+[node name="Lilypad160" parent="Lilys" index="226" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.147713, 0, 0.261114, 0, 0.3, 0, -0.261114, 0, 0.147713, -38.5089, 0, -77.2858)
 
-[node name="Lily68" type="MeshInstance3D" parent="." index="240"]
+[node name="Lily68" type="MeshInstance3D" parent="Lilys" index="227"]
 transform = Transform3D(0.91202, 0, -0.410146, 0, 1, 0, 0.410146, 0, 0.91202, -30.2104, 0.350015, -68.8032)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily69" type="MeshInstance3D" parent="." index="241"]
+[node name="Lily69" type="MeshInstance3D" parent="Lilys" index="228"]
 transform = Transform3D(-0.766067, 0, -0.642761, 0, 1, 0, 0.642761, 0, -0.766067, -30.3192, 0.350015, -67.6436)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily70" type="MeshInstance3D" parent="." index="242"]
+[node name="Lily70" type="MeshInstance3D" parent="Lilys" index="229"]
 transform = Transform3D(-1.9943, 0, 0.150862, 0, 2, 0, -0.150862, 0, -1.9943, -38.0516, 0.356704, -73.8223)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily71" type="MeshInstance3D" parent="." index="243"]
+[node name="Lily71" type="MeshInstance3D" parent="Lilys" index="230"]
 transform = Transform3D(-0.16799, 0, -0.985789, 0, 1, 0, 0.985789, 0, -0.16799, -36.0979, 0.356704, -73.4041)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily72" type="MeshInstance3D" parent="." index="244"]
+[node name="Lily72" type="MeshInstance3D" parent="Lilys" index="231"]
 transform = Transform3D(0.356001, 0, 0.482974, 0, 0.6, 0, -0.482974, 0, 0.356001, -35.2298, 0.356704, -70.2256)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily73" type="MeshInstance3D" parent="." index="245"]
+[node name="Lily73" type="MeshInstance3D" parent="Lilys" index="232"]
 transform = Transform3D(-0.858531, 0, 0.976179, 0, 1.3, 0, -0.976179, 0, -0.858531, -32.5422, 0.356704, -68.955)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily74" type="MeshInstance3D" parent="." index="246"]
+[node name="Lily74" type="MeshInstance3D" parent="Lilys" index="233"]
 transform = Transform3D(0.492378, 0, 0.870381, 0, 1, 0, -0.870381, 0, 0.492378, -36.5305, 0, -78.1526)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad161" parent="." index="247" instance=ExtResource("31_qlson")]
+[node name="Lilypad161" parent="Lilys" index="234" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0248782, 0, 0.0216812, 0, 0.033, 0, -0.0216812, 0, 0.0248782, -29.1761, 0, -69.481)
 
-[node name="Lilypad162" parent="." index="248" instance=ExtResource("33_13cmi")]
+[node name="Lilypad162" parent="Lilys" index="235" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.147713, 0, 0.261114, 0, 0.3, 0, -0.261114, 0, 0.147713, -38.5089, 0, -77.2858)
 
-[node name="Lilypad163" parent="." index="249" instance=ExtResource("33_13cmi")]
+[node name="Lilypad163" parent="Lilys" index="236" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.440524, 0, 0.312312, 0, 0.54, 0, -0.312312, 0, 0.440524, -26.3094, 0, -66.322)
 
-[node name="Lilypad164" parent="." index="250" instance=ExtResource("31_qlson")]
+[node name="Lilypad164" parent="Lilys" index="237" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.000723652, 0, -0.0229886, 0, 0.023, 0, 0.0229886, 0, -0.000723652, -29.4277, 0.356704, -63.7509)
 
-[node name="Lilypad165" parent="." index="251" instance=ExtResource("31_qlson")]
+[node name="Lilypad165" parent="Lilys" index="238" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0171604, -0.000187602, 0.0153129, -0.000245635, 0.0229987, 6.49052e-06, -0.015312, -0.000158696, -0.0171615, -36.8595, 0.396895, -56.2232)
 
-[node name="Lilypad166" parent="." index="252" instance=ExtResource("31_qlson")]
+[node name="Lilypad166" parent="Lilys" index="239" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0159101, -0.000269168, 0.0289101, -0.000329262, 0.0329981, 0.000126026, -0.0289095, -0.000227694, -0.0159119, -39.5866, -0.0290409, -63.0296)
 
-[node name="Lilypad167" parent="." index="253" instance=ExtResource("33_13cmi")]
+[node name="Lilypad167" parent="Lilys" index="240" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.447664, -0.00489397, 0.399466, -0.00640788, 0.599966, 0.000169316, -0.399445, -0.00413989, -0.447691, -36.0264, 0.028075, -58.9608)
 
-[node name="Lily75" type="MeshInstance3D" parent="." index="254"]
+[node name="Lily75" type="MeshInstance3D" parent="Lilys" index="241"]
 transform = Transform3D(0.594251, -0.00815661, 0.804238, -0.000702348, 0.999943, 0.0106604, -0.80428, -0.00689982, 0.594211, -39.1466, 0.332533, -61.8776)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily76" type="MeshInstance3D" parent="." index="255"]
+[node name="Lily76" type="MeshInstance3D" parent="Lilys" index="242"]
 transform = Transform3D(0.46562, -0.00815661, -0.884947, 0.00990429, 0.999943, -0.00400533, 0.884929, -0.00689981, 0.465674, -38.0364, 0.344019, -61.5253)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily77" type="MeshInstance3D" parent="." index="256"]
+[node name="Lily77" type="MeshInstance3D" parent="Lilys" index="243"]
 transform = Transform3D(-0.396454, -0.00489396, 0.450333, -0.00634117, 0.599966, 0.000937581, -0.450315, -0.00413989, -0.396483, -41.6013, 0.350964, -57.2741)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lily78" type="MeshInstance3D" parent="." index="257"]
+[node name="Lily78" type="MeshInstance3D" parent="Lilys" index="244"]
 transform = Transform3D(-1.13604, -0.0106036, -0.631905, -0.00490599, 1.29993, -0.0129932, 0.631974, -0.00896976, -1.13601, -39.7895, 0.349479, -59.6311)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad168" parent="." index="258" instance=ExtResource("31_qlson")]
+[node name="Lilypad168" parent="Lilys" index="245" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0159101, -0.000269168, 0.0289101, -0.000329262, 0.0329981, 0.000126026, -0.0289095, -0.000227694, -0.0159119, -39.5866, -0.0290409, -63.0296)
 
-[node name="Lilypad169" parent="." index="259" instance=ExtResource("31_qlson")]
+[node name="Lilypad169" parent="Lilys" index="246" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0223112, -0.000187602, -0.00558336, 0.000220512, 0.0229987, 0.000108412, 0.00558216, -0.000158696, 0.0223118, -34.0434, 0.382964, -61.5711)
 
-[node name="Lilypad170" parent="." index="260" instance=ExtResource("33_13cmi")]
+[node name="Lilypad170" parent="Lilys" index="247" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.0160564, 0, 0.999871, 0, 1, 0, -0.999871, 0, 0.0160564, -35.171, 0, 1.9358)
 
-[node name="Lilypad171" parent="." index="261" instance=ExtResource("31_qlson")]
+[node name="Lilypad171" parent="Lilys" index="248" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.013413, 0, -0.018684, 0, 0.023, 0, 0.018684, 0, 0.013413, -34.6083, 0, 8.3302)
 
-[node name="Lilypad172" parent="." index="262" instance=ExtResource("33_13cmi")]
+[node name="Lilypad172" parent="Lilys" index="249" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.324814, 0, 0.504476, 0, 0.6, 0, -0.504476, 0, -0.324814, -32.8781, 0, -1.19975)
 
-[node name="Lilypad173" parent="." index="263" instance=ExtResource("31_qlson")]
+[node name="Lilypad173" parent="Lilys" index="250" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0113247, 0, 0.0200188, 0, 0.023, 0, -0.0200188, 0, 0.0113247, -37.5967, 0.356704, -68.9053)
 
-[node name="Lilypad174" parent="." index="264" instance=ExtResource("33_13cmi")]
+[node name="Lilypad174" parent="Lilys" index="251" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.295427, 0, 0.522229, 0, 0.6, 0, -0.522229, 0, 0.295427, -34.7428, 0, -68.6752)
 
-[node name="Lilypad175" parent="." index="265" instance=ExtResource("33_13cmi")]
+[node name="Lilypad175" parent="Lilys" index="252" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.531317, 0, -0.726431, 0, 0.9, 0, 0.726431, 0, -0.531317, -58.1997, 0, 19.567)
 
-[node name="Lilypad176" parent="." index="266" instance=ExtResource("31_qlson")]
+[node name="Lilypad176" parent="Lilys" index="253" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0097664, 0, 0.0208235, 0, 0.023, 0, -0.0208235, 0, -0.0097664, -63.0449, 0.356704, 18.6079)
 
-[node name="Lilypad177" parent="." index="267" instance=ExtResource("33_13cmi")]
+[node name="Lilypad177" parent="Lilys" index="254" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.963144, 0, 0.268987, 0, 1, 0, -0.268987, 0, -0.963144, -63.2544, 0, 22.8818)
 
-[node name="Lilypad178" parent="." index="268" instance=ExtResource("33_13cmi")]
+[node name="Lilypad178" parent="Lilys" index="255" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.996633, 0, -0.0819907, 0, 1, 0, 0.0819907, 0, 0.996633, -62.4213, 0, 27.4571)
 
-[node name="Lilypad179" parent="." index="269" instance=ExtResource("31_qlson")]
+[node name="Lilypad179" parent="Lilys" index="256" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0215484, 0, 0.00804161, 0, 0.023, 0, -0.00804161, 0, 0.0215484, -67.0824, 0, 24.9041)
 
-[node name="Lilypad180" parent="." index="270" instance=ExtResource("33_13cmi")]
+[node name="Lilypad180" parent="Lilys" index="257" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.346854, 0, 0.937919, 0, 1, 0, -0.937919, 0, 0.346854, -73.0473, 0, 26.8929)
 
-[node name="Lilypad181" parent="." index="271" instance=ExtResource("31_qlson")]
+[node name="Lilypad181" parent="Lilys" index="258" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0122153, 0, -0.00444818, 0, 0.013, 0, 0.00444818, 0, 0.0122153, -75.3851, 0, 28.6472)
 
-[node name="Lily79" type="MeshInstance3D" parent="." index="272"]
+[node name="Lily79" type="MeshInstance3D" parent="Lilys" index="259"]
 transform = Transform3D(1.87377, 0, 0.69927, 0, 2, 0, -0.69927, 0, 1.87377, -68.0471, 0, 28.5165)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad182" parent="." index="273" instance=ExtResource("31_qlson")]
+[node name="Lilypad182" parent="Lilys" index="260" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0225669, 0, 0.00444258, 0, 0.023, 0, -0.00444258, 0, -0.0225669, -88.6806, 0, 26.2538)
 
-[node name="Lilypad183" parent="." index="274" instance=ExtResource("33_13cmi")]
+[node name="Lilypad183" parent="Lilys" index="261" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.786903, 0, -0.617077, 0, 1, 0, 0.617077, 0, -0.786903, -86.0446, 0, 30.0242)
 
-[node name="Lilypad184" parent="." index="275" instance=ExtResource("31_qlson")]
+[node name="Lilypad184" parent="Lilys" index="262" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00807297, 0, 0.0101896, 0, 0.013, 0, -0.0101896, 0, -0.00807297, -81.7224, 0, 30.033)
 
-[node name="Lilypad185" parent="." index="276" instance=ExtResource("33_13cmi")]
+[node name="Lilypad185" parent="Lilys" index="263" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.303617, 0, 0.952794, 0, 1, 0, -0.952794, 0, 0.303617, -79.0676, 0.356704, 29.6885)
 
-[node name="Lilypad186" parent="." index="277" instance=ExtResource("33_13cmi")]
+[node name="Lilypad186" parent="Lilys" index="264" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.929184, 0, 0.369617, 0, 1, 0, -0.369617, 0, 0.929184, -82.6315, 0, 25.1246)
 
-[node name="Lilypad187" parent="." index="278" instance=ExtResource("31_qlson")]
+[node name="Lilypad187" parent="Lilys" index="265" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.00486526, 0, -0.0120553, 0, 0.013, 0, 0.0120553, 0, 0.00486526, -85.4994, 0, 24.5605)
 
-[node name="Lilypad188" parent="." index="279" instance=ExtResource("33_13cmi")]
+[node name="Lilypad188" parent="Lilys" index="266" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.646571, 0, 0.268228, 0, 0.7, 0, -0.268228, 0, 0.646571, -77.6087, 0.356704, 26.5108)
 
-[node name="Lily80" type="MeshInstance3D" parent="." index="280"]
+[node name="Lily80" type="MeshInstance3D" parent="Lilys" index="267"]
 transform = Transform3D(-0.086182, 0, -0.996279, 0, 1, 0, 0.996279, 0, -0.086182, -115.469, 0, 10.4466)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad189" parent="." index="281" instance=ExtResource("31_qlson")]
+[node name="Lilypad189" parent="Lilys" index="268" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00198219, 0, -0.0229144, 0, 0.023, 0, 0.0229144, 0, -0.00198219, -117.247, 0.356704, 9.45068)
 
-[node name="Lily81" type="MeshInstance3D" parent="." index="282"]
+[node name="Lily81" type="MeshInstance3D" parent="Lilys" index="269"]
 transform = Transform3D(-0.086182, 0, -0.996279, 0, 1, 0, 0.996279, 0, -0.086182, -115.454, 0, 12.147)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad190" parent="." index="283" instance=ExtResource("33_13cmi")]
+[node name="Lilypad190" parent="Lilys" index="270" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.501692, 0, -0.865047, 0, 1, 0, 0.865047, 0, -0.501692, -117.665, 0, 7.27824)
 
-[node name="Lilypad191" parent="." index="284" instance=ExtResource("31_qlson")]
+[node name="Lilypad191" parent="Lilys" index="271" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00198219, 0, -0.0229144, 0, 0.023, 0, 0.0229144, 0, -0.00198219, -118.265, 0, 0.887284)
 
-[node name="Lilypad192" parent="." index="285" instance=ExtResource("33_13cmi")]
+[node name="Lilypad192" parent="Lilys" index="272" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.0517091, 0, -0.597768, 0, 0.6, 0, 0.597768, 0, -0.0517091, -119.939, 0, 10.4273)
 
-[node name="Lily82" type="MeshInstance3D" parent="." index="286"]
+[node name="Lily82" type="MeshInstance3D" parent="Lilys" index="273"]
 transform = Transform3D(-0.086182, 0, -0.996279, 0, 1, 0, 0.996279, 0, -0.086182, -115.469, 0, 10.4466)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad193" parent="." index="287" instance=ExtResource("31_qlson")]
+[node name="Lilypad193" parent="Lilys" index="274" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0199192, 0, 0.011499, 0, 0.023, 0, -0.011499, 0, -0.0199192, -126.245, 0, -2.85392)
 
-[node name="Lilypad194" parent="." index="288" instance=ExtResource("33_13cmi")]
+[node name="Lilypad194" parent="Lilys" index="275" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.571215, 0, 0.820801, 0, 1, 0, -0.820801, 0, -0.571215, -123.127, 0, -0.899723)
 
-[node name="Lilypad195" parent="." index="289" instance=ExtResource("31_qlson")]
+[node name="Lilypad195" parent="Lilys" index="276" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.00147543, 0, 0.0229526, 0, 0.023, 0, -0.0229526, 0, 0.00147543, -123.417, 0, -4.78828)
 
-[node name="Lily83" type="MeshInstance3D" parent="." index="290"]
+[node name="Lily83" type="MeshInstance3D" parent="Lilys" index="277"]
 transform = Transform3D(-0.909577, 0, -0.415535, 0, 1, 0, 0.415535, 0, -0.909577, -121.304, 0.356703, 3.73653)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad196" parent="." index="291" instance=ExtResource("33_13cmi")]
+[node name="Lilypad196" parent="Lilys" index="278" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.926062, 0, 0.377372, 0, 1, 0, -0.377372, 0, -0.926062, -124.446, 0.356704, 6.69165)
 
-[node name="Lilypad197" parent="." index="292" instance=ExtResource("31_qlson")]
+[node name="Lilypad197" parent="Lilys" index="279" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0225669, 0, 0.00444258, 0, 0.023, 0, -0.00444258, 0, -0.0225669, -96.76, 0, 22.4049)
 
-[node name="Lilypad198" parent="." index="293" instance=ExtResource("33_13cmi")]
+[node name="Lilypad198" parent="Lilys" index="280" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.786903, 0, -0.617077, 0, 1, 0, 0.617077, 0, -0.786903, -94.1241, 0, 26.1753)
 
-[node name="Lily84" type="MeshInstance3D" parent="." index="294"]
+[node name="Lily84" type="MeshInstance3D" parent="Lilys" index="281"]
 transform = Transform3D(0.0694953, 0, 0.997582, 0, 1, 0, -0.997582, 0, 0.0694953, -112.478, 0, 13.8726)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad199" parent="." index="295" instance=ExtResource("31_qlson")]
+[node name="Lilypad199" parent="Lilys" index="282" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0015984, 0, 0.0229444, 0, 0.023, 0, -0.0229444, 0, 0.0015984, -110.683, 0.356704, 14.8387)
 
-[node name="Lily85" type="MeshInstance3D" parent="." index="296"]
+[node name="Lily85" type="MeshInstance3D" parent="Lilys" index="283"]
 transform = Transform3D(0.0694953, 0, 0.997582, 0, 1, 0, -0.997582, 0, 0.0694953, -112.522, 0, 12.1727)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad200" parent="." index="297" instance=ExtResource("33_13cmi")]
+[node name="Lilypad200" parent="Lilys" index="284" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.0416971, 0, 0.598549, 0, 0.6, 0, -0.598549, 0, 0.0416971, -108.009, 0, 13.8171)
 
-[node name="Lily86" type="MeshInstance3D" parent="." index="298"]
+[node name="Lily86" type="MeshInstance3D" parent="Lilys" index="285"]
 transform = Transform3D(0.0694953, 0, 0.997582, 0, 1, 0, -0.997582, 0, 0.0694953, -112.478, 0, 13.8726)
 mesh = ExtResource("34_hqfy3")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad201" parent="." index="299" instance=ExtResource("31_qlson")]
+[node name="Lilypad201" parent="Lilys" index="286" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0150454, 0, -0.0173964, 0, 0.023, 0, 0.0173964, 0, -0.0150454, -112.98, 0.356704, 8.93004)
 
-[node name="Lilypad202" parent="." index="300" instance=ExtResource("33_13cmi")]
+[node name="Lilypad202" parent="Lilys" index="287" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.392488, 0, -0.453821, 0, 0.6, 0, 0.453821, 0, -0.392488, -115.733, 0, 8.14242)
 
-[node name="Lilypad203" parent="." index="301" instance=ExtResource("31_qlson")]
+[node name="Lilypad203" parent="Lilys" index="288" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.000844008, 0, 0.0229845, 0, 0.023, 0, -0.0229845, 0, -0.000844008, -105.117, 0.356704, 16.6504)
 
-[node name="Lilypad204" parent="." index="302" instance=ExtResource("33_13cmi")]
+[node name="Lilypad204" parent="Lilys" index="289" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.391775, 0, 0.920061, 0, 1, 0, -0.920061, 0, 0.391775, -104.437, 0, 18.7552)
 
-[node name="Lilypad205" parent="." index="303" instance=ExtResource("33_13cmi")]
+[node name="Lilypad205" parent="Lilys" index="290" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.0220178, 0, 0.599596, 0, 0.6, 0, -0.599596, 0, -0.0220178, -102.566, 0, 15.3509)
 
-[node name="Lilypad206" parent="." index="304" instance=ExtResource("33_13cmi")]
+[node name="Lilypad206" parent="Lilys" index="291" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.333847, 0, 0.498544, 0, 0.6, 0, -0.498544, 0, 0.333847, -106.46, 0, 18.1345)
 
-[node name="Lilypad207" parent="." index="305" instance=ExtResource("31_qlson")]
+[node name="Lilypad207" parent="Lilys" index="292" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0225203, 0, 0.00467316, 0, 0.023, 0, -0.00467316, 0, 0.0225203, -129.135, 0, -7.32949)
 
-[node name="Lilypad208" parent="." index="306" instance=ExtResource("33_13cmi")]
+[node name="Lilypad208" parent="Lilys" index="293" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.972594, 0, -0.232512, 0, 1, 0, 0.232512, 0, 0.972594, -132.762, 0, -6.7137)
 
-[node name="Lilypad209" parent="." index="307" instance=ExtResource("31_qlson")]
+[node name="Lilypad209" parent="Lilys" index="294" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0141735, 0, -0.0181139, 0, 0.023, 0, 0.0181139, 0, 0.0141735, -129.958, 0, -4.00426)
 
-[node name="Lilypad210" parent="." index="308" instance=ExtResource("31_qlson")]
+[node name="Lilypad210" parent="Lilys" index="295" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00198219, 0, -0.0229144, 0, 0.023, 0, 0.0229144, 0, -0.00198219, -125.204, 0.356704, 4.19903)
 
-[node name="Lilypad211" parent="." index="309" instance=ExtResource("33_13cmi")]
+[node name="Lilypad211" parent="Lilys" index="296" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.501692, 0, -0.865047, 0, 1, 0, 0.865047, 0, -0.501692, -125.622, 0, 2.02659)
 
-[node name="Lilypad212" parent="." index="310" instance=ExtResource("33_13cmi")]
+[node name="Lilypad212" parent="Lilys" index="297" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.0517091, 0, -0.597768, 0, 0.6, 0, 0.597768, 0, -0.0517091, -127.896, 0, 5.17565)
 
-[node name="Lilypad213" parent="." index="311" instance=ExtResource("33_13cmi")]
+[node name="Lilypad213" parent="Lilys" index="298" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.926062, 0, 0.377372, 0, 1, 0, -0.377372, 0, -0.926062, -132.403, 0.356704, 1.44)
 
-[node name="Lilypad214" parent="." index="312" instance=ExtResource("33_13cmi")]
+[node name="Lilypad214" parent="Lilys" index="299" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.996633, 0, -0.0819907, 0, 1, 0, 0.0819907, 0, 0.996633, -135.081, 0, -3.17306)
 
-[node name="Lilypad215" parent="." index="313" instance=ExtResource("31_qlson")]
+[node name="Lilypad215" parent="Lilys" index="300" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0215484, 0, 0.00804161, 0, 0.023, 0, -0.00804161, 0, 0.0215484, -139.742, 0, -5.72608)
 
-[node name="Lilypad216" parent="." index="314" instance=ExtResource("33_13cmi")]
+[node name="Lilypad216" parent="Lilys" index="301" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.346854, 0, 0.937919, 0, 1, 0, -0.937919, 0, 0.346854, -145.707, 0, -3.7373)
 
-[node name="Lilypad217" parent="." index="315" instance=ExtResource("31_qlson")]
+[node name="Lilypad217" parent="Lilys" index="302" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0122153, 0, -0.00444818, 0, 0.013, 0, 0.00444818, 0, 0.0122153, -148.044, 0, -1.98295)
 
-[node name="Lily87" type="MeshInstance3D" parent="." index="316"]
+[node name="Lily87" type="MeshInstance3D" parent="Lilys" index="303"]
 transform = Transform3D(1.87377, 0, 0.69927, 0, 2, 0, -0.69927, 0, 1.87377, -140.706, 0, -2.1137)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad218" parent="." index="317" instance=ExtResource("31_qlson")]
+[node name="Lilypad218" parent="Lilys" index="304" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0225669, 0, 0.00444258, 0, 0.023, 0, -0.00444258, 0, -0.0225669, -162.959, 0, -9.37121)
 
-[node name="Lilypad219" parent="." index="318" instance=ExtResource("33_13cmi")]
+[node name="Lilypad219" parent="Lilys" index="305" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.786903, 0, -0.617077, 0, 1, 0, 0.617077, 0, -0.786903, -160.323, 0, -5.60077)
 
-[node name="Lilypad220" parent="." index="319" instance=ExtResource("31_qlson")]
+[node name="Lilypad220" parent="Lilys" index="306" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00807297, 0, 0.0101896, 0, 0.013, 0, -0.0101896, 0, -0.00807297, -154.382, 0, -3.28332)
 
-[node name="Lilypad221" parent="." index="320" instance=ExtResource("33_13cmi")]
+[node name="Lilypad221" parent="Lilys" index="307" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.303617, 0, 0.952794, 0, 1, 0, -0.952794, 0, 0.303617, -151.727, 0, -3.62782)
 
-[node name="Lilypad222" parent="." index="321" instance=ExtResource("33_13cmi")]
+[node name="Lilypad222" parent="Lilys" index="308" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.929184, 0, 0.369617, 0, 1, 0, -0.369617, 0, 0.929184, -155.291, 0, -8.19178)
 
-[node name="Lilypad223" parent="." index="322" instance=ExtResource("31_qlson")]
+[node name="Lilypad223" parent="Lilys" index="309" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.00486526, 0, -0.0120553, 0, 0.013, 0, 0.0120553, 0, 0.00486526, -157.327, 0, -9.35378)
 
-[node name="Lilypad224" parent="." index="323" instance=ExtResource("33_13cmi")]
+[node name="Lilypad224" parent="Lilys" index="310" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.646571, 0, 0.268228, 0, 0.7, 0, -0.268228, 0, 0.646571, -150.268, 0, -6.80556)
 
-[node name="Lilypad225" parent="." index="324" instance=ExtResource("33_13cmi")]
+[node name="Lilypad225" parent="Lilys" index="311" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.786903, 0, -0.617077, 0, 1, 0, 0.617077, 0, -0.786903, -167.192, 0, -9.44967)
 
-[node name="Lilypad226" parent="." index="325" instance=ExtResource("33_13cmi")]
+[node name="Lilypad226" parent="Lilys" index="312" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.390608, 0, -0.45544, 0, 0.6, 0, 0.45544, 0, -0.390608, -171.77, 0, -10.177)
 
-[node name="Lilypad227" parent="." index="326" instance=ExtResource("33_13cmi")]
+[node name="Lilypad227" parent="Lilys" index="313" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.532211, 0, 0.846611, 0, 1, 0, -0.846611, 0, -0.532211, -173.253, 0.356704, -15.8401)
 
-[node name="Lilypad228" parent="." index="327" instance=ExtResource("31_qlson")]
+[node name="Lilypad228" parent="Lilys" index="314" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0149733, 0, -0.0174585, 0, 0.023, 0, 0.0174585, 0, -0.0149733, -172.415, 0.356704, -18.3072)
 
-[node name="Lilypad229" parent="." index="328" instance=ExtResource("33_13cmi")]
+[node name="Lilypad229" parent="Lilys" index="315" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.390608, 0, -0.45544, 0, 0.6, 0, 0.45544, 0, -0.390608, -175.171, 0, -19.0835)
 
-[node name="Lilypad230" parent="." index="329" instance=ExtResource("33_13cmi")]
+[node name="Lilypad230" parent="Lilys" index="316" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.532211, 0, 0.846611, 0, 1, 0, -0.846611, 0, -0.532211, -176.654, 0.356704, -24.7465)
 
-[node name="Lilypad231" parent="." index="330" instance=ExtResource("33_13cmi")]
+[node name="Lilypad231" parent="Lilys" index="317" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.0517091, 0, -0.597768, 0, 0.6, 0, 0.597768, 0, -0.0517091, -125.903, 0, -8.77881)
 
-[node name="Lilypad232" parent="." index="331" instance=ExtResource("31_qlson")]
+[node name="Lilypad232" parent="Lilys" index="318" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0201184, 0, 0.0111468, 0, 0.023, 0, -0.0111468, 0, -0.0201184, -123.417, 0, -8.77625)
 
-[node name="Lilypad233" parent="." index="332" instance=ExtResource("33_13cmi")]
+[node name="Lilypad233" parent="Lilys" index="319" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -124.231, 0.356704, -7.36074)
 
-[node name="Lilypad234" parent="." index="333" instance=ExtResource("33_13cmi")]
+[node name="Lilypad234" parent="Lilys" index="320" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -124.089, 0.356704, -12.8112)
 
-[node name="Lilypad235" parent="." index="334" instance=ExtResource("33_13cmi")]
+[node name="Lilypad235" parent="Lilys" index="321" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.192622, 0, 0.350566, 0, 0.4, 0, -0.350566, 0, 0.192622, -122.996, 0.356704, -14.4828)
 
-[node name="Lilypad236" parent="." index="335" instance=ExtResource("31_qlson")]
+[node name="Lilypad236" parent="Lilys" index="322" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.013, 0, 0, 0, 0.013, 0, 0, 0, 0.013, -122.23, 0.356704, -16.0407)
 
-[node name="Lilypad237" parent="." index="336" instance=ExtResource("33_13cmi")]
+[node name="Lilypad237" parent="Lilys" index="323" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.281546, 0, -0.284133, 0, 0.4, 0, 0.284133, 0, -0.281546, -119.193, 0.356704, -19.9043)
 
-[node name="Lilypad238" parent="." index="337" instance=ExtResource("31_qlson")]
+[node name="Lilypad238" parent="Lilys" index="324" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0127128, 0, 0.0027175, 0, 0.013, 0, -0.0027175, 0, -0.0127128, -121.297, 0.356704, -16.3307)
 
-[node name="Lilypad239" parent="." index="338" instance=ExtResource("33_13cmi")]
+[node name="Lilypad239" parent="Lilys" index="325" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -119.889, 0.356704, -19.4778)
 
-[node name="Lilypad240" parent="." index="339" instance=ExtResource("33_13cmi")]
+[node name="Lilypad240" parent="Lilys" index="326" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.00914148, 0, -0.0995813, 0, 0.1, 0, 0.0995813, 0, 0.00914148, -118.332, 0.356704, -23.1907)
 
-[node name="Lilypad241" parent="." index="340" instance=ExtResource("33_13cmi")]
+[node name="Lilypad241" parent="Lilys" index="327" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -118.758, 0.356704, -22.9131)
 
-[node name="Lilypad242" parent="." index="341" instance=ExtResource("33_13cmi")]
+[node name="Lilypad242" parent="Lilys" index="328" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.018283, 0, -0.199163, 0, 0.2, 0, 0.199163, 0, 0.018283, -120.51, 0.356704, -17.6304)
 
-[node name="Lilypad243" parent="." index="342" instance=ExtResource("33_13cmi")]
+[node name="Lilypad243" parent="Lilys" index="329" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -122.353, 0.283487, -14.6892)
 
-[node name="Lilypad244" parent="." index="343" instance=ExtResource("33_13cmi")]
+[node name="Lilypad244" parent="Lilys" index="330" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.0274244, 0, -0.298744, 0, 0.3, 0, 0.298744, 0, 0.0274244, -119.739, 0.283487, -18.4589)
 
-[node name="Lilypad245" parent="." index="344" instance=ExtResource("31_qlson")]
+[node name="Lilypad245" parent="Lilys" index="331" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0107835, 0, 0.00526459, 0, 0.012, 0, -0.00526459, 0, 0.0107835, -118.661, 0.356704, -22.1899)
 
-[node name="Lilypad246" parent="." index="345" instance=ExtResource("33_13cmi")]
+[node name="Lilypad246" parent="Lilys" index="332" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.336759, 0, 0.215855, 0, 0.4, 0, -0.215855, 0, 0.336759, -117.451, 0.356704, -24.9288)
 
-[node name="Lilypad247" parent="." index="346" instance=ExtResource("33_13cmi")]
+[node name="Lilypad247" parent="Lilys" index="333" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.0270111, 0, 0.399087, 0, 0.4, 0, -0.399087, 0, -0.0270111, -117.433, 0.356704, -26.926)
 
-[node name="Lilypad248" parent="." index="347" instance=ExtResource("31_qlson")]
+[node name="Lilypad248" parent="Lilys" index="334" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0109447, 0, 0.00701529, 0, 0.013, 0, -0.00701529, 0, 0.0109447, -117.629, 0.356704, -28.651)
 
-[node name="Lilypad249" parent="." index="348" instance=ExtResource("31_qlson")]
+[node name="Lilypad249" parent="Lilys" index="335" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0121693, 0, -0.00457245, 0, 0.013, 0, 0.00457245, 0, -0.0121693, -116.621, 0.356704, -29.3983)
 
-[node name="Lilypad250" parent="." index="349" instance=ExtResource("33_13cmi")]
+[node name="Lilypad250" parent="Lilys" index="336" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.0841897, 0, 0.0539638, 0, 0.1, 0, -0.0539638, 0, 0.0841897, -117.134, 0.356704, -32.8076)
 
-[node name="Lilypad251" parent="." index="350" instance=ExtResource("33_13cmi")]
+[node name="Lilypad251" parent="Lilys" index="337" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.122868, 0, -0.157808, 0, 0.2, 0, 0.157808, 0, 0.122868, -116.66, 0.356704, -30.9173)
 
-[node name="Lilypad252" parent="." index="351" instance=ExtResource("33_13cmi")]
+[node name="Lilypad252" parent="Lilys" index="338" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.0841897, 0, 0.0539638, 0, 0.1, 0, -0.0539638, 0, 0.0841897, -117.003, 0.283487, -27.4467)
 
-[node name="Lilypad253" parent="." index="352" instance=ExtResource("33_13cmi")]
+[node name="Lilypad253" parent="Lilys" index="339" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.184302, 0, -0.236712, 0, 0.3, 0, 0.236712, 0, 0.184302, -116.458, 0.283487, -32.0308)
 
-[node name="Lilypad254" parent="." index="353" instance=ExtResource("31_qlson")]
+[node name="Lilypad254" parent="Lilys" index="340" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0124702, 0, 0.00367327, 0, 0.013, 0, -0.00367327, 0, 0.0124702, -115.535, 0.356704, -31.625)
 
-[node name="Lilypad255" parent="." index="354" instance=ExtResource("33_13cmi")]
+[node name="Lilypad255" parent="Lilys" index="341" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.0878992, 0, -0.0476837, 0, 0.1, 0, 0.0476837, 0, -0.0878992, -115.272, 0.356704, -28.1874)
 
-[node name="Lilypad256" parent="." index="355" instance=ExtResource("33_13cmi")]
+[node name="Lilypad256" parent="Lilys" index="342" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.111039, 0, 0.166344, 0, 0.2, 0, -0.166344, 0, -0.111039, -115.607, 0.356704, -30.1073)
 
-[node name="Lilypad257" parent="." index="356" instance=ExtResource("33_13cmi")]
+[node name="Lilypad257" parent="Lilys" index="343" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.166558, 0, 0.249516, 0, 0.3, 0, -0.249516, 0, -0.166558, -115.89, 0.283487, -29.0115)
 
-[node name="Lilypad263" parent="." index="357" instance=ExtResource("31_qlson")]
+[node name="Lilypad263" parent="Lilys" index="344" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0121693, 0, -0.00457245, 0, 0.013, 0, 0.00457245, 0, -0.0121693, -118.473, 0.356704, -35.3989)
 
-[node name="Lilypad264" parent="." index="358" instance=ExtResource("33_13cmi")]
+[node name="Lilypad264" parent="Lilys" index="345" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.122868, 0, -0.157808, 0, 0.2, 0, 0.157808, 0, 0.122868, -118.512, 0.356704, -36.9179)
 
-[node name="Lilypad265" parent="." index="359" instance=ExtResource("33_13cmi")]
+[node name="Lilypad265" parent="Lilys" index="346" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.184302, 0, -0.236712, 0, 0.3, 0, 0.236712, 0, 0.184302, -118.31, 0.283487, -38.0314)
 
-[node name="Lilypad266" parent="." index="360" instance=ExtResource("33_13cmi")]
+[node name="Lilypad266" parent="Lilys" index="347" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.111039, 0, 0.166344, 0, 0.2, 0, -0.166344, 0, -0.111039, -117.459, 0.356704, -36.1079)
 
-[node name="Lily88" type="MeshInstance3D" parent="." index="361"]
+[node name="Lily88" type="MeshInstance3D" parent="Lilys" index="348"]
 transform = Transform3D(2.79937, 0, -1.07867, 0, 3, 0, 1.07867, 0, 2.79937, -114.973, 0, -34.877)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad258" parent="." index="362" instance=ExtResource("31_qlson")]
+[node name="Lilypad258" parent="Lilys" index="349" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.00424311, 0, -0.0226052, 0, 0.023, 0, 0.0226052, 0, 0.00424311, -115.134, 0.356704, -37.3772)
 
-[node name="Lilypad259" parent="." index="363" instance=ExtResource("33_13cmi")]
+[node name="Lilypad259" parent="Lilys" index="350" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -113.488, 0, -33.094)
 
-[node name="Lilypad267" parent="." index="364" instance=ExtResource("31_qlson")]
+[node name="Lilypad267" parent="Lilys" index="351" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0121693, 0, -0.00457245, 0, 0.013, 0, 0.00457245, 0, -0.0121693, -100.136, -1.19631, -10.2953)
 
-[node name="Lilypad268" parent="." index="365" instance=ExtResource("33_13cmi")]
+[node name="Lilypad268" parent="Lilys" index="352" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.122868, 0, -0.157808, 0, 0.2, 0, 0.157808, 0, 0.122868, -100.175, -1.19631, -11.8143)
 
-[node name="Lilypad260" parent="." index="366" instance=ExtResource("31_qlson")]
+[node name="Lilypad260" parent="Lilys" index="353" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.00775735, 0, 0.0216523, 0, 0.023, 0, -0.0216523, 0, 0.00775735, -171.473, 0, -43.1288)
 
-[node name="Lilypad261" parent="." index="367" instance=ExtResource("33_13cmi")]
+[node name="Lilypad261" parent="Lilys" index="354" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.492864, 0, 0.870106, 0, 1, 0, -0.870106, 0, -0.492864, -175.594, 0, -41.0845)
 
-[node name="Lilypad262" parent="." index="368" instance=ExtResource("33_13cmi")]
+[node name="Lilypad262" parent="Lilys" index="355" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.226957, 0, -0.973905, 0, 1, 0, 0.973905, 0, 0.226957, -173.783, 0, -35.7223)
 
-[node name="Lilypad269" parent="." index="369" instance=ExtResource("31_qlson")]
+[node name="Lilypad269" parent="Lilys" index="356" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0126459, 0, -0.00301361, 0, 0.013, 0, 0.00301361, 0, -0.0126459, -172.33, 0, -37.5623)
 
-[node name="Lilypad270" parent="." index="370" instance=ExtResource("33_13cmi")]
+[node name="Lilypad270" parent="Lilys" index="357" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.492864, 0, 0.870106, 0, 1, 0, -0.870106, 0, -0.492864, -170.765, 0, -47.3031)
 
-[node name="Lilypad271" parent="." index="371" instance=ExtResource("33_13cmi")]
+[node name="Lilypad271" parent="Lilys" index="358" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.392116, 0, 0.454142, 0, 0.6, 0, -0.454142, 0, -0.392116, -169.363, 0, -51.7215)
 
-[node name="Lilypad272" parent="." index="372" instance=ExtResource("33_13cmi")]
+[node name="Lilypad272" parent="Lilys" index="359" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.999989, 0, 0.00474721, 0, 1, 0, -0.00474721, 0, 0.999989, -159.947, 0.356704, -52.3703)
 
-[node name="Lilypad273" parent="." index="373" instance=ExtResource("31_qlson")]
+[node name="Lilypad273" parent="Lilys" index="360" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00691585, 0, 0.0219356, 0, 0.023, 0, -0.0219356, 0, -0.00691585, -158.294, 0.356704, -50.356)
 
-[node name="Lilypad274" parent="." index="374" instance=ExtResource("33_13cmi")]
+[node name="Lilypad274" parent="Lilys" index="361" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.180414, 0, 0.572233, 0, 0.6, 0, -0.572233, 0, -0.180414, -156.179, 0, -52.2861)
 
-[node name="Lilypad275" parent="." index="375" instance=ExtResource("33_13cmi")]
+[node name="Lilypad275" parent="Lilys" index="362" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.999989, 0, 0.00474721, 0, 1, 0, -0.00474721, 0, 0.999989, -150.587, 0.356704, -50.5541)
 
-[node name="Lilypad276" parent="." index="376" instance=ExtResource("33_13cmi")]
+[node name="Lilypad276" parent="Lilys" index="363" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.0674755, 0, -0.997721, 0, 1, 0, 0.997721, 0, 0.0674755, -174.031, 0.356704, -29.6923)
 
-[node name="Lilypad277" parent="." index="377" instance=ExtResource("33_13cmi")]
+[node name="Lilypad277" parent="Lilys" index="364" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.146687, 0, -0.581793, 0, 0.6, 0, 0.581793, 0, 0.146687, -152.268, 0, -54.3345)
 
-[node name="Lilypad278" parent="." index="378" instance=ExtResource("33_13cmi")]
+[node name="Lilypad278" parent="Lilys" index="365" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.938294, 0, -0.345839, 0, 1, 0, 0.345839, 0, -0.938294, -158.417, 0.356704, -54.9408)
 
-[node name="Lilypad279" parent="." index="379" instance=ExtResource("31_qlson")]
+[node name="Lilypad279" parent="Lilys" index="366" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.0139888, 0, -0.0182569, 0, 0.023, 0, 0.0182569, 0, 0.0139888, -162.047, 0.356704, -56.9298)
 
-[node name="Lilypad280" parent="." index="380" instance=ExtResource("33_13cmi")]
+[node name="Lilypad280" parent="Lilys" index="367" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.364924, 0, -0.476267, 0, 0.6, 0, 0.476267, 0, 0.364924, -163.375, 0, -54.3936)
 
-[node name="Lilypad281" parent="." index="381" instance=ExtResource("33_13cmi")]
+[node name="Lilypad281" parent="Lilys" index="368" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.938294, 0, -0.345839, 0, 1, 0, 0.345839, 0, -0.938294, -169.223, 0.356704, -54.1127)
 
-[node name="Lilypad282" parent="." index="382" instance=ExtResource("33_13cmi")]
+[node name="Lilypad282" parent="Lilys" index="369" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.689683, 0, 0.724112, 0, 1, 0, -0.724112, 0, -0.689683, -147.955, 0, -50.1696)
 
-[node name="Lilypad283" parent="." index="383" instance=ExtResource("33_13cmi")]
+[node name="Lilypad283" parent="Lilys" index="370" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.791725, 0, 0.610878, 0, 1, 0, -0.610878, 0, -0.791725, -144.083, 0, -51.8795)
 
-[node name="Lilypad284" parent="." index="384" instance=ExtResource("31_qlson")]
+[node name="Lilypad284" parent="Lilys" index="371" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0224561, 0, 0.00497223, 0, 0.023, 0, -0.00497223, 0, -0.0224561, -141.561, 0, -47.202)
 
-[node name="Lilypad285" parent="." index="385" instance=ExtResource("33_13cmi")]
+[node name="Lilypad285" parent="Lilys" index="372" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.801201, 0, -0.598395, 0, 1, 0, 0.598395, 0, -0.801201, -135.474, 0, -45.6265)
 
-[node name="Lilypad286" parent="." index="386" instance=ExtResource("31_qlson")]
+[node name="Lilypad286" parent="Lilys" index="373" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00783102, 0, 0.0103767, 0, 0.013, 0, -0.0103767, 0, -0.00783102, -132.558, 0, -45.8271)
 
-[node name="Lily89" type="MeshInstance3D" parent="." index="387"]
+[node name="Lily89" type="MeshInstance3D" parent="Lilys" index="374"]
 transform = Transform3D(-1.95271, 0, 0.432368, 0, 2, 0, -0.432368, 0, -1.95271, -138.786, 0, -49.7086)
 mesh = ExtResource("32_1o7s6")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/map_base")
 
-[node name="Lilypad287" parent="." index="388" instance=ExtResource("33_13cmi")]
+[node name="Lilypad287" parent="Lilys" index="375" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.77301, 0, -0.634393, 0, 1, 0, 0.634393, 0, -0.77301, -130.362, 0, -42.4439)
 
-[node name="Lilypad288" parent="." index="389" instance=ExtResource("33_13cmi")]
+[node name="Lilypad288" parent="Lilys" index="376" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.151343, 0, -0.370264, 0, 0.4, 0, 0.370264, 0, 0.151343, -124.674, 0.356704, -41.7138)
 
-[node name="Lilypad289" parent="." index="390" instance=ExtResource("33_13cmi")]
+[node name="Lilypad289" parent="Lilys" index="377" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.397385, 0, -0.0456628, 0, 0.4, 0, 0.0456628, 0, 0.397385, -122.713, 0.356704, -41.3343)
 
-[node name="Lilypad290" parent="." index="391" instance=ExtResource("31_qlson")]
+[node name="Lilypad290" parent="Lilys" index="378" instance=ExtResource("31_qlson")]
 transform = Transform3D(0.00491865, 0, -0.0120336, 0, 0.013, 0, 0.0120336, 0, 0.00491865, -120.981, 0.356704, -41.2146)
 
-[node name="Lilypad291" parent="." index="392" instance=ExtResource("31_qlson")]
+[node name="Lilypad291" parent="Lilys" index="379" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00229451, 0, 0.0127959, 0, 0.013, 0, -0.0127959, 0, -0.00229451, -120.429, 0.356704, -40.0884)
 
-[node name="Lilypad292" parent="." index="393" instance=ExtResource("33_13cmi")]
+[node name="Lilypad292" parent="Lilys" index="380" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.0378358, 0, -0.0925659, 0, 0.1, 0, 0.0925659, 0, 0.0378358, -122.279, 0.283487, -40.8173)
 
-[node name="Lilypad293" parent="." index="394" instance=ExtResource("33_13cmi")]
+[node name="Lilypad293" parent="Lilys" index="381" instance=ExtResource("33_13cmi")]
 transform = Transform3D(-0.030988, 0, 0.0950776, 0, 0.1, 0, -0.0950776, 0, -0.030988, -121.864, 0.356704, -38.9809)
 
-[node name="Lilypad294" parent="." index="395" instance=ExtResource("33_13cmi")]
+[node name="Lilypad294" parent="Lilys" index="382" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.183693, 0, 0.0790995, 0, 0.2, 0, -0.0790995, 0, 0.183693, -119.915, 0.356704, -38.963)
 
-[node name="Lilypad295" parent="." index="396" instance=ExtResource("33_13cmi")]
+[node name="Lilypad295" parent="Lilys" index="383" instance=ExtResource("33_13cmi")]
 transform = Transform3D(0.27554, 0, 0.118649, 0, 0.3, 0, -0.118649, 0, 0.27554, -120.942, 0.283487, -39.4393)
 
-[node name="Lilypad296" parent="." index="397" instance=ExtResource("31_qlson")]
+[node name="Lilypad296" parent="Lilys" index="384" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.0077764, 0, 0.0104177, 0, 0.013, 0, -0.0104177, 0, -0.0077764, -120.429, 0.356704, -37.2648)
 
-[node name="Lilypad297" parent="." index="398" instance=ExtResource("31_qlson")]
+[node name="Lilypad297" parent="Lilys" index="385" instance=ExtResource("31_qlson")]
 transform = Transform3D(-0.00783102, 0, 0.0103767, 0, 0.013, 0, -0.0103767, 0, -0.00783102, -127.783, 0, -42.0809)
 
-[node name="chair" parent="." index="399" instance=ExtResource("31_cvsmu")]
+[node name="chair" parent="." index="14" instance=ExtResource("31_cvsmu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.172, 2.95996, 27.6544)
 metadata/_edit_lock_ = true
 
-[node name="chair2" parent="." index="400" instance=ExtResource("31_cvsmu")]
+[node name="chair2" parent="." index="15" instance=ExtResource("31_cvsmu")]
 transform = Transform3D(0.998506, 0.0546365, 0, -0.0546365, 0.998506, 0, 0, 0, 1, -13.8605, 1.34883, 14.3037)
 metadata/_edit_lock_ = true
 
-[node name="chair3" parent="." index="401" instance=ExtResource("31_cvsmu")]
+[node name="chair3" parent="." index="16" instance=ExtResource("31_cvsmu")]
 transform = Transform3D(0.998506, 0.0546365, 0, -0.0546365, 0.998506, 0, 0, 0, 1, 4.41821, 5.15036, -26.7532)
 metadata/_edit_lock_ = true
 
-[node name="ritual_prototype" parent="." index="402" instance=ExtResource("38_mw3la")]
+[node name="ritual_prototype" parent="." index="17" instance=ExtResource("38_mw3la")]
 transform = Transform3D(1.264, 0, 0, 0, 1.264, 0, 0, 0, 1.264, -143.82, 2.86974, -27.7529)
 
 [node name="Cube" parent="ritual_prototype" index="0"]
@@ -3563,5 +3670,103 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.811874, 0.0920664, -0.777649, -0.25243, 1.09114, -0.134359, 0.741278, 0.270735, 0.805954, 8.22329, -0.0896904, -4.98602)
 mesh = ExtResource("6_anr6o")
 skeleton = NodePath("../..")
+
+[node name="Audio" type="Node3D" parent="." index="18"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Audio" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2789, 0, -28.8753)
+stream = ExtResource("41_5i3po")
+attenuation_model = 3
+volume_db = 31.278
+max_db = 3.293
+autoplay = true
+max_distance = 70.0
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Audio" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.252, 0, -35.5376)
+stream = ExtResource("41_sl2mw")
+attenuation_model = 3
+volume_db = 31.278
+max_db = 3.293
+autoplay = true
+max_distance = 155.0
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="Audio" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.252, 0, -35.5376)
+stream = ExtResource("42_5i3po")
+attenuation_model = 3
+volume_db = 31.278
+max_db = 2.391
+autoplay = true
+max_distance = 155.0
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="Audio" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.252, 0, -35.5376)
+stream = ExtResource("43_5i3po")
+attenuation_model = 3
+volume_db = 31.278
+max_db = 2.391
+autoplay = true
+max_distance = 155.0
+
+[node name="WoodAudio" type="Area3D" parent="Audio" index="4" groups=["wood_floor"]]
+collision_layer = 2048
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Audio/WoodAudio" index="0"]
+transform = Transform3D(0.994944, 0, 0.100431, 0, 1, 0, -0.100431, 0, 0.994944, -0.453503, 3.80267, 5.99338)
+shape = SubResource("BoxShape3D_5i3po")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Audio/WoodAudio" index="1"]
+transform = Transform3D(0.887574, 0, 0.460665, 0, 1, 0, -0.460665, 0, 0.887574, 1.90236, 3.8028, 14.8534)
+shape = SubResource("BoxShape3D_5i3po")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Audio/WoodAudio" index="2"]
+transform = Transform3D(0.887574, 0, 0.460665, 0, 1, 0, -0.460665, 0, 0.887574, 4.78316, 3.8028, 20.8512)
+shape = SubResource("BoxShape3D_5i3po")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Audio/WoodAudio" index="3"]
+transform = Transform3D(0.64236, 0, 0.766403, 0, 1, 0, -0.766403, 0, 0.64236, 20.0106, 3.8028, 0.804939)
+shape = SubResource("BoxShape3D_5i3po")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Audio/WoodAudio" index="4"]
+transform = Transform3D(0.64236, 0, 0.766403, 0, 1, 0, -0.766403, 0, 0.64236, 25.9859, 3.8028, 6.13775)
+shape = SubResource("BoxShape3D_5i3po")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Audio/WoodAudio" index="5"]
+transform = Transform3D(0.911461, 0, 0.411387, 0, 1, 0, -0.411387, 0, 0.911461, 29.0057, 3.8028, 11.2136)
+shape = SubResource("BoxShape3D_5i3po")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Audio/WoodAudio" index="6"]
+transform = Transform3D(0.288748, 0, 0.957405, 0, 1, 0, -0.957405, 0, 0.288748, -26.166, 3.8028, -8.33509)
+shape = SubResource("BoxShape3D_cwops")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Audio/WoodAudio" index="7"]
+transform = Transform3D(-0.353263, 0, 0.935524, 0, 1, 0, -0.935524, 0, -0.353263, -32.7927, 3.8028, -8.09717)
+shape = SubResource("BoxShape3D_5i3po")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="Audio/WoodAudio" index="8"]
+transform = Transform3D(-0.0268675, -1.43373e-08, 0.999639, -2.80257e-09, 1, 1.42672e-08, -0.999639, -2.41824e-09, -0.0268675, -42.0453, 3.8028, -5.39739)
+shape = SubResource("BoxShape3D_5i3po")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="Audio/WoodAudio" index="9"]
+transform = Transform3D(0.277441, -2.61808e-08, 0.960743, -1.10236e-09, 1, 2.75689e-08, -0.960743, -8.70782e-09, 0.277441, -46.6649, 3.8028, -4.5974)
+shape = SubResource("BoxShape3D_kk5tl")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="Audio/WoodAudio" index="10"]
+transform = Transform3D(0.691186, -3.9424e-08, 0.722677, 9.30386e-09, 1, 4.56543e-08, -0.722677, -2.48319e-08, 0.691186, -67.3729, 3.8028, 16.4569)
+shape = SubResource("BoxShape3D_m5qf2")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="Audio/WoodAudio" index="11"]
+transform = Transform3D(0.866989, -4.31488e-08, 0.498326, 1.91105e-08, 1, 5.33389e-08, -0.498326, -3.6721e-08, 0.866989, -59.1641, 3.8028, 27.0329)
+shape = SubResource("BoxShape3D_m5qf2")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="Audio/WoodAudio" index="12"]
+transform = Transform3D(0.954047, -3.43867e-08, -0.299657, 5.39915e-08, 1, 5.71443e-08, 0.299657, -7.06973e-08, 0.954047, -95.5462, 3.5648, 12.7048)
+shape = SubResource("BoxShape3D_m5qf2")
+
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="Audio/WoodAudio" index="13"]
+transform = Transform3D(0.750143, -2.04645e-08, -0.661276, 6.97984e-08, 1, 4.82314e-08, 0.661276, -8.23364e-08, 0.750143, -101.329, 3.5648, 22.8977)
+shape = SubResource("BoxShape3D_m5qf2")
 
 [editable path="ritual_prototype"]

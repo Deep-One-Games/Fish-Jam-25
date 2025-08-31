@@ -1,12 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://po307h6blgcm"]
+[gd_scene load_steps=21 format=3 uid="uid://po307h6blgcm"]
 
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="1_r1oxc"]
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="2_1m4k0"]
 [ext_resource type="Script" uid="uid://djas5bhr7lu38" path="res://src/nodes/audio_environment.gd" id="3_1u8ik"]
-[ext_resource type="AudioStream" uid="uid://ca8qhtjr2sin1" path="res://library/sfx/bugs/normal/normal_bug_ambience_2.wav" id="5_l4gqt"]
 [ext_resource type="Script" uid="uid://cqhyphcfaylli" path="res://src/nodes/audio_environment_player.gd" id="5_qo1o7"]
 [ext_resource type="Script" uid="uid://bugwjbxs8ay2p" path="res://src/000-Data/pmfcurves.gd" id="6_224gd"]
-[ext_resource type="AudioStream" uid="uid://dc8b320dttvh5" path="res://library/sfx/bugs/normal/normal_bug_ambience_4.wav" id="7_i5vq0"]
 [ext_resource type="Curve" uid="uid://dd0tvoauoitiv" path="res://src/000-Data/Curves/mute.tres" id="8_224gd"]
 [ext_resource type="Script" uid="uid://dfdunw8p1hub5" path="res://src/000-Data/audioatlas.gd" id="8_t2052"]
 
@@ -20,7 +18,7 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 [sub_resource type="Resource" id="Resource_noq3q"]
 script = ExtResource("8_t2052")
 comment = "Documentation Here"
-audiostreams = Array[AudioStream]([ExtResource("5_l4gqt"), ExtResource("7_i5vq0")])
+audiostreams = Array[AudioStream]([])
 metadata/_custom_type_script = "uid://dfdunw8p1hub5"
 
 [sub_resource type="Curve" id="Curve_0buyj"]
@@ -147,4 +145,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.48043, -3.8147e-06, 115.751
 shape = SubResource("SphereShape3D_224gd")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_l4gqt")

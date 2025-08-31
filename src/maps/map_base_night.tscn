@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dcxyohctx2sch"]
+[gd_scene load_steps=37 format=3 uid="uid://dcxyohctx2sch"]
 
 [ext_resource type="PackedScene" uid="uid://bl4j2pgha8a5u" path="res://src/maps/map_base.tscn" id="1_0b07p"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_iljcc"]
@@ -12,15 +12,19 @@
 [ext_resource type="Curve3D" uid="uid://cgeylophlelit" path="res://src/npc/night_path.fishman_6.tres" id="10_5iqux"]
 [ext_resource type="Script" uid="uid://cgx2wkvvgp00v" path="res://src/nodes/linear_follow.gd" id="11_gg8rf"]
 [ext_resource type="PackedScene" uid="uid://bgpm7y7sc3s08" path="res://src/npc/0_fishman_basic.tscn" id="12_cmxqp"]
-[ext_resource type="ArrayMesh" uid="uid://08kfjeg83y3h" path="res://library/models/Fish_People_Generic/meshes/fishman_1.res" id="13_vwc7b"]
+[ext_resource type="ArrayMesh" uid="uid://cbky1j0w0pega" path="res://library/models/Fish_People_SPLIT/mesh/Bob_6_Plane_003.res" id="13_q35cg"]
 [ext_resource type="Script" uid="uid://bjgq4nmbgscik" path="res://src/nodes/area_event.gd" id="14_hmrd7"]
 [ext_resource type="Resource" uid="uid://hq5s14xndpw6" path="res://src/npc/profile.fishman_2.tres" id="15_c0j6w"]
 [ext_resource type="Resource" uid="uid://kywxclrt1di8" path="res://src/npc/profile.fishman_5.tres" id="16_6u5oi"]
+[ext_resource type="ArrayMesh" uid="uid://dcffioo8i7c81" path="res://library/models/Fish_People_SPLIT/mesh/Bob_2_Plane_032.res" id="16_furnc"]
 [ext_resource type="Curve3D" uid="uid://dt4bi4emydc7q" path="res://src/npc/night_path.fishman_5.tres" id="17_5iqux"]
-[ext_resource type="ArrayMesh" uid="uid://4u1ridquan2r" path="res://library/models/Fish_People_Generic/meshes/fishman_4.res" id="18_524th"]
 [ext_resource type="Resource" uid="uid://defi0k78b0oo8" path="res://src/npc/profile.fishman_7.tres" id="19_506cy"]
+[ext_resource type="ArrayMesh" uid="uid://yqw8wvc82vcj" path="res://library/models/Fish_People_SPLIT/mesh/Bob_5_Plane_002.res" id="19_gg8rf"]
 [ext_resource type="Curve3D" uid="uid://dcftycednt167" path="res://src/npc/night_path.fishman_7.tres" id="20_5iqux"]
-[ext_resource type="ArrayMesh" uid="uid://d0028fpv061vt" path="res://library/models/Fish_People_Generic/meshes/fishman_7.res" id="21_5iqux"]
+[ext_resource type="ArrayMesh" uid="uid://c7ser82fhl3o4" path="res://library/models/Fish_People_SPLIT/mesh/Bob_7_Plane_004.res" id="22_gg8rf"]
+[ext_resource type="ArrayMesh" uid="uid://30fkmcvdmabl" path="res://library/models/Fish_People_SPLIT/mesh/Bob_3_Plane_012.res" id="23_gg8rf"]
+[ext_resource type="ArrayMesh" uid="uid://df35i3cdkqln6" path="res://library/models/Fish_People_SPLIT/mesh/Bob_4_Plane_001.res" id="24_cmxqp"]
+[ext_resource type="ArrayMesh" uid="uid://cvm3j4as5fs4o" path="res://library/models/Fish_People_SPLIT/mesh/Bob_1_Plane_037.res" id="25_cmxqp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2kdx"]
 render_priority = 0
@@ -136,7 +140,7 @@ script = ExtResource("11_gg8rf")
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="NPC6" parent="NPCS/PATROL_NPC6/Path/Patroller" instance=ExtResource("12_cmxqp")]
-mesh = ExtResource("13_vwc7b")
+mesh = ExtResource("13_q35cg")
 
 [node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC6"]
 collision_layer = 1024
@@ -184,7 +188,7 @@ script = ExtResource("11_gg8rf")
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="NPC" parent="NPCS/PATROL_NPC2/Path/Patroller" instance=ExtResource("12_cmxqp")]
-mesh = ExtResource("13_vwc7b")
+mesh = ExtResource("16_furnc")
 
 [node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC2"]
 collision_layer = 1024
@@ -244,7 +248,7 @@ script = ExtResource("11_gg8rf")
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="NPC5" parent="NPCS/PATROL_NPC5/Path/Patroller" instance=ExtResource("12_cmxqp")]
-mesh = ExtResource("18_524th")
+mesh = ExtResource("19_gg8rf")
 
 [node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC5"]
 collision_layer = 1024
@@ -292,7 +296,7 @@ script = ExtResource("11_gg8rf")
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="NPC7" parent="NPCS/PATROL_NPC7/Path/Patroller" instance=ExtResource("12_cmxqp")]
-mesh = ExtResource("21_5iqux")
+mesh = ExtResource("22_gg8rf")
 
 [node name="Idling" type="Area3D" parent="NPCS/PATROL_NPC7"]
 collision_layer = 1024
@@ -325,18 +329,18 @@ shape = SubResource("SphereShape3D_c0j6w")
 
 [node name="NPC_3" parent="NPCS" node_paths=PackedStringArray("initial_state") instance=ExtResource("12_cmxqp")]
 transform = Transform3D(0.44647, 0, 1.18737, 0, 1.26854, 0, -1.18737, 0, 0.44647, -24.2515, 10.212, 7.98879)
-mesh = ExtResource("13_vwc7b")
+mesh = ExtResource("23_gg8rf")
 disable_floor_snapping = true
 initial_state = NodePath("Idle")
 
 [node name="NPC_4" parent="NPCS" node_paths=PackedStringArray("initial_state") instance=ExtResource("12_cmxqp")]
 transform = Transform3D(0.177182, 0, 1.25611, 0, 1.26854, 0, -1.25611, 0, 0.177182, -9.09102, 10.212, -34.1104)
-mesh = ExtResource("18_524th")
+mesh = ExtResource("24_cmxqp")
 disable_floor_snapping = true
 initial_state = NodePath("Idle")
 
 [node name="NPC_1" parent="NPCS" node_paths=PackedStringArray("initial_state") instance=ExtResource("12_cmxqp")]
 transform = Transform3D(0.799004, 0, 0.985283, 0, 1.26854, 0, -0.985283, 0, 0.799004, -16.8243, 10.2282, -21.6073)
-mesh = ExtResource("18_524th")
+mesh = ExtResource("25_cmxqp")
 disable_floor_snapping = true
 initial_state = NodePath("Idle")

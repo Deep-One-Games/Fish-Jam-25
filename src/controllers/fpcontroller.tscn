@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckgrvvgm6jgdh"]
+[gd_scene load_steps=6 format=3 uid="uid://ckgrvvgm6jgdh"]
 
 [ext_resource type="Script" uid="uid://cj25jfouf1eqb" path="res://src/controllers/scripts/fpcontroller.gd" id="1_4anbu"]
+[ext_resource type="AudioStream" uid="uid://m802ygl7x70g" path="res://library/sounds and music/walking/grass/Walk_grass_4.wav" id="2_ug3cb"]
+[ext_resource type="AudioStream" uid="uid://13ujfc4fsw33" path="res://library/sounds and music/walking/wood/Walk_wood_1.wav" id="3_xtt0o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qnmj6"]
 radius = 0.3
@@ -9,15 +11,18 @@ height = 1.8
 [sub_resource type="SphereShape3D" id="SphereShape3D_kaufh"]
 radius = 1.17957
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "interact_box", "fishing_rc")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "interact_box", "fishing_rc", "grass_player", "wood_player", "audio_box")]
 collision_layer = 2
-collision_mask = 513
+collision_mask = 2561
 script = ExtResource("1_4anbu")
 speed = 7.0
 fishing_distance = 20.0
 camera = NodePath("Camera3D")
 interact_box = NodePath("InteractBox")
 fishing_rc = NodePath("Camera3D/s")
+grass_player = NodePath("grass")
+wood_player = NodePath("wood")
+audio_box = NodePath("AudioBox")
 
 [node name="CShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901715, 0)
@@ -42,3 +47,19 @@ collision_mask = 1028
 [node name="InteractCShape" type="CollisionShape3D" parent="InteractBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121524, 0.92865, 0.132035)
 shape = SubResource("SphereShape3D_kaufh")
+
+[node name="AudioBox" type="Area3D" parent="."]
+collision_layer = 262144
+collision_mask = 2048
+
+[node name="InteractCShape" type="CollisionShape3D" parent="AudioBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121524, 0.92865, 0.132035)
+shape = SubResource("SphereShape3D_kaufh")
+
+[node name="grass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ug3cb")
+volume_db = -7.819
+
+[node name="wood" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xtt0o")
+volume_db = -7.819

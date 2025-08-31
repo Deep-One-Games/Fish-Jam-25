@@ -36,6 +36,10 @@ var disable := false
 @export var interact_box: Area3D
 @export var fishing_rc: RayCast3D
 
+@export var wood_active := false
+@export var grass_player: AudioStreamPlayer
+@export var wood_player: AudioStreamPlayer
+@export var audio_box: Area3D
 func _ready() -> void:
 	if not skip_savefile:
 		#Read the position and rotation from the save file on the map
@@ -47,11 +51,36 @@ func _ready() -> void:
 	
 	fishing_rc.target_position.z = -fishing_distance
 
+	audio_box.body_entered.connect(set_wood_active.bind(true))
+	audio_box.body_exited.connect(set_wood_active.bind(false))
+
+func set_wood_active(_a: Area3D, b: bool) -> void:
+	wood_active = b
+
 func _input(event: InputEvent) -> void:
 	if disable: return
 	if event is InputEventMouseMotion and not disable_mouse:
 		look_dir = event.relative * 0.001
 		_rotate_camera()
+	var v = Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_backwards")
+	if v.length() != 0: 
+		if not playing(): play_walk() 
+	else: pause_walk() 
+
+func playing() -> bool:
+	return grass_player.playing or wood_player.playing
+
+func play_walk() -> void:
+	if wood_active:
+		grass_player.stop()
+		wood_player.play()
+		return
+	wood_player.stop()
+	grass_player.play()
+
+func pause_walk() -> void:
+	grass_player.stop()
+	wood_player.stop()
 
 func _physics_process(delta: float) -> void:
 	if disable: return

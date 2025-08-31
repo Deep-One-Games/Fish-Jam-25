@@ -5,6 +5,7 @@ class_name RaceTrack3D extends Node3D
 @export_category("Index Mapped Vars")
 @export var track_options: Array[Path3D]
 @export var camera_options: Array[Camera3D]
+@export var music_player: AudioStreamPlayer
 
 @export var starting_mps: float = 3.0 
 @export var announcer: SaveNPC
@@ -38,6 +39,7 @@ func start_game() -> void:
 	b.start(announcer.npc_dialogue, "JACK_count_race")
 
 	await DialogueManager.dialogue_ended
+	music_player.play()
 
 	for lf in live_fish:
 		lf.follow_track.following_path = true
