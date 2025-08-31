@@ -1,5 +1,12 @@
 ~ ritual
-You step towards the Altar ready to sacrifice your beloved fish to the Fish God
+You step towards the Altar,[wait=0.2] ready to sacrifice your beloved fish.
+You hear a [shake rate=20 level=10]chant[/shake] coming from the Son's hut.
+It is in a language you cannot understand.
 ...
-The Fish God accepts
+Your fish has been transformed.
+[wave amp=25 freq=5]It is... Beautifull.[/wave] Everyone is speechless.
+They beg the Son to come to see,[wait=0.2] He peeks through his keyhole.
+Before he could look,[wait=0.2] It,[wait=0.2] turns into dust and [wave amp=25 freq=5]blows away[/wave] with the wind.
+You hear [shake rate=20 level=10]muttering[/shake] from the hut.
+Around you,[wait=0.2] everyone is walking back to the town,[wait=0.2] just like this never happened.
 => END
