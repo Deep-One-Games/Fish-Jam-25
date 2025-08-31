@@ -1,12 +1,14 @@
-[gd_scene load_steps=37 format=3 uid="uid://7dvujjb4a52k"]
+[gd_scene load_steps=39 format=3 uid="uid://7dvujjb4a52k"]
 
 [ext_resource type="Script" uid="uid://c4wkbm0dwmlng" path="res://src/fish/scripts/race_track.gd" id="1_kfnei"]
 [ext_resource type="Script" uid="uid://y2upmnhr31if" path="res://src/fish/scripts/fish_data.gd" id="2_mg4ji"]
 [ext_resource type="PackedScene" uid="uid://cro6nlaw2lami" path="res://src/fish/carp.tscn" id="3_d1su7"]
 [ext_resource type="PackedScene" uid="uid://hjyqv8noyhkx" path="res://src/fish/burbot.tscn" id="4_tg1ey"]
 [ext_resource type="PackedScene" uid="uid://bdtf3xd2ydgc4" path="res://src/fish/pike.tscn" id="5_8r13y"]
+[ext_resource type="PackedScene" uid="uid://24pb7gx4i7xe" path="res://src/fish/roach.tscn" id="6_234jb"]
 [ext_resource type="Script" uid="uid://jnpe8hwlhdfa" path="res://src/fish/scripts/racing_data.gd" id="6_tg1ey"]
 [ext_resource type="Resource" uid="uid://c5nywjhcld2" path="res://src/npc/profile.jack.tres" id="7_1vccm"]
+[ext_resource type="PackedScene" uid="uid://b5mgob1jjprid" path="res://src/fish/sturgeon.tscn" id="7_2iyce"]
 [ext_resource type="Script" uid="uid://cgx2wkvvgp00v" path="res://src/nodes/linear_follow.gd" id="7_8r13y"]
 [ext_resource type="Script" path="res://src/racing/fishcam.gd" id="8_1vccm"]
 [ext_resource type="Curve3D" uid="uid://bnrx5ks2jq6yi" path="res://src/racing/track1.tres" id="8_dy6bs"]
@@ -43,7 +45,7 @@ metadata/_custom_type_script = "uid://y2upmnhr31if"
 
 [sub_resource type="Resource" id="Resource_kk5tl"]
 script = ExtResource("6_tg1ey")
-racefish_options = Array[PackedScene]([ExtResource("4_tg1ey"), ExtResource("3_d1su7"), ExtResource("5_8r13y")])
+racefish_options = Array[PackedScene]([ExtResource("4_tg1ey"), ExtResource("3_d1su7"), ExtResource("5_8r13y"), ExtResource("6_234jb"), ExtResource("7_2iyce")])
 ai_count = 3
 contestants = Array[ExtResource("2_mg4ji")]([])
 player_fish = SubResource("Resource_sl2mw")

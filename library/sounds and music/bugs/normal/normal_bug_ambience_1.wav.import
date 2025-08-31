@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://62fud3a5co6f"
+path="res://.godot/imported/normal_bug_ambience_1.wav-ac3a3d10233423e93c4c49a61593a363.sample"
+
+[deps]
+
+source_file="res://library/sounds and music/bugs/normal/normal_bug_ambience_1.wav"
+dest_files=["res://.godot/imported/normal_bug_ambience_1.wav-ac3a3d10233423e93c4c49a61593a363.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

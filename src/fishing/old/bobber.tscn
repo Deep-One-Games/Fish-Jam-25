@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct6q5gb8nrrvn"]
+[gd_scene load_steps=12 format=3 uid="uid://ct6q5gb8nrrvn"]
 
 [ext_resource type="Script" uid="uid://ceoftg3vsamgl" path="res://src/fishing/old/bobber.gd" id="1_wjlbv"]
+[ext_resource type="Shader" uid="uid://dp6wyhvyfrd48" path="res://library/resources/ps1_shadeobj.gdshader" id="2_ky078"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_52w5q"]
 radius = 0.1
@@ -37,6 +38,39 @@ tracks/2/path = NodePath("MeshInstance3D:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D2:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.313401, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance3D2:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0325036, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MeshInstance3D2:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
@@ -79,12 +113,68 @@ tracks/2/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1.99, 4)
 }
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D2:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.313401, -0.25, 0, 0.25, 0, 0.0794711, -0.25, 0, 0.25, 0, 0.019409, -0.25, 0, 0.25, 0, 0.386202, -0.25, 0, 0.25, 0, 0.313401, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.09, 2.64, 4.11, 5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance3D2:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.0325036, -0.25, 0, 0.25, 0, 0.0325036, -0.25, 0, 0.25, 0, 0.0325036, -0.25, 0, 0.25, 0, 0.0325036, -0.25, 0, 0.25, 0, 0.0325036, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.09, 2.64, 4.11, 5)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MeshInstance3D2:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.26111, -0.256667, -0.181535, 0.543333, 0.0795665, -0.225379, -0.573334, 0.0739788, 0.193333, 0.125864, -0.0955281, -0.243334, -0.0575457, 0.123333, 0.128238, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.09, 2.64, 4.11, 5)
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ky078"]
 _data = {
 &"RESET": SubResource("Animation_ky078"),
 &"bobber_updown": SubResource("Animation_vmxpm")
 }
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vmxpm"]
+
+[sub_resource type="Gradient" id="Gradient_v5e32"]
+offsets = PackedFloat32Array(0, 0.0253165)
+colors = PackedColorArray(0.158472, 0.158472, 0.158472, 1, 0.230315, 0.230315, 0.230315, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nel3a"]
+gradient = SubResource("Gradient_v5e32")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ewhat"]
+render_priority = 0
+shader = ExtResource("2_ky078")
+shader_parameter/color_texture = SubResource("GradientTexture2D_nel3a")
+shader_parameter/vertex_wobble = 1.0
+shader_parameter/affine_mapping = 1.0
+shader_parameter/alpha_cutoff = 0.57
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmxpm"]
+next_pass = SubResource("ShaderMaterial_ewhat")
+transparency = 4
+albedo_color = Color(0, 0, 0, 0)
+metallic_specular = 0.0
 
 [node name="Bobber" type="Node3D" node_paths=PackedStringArray("animations")]
 script = ExtResource("1_wjlbv")
@@ -99,3 +189,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_ky078")
 }
 autoplay = "bobber_updown"
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.75768, 0, 0, 0, 0.009856, 0, 0, 0, 0.503888, 0.313401, 0.0325036, 0)
+mesh = SubResource("CylinderMesh_vmxpm")
+surface_material_override/0 = SubResource("StandardMaterial3D_vmxpm")

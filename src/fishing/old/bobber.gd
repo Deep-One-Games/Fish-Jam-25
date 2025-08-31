@@ -14,24 +14,17 @@ func _ready() -> void:
 var elapsed := 0.0
 
 func _process(delta: float) -> void:
-	# t is the time sampled from the curve
-	# .. complete the script here
 	if travel_time <= 0:
 		return
 
-	# Update elapsed time
 	elapsed += delta
 	var t := elapsed / travel_time
 	t = clamp(t, 0.0, 1.0)
 
-	# Sample the curve for vertical (y) and lateral (z) displacement
 	var curve_value := travel_curve.sample_baked(t)
 
-	# Interpolate x linearly from 'from' to 'to'
 	var x = lerp(from.x, to.x, t)
 
-	# y and z come from the curve (assuming curve_value.x is t, curve_value.y is y)
-	# Scale curve y to match the desired travel distance in y
 	var y = lerp(from.y, to.y, t) + curve_value 
 	var z = lerp(from.z, to.z, t) + t  # If you want lateral offset along z
 

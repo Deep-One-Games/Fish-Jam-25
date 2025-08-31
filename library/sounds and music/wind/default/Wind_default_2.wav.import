@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d6yjdcd2icsu"
+path="res://.godot/imported/Wind_default_2.wav-bf42b5b0aca35b1ac6a224ada5c9b2fd.sample"
+
+[deps]
+
+source_file="res://library/sounds and music/wind/default/Wind_default_2.wav"
+dest_files=["res://.godot/imported/Wind_default_2.wav-bf42b5b0aca35b1ac6a224ada5c9b2fd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

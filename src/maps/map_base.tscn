@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://bl4j2pgha8a5u"]
+[gd_scene load_steps=92 format=4 uid="uid://bl4j2pgha8a5u"]
 
 [ext_resource type="PackedScene" uid="uid://dceftca3qspku" path="res://library/models/freeroam/freeroam.glb" id="1_5hikl"]
 [ext_resource type="Texture2D" uid="uid://e5kl18spayjg" path="res://library/models/freeroam/freeroam_blank.png" id="2_d21su"]
@@ -37,6 +37,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cqy4qhotyfljk" path="res://library/models/Trees/Mesh/Lily_2.res" id="32_1o7s6"]
 [ext_resource type="PackedScene" uid="uid://h7a6i2s4rgcr" path="res://src/002-Props/village/lilypad2.tscn" id="33_13cmi"]
 [ext_resource type="ArrayMesh" uid="uid://dnn47y1hmv8e2" path="res://library/models/Trees/Mesh/Lily_1.res" id="34_hqfy3"]
+[ext_resource type="PackedScene" uid="uid://kue4s47qerg6" path="res://library/models/ritual/ritual_prototype.blend" id="38_mw3la"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7tvku"]
 radius = 10.3916
@@ -3517,3 +3518,36 @@ metadata/_edit_lock_ = true
 [node name="chair3" parent="." index="401" instance=ExtResource("31_cvsmu")]
 transform = Transform3D(0.998506, 0.0546365, 0, -0.0546365, 0.998506, 0, 0, 0, 1, 4.41821, 5.15036, -26.7532)
 metadata/_edit_lock_ = true
+
+[node name="ritual_prototype" parent="." index="402" instance=ExtResource("38_mw3la")]
+transform = Transform3D(1.264, 0, 0, 0, 1.264, 0, 0, 0, 1.264, -143.82, 2.86974, -27.7529)
+
+[node name="DarkTree4" type="MeshInstance3D" parent="ritual_prototype" index="1"]
+transform = Transform3D(2.72879, 0.321187, 0, -0.319314, 2.71288, 0.296265, 0.0346322, -0.294234, 2.73161, -7.16145, 0.00375366, -11.6325)
+mesh = ExtResource("20_pg3em")
+skeleton = NodePath("../..")
+
+[node name="Grass" type="MeshInstance3D" parent="ritual_prototype" index="2"]
+transform = Transform3D(1.09896, 0.25424, 0, -0.250905, 1.08454, -0.182112, -0.0410468, 0.177426, 1.11319, 8.75985, 0.0918717, -4.46278)
+mesh = ExtResource("6_anr6o")
+skeleton = NodePath("../..")
+
+[node name="Grass2" type="MeshInstance3D" parent="ritual_prototype" index="3"]
+transform = Transform3D(1.09896, 0.25424, 1.43327e-09, -0.242119, 1.04656, 0.344145, 0.077568, -0.33529, 1.07421, 8.60043, 0.0918725, 4.7853)
+mesh = ExtResource("6_anr6o")
+skeleton = NodePath("../..")
+
+[node name="Grass3" type="MeshInstance3D" parent="ritual_prototype" index="4"]
+transform = Transform3D(1.09896, 0.25424, 2.43022e-09, -0.252762, 1.09257, -0.12145, -0.027374, 0.118325, 1.12143, 8.37675, 0.0918725, 5.36118)
+mesh = ExtResource("6_anr6o")
+skeleton = NodePath("../..")
+
+[node name="Grass4" type="MeshInstance3D" parent="ritual_prototype" index="5"]
+transform = Transform3D(1.09896, 0.25424, 2.43022e-09, -0.252762, 1.09257, -0.12145, -0.027374, 0.118325, 1.12143, 7.73164, 0.0918725, -4.53797)
+mesh = ExtResource("6_anr6o")
+skeleton = NodePath("../..")
+
+[node name="Grass5" type="MeshInstance3D" parent="ritual_prototype" index="6"]
+transform = Transform3D(0.811874, 0.0920664, -0.777649, -0.25243, 1.09114, -0.134359, 0.741278, 0.270735, 0.805954, 8.22329, -0.0896904, -4.98602)
+mesh = ExtResource("6_anr6o")
+skeleton = NodePath("../..")

@@ -28,6 +28,10 @@ var runtime_bobber : Node3D
 
 var rod: RodItem
 var _instance: Node3D 
+
+var has_casted_once := false
+var fish_drop_timeleft := 0.0
+
 func _ready() -> void:
 	fish_ui.visible = false
 	power_grad.visible = false
@@ -49,6 +53,11 @@ func fish_update(state: bool):
 var holding_cast := false
 var has_casted	 := false
 func update(_delta: float) -> void:
+	if has_casted_once:
+		fish_drop_timeleft -= _delta
+		if fish_drop_timeleft < 0:
+			get_parent().change_state("LR")
+			return
 	if player.disable_mouse: return
 	if has_casted: return
 	if Input.is_action_pressed("cast") and player_ui.fishing_available:
@@ -66,6 +75,8 @@ func update(_delta: float) -> void:
 		await get_tree().create_timer(0.66).timeout
 		has_casted = true
 		cast_bober(cast_distance)	
+		fish_drop_timeleft = randfn(60.0, 15.0)
+		has_casted_once = true
 		await animations.animation_finished
 		animations.play(&"Rod_Fishing")
 		has_casted = false
