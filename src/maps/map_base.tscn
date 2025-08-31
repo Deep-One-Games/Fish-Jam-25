@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=4 uid="uid://bl4j2pgha8a5u"]
+[gd_scene load_steps=94 format=4 uid="uid://bl4j2pgha8a5u"]
 
 [ext_resource type="PackedScene" uid="uid://dceftca3qspku" path="res://library/models/freeroam/freeroam.glb" id="1_5hikl"]
 [ext_resource type="Texture2D" uid="uid://e5kl18spayjg" path="res://library/models/freeroam/freeroam_blank.png" id="2_d21su"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://h7a6i2s4rgcr" path="res://src/002-Props/village/lilypad2.tscn" id="33_13cmi"]
 [ext_resource type="ArrayMesh" uid="uid://dnn47y1hmv8e2" path="res://library/models/Trees/Mesh/Lily_1.res" id="34_hqfy3"]
 [ext_resource type="PackedScene" uid="uid://kue4s47qerg6" path="res://library/models/ritual/ritual_prototype.blend" id="38_mw3la"]
+[ext_resource type="Texture2D" uid="uid://nv2toi8i0e1t" path="res://library/models/ritual/textures/Slab_Base_color.png" id="39_4fwkt"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7tvku"]
 radius = 10.3916
@@ -362,6 +363,14 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e7mtl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u48p5"]
+render_priority = 0
+shader = ExtResource("28_vrxee")
+shader_parameter/color_texture = ExtResource("39_4fwkt")
+shader_parameter/vertex_wobble = 0.06
+shader_parameter/affine_mapping = 0.0
+shader_parameter/alpha_cutoff = 0.5
 
 [node name="map_base" instance=ExtResource("1_5hikl")]
 
@@ -3522,6 +3531,9 @@ metadata/_edit_lock_ = true
 [node name="ritual_prototype" parent="." index="402" instance=ExtResource("38_mw3la")]
 transform = Transform3D(1.264, 0, 0, 0, 1.264, 0, 0, 0, 1.264, -143.82, 2.86974, -27.7529)
 
+[node name="Cube" parent="ritual_prototype" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_u48p5")
+
 [node name="DarkTree4" type="MeshInstance3D" parent="ritual_prototype" index="1"]
 transform = Transform3D(2.72879, 0.321187, 0, -0.319314, 2.71288, 0.296265, 0.0346322, -0.294234, 2.73161, -7.16145, 0.00375366, -11.6325)
 mesh = ExtResource("20_pg3em")
@@ -3551,3 +3563,5 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.811874, 0.0920664, -0.777649, -0.25243, 1.09114, -0.134359, 0.741278, 0.270735, 0.805954, 8.22329, -0.0896904, -4.98602)
 mesh = ExtResource("6_anr6o")
 skeleton = NodePath("../..")
+
+[editable path="ritual_prototype"]
