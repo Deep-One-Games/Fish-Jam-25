@@ -33,9 +33,9 @@
 [ext_resource type="Texture2D" uid="uid://b0lbmq43a5foq" path="res://library/models/textures/Bucket_Normal_OpenGL.png" id="29_cvsmu"]
 [ext_resource type="PackedScene" uid="uid://b7226ibff5amn" path="res://src/racing/start_racing.tscn" id="30_vrxee"]
 [ext_resource type="PackedScene" uid="uid://bscno3hr61s7x" path="res://library/models/chair.blend" id="31_cvsmu"]
-[ext_resource type="PackedScene" path="res://src/002-Props/village/lilypad.tscn" id="31_qlson"]
+[ext_resource type="PackedScene" uid="uid://d1dd8fv6a3jnp" path="res://src/002-Props/village/lilypad.tscn" id="31_qlson"]
 [ext_resource type="ArrayMesh" uid="uid://cqy4qhotyfljk" path="res://library/models/Trees/Mesh/Lily_2.res" id="32_1o7s6"]
-[ext_resource type="PackedScene" path="res://src/002-Props/village/lilypad2.tscn" id="33_13cmi"]
+[ext_resource type="PackedScene" uid="uid://h7a6i2s4rgcr" path="res://src/002-Props/village/lilypad2.tscn" id="33_13cmi"]
 [ext_resource type="ArrayMesh" uid="uid://dnn47y1hmv8e2" path="res://library/models/Trees/Mesh/Lily_1.res" id="34_hqfy3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7tvku"]
