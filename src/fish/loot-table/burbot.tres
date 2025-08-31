@@ -37,8 +37,25 @@ racefish = ExtResource("1_dtc2h")
 rng_keys = Dictionary[int, float]({})
 ref_id = "FISH_BUR"
 name = "Burbot"
-desc = "Short description about the fish"
-lore = "Long description about the fish"
+desc = "\"You've got to say, 'I'm as mad as hell, and I'm not gonna take this anymore!' Then we'll figure out what to do about the depression and the inflation and the oil crisis. But first, get up out of your chairs, open the window, stick your head out, and yell, and say it: 'I'm as mad as hell, and I'm not gonna take this anymore!'\"
+- Network (1976)"
+lore = "The story is almost a myth at this point, it is unclear how much of it is real, it was always covered in secrecy since the beginning. Around 1850's, a businessman stumbles upon this lake and finds this, creature, who gives him a deal: 
+ 
+\"Give me your only son, and I will provide you with infinite amounts of Fuel” says the Fish God
+ 
+To prove it is not lying, creates a ball of goo floating above its hand like a magical orb, sets it on fire with a snap of its finger. It is said that the man watched the ball burn for 4 days, without blinking, before it was finally burned out. Black tar covering Fish God's unaffected limb.
+ 
+\"I will make you rich beyond your dreams. Only if you pass your kin to me. Do you accept?\"
+ 
+The man answers
+ 
+\"Yes.\"
+ 
+Refinery began to form. Pipe-bones erupted from the muddy ground, forming a grotesque skeleton resambling a Refinery, black goo flowing trough them, fueling the monster. The refinery smoke created this, everlasting fog around the lake. It grew, shaped its surroundings as it did, The Spine covered the whole Refinery, spreading its veins to supply material to its needed organs which transformed it into precious, burnable bricks of black gold, packed with eldrich energy, ready to be sold to high-end clients.
+ 
+He runs the Refinery to process this material, gains more wealth than anyone can imagine, and dies, like everyone else. When he died, the deal was broken so the factory became useless, but the secrecy remeained.
+ 
+But there is someone who refused to die, who was cursed into a immortality in madness, his only son."
 thumb = ExtResource("2_vd8ib")
 mesh = SubResource("ArrayMesh_d1j0e")
 metadata/_custom_type_script = "uid://y2upmnhr31if"

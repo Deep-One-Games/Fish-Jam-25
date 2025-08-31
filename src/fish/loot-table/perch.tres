@@ -37,8 +37,21 @@ racefish = ExtResource("2_q1t0s")
 rng_keys = Dictionary[int, float]({})
 ref_id = "FISH_PER"
 name = "Perch"
-desc = "Short description about the fish"
-lore = "Long description about the fish"
+desc = "\"We die so others can be born
+We age so others can be young
+The point of life is live,
+Love if you can
+Then pass it on.\"
+- Kate Tempest"
+lore = "The story of the town is believed to be started with the first Fishmen, the Cursed, the Son. The businessman sacrificed his son not to death, but to a curse.
+ 
+The Son was born in a big house with a loving mother around. It was an upper-middle-class household with a garden. Mother always stayed home, took care of him, made lemonade for him and his friends as he grew up. Son remembers his mother sewing little hats for him, sometimes even to gift to his friends. He loved those hats. He and his friends would gather, tie strings around beetles with a rock on the other end, and see which one would win. Shaded by their hats, cooled off by the lemonade, they would spend hours in the hot summer days lurking around the forest. Playing with bugs and birds.
+ 
+Father was a businessman who travelled a lot, so Son didn’t get the chance to see him much. Whenever he was around, Father seemed to always worry about money and how people around him didn’t deserve it. In the Father’s eyes, a life was meaningless without the power that money brings. Mother would console him, saying that they had enough to have a happy life, and there was nothing more to be gained. She was the only person who could keep him grounded.
+ 
+However, this relative peace didn’t last long, Mother got sick, withered away. As she drifted away, sod did the Father. There was nothing to hold him back anymore. He hired a maid to take care of the Son, rarely visited the house.
+ 
+That’s why the Son was so excited to hear that he would go to a fishing trip with his father. Since the Mothers death, they only saw each other at the funeral. The drive was long and silent. When they arrived, they pitched the tent by the lake and went to sleep."
 thumb = ExtResource("2_amljp")
 mesh = SubResource("ArrayMesh_xl1v1")
 metadata/_custom_type_script = "uid://y2upmnhr31if"

@@ -60,8 +60,22 @@ boost_probability = 0.0
 rng_keys = Dictionary[int, float]({})
 ref_id = "FISH_STU"
 name = "Stugeon"
-desc = "Short description about the fish"
-lore = "Long description about the fish"
+desc = "\"Yesterday I woke up sucking a lemon\"
+- Thom Yorke"
+lore = "
+These Fish-folk were definitely not clever, but the Son told them stories about his past, what society looked like, what humanity is, how kind and beautiful it was, in an exaggerated, dreamy, child-like way. They couldn’t respond with any meaningful way, but he went on and on until they started to copy his personality. Glimpses of humanity started to show itself. Which made the Son extremely uncomfortable. They dropped right in the uncanny valley. It was the reverse of what he dreamed. As they became human-like, the dream turned into a nightmare. They looked nothing like human! They were not soft, but slimy. It was not the people he wanted.
+ 
+After, there was a village full of fishmen. He stopped making more, spending his time locked away. He was disgusted by what he had made, promised not to create more misery. Spent his time in isolation
+ 
+These fishmen were intelligent enough to have a small culture, experience pain, and dream. But, not enough to be able to live in a human society. Their crumped brain just couldn’t comprehend how to pay taxes, decide who to vote for, what to buy in a grocery shop...
+ 
+Their small culture and obsession were the only things they inherited from The Son. It contained fragments of what being a human would mean, but not enough. They wanted family, children playing around. To them, this village and the people in it were everything. Yhey couldn't comprehend what was wrong with them. They desperately wanted to increase the population, but the obsession of the Son was keeping them from transforming other fish. They wanted to please him, tried everything, but to no avail. He kept ignoring them, saying they are not human.
+ 
+He would only come out to watch the fish races, one thing he still enjoyed. On one of the races, someone from the crowd begged:
+ 
+\"Please, The Son, We want more people. We will make them look human as you wish, even better than human! Oh the Cursed one, We have an idea, We prepare these fish races for you to enjoy. Let us select the most skilled one, surely if we find the best one in the lake, it will be beautiful like you wish!\"
+ 
+He accepted with one condition: They needed to find a \"real\" human. Only if they catch the fish and win the ceremonial fish race will he transform them."
 thumb = ExtResource("2_ucyy7")
 mesh = SubResource("ArrayMesh_51170")
 metadata/_custom_type_script = "uid://y2upmnhr31if"

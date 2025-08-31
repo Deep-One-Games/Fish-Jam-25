@@ -37,8 +37,26 @@ racefish = ExtResource("1_6phyc")
 rng_keys = Dictionary[int, float]({})
 ref_id = "FISH_PIK"
 name = "Pike"
-desc = "Short description about the fish"
-lore = "Long description about the fish"
+desc = "\"Strangers passing in the street
+By chance, two separate glances meet
+And I am you and what I see is me\"
+- Echoes (Pink Floyd)"
+lore = "He woke up in an empty boat, in the middle of the lake, confused and feeling heavy. He looked around, he saw the skeleton of the Refinery forming, didnt make sense to him, but it looked big. Something bigger, much, much bigger than him.
+ 
+Looked at the water, and his reflection caused him to scream. His shriek disturbed the lake, causing the birds around the lake to take off from the branch they were sitting on. The Son, was transformed into half fish, half human form.
+ 
+He saw a cast of shadow on top of the water, looked up, tears stopped flowing, if he had hair, he would have had goosebumps.
+ 
+Saw the Fish God:
+\"No need to cry, Son. You will get used to your new form.\" But the Son never did.
+ 
+\"You are my Son now. Don't worry, I will not leave you like your previous creator.\"
+\"I will keep you right here, under my wing. The lake will provide, you cannot leave.\"
+ 
+And finally, when he could blink, the fish God was gone when he opened his eyes. He made his way to the shore, his tears adding salt to the lake. He went back to the old campsite, spent his first couple of days weeping and looking at the weird structure forming across the lake, he hated it for a reason, but couldn’t understand why.
+ 
+Time passed, he retained its memories of having human skin with hair instead of scales, kept having dreams about being \"normal\". He would wake up thinking it was a dream and he is still camping with his father, but his reflection proved him wrong every time. This became an obsession; he was desperately trying to fix his face, remove his scales, only for them to grow back. He wanted to be around people, wave to his old neighbours, start a family of his own... How could he with this body? With this scaly face? With this intense stench, even he cannot get used to. What was the point of being alive if one cannot share it with anyone else? After a loong while of denial, he caved in and realised he cannot go back into society. He would spend his days playing with the fish, racing them for fun. He dreamed a lot about not being alone anymore.
+ "
 thumb = ExtResource("2_sduny")
 mesh = SubResource("ArrayMesh_fai4l")
 metadata/_custom_type_script = "uid://y2upmnhr31if"
