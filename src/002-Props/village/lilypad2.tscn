@@ -1,0 +1,232 @@
+[gd_scene load_steps=5 format=3 uid="uid://h7a6i2s4rgcr"]
+
+[ext_resource type="ArrayMesh" uid="uid://cqy4qhotyfljk" path="res://library/models/Trees/Mesh/Lily_2.res" id="1_1nsni"]
+
+[sub_resource type="Animation" id="Animation_btars"]
+resource_name = "lily2"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lily2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7.86667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.06716, 0), Vector3(0, -3.22362, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lily2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.147148, 1.19209e-07, -0.0982919), Vector3(-0.147148, 1.19209e-07, 0.64723)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lily3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7.33333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.25957e-05, 1.34603, 0.000173791), Vector3(0, -0.0506145, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Lily3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 6.04),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.947641, 0, 2.44409), Vector3(-0.456348, 0, 2.13366)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Lily5:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.56307, 0), Vector3(0, 4.08756, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Lily5:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 7.56667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.47875, -0.00349379, 0.609944), Vector3(-1.8848, -0.00349379, 0.609944)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Lily4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 4.76667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.821843, -1.19209e-07, 1.5384), Vector3(1.40754, -1.16072, 0.227518)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Lily4:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 5.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.000148113, 1.41431, -0.000309099), Vector3(-0.000148113, 0.569115, -0.000309099)]
+}
+
+[sub_resource type="Animation" id="Animation_qx55s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lily2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.06716, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lily2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.147148, 1.19209e-07, -0.0982919)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lily3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.25957e-05, 1.34603, 0.000173791)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Lily3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.947641, 0, 2.44409)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Lily5:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.56307, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Lily5:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.47875, -0.00349379, 0.609944)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Lily4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.821843, -1.19209e-07, 1.5384)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Lily4:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.000148113, 1.41431, -0.000309099)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_un1ud"]
+_data = {
+&"RESET": SubResource("Animation_qx55s"),
+&"lily2": SubResource("Animation_btars")
+}
+
+[node name="Lilypad2" type="Node3D"]
+
+[node name="Lily2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.386088, 0, -0.700668, 0, 0.8, 0, 0.700668, 0, 0.386088, -0.147148, 1.19209e-07, -0.0982919)
+mesh = ExtResource("1_1nsni")
+
+[node name="Lily3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.222881, -2.64559e-05, 0.974845, 0.000173791, 1, -1.25957e-05, -0.974845, 0.000172227, 0.222881, -0.947641, 0, 2.44409)
+mesh = ExtResource("1_1nsni")
+
+[node name="Lily4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.12468, -7.8504e-05, 0.790224, -0.000247279, 0.8, 0.00011849, -0.790224, -0.000262725, 0.12468, 0.821843, -1.19209e-07, 1.5384)
+mesh = ExtResource("1_1nsni")
+
+[node name="Lily5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.00472, 0, 0.656147, 0, 1.2, 0, -0.656147, 0, -1.00472, -2.47875, -0.00349379, 0.609944)
+mesh = ExtResource("1_1nsni")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_un1ud")
+}
