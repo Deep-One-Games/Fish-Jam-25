@@ -51,11 +51,26 @@ cull_mask = 1048573
 [node name="Fishning_rod_Anim" parent="Origin/Player/Camera3D" index="0" instance=ExtResource("3_xt171")]
 transform = Transform3D(0.233264, -0.00183165, 0.00540707, 3.21135e-09, 0.220998, 0.0748639, -0.00570867, -0.0748415, 0.220932, 0.0461992, -0.112565, 0.146239)
 
+[node name="Skeleton3D" parent="Origin/Player/Camera3D/Fishning_rod_Anim/Rod_Rig" index="0"]
+bones/0/position = Vector3(0.580915, -0.863678, -0.517886)
+bones/0/rotation = Quaternion(-0.559649, 7.07947e-05, -0.000322562, 0.82873)
+bones/3/rotation = Quaternion(0.0388056, -3.26911e-12, -9.00909e-12, 0.999247)
+bones/4/rotation = Quaternion(0.0404382, -3.03213e-12, -3.40706e-11, 0.999182)
+bones/5/rotation = Quaternion(0.0393395, -1.19023e-07, 6.28234e-09, 0.999226)
+bones/6/rotation = Quaternion(0.0289487, 1.83944e-10, 4.04911e-09, 0.999581)
+bones/7/rotation = Quaternion(0.0197596, 3.12872e-10, 6.2646e-09, 0.999805)
+bones/8/rotation = Quaternion(0.0404461, 5.60448e-11, 1.38127e-09, 0.999182)
+bones/9/rotation = Quaternion(0.0341955, 1.40411e-10, 2.831e-09, 0.999415)
+bones/10/rotation = Quaternion(0.0458491, 9.4981e-12, -2.97255e-11, 0.998948)
+
+[node name="Reel" parent="Origin/Player/Camera3D/Fishning_rod_Anim/Rod_Rig/Skeleton3D" index="0"]
+transform = Transform3D(1, 0.000455273, 0.000478412, -0.000613702, 0.373586, 0.927596, 0.000243612, -0.927596, 0.373586, 0.590787, -0.673188, -1.32089)
+
 [node name="s" parent="Origin/Player/Camera3D" index="1"]
 visible = true
 
 [node name="BobStartPoint" type="Node3D" parent="Origin/Player/Camera3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.154477, -1.17898, -0.794734)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.415993, -0.91001, -2.20662)
 script = ExtResource("4_45rk3")
 
 [node name="BobPlacer" type="RayCast3D" parent="Origin/Player/Camera3D/BobStartPoint"]
@@ -79,7 +94,7 @@ controller = NodePath("../../Origin/Player")
 leave_btn = NodePath("../HBoxContainer/Leave")
 inventory_btn = NodePath("../HBoxContainer/Inventory")
 
-[node name="FISHING" type="Node" parent="FSM" node_paths=PackedStringArray("cam", "origin", "fish_ui", "player_ui", "player", "power_grad", "bobcast", "cast_point")]
+[node name="FISHING" type="Node" parent="FSM" node_paths=PackedStringArray("cam", "origin", "fish_ui", "player_ui", "player", "power_grad", "bobcast", "cast_point", "animations")]
 script = ExtResource("11_td38c")
 cam = NodePath("../../Origin/Player/Camera3D")
 origin = NodePath("../../Origin")
@@ -89,9 +104,10 @@ player = NodePath("../../Origin/Player")
 power_grad = NodePath("PowerGradient")
 fall_curve = SubResource("Curve_lixjd")
 bobcast = NodePath("../../Origin/Player/Camera3D/BobStartPoint/BobPlacer")
-mps = 5.0
+mps = 7.0
 bobber = ExtResource("12_2m8sg")
 cast_point = NodePath("../../Origin/Player/Camera3D/BobStartPoint")
+animations = NodePath("../../Origin/Player/Camera3D/Fishning_rod_Anim/AnimationPlayer")
 state_id = "PLAY"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
 
@@ -157,3 +173,4 @@ night_scene = ExtResource("14_45rk3")
 metadata/_custom_type_script = "uid://drnft836dst8h"
 
 [editable path="Origin/Player"]
+[editable path="Origin/Player/Camera3D/Fishning_rod_Anim"]

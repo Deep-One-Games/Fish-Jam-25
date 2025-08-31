@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=23 format=3 uid="uid://bmhwd8x4bscyh"]
+[gd_resource type="Theme" load_steps=24 format=3 uid="uid://bmhwd8x4bscyh"]
 
 [ext_resource type="Texture2D" uid="uid://bp0m2pagcyc8c" path="res://library/textures/ui/button_pressed.png" id="1_b7qw8"]
 [ext_resource type="Texture2D" uid="uid://be2t1rytsb8k5" path="res://library/textures/ui/button_disabled.png" id="1_dhjrv"]
@@ -46,6 +46,13 @@ texture_margin_bottom = 21.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4khf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rskyh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4khf"]
+texture = ExtResource("1_b7qw8")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5yr1"]
 
@@ -107,6 +114,8 @@ CheckBox/styles/hover = SubResource("StyleBoxEmpty_68jpm")
 CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_yk7ku")
 CheckBox/styles/normal = SubResource("StyleBoxEmpty_t4khf")
 CheckBox/styles/pressed = SubResource("StyleBoxEmpty_rskyh")
+DialogPanel/base_type = &"PanelContainer"
+DialogPanel/styles/panel = SubResource("StyleBoxTexture_t4khf")
 HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_o5yr1")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_teaap")
 HeaderLarge/font_sizes/font_size = 64

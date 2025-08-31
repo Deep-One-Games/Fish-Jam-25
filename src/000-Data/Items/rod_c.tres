@@ -40,7 +40,7 @@ blend_shape_mode = 0
 
 [resource]
 script = ExtResource("4_yrh0r")
-max_cast_distance_m = 30.0
+max_cast_distance_m = 20.0
 rig = ExtResource("3_8w34x")
 ref_id = "rod_b"
 name = "His Favorite One..."

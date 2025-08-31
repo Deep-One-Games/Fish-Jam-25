@@ -19,6 +19,7 @@ var fishing_available := false
 @export var mps: float
 @export var bobber: PackedScene
 @export var cast_point: Node3D
+@export var animations: AnimationPlayer
 var ttf := 0 # time to fall point
 var cast_start_time := 0.0
 var casting := false
@@ -46,7 +47,10 @@ func fish_update(state: bool):
 	fish_ui.visible = state
 
 var holding_cast := false
+var has_casted	 := false
 func update(_delta: float) -> void:
+	if player.disable_mouse: return
+	if has_casted: return
 	if Input.is_action_pressed("cast") and player_ui.fishing_available:
 		holding_cast = true
 		power_grad.set_power(0)
@@ -57,7 +61,14 @@ func update(_delta: float) -> void:
 		holding_cast = false
 		power_grad.visible = false
 		var cast_distance = (1-power_grad.power())*rod.max_cast_distance_m
-		cast_bober(cast_distance)
+		
+		animations.play(&"Rod_Throw")
+		await get_tree().create_timer(0.66).timeout
+		has_casted = true
+		cast_bober(cast_distance)	
+		await animations.animation_finished
+		animations.play(&"Rod_Fishing")
+		has_casted = false
 
 func cast_bober(d: float):
 	# shift the raycast then force update
@@ -65,8 +76,9 @@ func cast_bober(d: float):
 	bobcast.force_raycast_update()
 
 	if bobcast.is_colliding():
-		print("CAST")
 		if runtime_bobber: runtime_bobber.queue_free()
+		var obj = bobcast.get_collider()
+		if not obj.is_in_group("fishing_zone"): return
 		var p = bobcast.get_collision_point()
 		runtime_bobber = bobber.instantiate()
 		runtime_bobber.travel_curve = fall_curve

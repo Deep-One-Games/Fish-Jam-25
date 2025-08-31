@@ -86,9 +86,8 @@ _data = {
 &"bobber_updown": SubResource("Animation_vmxpm")
 }
 
-[node name="Bobber" type="Node3D" node_paths=PackedStringArray("mon", "animations")]
+[node name="Bobber" type="Node3D" node_paths=PackedStringArray("animations")]
 script = ExtResource("1_wjlbv")
-mon = NodePath("")
 animations = NodePath("AnimationPlayer")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
