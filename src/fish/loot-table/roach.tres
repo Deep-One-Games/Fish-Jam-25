@@ -43,8 +43,22 @@ boost_probability = 0.0
 rng_keys = Dictionary[int, float]({})
 ref_id = "FISH_ROA"
 name = "Roach"
-desc = "Short description about the fish"
-lore = "Long description about the fish"
+desc = "\"Sure you are. You're weak on logic, that's the trouble with you. You're like the guy in the story who was caught in a sudden shower and who ran to a grove of trees and got under one. He wasn't worried, you see, because he figured when one tree got wet through, he would just get under another one.\"
+- The Last Question, Isaac Asimov"
+lore = "The Son went to find the Fish God, without knowing why, maybe it was revenge, maybe to beg. He found it waiting there, welcoming him.
+ 
+\"The Son, come.\"
+\"What did you dream? It's alright, I know what you dream. You dream what I dream.\"
+ 
+The Son, doesn’t speak a word, doesn’t move an inch.
+ 
+\"I will make your dream come true, I will give you people to play with, you won’t be alone, my child.\"
+ 
+To prove it is not lying, it pulls out a fish from the water, throws to him. The second he grabs it in the air, the fish transformed into its humanoid form. It wasnt as beatiful as he dreamed, but it can pass as a \"thing\" to converse with.
+ 
+\"You will never be alone again. Just like me.\"
+ 
+He was given the power to turn fish into his own kind. So he created the Third one was born. It was ugly. Not good. So he tried again, this time he tried his best to shape it into a beautiful creature, only for it to degrade into a weird, smelly fishman, just like himself."
 thumb = ExtResource("2_m71oq")
 mesh = SubResource("ArrayMesh_n5ufm")
 metadata/_custom_type_script = "uid://y2upmnhr31if"
