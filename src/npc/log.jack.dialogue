@@ -10,12 +10,12 @@ Holy carp! A real Human!
 Oh, get your shells together,[wait=0.2] you been waiting for this moment.
 You can call me Jack! Welcome to the Black Lake. Oh,[wait=0.2] how fin-tastic to see you here!
 Not everyone has a name here,[wait=0.2] so you might say I am special! Not like they care but I kept my name so I can tell it to another Human! What is yours??
-- Stare at Jack’s face
+- Stare at Jack's face
 Come on now,[wait=0.2] I don't look that bad! I mean,[wait=0.2] I might not have smooth skin like yours,[wait=0.2] but I walk the same earth you do. Also,[wait=0.2] you should see the town… Then you will come running to me.
 Since you didn't bestow me your name,[wait=0.2] I will call you… Hmmm…
-Okay. It’s o[wait=0.2]-fish-[wait=0.2]ial. I name you,[wait=0.2] Bob! How cool! I named my first Human,[wait=0.2] can't wait to show you to the Son.
+Okay. It's o[wait=0.2]-fish-[wait=0.2]ial. I name you,[wait=0.2] Bob! How cool! I named my first Human,[wait=0.2] can't wait to show you to the Son.
 No fins? How weird! you don't have gills either… I guess any-fin is possible!
-Don’t go fishing for compliments now,[wait=0.2] others will not even realise that you are a Human. Except for some.
+Don't go fishing for compliments now,[wait=0.2] others will not even realise that you are a Human. Except for some.
 Speaking of fishing… Follow me,[wait=0.2] let me show you how we spend our days here.
 set Storage.sf.jack_state = "ToLake"
 do SceneManager.switch(SceneManager.freeroam_context())
@@ -47,7 +47,7 @@ Cast your line into the lake and reel when it bites!
 ~ JACK_tutorial_outcome
 Holy mackerel,[wait=0.2] that is a big one! So its true... Humans catch better fish! We might have a chance after all!
 I am getting ahead of myself,[wait=0.2] you dont even know about our fish races.
-It’s time to shell-abrate.
+It's time to shell-abrate.
 Every night,[wait=0.2] we gather together at the port to race our fishes,[wait=0.2] its really fun! Son used to come out to watch it,[wait=0.2] transform the best fish to a Human.
 Well,[wait=0.2] that was his plan. He tried to make us Human,[wait=0.2] but could not sucseed the way he envisioned. He wanted to create "Beautiful" creatures,[wait=0.2] not freaks of nature!
 I think that is a load of carp.
@@ -78,7 +78,7 @@ do SceneManager.switch(SceneManager.freeroam_context())
 => END
 
 ~ JACK_patrol_back_home
-What is a fish’s favorite type of joke? Whale jokes. They’re really a killer!
+What is a fish's favorite type of joke? Whale jokes. They're really a killer!
 => END
 
 ~ JACK_day2_start
