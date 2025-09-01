@@ -5,7 +5,7 @@
 [ext_resource type="Environment" uid="uid://pa607ivxbo2b" path="res://library/resources/world_env.tres" id="3_e6i8k"]
 [ext_resource type="ArrayMesh" uid="uid://coomdp6luq4yp" path="res://library/models/TreeLine.res" id="3_pmfrq"]
 [ext_resource type="Texture2D" uid="uid://0bhf0nq3omkf" path="res://library/models/textures/TreeLine.png" id="4_eo3qd"]
-[ext_resource type="Texture2D" uid="uid://b54rn8jp0l8of" path="res://library/models/4448097d4ef431cc.png" id="5_8bkja"]
+[ext_resource type="Texture2D" uid="uid://c2b7rxcfi3i1q" path="res://library/textures/factory_placeholder.png" id="5_hqcbg"]
 [ext_resource type="Material" uid="uid://b7io51mcjp48v" path="res://library/models/Water/new_water_shader_material.material" id="6_vlfsu"]
 [ext_resource type="Script" uid="uid://b6f3f6630eo0r" path="res://src/npc/scripts/npc_patrol.gd" id="7_5ctp3"]
 [ext_resource type="Resource" uid="uid://d1fb3ih3m3tsr" path="res://src/npc/profile.fishman_1.tres" id="8_8bkja"]
@@ -48,7 +48,7 @@ albedo_texture = ExtResource("4_eo3qd")
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
-albedo_texture = ExtResource("5_8bkja")
+albedo_texture = ExtResource("5_hqcbg")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0k31l"]
 size = Vector2(700, 700)

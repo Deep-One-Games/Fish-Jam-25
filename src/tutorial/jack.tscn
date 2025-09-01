@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://o8f5velyagj6"]
+[gd_scene load_steps=16 format=3 uid="uid://o8f5velyagj6"]
 
 [ext_resource type="Script" uid="uid://d38l1jqcykl4u" path="res://src/tutorial/jack_npc.gd" id="1_qxbky"]
 [ext_resource type="Resource" uid="uid://c5nywjhcld2" path="res://src/npc/profile.jack.tres" id="2_g8e7n"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://6wlgcrjnr1db" path="res://src/tutorial/patrolling_to_town.gd" id="10_v24dq"]
 [ext_resource type="Script" uid="uid://ccy3afrd2reck" path="res://src/tutorial/explain_town.gd" id="11_clop1"]
 [ext_resource type="Script" uid="uid://cv5kcnf5gi11g" path="res://src/tutorial/patrolling_to_home.gd" id="12_gil7i"]
+[ext_resource type="AudioStream" uid="uid://bu56w70g7g662" path="res://library/sounds and music/whistle-[AudioTrimmer.com].mp3" id="14_gil7i"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g8e7n"]
 radius = 1.50796
@@ -70,9 +71,10 @@ script = ExtResource("2_mox42")
 player_sensor = NodePath("../player_sensor")
 metadata/_custom_type_script = "uid://c5en56ptkabt3"
 
-[node name="GreetState" type="Node" parent="Origin/FSM" node_paths=PackedStringArray("jack")]
+[node name="GreetState" type="Node" parent="Origin/FSM" node_paths=PackedStringArray("jack", "audio")]
 script = ExtResource("3_qxbky")
 jack = NodePath("../../..")
+audio = NodePath("../../../AudioStreamPlayer3D")
 state_id = "Greet"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
 
@@ -115,5 +117,23 @@ metadata/_custom_type_script = "uid://12ky23xpgrrg"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Origin/player_sensor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.965392, 0.0106714)
 shape = SubResource("SphereShape3D_g8e7n")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("14_gil7i")
+volume_db = 8.05
+unit_size = 31.99
+max_db = 6.0
+max_distance = 30.0
+panning_strength = 0.0
+parameters/looping = true
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("14_gil7i")
+volume_db = 8.05
+unit_size = 31.99
+max_db = 6.0
+max_distance = 30.0
+panning_strength = 0.0
+parameters/looping = true
 
 [editable path="Origin/Pivot/Salesman"]
