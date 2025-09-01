@@ -38,6 +38,7 @@ if Storage.sf.tickets > 0 and Storage.sf.rods_recieved == 0
 		set Storage.sf.tickets -= 1
 		do Storage.sf.inventory.append(Storage.ROD_10M)
 		do Storage.save_process()
+		do SceneManager.switch(SceneManager.freeroam_context())
 		=> END
 	- Walk away
 		...
@@ -54,6 +55,7 @@ if Storage.sf.tickets > 0 and Storage.sf.rods_recieved == 1
 		set Storage.sf.tickets -= 1
 		do Storage.sf.inventory.append(Storage.ROD_20M)
 		do Storage.save_process()
+		do SceneManager.switch(SceneManager.freeroam_context())
 		=> END
 	- Walk away
 		So be it. Greed eats away at us. It's nice to see someone like you for a change.

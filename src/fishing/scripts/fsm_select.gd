@@ -1,7 +1,7 @@
 class_name FSMFishingSelect extends FSMState
 
-enum Types { Rods, Fish }
-enum GameType { Fishing, Racing }
+enum Types { Rods, Fish, Roam }
+enum GameType { Fishing, Racing, Roam }
 
 @export_category("Setup")
 @export var use_savefile := true
@@ -19,6 +19,7 @@ var inventory: Array
 @export var leave_btn: Button
 @export var item_view: Control
 @export var viewport_texture: TextureRect
+@export var help_txt: Label
 
 @export_category("Rod Lists")
 @export var rod_list_target: Control
@@ -40,7 +41,7 @@ var rod_lore: String = ""
 var rod_desc: String = ""
 var stats: String = ""
 var rod_name: String = ""
-var popup_state := true
+@export var popup_state := true
 
 var page_i: int = 0
 
@@ -57,6 +58,10 @@ func _ready() -> void:
 				filter(func x(i: GameItem): return i is FishData)
 			item.scale = Vector3(2.48, 2.48, 2.48)
 			item.position.y = 1.655
+		Types.Roam:
+			accept_btn.visible = false 
+			inventory = Storage.sf.inventory
+			help_txt.text = "L to return"
 
 	# Apply inventory to tree
 	for r in inventory:
@@ -70,7 +75,10 @@ func _ready() -> void:
 	accept_btn.disabled = true
 
 	# Initialize states
+	select_control.visible = false
 	update_popup(popup_state)
+	await animation_player.animation_finished
+	select_control.visible = true
 
 # FSM States *#*#*#
 func enter() -> void:
@@ -96,6 +104,7 @@ func accept_pressed():
 	FSM_Owner.change_state("PLAY")
 
 func update_popup(to_open: bool):
+	popup_state = to_open
 	if to_open:
 		animation_player.play(&"dropdown_rods")
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -132,6 +141,13 @@ func update_rod_ui(rod: GameItem, rod_ui: FishingRodItemUI):
 	item.mesh = rod.mesh
 	item_title.text = rod.name
 	item_desc.text = rod.desc
+	
+	if rod is RodItem:
+		item.scale = Vector3(1,1,1)
+		item.position.y = 0
+	if rod is FishData:
+		item.scale = Vector3(2.48, 2.48, 2.48)
+		item.position.y = 1.655
 
 func select_rod(rod: GameItem, rod_ui: FishingRodItemUI):
 	# Enable old rod and disable new rod
@@ -147,7 +163,7 @@ func select_rod(rod: GameItem, rod_ui: FishingRodItemUI):
 	rod_name = rod.name
 	if rod is FishData:
 		stats = rod.stats_str()
-	if rod is RodItem:
+	if rod is RodItem and GameType.Fishing:
 		get_parent().rod = rod
 
 	prev_selected_rod.select_item.disabled = true

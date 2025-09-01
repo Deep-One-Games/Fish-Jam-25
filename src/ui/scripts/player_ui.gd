@@ -2,6 +2,7 @@ class_name PlayerUI extends Control
 
 @export var options: OptionsControl
 @export var player: FPController
+@export var lore_m: FSMFishingSelect 
 
 @export_category("Dialog Controls")
 @export var dialog_lbl: Control
@@ -120,6 +121,15 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and racing_available:
 		Storage.save_process()
 		SceneManager.switch(SceneManager.GameScene.racing)
+	
+	# LORE MENU
+	if event.is_action_pressed("logbook") and not options_state:
+		lore_m.update_popup(!lore_m.popup_state)
+		print(lore_m.popup_state)
+		if lore_m.popup_state:
+			player.disable = true
+			return
+		free_mouse()
 
 	# OPTIONS
 	if event.is_action_pressed("options") and not disable_options:
@@ -147,3 +157,5 @@ func free_mouse() -> void:
 
 func clear_popups() -> void:
 	options.popup_close()
+	if lore_m: pass
+		# lore_m.update_popup(false)

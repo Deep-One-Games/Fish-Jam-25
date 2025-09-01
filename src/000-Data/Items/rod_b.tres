@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cipwq2mxjhqnh" path="res://library/models/textures/Material.001_Base_color.png" id="1_1swig"]
 [ext_resource type="Texture2D" uid="uid://b8v7xoryhpmda" path="res://library/models/textures/Material.001_Normal_OpenGL.png" id="2_w14mh"]
-[ext_resource type="PackedScene" uid="uid://dpbgkoddye275" path="res://src/000-Data/Items/rod_a.tscn" id="3_g8mx0"]
+[ext_resource type="PackedScene" uid="uid://djht4cubpyc7f" path="res://src/000-Data/Items/rod_bc.tscn" id="3_1swig"]
 [ext_resource type="Script" uid="uid://b0qspgsx38pss" path="res://src/000-Data/roditem.gd" id="4_xcjtq"]
 [ext_resource type="Texture2D" uid="uid://c4inl1k6qa8ev" path="res://icon.svg" id="5_maqf4"]
 
@@ -41,13 +41,13 @@ blend_shape_mode = 0
 [resource]
 script = ExtResource("4_xcjtq")
 max_cast_distance_m = 10.0
-rig = ExtResource("3_g8mx0")
+rig = ExtResource("3_1swig")
 ref_id = "rod_b"
 name = "Very Expensive Rod"
 desc = "Range: 10 Meters
 
-A sturdy rod infused with ocean’s quiet strength."
-lore = "Forged by coastal artisans, the Tidebinder Rod channels the rhythm of the sea. Legends whisper it can sense the pull of unseen currents, guiding its wielder toward bountiful catches and hidden treasures lost beneath the waves. Many believe it listens to the ocean’s eternal song."
+A sturdy rod infused with lake’s quiet strength. Makes you feel strong."
+lore = "..."
 thumb = ExtResource("5_maqf4")
 mesh = SubResource("ArrayMesh_phj5v")
 metadata/_custom_type_script = "uid://b0qspgsx38pss"

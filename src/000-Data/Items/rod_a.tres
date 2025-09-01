@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="RodItem" load_steps=9 format=4 uid="uid://cf8frrh43kf4i"]
 
-[ext_resource type="PackedScene" uid="uid://dpbgkoddye275" path="res://src/000-Data/Items/rod_a.tscn" id="1_ho6k1"]
 [ext_resource type="Script" uid="uid://b0qspgsx38pss" path="res://src/000-Data/roditem.gd" id="1_rr73h"]
 [ext_resource type="Texture2D" uid="uid://cipwq2mxjhqnh" path="res://library/models/textures/Material.001_Base_color.png" id="1_w2j60"]
 [ext_resource type="Texture2D" uid="uid://b8v7xoryhpmda" path="res://library/models/textures/Material.001_Normal_OpenGL.png" id="2_ho6k1"]
 [ext_resource type="Texture2D" uid="uid://c4inl1k6qa8ev" path="res://icon.svg" id="2_ioioa"]
+[ext_resource type="PackedScene" uid="uid://djht4cubpyc7f" path="res://src/000-Data/Items/rod_bc.tscn" id="3_ho6k1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m65lr"]
 resource_name = "Fishing_rod"
@@ -45,14 +45,14 @@ point_count = 3
 [resource]
 script = ExtResource("1_rr73h")
 max_cast_distance_m = 5.0
-rig = ExtResource("1_ho6k1")
+rig = ExtResource("3_ho6k1")
 power_curve = SubResource("Curve_ho6k1")
 ref_id = "rod_a"
 name = "Simple Rod"
 desc = "Range: 5 meters
 
 A sturdy wooden rod. Warn down over the years. It's pores exposed from the moisture in the air."
-lore = ""
+lore = "..."
 thumb = ExtResource("2_ioioa")
 mesh = SubResource("ArrayMesh_phj5v")
 metadata/_custom_type_script = "uid://b0qspgsx38pss"

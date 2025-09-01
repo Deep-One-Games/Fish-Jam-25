@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://18k60p0d0xh1"]
+[gd_scene load_steps=5 format=3 uid="uid://18k60p0d0xh1"]
 
 [ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="1_354od"]
 [ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="1_i84qp"]
 [ext_resource type="Script" uid="uid://l4pqogg24mrk" path="res://src/ui/scripts/player_ui.gd" id="1_idx4u"]
+[ext_resource type="PackedScene" uid="uid://cqmdnj158df3e" path="res://src/ui/inventory_select_ui.tscn" id="4_i84qp"]
 
-[node name="PlayerUI" type="Control" node_paths=PackedStringArray("options", "dialog_lbl", "fishing_lbl", "casting_lbl", "ritual_lbl", "race_lbl")]
+[node name="PlayerUI" type="Control" node_paths=PackedStringArray("options", "lore_m", "dialog_lbl", "fishing_lbl", "casting_lbl", "ritual_lbl", "race_lbl")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +15,7 @@ grow_vertical = 2
 theme = ExtResource("1_i84qp")
 script = ExtResource("1_idx4u")
 options = NodePath("Options")
+lore_m = NodePath("SELECT")
 dialog_lbl = NodePath("DialogEvent/DialogLabel")
 fishing_lbl = NodePath("FishingEvent/FishLabel")
 casting_lbl = NodePath("CastEvent/CastLabel")
@@ -22,6 +24,13 @@ race_lbl = NodePath("RacingEvent/RaceLabel")
 
 [node name="Options" parent="." instance=ExtResource("1_354od")]
 layout_mode = 1
+
+[node name="SELECT" parent="." node_paths=PackedStringArray("leave_btn", "inventory_btn") instance=ExtResource("4_i84qp")]
+item_type = 2
+game_type = 2
+leave_btn = NodePath("../hidden")
+inventory_btn = NodePath("../hidden")
+popup_state = false
 
 [node name="DialogEvent" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -150,3 +159,11 @@ vertical_alignment = 1
 [node name="MarginContainer2" type="MarginContainer" parent="RitualEvent"]
 layout_mode = 2
 theme_override_constants/margin_left = 75
+
+[node name="hidden" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -235.0
+offset_top = -114.0
+offset_right = -188.0
+offset_bottom = -70.0

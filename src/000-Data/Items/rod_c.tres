@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cipwq2mxjhqnh" path="res://library/models/textures/Material.001_Base_color.png" id="1_t5hou"]
 [ext_resource type="Texture2D" uid="uid://b8v7xoryhpmda" path="res://library/models/textures/Material.001_Normal_OpenGL.png" id="2_8d4qt"]
-[ext_resource type="PackedScene" uid="uid://dpbgkoddye275" path="res://src/000-Data/Items/rod_a.tscn" id="3_8w34x"]
+[ext_resource type="PackedScene" uid="uid://djht4cubpyc7f" path="res://src/000-Data/Items/rod_bc.tscn" id="3_t5hou"]
 [ext_resource type="Script" uid="uid://b0qspgsx38pss" path="res://src/000-Data/roditem.gd" id="4_yrh0r"]
 [ext_resource type="Texture2D" uid="uid://c4inl1k6qa8ev" path="res://icon.svg" id="5_fq8sk"]
 
@@ -41,13 +41,13 @@ blend_shape_mode = 0
 [resource]
 script = ExtResource("4_yrh0r")
 max_cast_distance_m = 20.0
-rig = ExtResource("3_8w34x")
+rig = ExtResource("3_t5hou")
 ref_id = "rod_b"
 name = "His Favorite One..."
-desc = "Range: 30 Meters
+desc = "Range: 20 Meters
 
 A weathered fishing rod, trusted, cherished, and never replaced."
-lore = ""
+lore = "..."
 thumb = ExtResource("5_fq8sk")
 mesh = SubResource("ArrayMesh_phj5v")
 metadata/_custom_type_script = "uid://b0qspgsx38pss"

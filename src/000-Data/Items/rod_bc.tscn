@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://djht4cubpyc7f"]
+
+[ext_resource type="PackedScene" uid="uid://chhgebifo1vfy" path="res://library/models/Rods/Fishning_rod_Anim.blend" id="1_ndoyr"]
+[ext_resource type="Shader" uid="uid://dp6wyhvyfrd48" path="res://library/resources/ps1_shadeobj.gdshader" id="2_synt8"]
+[ext_resource type="Texture2D" uid="uid://glnas7jjygei" path="res://library/models/Rods/textures/Material.001_Base_color.png" id="3_rvqji"]
+[ext_resource type="Texture2D" uid="uid://dn8wpog2yy8xs" path="res://library/textures/metal_rod_material/Material.001_Base_color.png" id="3_synt8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rvqji"]
+render_priority = 0
+shader = ExtResource("2_synt8")
+shader_parameter/color_texture = ExtResource("3_synt8")
+shader_parameter/vertex_wobble = 0.57
+shader_parameter/affine_mapping = 0.5
+shader_parameter/alpha_cutoff = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_synt8"]
+render_priority = 0
+shader = ExtResource("2_synt8")
+shader_parameter/color_texture = ExtResource("3_synt8")
+shader_parameter/vertex_wobble = 0.57
+shader_parameter/affine_mapping = 0.5
+shader_parameter/alpha_cutoff = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_63t5d"]
+render_priority = 0
+shader = ExtResource("2_synt8")
+shader_parameter/color_texture = ExtResource("3_rvqji")
+shader_parameter/vertex_wobble = 0.57
+shader_parameter/affine_mapping = 0.5
+shader_parameter/alpha_cutoff = 0.5
+
+[node name="Fishning_rod_Anim" instance=ExtResource("1_ndoyr")]
+
+[node name="Rod_Rig" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02431, 0)
+
+[node name="Skeleton3D" parent="Rod_Rig" index="0"]
+bones/0/position = Vector3(0.552311, -0.800294, -0.612315)
+bones/0/rotation = Quaternion(-0.507727, 6.24804e-05, -0.000324805, 0.861518)
+bones/1/rotation = Quaternion(-0.483449, -0.48345, -0.51602, 0.51602)
+bones/3/rotation = Quaternion(-0.00728095, 1.46574e-11, 1.44455e-11, 0.999974)
+bones/4/rotation = Quaternion(-0.00564707, 2.55065e-11, 7.13204e-12, 0.999984)
+bones/5/rotation = Quaternion(-0.00674669, -1.19219e-07, 8.11626e-10, 0.999977)
+bones/6/rotation = Quaternion(-0.0171428, 1.85264e-12, 4.09078e-09, 0.999853)
+bones/7/rotation = Quaternion(-0.0263325, -2.54537e-11, 6.27882e-09, 0.999653)
+bones/8/rotation = Quaternion(-0.00563925, 9.12849e-12, 1.35173e-09, 0.999984)
+bones/9/rotation = Quaternion(-0.0118939, -3.50765e-12, 2.84669e-09, 0.999929)
+bones/10/rotation = Quaternion(-0.000231177, -2.36605e-11, 5.87594e-11, 1)
+
+[node name="Reel" parent="Rod_Rig/Skeleton3D" index="0"]
+transform = Transform3D(1, 0.000495136, 0.000436493, -0.0006217, 0.484426, 0.874832, 0.00022175, -0.874832, 0.484427, 0.562221, -0.512849, -1.38593)
+
+[node name="Reel" parent="Rod_Rig/Skeleton3D/Reel" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_rvqji")
+
+[node name="Fishing_rod" parent="Rod_Rig/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_synt8")
+
+[node name="Rope" parent="Rod_Rig/Skeleton3D" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_63t5d")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Rod_Fishing"
