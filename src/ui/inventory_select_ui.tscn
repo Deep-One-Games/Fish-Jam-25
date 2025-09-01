@@ -126,12 +126,12 @@ bind/9/pose = Transform3D(1, 3.84168e-08, 2.35303e-07, 3.55271e-15, 0.986933, -0
 [sub_resource type="ViewportTexture" id="ViewportTexture_jkjbs"]
 viewport_path = NodePath("SubViewport")
 
-[node name="SELECT" type="Node" node_paths=PackedStringArray("select_control", "item", "item_title", "item_desc", "item_view", "viewport_texture", "help_txt", "rod_list_target", "accept_btn", "animation_player")]
+[node name="SELECT" type="Node" node_paths=PackedStringArray("select_control", "item", "item_title", "item_desc", "item_view", "viewport_texture", "help_txt", "rod_list_target", "accept_btn", "animation_player", "scrollbox")]
 script = ExtResource("1_f1v2w")
 select_control = NodePath("SELECT_C")
 item = NodePath("SubViewport/RotPoint/Item")
 item_title = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/L_ItemTitle")
-item_desc = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/L_ItemDesc")
+item_desc = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/ScrollContainer/L_ItemDesc")
 item_view = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView")
 viewport_texture = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/TextureRect")
 help_txt = NodePath("SELECT_C/VBoxContainer/L_Help")
@@ -139,6 +139,9 @@ rod_list_target = NodePath("SELECT_C/VBoxContainer/HBoxContainer/SelectMenu/RodT
 item_ui = ExtResource("2_717hl")
 accept_btn = NodePath("SELECT_C/VBoxContainer/HBoxContainer/SelectMenu/B_Continue")
 animation_player = NodePath("AnimationPlayer")
+page_0_y = 150.0
+page_1_y = 430.0
+scrollbox = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/ScrollContainer")
 state_id = "SELECT"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
 
@@ -245,7 +248,11 @@ theme_type_variation = &"HeaderMedium"
 text = "TITLE"
 horizontal_alignment = 1
 
-[node name="L_ItemDesc" type="Label" parent="SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="L_ItemDesc" type="Label" parent="SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/ScrollContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme = ExtResource("6_byxbj")

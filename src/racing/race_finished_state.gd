@@ -3,6 +3,7 @@ extends FSMState
 @export var race_track: RaceTrack3D
 
 func enter() -> void:
+	Storage.sf.pass_time()
 	for lf in race_track.live_fish:
 		if lf.follow_track.loops == 3:
 			# it wouldnt make sense for the game designer

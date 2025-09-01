@@ -1,0 +1,48 @@
+[gd_scene load_steps=14 format=3 uid="uid://c7cyx726cbu4b"]
+
+[ext_resource type="Script" uid="uid://behlqvpyomgnh" path="res://src/ui/scripts/won_fish.gd" id="1_n46oh"]
+[ext_resource type="Script" uid="uid://y2upmnhr31if" path="res://src/fish/scripts/fish_data.gd" id="2_3u4qt"]
+[ext_resource type="Resource" uid="uid://bsmtaq6vviuwp" path="res://src/fish/loot-table/burbot.tres" id="3_kt6tr"]
+[ext_resource type="Resource" uid="uid://cw5x1wte58wt2" path="res://src/fish/loot-table/perch.tres" id="4_wo1n1"]
+[ext_resource type="Resource" uid="uid://djt6pey3p4xyy" path="res://src/fish/loot-table/pike.tres" id="5_8vbr2"]
+[ext_resource type="Resource" uid="uid://jdu01soenkh2" path="res://src/fish/loot-table/roach.tres" id="6_o6x5g"]
+[ext_resource type="Resource" uid="uid://cc5y221mfhxl8" path="res://src/fish/loot-table/sturgeon.tres" id="7_ooi45"]
+[ext_resource type="PackedScene" uid="uid://d1kix02ifxtym" path="res://src/ui/dialogue.tscn" id="8_trgis"]
+[ext_resource type="Resource" uid="uid://b2x7jy6avb8qc" path="res://src/ritual/dialog.dialogue" id="9_q60ef"]
+[ext_resource type="Script" uid="uid://bjtgvfvq7uaxh" path="res://src/000-Data/savenpc.gd" id="10_xmdnl"]
+
+[sub_resource type="Gradient" id="Gradient_xm7v3"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7okhv"]
+gradient = SubResource("Gradient_xm7v3")
+
+[sub_resource type="Resource" id="Resource_f16gr"]
+script = ExtResource("10_xmdnl")
+npc_dialogue = ExtResource("9_q60ef")
+metadata/_custom_type_script = "uid://bjtgvfvq7uaxh"
+
+[node name="Ritual" type="Control" node_paths=PackedStringArray("balloon")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n46oh")
+balloon = NodePath("ExampleBalloon")
+title = "lost"
+loot_table = Array[ExtResource("2_3u4qt")]([ExtResource("3_kt6tr"), ExtResource("4_wo1n1"), ExtResource("5_8vbr2"), ExtResource("6_o6x5g"), ExtResource("7_ooi45")])
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_7okhv")
+
+[node name="ExampleBalloon" parent="." instance=ExtResource("8_trgis")]
+npc = SubResource("Resource_f16gr")

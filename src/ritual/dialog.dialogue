@@ -10,3 +10,17 @@ Before he could look,[wait=0.2] It,[wait=0.2] turns into dust and [wave amp=25 f
 You hear [shake rate=20 level=10]muttering[/shake] from the hut.
 Around you,[wait=0.2] everyone is walking back to the town,[wait=0.2] just like this never happened.
 => END
+
+~ won
+You caught a {{Storage.sf.last_winning_fish.name}}! Check your Logbook.
+do Storage.save_process()
+do Storage.sf.pass_time()
+do SceneManager.switch(SceneManager.freeroam_context())
+=> END
+
+~ lost
+The fish got away...
+do Storage.save_process()
+do Storage.sf.pass_time()
+do SceneManager.switch(SceneManager.freeroam_context())
+=> END

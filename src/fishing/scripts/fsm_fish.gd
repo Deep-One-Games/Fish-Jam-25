@@ -25,6 +25,9 @@ var cast_start_time := 0.0
 var casting := false
 var runtime_bobber : Node3D
 
+@export var lr_state: FSMState
+
+@export var help: Label
 
 var rod: RodItem
 var _instance: Node3D 
@@ -46,6 +49,7 @@ func enter():
 
 func exit():
 	player_ui.fish_availability_update.disconnect(fish_update)
+	lr_state.bobber = runtime_bobber
 
 func fish_update(state: bool): 
 	fish_ui.visible = state
@@ -64,9 +68,11 @@ func update(_delta: float) -> void:
 		holding_cast = true
 		power_grad.set_power(0)
 		power_grad.visible = true
+		help.text = "Hold"
 		
 	
 	if not Input.is_action_pressed("cast") and holding_cast:
+		help.text = ""
 		holding_cast = false
 		power_grad.visible = false
 		var cast_distance = (1-power_grad.power())*rod.max_cast_distance_m
@@ -75,7 +81,8 @@ func update(_delta: float) -> void:
 		await get_tree().create_timer(0.66).timeout
 		has_casted = true
 		cast_bober(cast_distance)	
-		fish_drop_timeleft = randfn(60.0, 15.0)
+		# fish_drop_timeleft = randfn(60.0, 15.0)
+		fish_drop_timeleft = 3.0
 		has_casted_once = true
 		await animations.animation_finished
 		animations.play(&"Rod_Fishing")

@@ -7,6 +7,8 @@ enum GameScene {
 	freeroam,
 	racing,
 	fishing,
+	caught_fish,
+	failed_fish,
 	freeroam_day,
 	freeroam_night,
 	ritual
@@ -26,7 +28,9 @@ var SceneInstances := {
 	GameScene.fishing: preload("res://src/fishing/fishing_test.tscn"),
 	GameScene.freeroam_day: preload("res://src/scenes/freeroam_day.tscn"),
 	GameScene.freeroam_night: preload("res://src/scenes/freeroam_night.tscn"),
-	GameScene.ritual: preload("res://src/scenes/ritual.tscn") 
+	GameScene.ritual: preload("res://src/scenes/ritual.tscn"),
+	GameScene.caught_fish: preload("res://src/scenes/won_fish.tscn"),
+	GameScene.failed_fish: preload("res://src/scenes/lost_fish.tscn")
 }
 
 ## Declare such that this variable matches the play buttons load behavior in 

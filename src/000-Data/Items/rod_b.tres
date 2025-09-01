@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="RodItem" load_steps=8 format=4 uid="uid://cw6ufwj2pqhqv"]
+[gd_resource type="Resource" script_class="RodItem" load_steps=9 format=4 uid="uid://cw6ufwj2pqhqv"]
 
 [ext_resource type="Texture2D" uid="uid://cipwq2mxjhqnh" path="res://library/models/textures/Material.001_Base_color.png" id="1_1swig"]
 [ext_resource type="Texture2D" uid="uid://b8v7xoryhpmda" path="res://library/models/textures/Material.001_Normal_OpenGL.png" id="2_w14mh"]
@@ -38,10 +38,15 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="Curve" id="Curve_1swig"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.749367, 1), 0.368781, 0.368781, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [resource]
 script = ExtResource("4_xcjtq")
 max_cast_distance_m = 10.0
 rig = ExtResource("3_1swig")
+power_curve = SubResource("Curve_1swig")
 ref_id = "rod_b"
 name = "Very Expensive Rod"
 desc = "Range: 10 Meters

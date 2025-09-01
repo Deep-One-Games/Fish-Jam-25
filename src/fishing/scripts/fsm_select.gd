@@ -37,6 +37,10 @@ signal rod_confirmed(rod: GameItem)
 
 var prev_selected_rod: FishingRodItemUI
 
+@export var page_0_y: float
+@export var page_1_y: float
+@export var scrollbox: ScrollContainer
+
 var rod_lore: String = ""
 var rod_desc: String = ""
 var stats: String = ""
@@ -85,6 +89,7 @@ func enter() -> void:
 	match game_type:
 		GameType.Fishing:
 			controller.disable_mouse = true
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			inventory_btn.disabled = false
 
 func exit() -> void:
@@ -124,6 +129,7 @@ func _input(event: InputEvent) -> void:
 
 	match page_i:
 		0: # Show details page
+			scrollbox.custom_minimum_size.y = page_0_y
 			viewport_texture.visible = true
 			item_title.visible = true
 			item_title.text = rod_name 
@@ -132,6 +138,7 @@ func _input(event: InputEvent) -> void:
 				txt += stats
 			item_desc.text = txt 
 		1: # Show lore page
+			scrollbox.custom_minimum_size.y = page_1_y 
 			viewport_texture.visible = false
 			item_title.visible = false
 			item_desc.text = rod_lore
@@ -163,7 +170,8 @@ func select_rod(rod: GameItem, rod_ui: FishingRodItemUI):
 	rod_name = rod.name
 	if rod is FishData:
 		stats = rod.stats_str()
-	if rod is RodItem and GameType.Fishing:
+
+	if rod is RodItem and game_type == GameType.Fishing:
 		get_parent().rod = rod
 
 	prev_selected_rod.select_item.disabled = true

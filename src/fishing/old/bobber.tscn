@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://ct6q5gb8nrrvn"]
+[gd_scene load_steps=13 format=3 uid="uid://ct6q5gb8nrrvn"]
 
 [ext_resource type="Script" uid="uid://ceoftg3vsamgl" path="res://src/fishing/old/bobber.gd" id="1_wjlbv"]
 [ext_resource type="Shader" uid="uid://dp6wyhvyfrd48" path="res://library/resources/ps1_shadeobj.gdshader" id="2_ky078"]
+[ext_resource type="AudioStream" uid="uid://dhp42o6x6f2m3" path="res://library/sounds and music/bloop.wav" id="3_v5e32"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_52w5q"]
 radius = 0.1
@@ -176,9 +177,11 @@ transparency = 4
 albedo_color = Color(0, 0, 0, 0)
 metallic_specular = 0.0
 
-[node name="Bobber" type="Node3D" node_paths=PackedStringArray("animations")]
+[node name="Bobber" type="Node3D" node_paths=PackedStringArray("animations", "fish_sil", "audio")]
 script = ExtResource("1_wjlbv")
 animations = NodePath("AnimationPlayer")
+fish_sil = NodePath("MeshInstance3D2")
+audio = NodePath("blop")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
@@ -192,5 +195,10 @@ autoplay = "bobber_updown"
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.75768, 0, 0, 0, 0.009856, 0, 0, 0, 0.503888, 0.313401, 0.0325036, 0)
+visible = false
 mesh = SubResource("CylinderMesh_vmxpm")
 surface_material_override/0 = SubResource("StandardMaterial3D_vmxpm")
+
+[node name="blop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_v5e32")
+volume_db = -5.0

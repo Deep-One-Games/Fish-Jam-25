@@ -9,8 +9,11 @@ class_name PowerGradientUI extends Control
 @export var rod_item: RodItem
 @export var slider: Control
 
+@export var disable_animation := false
+
 var elapsed := 0.0
 func _process(delta: float) -> void:
+	if disable_animation: return
 	if not visible:
 		elapsed = 0.0
 	if visible:
@@ -24,3 +27,6 @@ func _process(delta: float) -> void:
 func power() -> float: return slider.position.y / 1000
 func set_power(p: int):
 	slider.position.y = p
+
+func set_powerf(p: float):
+	slider.position.y = MIN_POWER_Y * p

@@ -40,6 +40,7 @@ enum WORLD_STATE {DAY, NIGHT}
 @export var jack_state:String = "Greet"
 signal jack_update
 
+@export var last_winning_fish: FishData
 @export var npc_itrs: Dictionary[String, int] = {}
 func get_npc_itr(id: String) -> int:
 	if id not in npc_itrs:

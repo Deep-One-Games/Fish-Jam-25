@@ -1,28 +1,31 @@
-[gd_scene load_steps=17 format=3 uid="uid://1xopq2inxt2l"]
+[gd_scene load_steps=19 format=3 uid="uid://1xopq2inxt2l"]
 
 [ext_resource type="Script" uid="uid://ksfglxvrivso" path="res://src/fishing/scripts/debug.gd" id="1_33dy4"]
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="2_lixjd"]
 [ext_resource type="PackedScene" uid="uid://ckgrvvgm6jgdh" path="res://src/controllers/fpcontroller.tscn" id="2_sspy6"]
-[ext_resource type="Script" uid="uid://cv5ien0tan8es" path="res://src/nodes/fsm_state.gd" id="3_jkjbs"]
 [ext_resource type="PackedScene" uid="uid://dpbgkoddye275" path="res://src/000-Data/Items/rod_a.tscn" id="3_xt171"]
 [ext_resource type="Script" uid="uid://ca8lghjw2s0dq" path="res://src/fishing/bob_start_point.gd" id="4_45rk3"]
 [ext_resource type="Script" uid="uid://kw3xcoga74da" path="res://src/fishing/scripts/fishing_fsm.gd" id="4_pan0v"]
 [ext_resource type="PackedScene" uid="uid://cqmdnj158df3e" path="res://src/ui/inventory_select_ui.tscn" id="5_lixjd"]
 [ext_resource type="PackedScene" uid="uid://d2i4o1fmeyxrq" path="res://src/ui/power_gradient.tscn" id="9_pan0v"]
+[ext_resource type="Script" uid="uid://ckdobf1qj2f2b" path="res://src/fishing/lr.gd" id="11_2m8sg"]
+[ext_resource type="Script" uid="uid://bl7jyjrysmk6s" path="res://src/fishing/won.gd" id="11_2rght"]
 [ext_resource type="Script" uid="uid://coqxi3tfkml6w" path="res://src/fishing/scripts/fsm_fish.gd" id="11_td38c"]
 [ext_resource type="PackedScene" uid="uid://ct6q5gb8nrrvn" path="res://src/fishing/old/bobber.tscn" id="12_2m8sg"]
+[ext_resource type="Script" uid="uid://d246yuujpdc4o" path="res://src/fishing/lost.gd" id="12_2rght"]
 [ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="12_45rk3"]
 [ext_resource type="Script" uid="uid://drnft836dst8h" path="res://src/nodes/freeroam_ctx.gd" id="13_45rk3"]
 [ext_resource type="PackedScene" uid="uid://djji8thnxchus" path="res://src/maps/map_base_day.tscn" id="13_pan0v"]
 [ext_resource type="PackedScene" uid="uid://dcxyohctx2sch" path="res://src/maps/map_base_night.tscn" id="14_45rk3"]
 
 [sub_resource type="Curve" id="Curve_lixjd"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.94195, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.661972, 0.803301), -1.17194, -1.17194, 0, 0, Vector2(1, 0), -4.55493, 0.0, 0, 0]
+point_count = 3
 
 [node name="FishingMinigame" type="Node3D"]
 
 [node name="DEBUG" type="Control" parent="." node_paths=PackedStringArray("target", "fsm", "player")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,33 +97,24 @@ controller = NodePath("../../Origin/Player")
 leave_btn = NodePath("../HBoxContainer/Leave")
 inventory_btn = NodePath("../HBoxContainer/Inventory")
 
-[node name="FISHING" type="Node" parent="FSM" node_paths=PackedStringArray("cam", "origin", "fish_ui", "player_ui", "player", "power_grad", "bobcast", "cast_point", "animations")]
+[node name="FISHING" type="Node" parent="FSM" node_paths=PackedStringArray("cam", "origin", "fish_ui", "player_ui", "player", "power_grad", "bobcast", "cast_point", "animations", "lr_state", "help")]
 script = ExtResource("11_td38c")
 cam = NodePath("../../Origin/Player/Camera3D")
 origin = NodePath("../../Origin")
 fish_ui = NodePath("FISH_C")
 player_ui = NodePath("FISH_C/DO NOT TOUCH!!!! I WILL KIULL YOU")
 player = NodePath("../../Origin/Player")
-power_grad = NodePath("PowerGradient")
+power_grad = NodePath("../PowerGradient")
 fall_curve = SubResource("Curve_lixjd")
 bobcast = NodePath("../../Origin/Player/Camera3D/BobStartPoint/BobPlacer")
 mps = 7.0
 bobber = ExtResource("12_2m8sg")
 cast_point = NodePath("../../Origin/Player/Camera3D/BobStartPoint")
 animations = NodePath("../../Origin/Player/Camera3D/Fishning_rod_Anim/AnimationPlayer")
+lr_state = NodePath("../LR")
+help = NodePath("../HelpTxt")
 state_id = "PLAY"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
-
-[node name="PowerGradient" parent="FSM/FISHING" instance=ExtResource("9_pan0v")]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_right = 0.0
-offset_left = 16.0
-offset_top = -336.0
-offset_right = 16.0
-offset_bottom = -336.0
-grow_horizontal = 1
-grow_vertical = 0
 
 [node name="FISH_C" type="Control" parent="FSM/FISHING"]
 layout_mode = 3
@@ -135,14 +129,23 @@ layout_mode = 1
 player = NodePath("../../../../Origin/Player")
 currently_fishing = true
 
-[node name="LR" type="Node" parent="FSM"]
-script = ExtResource("3_jkjbs")
+[node name="LR" type="Node" parent="FSM" node_paths=PackedStringArray("origin", "power_grad", "fish_fsm", "help")]
+script = ExtResource("11_2m8sg")
+origin = NodePath("../../Origin/Player/Camera3D/BobStartPoint")
+power_grad = NodePath("../PowerGradient")
+fish_fsm = NodePath("../FISHING")
+help = NodePath("../HelpTxt")
 state_id = "LR"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
 
-[node name="REELING" type="Node" parent="FSM"]
-script = ExtResource("3_jkjbs")
-state_id = "REELING"
+[node name="WON" type="Node" parent="FSM"]
+script = ExtResource("11_2rght")
+state_id = "won"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="LOST" type="Node" parent="FSM"]
+script = ExtResource("12_2rght")
+state_id = "lost"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
 
 [node name="Options" parent="FSM" instance=ExtResource("12_45rk3")]
@@ -165,6 +168,28 @@ text = "Leave"
 [node name="Inventory" type="Button" parent="FSM/HBoxContainer"]
 layout_mode = 2
 text = "Inventory"
+
+[node name="PowerGradient" parent="FSM" instance=ExtResource("9_pan0v")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_left = 16.0
+offset_top = -336.0
+offset_right = 16.0
+offset_bottom = -336.0
+grow_horizontal = 1
+grow_vertical = 0
+
+[node name="HelpTxt" type="Label" parent="FSM"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -362.0
+offset_right = 79.0
+offset_bottom = -322.0
+grow_vertical = 0
+theme_type_variation = &"HeaderMedium"
 
 [node name="FreeroamCtx" type="Node3D" parent="."]
 script = ExtResource("13_45rk3")

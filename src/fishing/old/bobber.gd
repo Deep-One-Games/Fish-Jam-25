@@ -8,6 +8,9 @@ class_name Bobber3D extends Node3D
 @export_category("Dependencies")
 @export var mon: Control
 @export var animations: AnimationPlayer
+@export var fish_sil: MeshInstance3D
+@export var audio: AudioStreamPlayer
+
 func _ready() -> void:
 	animations.pause()
 
@@ -32,3 +35,6 @@ func _process(delta: float) -> void:
 
 	if t == 1.0 and not animations.is_playing():
 		animations.play()
+		audio.play()
+		await get_tree().create_timer(0.85).timeout
+		audio.stop()
