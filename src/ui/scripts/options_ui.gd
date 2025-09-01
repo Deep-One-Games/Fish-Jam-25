@@ -16,6 +16,8 @@ signal on_options_close
 @export_group("View Options")
 @export var toggle_fs: CheckBox
 
+@export var skip_inputs := false
+
 func _ready() -> void:
 	self.visible = false
 	master.value_changed.connect(change_volume.bind("Master"))
@@ -28,6 +30,7 @@ func _ready() -> void:
 	save_exit.pressed.connect(exit_game)
 
 func _input(event: InputEvent) -> void:
+	if not skip_inputs: return
 	if event.is_action_pressed("options"): popup_close()
 
 func popup_open():
@@ -53,7 +56,6 @@ func fs_toggle(toggled_state: bool):
 	DisplayServer.window_move_to_foreground()
 	await get_tree().process_frame # Wait one frame for hack
 	DisplayServer.window_set_size(Vector2i(1280, 720))
-
 
 func exit_game():
 	Storage.sf.playerd.opened_game_once = true

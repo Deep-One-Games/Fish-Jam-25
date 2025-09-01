@@ -56,19 +56,20 @@ cull_mask = 1048573
 transform = Transform3D(0.233264, -0.00183165, 0.00540707, 3.21135e-09, 0.220998, 0.0748639, -0.00570867, -0.0748415, 0.220932, 0.0461992, -0.112565, 0.146239)
 
 [node name="Skeleton3D" parent="Origin/Player/Camera3D/Fishning_rod_Anim/Rod_Rig" index="0"]
-bones/0/position = Vector3(0.580915, -0.863678, -0.517886)
-bones/0/rotation = Quaternion(-0.559649, 7.07947e-05, -0.000322562, 0.82873)
-bones/3/rotation = Quaternion(0.0388056, -3.26911e-12, -9.00909e-12, 0.999247)
-bones/4/rotation = Quaternion(0.0404382, -3.03213e-12, -3.40706e-11, 0.999182)
-bones/5/rotation = Quaternion(0.0393395, -1.19023e-07, 6.28234e-09, 0.999226)
-bones/6/rotation = Quaternion(0.0289487, 1.83944e-10, 4.04911e-09, 0.999581)
-bones/7/rotation = Quaternion(0.0197596, 3.12872e-10, 6.2646e-09, 0.999805)
-bones/8/rotation = Quaternion(0.0404461, 5.60448e-11, 1.38127e-09, 0.999182)
-bones/9/rotation = Quaternion(0.0341955, 1.40411e-10, 2.831e-09, 0.999415)
-bones/10/rotation = Quaternion(0.0458491, 9.4981e-12, -2.97255e-11, 0.998948)
+bones/0/position = Vector3(0, -0.237393, 0)
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/1/rotation = Quaternion(-0.48345, -0.48345, -0.51602, 0.51602)
+bones/3/rotation = Quaternion(-0.00728098, -1.10211e-16, -1.10211e-16, 0.999973)
+bones/4/rotation = Quaternion(-0.00564708, -3.36088e-24, 1.25393e-18, 0.999984)
+bones/5/rotation = Quaternion(-0.00674668, -1.19207e-07, 8.04266e-10, 0.999977)
+bones/6/rotation = Quaternion(-0.0171428, -2.85126e-14, 4.08717e-09, 0.999853)
+bones/7/rotation = Quaternion(-0.0263325, 3.54006e-15, 6.27815e-09, 0.999653)
+bones/8/rotation = Quaternion(-0.00563924, -7.32716e-15, 1.3445e-09, 0.999984)
+bones/9/rotation = Quaternion(-0.0118939, 2.2206e-16, 2.83573e-09, 0.999929)
+bones/10/rotation = Quaternion(-0.000231169, -1.44329e-14, 5.5116e-11, 1)
 
 [node name="Reel" parent="Origin/Player/Camera3D/Fishning_rod_Anim/Rod_Rig/Skeleton3D" index="0"]
-transform = Transform3D(1, -0.00017232, -0.000637606, -0.000613869, 0.113895, -0.993493, 0.000243793, 0.993493, 0.113895, 0.590787, -0.673187, -1.32089)
+transform = Transform3D(1, -5.97311e-08, 3.3683e-08, 8.92173e-08, 1, -7.45058e-09, 6.54256e-08, 3.72529e-08, 1, 0.00955949, 0.57864, -0.123289)
 
 [node name="s" parent="Origin/Player/Camera3D" index="1"]
 visible = true
@@ -92,10 +93,11 @@ fpcontroller = NodePath("../Origin/Player")
 initial_state = NodePath("SELECT")
 metadata/_custom_type_script = "uid://c5en56ptkabt3"
 
-[node name="SELECT" parent="FSM" node_paths=PackedStringArray("FSM_Owner", "controller", "leave_btn", "inventory_btn") instance=ExtResource("5_lixjd")]
+[node name="SELECT" parent="FSM" node_paths=PackedStringArray("FSM_Owner", "controller", "leave_btn", "options", "inventory_btn") instance=ExtResource("5_lixjd")]
 FSM_Owner = NodePath("..")
 controller = NodePath("../../Origin/Player")
 leave_btn = NodePath("../HBoxContainer/Leave")
+options = NodePath("../Options")
 inventory_btn = NodePath("../HBoxContainer/Inventory")
 
 [node name="FISHING" type="Node" parent="FSM" node_paths=PackedStringArray("cam", "origin", "fish_ui", "player_ui", "player", "power_grad", "bobcast", "cast_point", "animations", "lr_state", "help")]
@@ -152,6 +154,7 @@ state_id = "lost"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
 
 [node name="Options" parent="FSM" instance=ExtResource("12_45rk3")]
+skip_inputs = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="FSM"]
 anchors_preset = 2

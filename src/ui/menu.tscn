@@ -75,6 +75,7 @@ grow_vertical = 0
 theme_override_constants/separation = -10
 
 [node name="day" type="Button" parent="MainMenu/Buttons"]
+visible = false
 layout_mode = 2
 theme = ExtResource("4_511x6")
 theme_type_variation = &"TitleButton"
@@ -82,6 +83,7 @@ text = "DAY STATE        "
 alignment = 0
 
 [node name="night" type="Button" parent="MainMenu/Buttons"]
+visible = false
 layout_mode = 2
 theme = ExtResource("4_511x6")
 theme_type_variation = &"TitleButton"

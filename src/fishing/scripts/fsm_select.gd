@@ -21,6 +21,7 @@ var inventory: Array
 @export var viewport_texture: TextureRect
 @export var help_txt: Label
 
+@export var options: OptionsControl
 @export_category("Rod Lists")
 @export var rod_list_target: Control
 @export var item_ui: PackedScene 
@@ -88,6 +89,7 @@ func _ready() -> void:
 func enter() -> void:
 	match game_type:
 		GameType.Fishing:
+			options.skip_inputs = true
 			controller.disable_mouse = true
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			inventory_btn.disabled = false
@@ -95,6 +97,7 @@ func enter() -> void:
 func exit() -> void:
 	match game_type:
 		GameType.Fishing:
+			options.skip_inputs = false 
 			controller.disable_mouse = false
 			inventory_btn.disabled = true
 # *#*#*#*#
