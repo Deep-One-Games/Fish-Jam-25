@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://1xopq2inxt2l"]
+[gd_scene load_steps=20 format=3 uid="uid://1xopq2inxt2l"]
 
 [ext_resource type="Script" uid="uid://ksfglxvrivso" path="res://src/fishing/scripts/debug.gd" id="1_33dy4"]
 [ext_resource type="PackedScene" uid="uid://18k60p0d0xh1" path="res://src/ui/player_ui.tscn" id="2_lixjd"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://drnft836dst8h" path="res://src/nodes/freeroam_ctx.gd" id="13_45rk3"]
 [ext_resource type="PackedScene" uid="uid://djji8thnxchus" path="res://src/maps/map_base_day.tscn" id="13_pan0v"]
 [ext_resource type="PackedScene" uid="uid://dcxyohctx2sch" path="res://src/maps/map_base_night.tscn" id="14_45rk3"]
+[ext_resource type="AudioStream" uid="uid://b73u2lsp231x2" path="res://library/sounds and music/reel sound.wav" id="18_2rght"]
 
 [sub_resource type="Curve" id="Curve_lixjd"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.661972, 0.803301), -1.17194, -1.17194, 0, 0, Vector2(1, 0), -4.55493, 0.0, 0, 0]
@@ -67,7 +68,7 @@ bones/9/rotation = Quaternion(0.0341955, 1.40411e-10, 2.831e-09, 0.999415)
 bones/10/rotation = Quaternion(0.0458491, 9.4981e-12, -2.97255e-11, 0.998948)
 
 [node name="Reel" parent="Origin/Player/Camera3D/Fishning_rod_Anim/Rod_Rig/Skeleton3D" index="0"]
-transform = Transform3D(1, 0.000454325, 0.000477394, -0.000612539, 0.373586, 0.927595, 0.000243117, -0.927595, 0.373586, 0.590787, -0.673187, -1.32089)
+transform = Transform3D(1, -0.00017232, -0.000637606, -0.000613869, 0.113895, -0.993493, 0.000243793, 0.993493, 0.113895, 0.590787, -0.673187, -1.32089)
 
 [node name="s" parent="Origin/Player/Camera3D" index="1"]
 visible = true
@@ -129,12 +130,14 @@ layout_mode = 1
 player = NodePath("../../../../Origin/Player")
 currently_fishing = true
 
-[node name="LR" type="Node" parent="FSM" node_paths=PackedStringArray("origin", "power_grad", "fish_fsm", "help")]
+[node name="LR" type="Node" parent="FSM" node_paths=PackedStringArray("origin", "power_grad", "fish_fsm", "help", "animations", "audio")]
 script = ExtResource("11_2m8sg")
 origin = NodePath("../../Origin/Player/Camera3D/BobStartPoint")
 power_grad = NodePath("../PowerGradient")
 fish_fsm = NodePath("../FISHING")
 help = NodePath("../HelpTxt")
+animations = NodePath("../../Origin/Player/Camera3D/Fishning_rod_Anim/AnimationPlayer")
+audio = NodePath("../../AudioStreamPlayer")
 state_id = "LR"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
 
@@ -196,6 +199,9 @@ script = ExtResource("13_45rk3")
 day_scene = ExtResource("13_pan0v")
 night_scene = ExtResource("14_45rk3")
 metadata/_custom_type_script = "uid://drnft836dst8h"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_2rght")
 
 [editable path="Origin/Player"]
 [editable path="Origin/Player/Camera3D/Fishning_rod_Anim"]

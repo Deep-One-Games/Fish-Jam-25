@@ -6,6 +6,8 @@
 size = Vector3(9.07617, 8.32422, 13.4346)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_c42sj"]
+height = 3.62646
+radius = 0.855957
 
 [node name="StartRacing" type="Node3D"]
 
@@ -26,5 +28,5 @@ collision_layer = 512
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0316638, 5.96046e-08, -0.217101)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.392561, 0.813232, 0.146488)
 shape = SubResource("CylinderShape3D_c42sj")

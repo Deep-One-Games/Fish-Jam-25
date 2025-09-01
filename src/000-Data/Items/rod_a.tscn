@@ -18,20 +18,20 @@ shader_parameter/alpha_cutoff = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02431, 0)
 
 [node name="Skeleton3D" parent="Rod_Rig" index="0"]
-bones/0/position = Vector3(0.552311, -0.800294, -0.612315)
-bones/0/rotation = Quaternion(-0.507727, 6.24804e-05, -0.000324805, 0.861518)
-bones/1/rotation = Quaternion(-0.483449, -0.48345, -0.51602, 0.51602)
-bones/3/rotation = Quaternion(-0.00728095, 1.46574e-11, 1.44455e-11, 0.999974)
-bones/4/rotation = Quaternion(-0.00564707, 2.55065e-11, 7.13204e-12, 0.999984)
-bones/5/rotation = Quaternion(-0.00674669, -1.19219e-07, 8.11626e-10, 0.999977)
-bones/6/rotation = Quaternion(-0.0171428, 1.85264e-12, 4.09078e-09, 0.999853)
-bones/7/rotation = Quaternion(-0.0263325, -2.54537e-11, 6.27882e-09, 0.999653)
-bones/8/rotation = Quaternion(-0.00563925, 9.12849e-12, 1.35173e-09, 0.999984)
-bones/9/rotation = Quaternion(-0.0118939, -3.50765e-12, 2.84669e-09, 0.999929)
-bones/10/rotation = Quaternion(-0.000231177, -2.36605e-11, 5.87594e-11, 1)
+bones/0/position = Vector3(0.552311, -0.843642, -0.612315)
+bones/0/rotation = Quaternion(-0.452827, 8.26807e-05, -0.00032026, 0.891598)
+bones/1/rotation = Quaternion(0.38126, 0.38126, -0.595517, 0.595517)
+bones/3/rotation = Quaternion(-0.0128462, 1.26803e-11, 1.35734e-11, 0.999918)
+bones/4/rotation = Quaternion(-0.0112123, -1.1333e-11, -4.3321e-12, 0.999937)
+bones/5/rotation = Quaternion(-0.0123119, -1.19223e-07, 1.31739e-10, 0.999924)
+bones/6/rotation = Quaternion(-0.0227072, -3.8578e-11, 4.08658e-09, 0.999742)
+bones/7/rotation = Quaternion(-0.0318956, -5.15147e-11, 6.26726e-09, 0.999491)
+bones/8/rotation = Quaternion(-0.0112045, -7.5289e-11, 1.33955e-09, 0.999937)
+bones/9/rotation = Quaternion(-0.0174588, -5.43846e-11, 2.83963e-09, 0.999848)
+bones/10/rotation = Quaternion(-0.00579662, -2.36626e-11, 6.73307e-11, 0.999983)
 
 [node name="Reel" parent="Rod_Rig/Skeleton3D" index="0"]
-transform = Transform3D(1, 0.000495136, 0.000436493, -0.0006217, 0.484426, 0.874832, 0.00022175, -0.874832, 0.484427, 0.562221, -0.512849, -1.38593)
+transform = Transform3D(1, -0.000227697, -0.000621113, -0.000645984, -0.133514, -0.991047, 0.000142697, 0.991047, -0.133514, 0.562222, -0.461828, -1.34397)
 
 [node name="Reel" parent="Rod_Rig/Skeleton3D/Reel" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_63t5d")

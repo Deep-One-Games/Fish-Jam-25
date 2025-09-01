@@ -195,7 +195,7 @@ skeleton = NodePath("../../JumpArea3D")
 curve = ExtResource("15_ek8kg")
 
 [node name="Track1_BASE" type="PathFollow3D" parent="Track5"]
-transform = Transform3D(-0.00480527, -8.0177e-05, -0.999875, 3.63756e-12, 0.999998, -8.01689e-05, 0.999873, -3.85325e-07, -0.00480528, 28.0927, 0, 0.138148)
+transform = Transform3D(-0.00480527, -8.0177e-05, -0.999875, 3.63756e-12, 0.999998, -8.0169e-05, 0.999873, -3.85325e-07, -0.00480528, 28.0927, 0, 0.138148)
 loop = false
 script = ExtResource("7_8r13y")
 mps = 3.0

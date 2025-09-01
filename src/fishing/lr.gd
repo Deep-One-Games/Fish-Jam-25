@@ -7,6 +7,8 @@ extends FSMState
 @export var fish_fsm: FSMFishState 
 
 @export var help: Label
+@export var animations: AnimationPlayer
+@export var audio: AudioStreamPlayer
 
 @export var fish_resistance_score_ps := 7
 @export var player_resistance_score_ps := 5
@@ -17,6 +19,8 @@ func enter() -> void:
 	power_grad.visible = true
 	power_grad.disable_animation = true
 	help.text = "Tap Z!"
+	animations.play(&"Rod_Reel")
+	audio.play()
 
 func exit() -> void:
 	power_grad.visible = false
