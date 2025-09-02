@@ -45,7 +45,7 @@ metadata/_custom_type_script = "uid://y2upmnhr31if"
 [sub_resource type="Resource" id="Resource_kk5tl"]
 script = ExtResource("6_tg1ey")
 racefish_options = Array[PackedScene]([ExtResource("4_tg1ey"), ExtResource("3_d1su7"), ExtResource("5_8r13y"), ExtResource("6_234jb"), ExtResource("7_2iyce")])
-ai_count = 0
+ai_count = 3
 contestants = Array[ExtResource("2_mg4ji")]([])
 player_fish = SubResource("Resource_sl2mw")
 metadata/_custom_type_script = "uid://jnpe8hwlhdfa"
