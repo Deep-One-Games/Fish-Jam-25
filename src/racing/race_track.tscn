@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://7dvujjb4a52k"]
+[gd_scene load_steps=38 format=3 uid="uid://7dvujjb4a52k"]
 
 [ext_resource type="Script" uid="uid://c4wkbm0dwmlng" path="res://src/fish/scripts/race_track.gd" id="1_kfnei"]
 [ext_resource type="Script" uid="uid://y2upmnhr31if" path="res://src/fish/scripts/fish_data.gd" id="2_mg4ji"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" uid="uid://rp0wcakc58of" path="res://src/fish/scripts/jump_event.gd" id="9_dy6bs"]
 [ext_resource type="ArrayMesh" uid="uid://iq0r0jonlku0" path="res://library/models/Trees/Mesh/race_goal.res" id="10_ek8kg"]
 [ext_resource type="Script" uid="uid://clv23k3ud2t58" path="res://src/fish/scripts/race_event.gd" id="11_v2dpm"]
-[ext_resource type="PackedScene" uid="uid://djji8thnxchus" path="res://src/maps/map_base_day.tscn" id="12_ksgyx"]
 [ext_resource type="Script" uid="uid://cc3jc2sq3n8sa" path="res://src/racing/race_fsm.gd" id="14_lr72o"]
 [ext_resource type="Curve3D" uid="uid://v7m2au4v6u3r" path="res://src/racing/track2.tres" id="15_ek8kg"]
 [ext_resource type="Script" uid="uid://ctcxscet1yvdw" path="res://src/racing/race_play_state.gd" id="16_8r13y"]
@@ -24,8 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cf4t6f5kd5tb8" path="res://src/racing/race_plate.tscn" id="17_8r13y"]
 [ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="18_tg1ey"]
 [ext_resource type="Script" uid="uid://dhsp4oqpc268j" path="res://src/racing/race_finished_state.gd" id="19_1vccm"]
-[ext_resource type="Script" uid="uid://drnft836dst8h" path="res://src/nodes/freeroam_ctx.gd" id="22_ek8kg"]
-[ext_resource type="PackedScene" uid="uid://dcxyohctx2sch" path="res://src/maps/map_base_night.tscn" id="24_dpljv"]
+[ext_resource type="Script" uid="uid://h4wiotxstnty" path="res://src/racing/passive.gd" id="23_1v2c0"]
 [ext_resource type="AudioStream" uid="uid://3r4fv8xc5i47" path="res://library/sounds and music/Fish race.mp3" id="27_2iyce"]
 
 [sub_resource type="Resource" id="Resource_sl2mw"]
@@ -47,7 +45,7 @@ metadata/_custom_type_script = "uid://y2upmnhr31if"
 [sub_resource type="Resource" id="Resource_kk5tl"]
 script = ExtResource("6_tg1ey")
 racefish_options = Array[PackedScene]([ExtResource("4_tg1ey"), ExtResource("3_d1su7"), ExtResource("5_8r13y"), ExtResource("6_234jb"), ExtResource("7_2iyce")])
-ai_count = 3
+ai_count = 0
 contestants = Array[ExtResource("2_mg4ji")]([])
 player_fish = SubResource("Resource_sl2mw")
 metadata/_custom_type_script = "uid://jnpe8hwlhdfa"
@@ -87,7 +85,7 @@ size = Vector3(18.1496, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dpljv"]
 size = Vector3(28.6562, 1, 1)
 
-[node name="RaceTrack" type="Node3D" node_paths=PackedStringArray("track_options", "camera_options", "music_player")]
+[node name="RaceTrack" type="Node3D" node_paths=PackedStringArray("track_options", "camera_options", "music_player", "select_control")]
 script = ExtResource("1_kfnei")
 race_data = SubResource("Resource_kk5tl")
 track_options = [NodePath("Track4"), NodePath("Track5"), NodePath("Track6")]
@@ -95,6 +93,7 @@ camera_options = [NodePath("Track4/Track1_BASE/Node3D/Fishcam"), NodePath("Track
 music_player = NodePath("AudioStreamPlayer")
 starting_mps = 8.0
 announcer = ExtResource("7_1vccm")
+select_control = NodePath("FSM/RaceSelectState/SELECT_C")
 
 [node name="Track4" type="Path3D" parent="."]
 curve = ExtResource("8_dy6bs")
@@ -195,7 +194,7 @@ skeleton = NodePath("../../JumpArea3D")
 curve = ExtResource("15_ek8kg")
 
 [node name="Track1_BASE" type="PathFollow3D" parent="Track5"]
-transform = Transform3D(-0.00480527, -8.0177e-05, -0.999875, 3.63756e-12, 0.999998, -8.0169e-05, 0.999873, -3.85325e-07, -0.00480528, 28.0927, 0, 0.138148)
+transform = Transform3D(-0.00480526, -8.0177e-05, -0.999872, 3.63755e-12, 0.999998, -8.01687e-05, 0.99987, -3.85325e-07, -0.00480527, 28.0927, 0, 0.138148)
 loop = false
 script = ExtResource("7_8r13y")
 mps = 3.0
@@ -357,26 +356,29 @@ transform = Transform3D(-3.40435e-08, -0.778824, -0.627243, 1, -4.37114e-08, 1.9
 mesh = ExtResource("10_ek8kg")
 skeleton = NodePath("../../../Track5/JumpArea3D")
 
-[node name="FSM" type="Node3D" parent="." node_paths=PackedStringArray("options_ui", "fsm_select", "initial_state")]
+[node name="FSM" type="Node3D" parent="." node_paths=PackedStringArray("options_ui", "fsm_select", "race_track", "initial_state")]
 script = ExtResource("14_lr72o")
 options_ui = NodePath("Options")
 fsm_select = NodePath("RaceSelectState")
+race_track = NodePath("..")
 initial_state = NodePath("RaceSelectState")
 metadata/_custom_type_script = "uid://c5en56ptkabt3"
 
-[node name="RaceSelectState" parent="FSM" node_paths=PackedStringArray("FSM_Owner", "leave_btn", "inventory_btn") instance=ExtResource("16_87non")]
+[node name="RaceSelectState" parent="FSM" node_paths=PackedStringArray("FSM_Owner", "leave_btn", "inventory_btn", "race_track") instance=ExtResource("16_87non")]
 item_type = 1
 game_type = 1
 FSM_Owner = NodePath("..")
 leave_btn = NodePath("../Hidden/Button")
 inventory_btn = NodePath("../Hidden/Button")
+race_track = NodePath("../..")
 
-[node name="RacePlayState" type="Node" parent="FSM" node_paths=PackedStringArray("racetrack", "output", "_origin")]
+[node name="RacePlayState" type="Node" parent="FSM" node_paths=PackedStringArray("racetrack", "output", "_origin", "select_control")]
 script = ExtResource("16_8r13y")
 racetrack = NodePath("../..")
 raceplate = ExtResource("17_8r13y")
 output = NodePath("Control/PanelContainer/Label")
 _origin = NodePath("Control")
+select_control = NodePath("Control")
 state_id = "PLAY"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
 
@@ -405,10 +407,18 @@ theme_type_variation = &"HeaderMedium"
 text = "TEST"
 horizontal_alignment = 2
 
-[node name="RaceFinishedState" type="Node" parent="FSM" node_paths=PackedStringArray("race_track")]
+[node name="RaceFinishedState" type="Node" parent="FSM" node_paths=PackedStringArray("race_track", "select")]
 script = ExtResource("19_1vccm")
 race_track = NodePath("../..")
+select = NodePath("../RaceSelectState")
 state_id = "FINISH"
+metadata/_custom_type_script = "uid://cv5ien0tan8es"
+
+[node name="PASSIVE" type="Node" parent="FSM" node_paths=PackedStringArray("race_track", "game_controls")]
+script = ExtResource("23_1v2c0")
+race_track = NodePath("../..")
+game_controls = NodePath("../RacePlayState/Control")
+state_id = "PASSIVE"
 metadata/_custom_type_script = "uid://cv5ien0tan8es"
 
 [node name="Hidden" type="Control" parent="FSM"]
@@ -424,12 +434,6 @@ offset_right = 47.0
 offset_bottom = 44.0
 
 [node name="Options" parent="FSM" instance=ExtResource("18_tg1ey")]
-
-[node name="FreeroamCtx" type="Node3D" parent="."]
-script = ExtResource("22_ek8kg")
-day_scene = ExtResource("12_ksgyx")
-night_scene = ExtResource("24_dpljv")
-metadata/_custom_type_script = "uid://drnft836dst8h"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("27_2iyce")

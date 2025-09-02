@@ -9,6 +9,7 @@ extends Control
 @export var btn_options: Button
 @export var btn_credits: Button
 @export var btn_exit: Button
+@export var btn_gal: Button
 
 @export var night_b: Button
 @export var day_b: Button
@@ -21,6 +22,7 @@ func _ready() -> void:
 	btn_options.pressed.connect(btn_opt_pressed)
 	btn_credits.pressed.connect(btn_credits_pressed)
 	btn_exit.pressed.connect(btn_exit_pressed)
+	btn_gal.pressed.connect(func x(): SceneManager.switch(SceneManager.GameScene.gallery))
 
 	# Hide the continue button for games that have no new runtime
 	btn_continue.visible = false
@@ -30,6 +32,12 @@ func _ready() -> void:
 	night_b.pressed.connect(to_night)
 	day_b.pressed.connect(to_day)
 
+	await get_tree().create_timer(0.4).timeout
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("fish_exit"):
+		clear_popups()
 
 func to_day():
 	SceneManager.switch(SceneManager.GameScene.freeroam_day)

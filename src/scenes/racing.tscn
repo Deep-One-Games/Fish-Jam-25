@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://rhnf1pj3bdv5"]
+[gd_scene load_steps=5 format=3 uid="uid://rhnf1pj3bdv5"]
 
 [ext_resource type="PackedScene" uid="uid://7dvujjb4a52k" path="res://src/racing/race_track.tscn" id="1_87kne"]
+[ext_resource type="Script" uid="uid://drnft836dst8h" path="res://src/nodes/freeroam_ctx.gd" id="2_o6t7j"]
+[ext_resource type="PackedScene" uid="uid://5lcr6fm3w3m" path="res://src/maps/racing_map_base_day.tscn" id="3_o6t7j"]
+[ext_resource type="PackedScene" uid="uid://cl4l8o46jefcr" path="res://src/maps/racing_map_base_night.tscn" id="4_c3jqh"]
 
 [node name="Root" type="Node3D"]
 
 [node name="RaceTrack" parent="." instance=ExtResource("1_87kne")]
+
+[node name="FreeroamCtx" type="Node3D" parent="."]
+script = ExtResource("2_o6t7j")
+day_scene = ExtResource("3_o6t7j")
+night_scene = ExtResource("4_c3jqh")
+metadata/_custom_type_script = "uid://drnft836dst8h"

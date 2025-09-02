@@ -69,7 +69,7 @@ bones/9/rotation = Quaternion(-0.0118939, 2.2206e-16, 2.83573e-09, 0.999929)
 bones/10/rotation = Quaternion(-0.000231169, -1.44329e-14, 5.5116e-11, 1)
 
 [node name="Reel" parent="Origin/Player/Camera3D/Fishning_rod_Anim/Rod_Rig/Skeleton3D" index="0"]
-transform = Transform3D(1, -5.97311e-08, 3.3683e-08, 8.92173e-08, 1, -7.45058e-09, 6.54256e-08, 3.72529e-08, 1, 0.00955949, 0.57864, -0.123289)
+transform = Transform3D(1, -1.19209e-07, 2.98023e-08, 8.92173e-08, 1, 9.23872e-07, 5.82087e-09, -9.83477e-07, 1, 0.00955949, 0.57864, -0.123289)
 
 [node name="s" parent="Origin/Player/Camera3D" index="1"]
 visible = true

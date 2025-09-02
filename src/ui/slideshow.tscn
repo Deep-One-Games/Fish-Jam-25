@@ -1,0 +1,171 @@
+[gd_scene load_steps=63 format=3 uid="uid://dpru0ger1xxcd"]
+
+[ext_resource type="Texture2D" uid="uid://dk6xetj4c6l1h" path="res://library/textures/splash.png" id="1_68em3"]
+[ext_resource type="Script" uid="uid://dpabeiqvqvoks" path="res://src/nodes/slideshow.gd" id="2_hctyr"]
+[ext_resource type="Texture2D" uid="uid://c2b7rxcfi3i1q" path="res://library/textures/factory_placeholder.png" id="3_stgwu"]
+[ext_resource type="Texture2D" uid="uid://c2wndajugqj5s" path="res://library/textures/npc-profiles/image.png" id="4_qw2ua"]
+[ext_resource type="Texture2D" uid="uid://plg3xdqpkeqg" path="res://library/textures/npc-profiles/FINAL/npc_1.png" id="5_mok3c"]
+[ext_resource type="Texture2D" uid="uid://4u4pdmxnautc" path="res://library/textures/npc-profiles/FINAL/npc_2.png" id="6_o4fcs"]
+[ext_resource type="Texture2D" uid="uid://dq2i52q4jip0k" path="res://library/textures/npc-profiles/FINAL/npc_3.png" id="7_jtvpv"]
+[ext_resource type="Texture2D" uid="uid://bf13mlob2l8rk" path="res://library/textures/npc-profiles/FINAL/npc_4.png" id="8_ifsd6"]
+[ext_resource type="Texture2D" uid="uid://7ybgsjik2ll7" path="res://library/textures/npc-profiles/FINAL/npc_5.png" id="9_28a4t"]
+[ext_resource type="Texture2D" uid="uid://isxjfrgjcb0l" path="res://library/textures/npc-profiles/FINAL/npc_6.png" id="10_8wnci"]
+[ext_resource type="Texture2D" uid="uid://diptqbxyhl35r" path="res://library/gallery/3a.png" id="11_bvqfb"]
+[ext_resource type="Texture2D" uid="uid://b5s1trhlvlvgn" path="res://library/textures/npc-profiles/FINAL/npc_7.png" id="11_sjnlq"]
+[ext_resource type="Texture2D" uid="uid://ybi7sdiycrr1" path="res://library/gallery/12312.png" id="12_chdmo"]
+[ext_resource type="Texture2D" uid="uid://dsptyrr7ynfhk" path="res://library/textures/npc-profiles/FINAL/salesman.png" id="12_qobri"]
+[ext_resource type="Texture2D" uid="uid://dsw0vkw0gr4gw" path="res://library/gallery/h.png" id="13_mok3c"]
+[ext_resource type="Texture2D" uid="uid://jp5557nudxds" path="res://library/gallery/o.png" id="14_o4fcs"]
+[ext_resource type="Texture2D" uid="uid://dqct5g2g7swur" path="res://library/gallery/Screenshot From 2025-08-06 13-09-52.png" id="15_jtvpv"]
+[ext_resource type="Texture2D" uid="uid://b870qvib1uj2d" path="res://library/gallery/Screenshot From 2025-08-21 23-46-37.png" id="16_ifsd6"]
+[ext_resource type="Texture2D" uid="uid://c24owucm0rbtq" path="res://library/gallery/0.png" id="17_28a4t"]
+[ext_resource type="Texture2D" uid="uid://dd21edrvs3axx" path="res://library/gallery/1.png" id="18_8wnci"]
+[ext_resource type="Texture2D" uid="uid://cnbq6b5eyx6i3" path="res://library/gallery/1a.png" id="19_sjnlq"]
+[ext_resource type="Texture2D" uid="uid://uti3mmgv3ppu" path="res://library/gallery/3.png" id="20_qobri"]
+[ext_resource type="Texture2D" uid="uid://crvpwy7agtau1" path="res://library/gallery/12312ad.png" id="21_mhem0"]
+[ext_resource type="Texture2D" uid="uid://dw8pq46amy38i" path="res://library/gallery/AA.png" id="22_kop0r"]
+[ext_resource type="Texture2D" uid="uid://bjbrdvnjtrh34" path="res://library/gallery/FF.jpg" id="23_77aei"]
+[ext_resource type="Texture2D" uid="uid://dbk6ulo8kxu2f" path="res://library/gallery/Screenshot From 2025-08-24 11-17-49.png" id="24_10axc"]
+[ext_resource type="Texture2D" uid="uid://c678ranf58u6u" path="res://library/gallery/Screenshot From 2025-09-02 17-29-46.png" id="25_6g7pk"]
+[ext_resource type="Texture2D" uid="uid://dpijx6w32y0sv" path="res://library/gallery/Screenshot From 2025-09-02 17-30-42.png" id="26_0m54b"]
+[ext_resource type="Texture2D" uid="uid://b1vcione6trvv" path="res://library/gallery/Screenshot From 2025-09-02 17-30-49.png" id="27_kixv3"]
+[ext_resource type="Texture2D" uid="uid://ckuiehg2vs68g" path="res://library/gallery/Screenshot From 2025-09-02 17-31-12.png" id="28_1rql6"]
+[ext_resource type="Texture2D" uid="uid://cvj35gktx7lni" path="res://library/gallery/a.png" id="29_twbk0"]
+[ext_resource type="Texture2D" uid="uid://dqbm87g4r8tw4" path="res://library/gallery/b.png" id="30_m1jok"]
+[ext_resource type="Texture2D" uid="uid://hg1hgmxpbx71" path="res://library/gallery/BB.png" id="31_e7wfd"]
+[ext_resource type="Texture2D" uid="uid://ddxbvebevt01k" path="res://library/gallery/c.png" id="32_fyjpb"]
+[ext_resource type="Texture2D" uid="uid://dp5aqognxkr2k" path="res://library/gallery/CC.png" id="33_ud5xl"]
+[ext_resource type="Texture2D" uid="uid://b31y5cq0ipx0g" path="res://library/gallery/d.png" id="34_x0x2o"]
+[ext_resource type="Texture2D" uid="uid://bk2wqmbw64aae" path="res://library/gallery/DD.png" id="35_6insh"]
+[ext_resource type="Texture2D" uid="uid://8vrxux2t03v2" path="res://library/gallery/deep_one.png" id="36_ecoq1"]
+[ext_resource type="Texture2D" uid="uid://dln1mjhb1s4ua" path="res://library/gallery/e.png" id="37_t17sh"]
+[ext_resource type="Texture2D" uid="uid://drvpoebfwonx5" path="res://library/gallery/f.png" id="38_wlwpw"]
+[ext_resource type="Texture2D" uid="uid://bgwse5mmmq40g" path="res://library/gallery/g.png" id="39_ew1dc"]
+[ext_resource type="Texture2D" uid="uid://mcxqwv7hsgjo" path="res://library/gallery/i.png" id="40_x465m"]
+[ext_resource type="Texture2D" uid="uid://c0rqiau7f62sr" path="res://library/gallery/image.png" id="41_pqie2"]
+[ext_resource type="Texture2D" uid="uid://denjg0x5tfkk6" path="res://library/gallery/j.png" id="42_nsj1p"]
+[ext_resource type="Texture2D" uid="uid://dlu1hd3n3nk2i" path="res://library/gallery/k.png" id="43_ltnax"]
+[ext_resource type="Texture2D" uid="uid://b4xwt2u2gyx5o" path="res://library/gallery/l.png" id="44_g3h5t"]
+[ext_resource type="Texture2D" uid="uid://cfera5eg4vhll" path="res://library/gallery/m.png" id="45_l0j86"]
+[ext_resource type="Texture2D" uid="uid://cwc5hqcaqjefd" path="res://library/gallery/n.png" id="46_plmxy"]
+[ext_resource type="Texture2D" uid="uid://544f36gd7ymv" path="res://library/gallery/p.png" id="47_5ug7q"]
+[ext_resource type="Texture2D" uid="uid://dfwtrkhjo7ww5" path="res://library/gallery/proprietor.png" id="48_gma2o"]
+[ext_resource type="Texture2D" uid="uid://c70eehs3lmgmb" path="res://library/gallery/r.png" id="49_xp84y"]
+[ext_resource type="Texture2D" uid="uid://bljgo5wbihojs" path="res://library/gallery/Screenshot From 2025-08-04 13-36-05.png" id="50_kop56"]
+[ext_resource type="Texture2D" uid="uid://bpqabq7k7aas1" path="res://library/gallery/Screenshot From 2025-08-21 17-00-32.png" id="51_mbrvs"]
+[ext_resource type="Texture2D" uid="uid://3iidc3vv2qr8" path="res://library/gallery/Screenshot From 2025-08-22 13-28-24.png" id="52_es4vc"]
+[ext_resource type="Texture2D" uid="uid://u16i5f0y4pp4" path="res://library/gallery/Screenshot From 2025-08-22 15-37-50.png" id="53_1nn3m"]
+[ext_resource type="Texture2D" uid="uid://bjsm1dcyd2kho" path="res://library/gallery/Screenshot From 2025-08-27 13-46-20.png" id="54_klntl"]
+[ext_resource type="Texture2D" uid="uid://d3ck3ejb6ntbw" path="res://library/gallery/Screenshot From 2025-08-27 13-46-50.png" id="55_00vba"]
+[ext_resource type="Texture2D" uid="uid://5ns5kvnng4iq" path="res://library/gallery/stands_2.png" id="56_0mtxa"]
+[ext_resource type="Texture2D" uid="uid://dsljjq2dmferk" path="res://library/gallery/ticket.png" id="57_a7vly"]
+[ext_resource type="PackedScene" uid="uid://djji8thnxchus" path="res://src/maps/map_base_day.tscn" id="60_o4fcs"]
+[ext_resource type="AudioStream" uid="uid://divnv38tjrrqu" path="res://library/sounds and music/When the Fish Homeward Fly.mp3" id="61_jtvpv"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_o4fcs"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Slideshow" type="Control"]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 457.0
+offset_top = 29.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"InteractPanel"
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer" node_paths=PackedStringArray("state")]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_68em3")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("2_hctyr")
+gallery = Array[CompressedTexture2D]([ExtResource("1_68em3"), ExtResource("3_stgwu"), ExtResource("4_qw2ua"), ExtResource("5_mok3c"), ExtResource("6_o4fcs"), ExtResource("7_jtvpv"), ExtResource("8_ifsd6"), ExtResource("9_28a4t"), ExtResource("10_8wnci"), ExtResource("11_sjnlq"), ExtResource("12_qobri"), ExtResource("11_bvqfb"), ExtResource("12_chdmo"), ExtResource("13_mok3c"), ExtResource("14_o4fcs"), ExtResource("15_jtvpv"), ExtResource("16_ifsd6"), ExtResource("17_28a4t"), ExtResource("18_8wnci"), ExtResource("19_sjnlq"), ExtResource("20_qobri"), ExtResource("21_mhem0"), ExtResource("22_kop0r"), ExtResource("23_77aei"), ExtResource("24_10axc"), ExtResource("25_6g7pk"), ExtResource("26_0m54b"), ExtResource("27_kixv3"), ExtResource("28_1rql6"), ExtResource("29_twbk0"), ExtResource("30_m1jok"), ExtResource("31_e7wfd"), ExtResource("32_fyjpb"), ExtResource("33_ud5xl"), ExtResource("34_x0x2o"), ExtResource("35_6insh"), ExtResource("36_ecoq1"), ExtResource("37_t17sh"), ExtResource("38_wlwpw"), ExtResource("39_ew1dc"), ExtResource("13_mok3c"), ExtResource("40_x465m"), ExtResource("41_pqie2"), ExtResource("42_nsj1p"), ExtResource("43_ltnax"), ExtResource("44_g3h5t"), ExtResource("45_l0j86"), ExtResource("46_plmxy"), ExtResource("14_o4fcs"), ExtResource("47_5ug7q"), ExtResource("48_gma2o"), ExtResource("49_xp84y"), ExtResource("50_kop56"), ExtResource("15_jtvpv"), ExtResource("51_mbrvs"), ExtResource("16_ifsd6"), ExtResource("52_es4vc"), ExtResource("53_1nn3m"), ExtResource("24_10axc"), ExtResource("54_klntl"), ExtResource("55_00vba"), ExtResource("25_6g7pk"), ExtResource("26_0m54b"), ExtResource("27_kixv3"), ExtResource("28_1rql6"), ExtResource("56_0mtxa"), ExtResource("57_a7vly")])
+state = NodePath("../../MarginContainer2/Label")
+
+[node name="CenterContainer" type="PanelContainer" parent="."]
+visible = false
+z_index = -4096
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 180.0
+offset_top = 85.0
+offset_right = -213.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1433, 101)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "Controls:
+Esc for menu
+Space to pause
+< > to change images
+
+Slideshow autoplays every 5
+seconds of inaction
+
+Images can be dragged"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -216.0
+offset_bottom = 115.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Playing"
+
+[node name="MapBaseDay" parent="." instance=ExtResource("60_o4fcs")]
+
+[node name="TextureRect" parent="MapBaseDay/RaceTrack/FSM/RaceSelectState/SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer" index="0"]
+texture = SubResource("ViewportTexture_o4fcs")
+
+[node name="Camera3D" type="Camera3D" parent="MapBaseDay"]
+transform = Transform3D(-0.721712, -0.154979, 0.674621, 0.0311199, 0.966363, 0.255292, -0.691494, 0.205241, -0.692613, -24.3653, 12.3923, 3.38462)
+fov = 95.0
+
+[node name="WhenTheFishHomewardFly" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("61_jtvpv")
+volume_db = -8.503
+autoplay = true
+
+[editable path="MapBaseDay"]
+[editable path="MapBaseDay/RaceTrack"]
+[editable path="MapBaseDay/RaceTrack/FSM/RaceSelectState"]

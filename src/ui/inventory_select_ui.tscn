@@ -135,9 +135,9 @@ item_desc = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContaine
 item_view = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView")
 viewport_texture = NodePath("SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer/TextureRect")
 help_txt = NodePath("SELECT_C/VBoxContainer/L_Help")
-rod_list_target = NodePath("SELECT_C/VBoxContainer/HBoxContainer/SelectMenu/RodTarget")
+rod_list_target = NodePath("SELECT_C/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/SelectMenu/RodTarget")
 item_ui = ExtResource("2_717hl")
-accept_btn = NodePath("SELECT_C/VBoxContainer/HBoxContainer/SelectMenu/B_Continue")
+accept_btn = NodePath("SELECT_C/VBoxContainer/HBoxContainer/VBoxContainer/B_Continue")
 animation_player = NodePath("AnimationPlayer")
 page_0_y = 150.0
 page_1_y = 430.0
@@ -213,20 +213,30 @@ text = "Select a Rod"
 [node name="HBoxContainer" type="HBoxContainer" parent="SELECT_C/VBoxContainer"]
 layout_mode = 2
 
-[node name="SelectMenu" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="RodTarget2" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/SelectMenu"]
+[node name="ScrollContainer" type="ScrollContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 470)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SelectMenu" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 
-[node name="RodTarget3" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/SelectMenu"]
+[node name="RodTarget2" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/SelectMenu"]
 layout_mode = 2
 
-[node name="RodTarget" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/SelectMenu"]
+[node name="RodTarget3" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/SelectMenu"]
 layout_mode = 2
 
-[node name="B_Continue" type="Button" parent="SELECT_C/VBoxContainer/HBoxContainer/SelectMenu"]
+[node name="RodTarget" type="VBoxContainer" parent="SELECT_C/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer/SelectMenu"]
 layout_mode = 2
+
+[node name="B_Continue" type="Button" parent="SELECT_C/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("6_byxbj")
 text = "CONTINUE"
 

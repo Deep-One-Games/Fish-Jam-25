@@ -29,5 +29,6 @@ fish_caught = 0
 unlock_10m = true
 jack_talked_once = false
 jack_state = "Greet"
+winning_fish_idx = -1
 npc_itrs = Dictionary[String, int]({})
 metadata/_custom_type_script = "uid://y8g386gw3dbm"

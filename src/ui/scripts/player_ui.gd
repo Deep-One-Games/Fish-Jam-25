@@ -59,10 +59,10 @@ func _dialog_area_entered(area: Area3D) -> void:
 		return
 	if area.is_in_group("ritual"):
 		ritual_available = true
-		if Storage.sf.fish_caught == 0:
+		if Storage.sf.winning_fish_idx == -1:
 			ritual_lbl.text = "No Fish To Sacrifice"
 		else:
-			ritual_lbl.text = "Sacrifice (E)"
+			ritual_lbl.text = "Sacrifice Winning Fish (E)"
 		ritual_lbl.visible = true
 		return 
 	disable_options = true 
@@ -108,8 +108,9 @@ func _input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		return
 
-	if event.is_action_pressed("interact") and ritual_available and Storage.sf.fish_caught > 0:
-		Storage.sf.fish_caught -= 1
+	if event.is_action_pressed("interact") and ritual_available and Storage.sf.winning_fish_idx >= 0:
+		Storage.sf.inventory.remove_at(Storage.sf.winning_fish_idx)
+		Storage.sf.winning_fish_idx = -1
 		Storage.save_process()
 		SceneManager.switch(SceneManager.GameScene.ritual)
 

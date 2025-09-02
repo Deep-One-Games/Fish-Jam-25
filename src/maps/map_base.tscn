@@ -2309,7 +2309,7 @@ metadata/_edit_lock_ = true
 transform = Transform3D(-0.377839, 0, 0.925855, 0, 1, 0, -0.925855, 0, -0.377839, -36.4934, 0, -48.2756)
 progress = 129.568
 script = ExtResource("25_5yr4q")
-mps = 5.0
+mps = 2.5
 metadata/_custom_type_script = "uid://cgx2wkvvgp00v"
 
 [node name="Node3D" type="Node3D" parent="JackPath3D/JackLinearFollow" index="0"]

@@ -2,6 +2,8 @@ extends FSMState
 
 @export var race_track: RaceTrack3D
 
+@export var select: FSMFishingSelect 
+
 func enter() -> void:
 	Storage.sf.pass_time()
 	for lf in race_track.live_fish:
@@ -11,6 +13,8 @@ func enter() -> void:
 			# a way to identify the player
 			if lf.fishinfo.sample_mean > 50:
 				dialog("JACK_won_race")
+				Storage.sf.winning_fish_idx = select.id_location
+				Storage.save_process()
 				return
 			dialog("JACK_lost_race")
 

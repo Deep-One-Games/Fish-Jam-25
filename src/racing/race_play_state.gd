@@ -6,6 +6,7 @@ extends FSMState
 
 @export var output: Label
 @export var _origin: Control
+@export var select_control: Control
 
 func _ready() -> void:
 	_origin.visible = false

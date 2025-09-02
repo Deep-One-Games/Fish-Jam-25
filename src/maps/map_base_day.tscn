@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://djji8thnxchus"]
+[gd_scene load_steps=34 format=3 uid="uid://djji8thnxchus"]
 
 [ext_resource type="PackedScene" uid="uid://bl4j2pgha8a5u" path="res://src/maps/map_base.tscn" id="1_r15fa"]
 [ext_resource type="Shader" uid="uid://cv1evogph6ld3" path="res://library/resources/ps1_pp.gdshader" id="2_e6i8k"]
@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://defi0k78b0oo8" path="res://src/npc/profile.fishman_7.tres" id="19_m4gby"]
 [ext_resource type="ArrayMesh" uid="uid://c7ser82fhl3o4" path="res://library/models/Fish_People_SPLIT/mesh/Bob_7_Plane_004.res" id="23_b00ho"]
 [ext_resource type="ArrayMesh" uid="uid://dcffioo8i7c81" path="res://library/models/Fish_People_SPLIT/mesh/Bob_2_Plane_032.res" id="24_b00ho"]
+[ext_resource type="PackedScene" uid="uid://7dvujjb4a52k" path="res://src/racing/race_track.tscn" id="24_m6il2"]
 [ext_resource type="ArrayMesh" uid="uid://df35i3cdkqln6" path="res://library/models/Fish_People_SPLIT/mesh/Bob_4_Plane_001.res" id="25_3hqs4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ctp3"]
@@ -55,6 +56,9 @@ size = Vector2(700, 700)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mcfkg"]
 radius = 0.15879
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_m6il2"]
+viewport_path = NodePath("SubViewport")
 
 [node name="MapBaseDay" type="Node3D"]
 
@@ -343,3 +347,18 @@ transform = Transform3D(1.0574, 0, 0.700782, 0, 1.26854, 0, -0.700782, 0, 1.0574
 mesh = ExtResource("25_3hqs4")
 disable_floor_snapping = true
 initial_state = NodePath("Idle")
+
+[node name="RaceTrack" parent="." instance=ExtResource("24_m6il2")]
+passive = true
+
+[node name="Track1_BASE" parent="RaceTrack/Track5" index="0"]
+transform = Transform3D(-0.00480526, -8.0177e-05, -0.999873, 3.63755e-12, 0.999998, -8.01688e-05, 0.999871, -3.85325e-07, -0.00480527, 28.0927, 0, 0.138148)
+
+[node name="SELECT_C" parent="RaceTrack/FSM/RaceSelectState" index="2"]
+visible = false
+
+[node name="TextureRect" parent="RaceTrack/FSM/RaceSelectState/SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer" index="0"]
+texture = SubResource("ViewportTexture_m6il2")
+
+[editable path="RaceTrack"]
+[editable path="RaceTrack/FSM/RaceSelectState"]

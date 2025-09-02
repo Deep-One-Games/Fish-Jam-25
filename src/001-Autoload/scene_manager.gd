@@ -11,7 +11,8 @@ enum GameScene {
 	failed_fish,
 	freeroam_day,
 	freeroam_night,
-	ritual
+	ritual,
+	gallery
 }
 
 ## Define animation colors here
@@ -30,7 +31,8 @@ var SceneInstances := {
 	GameScene.freeroam_night: preload("res://src/scenes/freeroam_night.tscn"),
 	GameScene.ritual: preload("res://src/scenes/ritual.tscn"),
 	GameScene.caught_fish: preload("res://src/scenes/won_fish.tscn"),
-	GameScene.failed_fish: preload("res://src/scenes/lost_fish.tscn")
+	GameScene.failed_fish: preload("res://src/scenes/lost_fish.tscn"),
+	GameScene.gallery: preload("res://src/ui/slideshow.tscn")
 }
 
 ## Declare such that this variable matches the play buttons load behavior in 

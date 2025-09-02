@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdsex8i171oiq"]
+[gd_scene load_steps=13 format=3 uid="uid://cdsex8i171oiq"]
 
 [ext_resource type="Script" uid="uid://cl8i7aptmhiwn" path="res://src/ui/scripts/menu_ui.gd" id="1_w3pxu"]
 [ext_resource type="PackedScene" uid="uid://dpn0ecxui5ep8" path="res://src/ui/options_ui.tscn" id="2_r1qqu"]
 [ext_resource type="Theme" uid="uid://bmhwd8x4bscyh" path="res://library/resources/ui_theme.tres" id="4_511x6"]
 [ext_resource type="PackedScene" uid="uid://k67glnpraysy" path="res://src/ui/credits.tscn" id="4_w3pxu"]
 [ext_resource type="AudioStream" uid="uid://m6ba8125o0uh" path="res://library/sounds and music/Fishman come to me.mp3" id="5_gofeh"]
+[ext_resource type="Texture2D" uid="uid://8vrxux2t03v2" path="res://library/gallery/deep_one.png" id="5_o476h"]
+[ext_resource type="Script" uid="uid://b7hkln5cnanxu" path="res://src/ui/scripts/url.gd" id="6_0phv0"]
 [ext_resource type="PackedScene" uid="uid://djji8thnxchus" path="res://src/maps/map_base_day.tscn" id="6_7rifs"]
 [ext_resource type="Script" uid="uid://drnft836dst8h" path="res://src/nodes/freeroam_ctx.gd" id="6_gofeh"]
 [ext_resource type="PackedScene" uid="uid://dcxyohctx2sch" path="res://src/maps/map_base_night.tscn" id="8_o476h"]
@@ -18,7 +20,7 @@ gradient = SubResource("Gradient_7rifs")
 
 [node name="Root" type="Node3D"]
 
-[node name="MainMenu" type="Control" parent="." node_paths=PackedStringArray("options", "credits", "btn_new", "btn_continue", "btn_options", "btn_credits", "btn_exit", "night_b", "day_b")]
+[node name="MainMenu" type="Control" parent="." node_paths=PackedStringArray("options", "credits", "btn_new", "btn_continue", "btn_options", "btn_credits", "btn_exit", "btn_gal", "night_b", "day_b")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +35,7 @@ btn_continue = NodePath("Buttons/continue")
 btn_options = NodePath("Buttons/options")
 btn_credits = NodePath("Buttons/credits")
 btn_exit = NodePath("Buttons/exit")
+btn_gal = NodePath("Buttons/gallery")
 night_b = NodePath("Buttons/night")
 day_b = NodePath("Buttons/day")
 
@@ -118,12 +121,43 @@ theme_type_variation = &"TitleButton"
 text = "Credits        "
 alignment = 0
 
+[node name="gallery" type="Button" parent="MainMenu/Buttons"]
+layout_mode = 2
+theme = ExtResource("4_511x6")
+theme_type_variation = &"TitleButton"
+text = "Gallery        "
+alignment = 0
+
 [node name="exit" type="Button" parent="MainMenu/Buttons"]
 layout_mode = 2
 theme = ExtResource("4_511x6")
 theme_type_variation = &"TitleButton"
 text = "Exit        "
 alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -371.0
+offset_right = 287.0
+offset_bottom = -236.0
+grow_vertical = 2
+texture = ExtResource("5_o476h")
+expand_mode = 1
+script = ExtResource("6_0phv0")
+
+[node name="Label" type="Label" parent="MainMenu"]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 5.0
+offset_right = 366.0
+offset_bottom = 38.0
+rotation = 0.446804
+text = "Click For 
+Github!"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_gofeh")

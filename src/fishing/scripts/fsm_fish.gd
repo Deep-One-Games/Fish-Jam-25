@@ -81,7 +81,7 @@ func update(_delta: float) -> void:
 		await get_tree().create_timer(0.66).timeout
 		has_casted = true
 		cast_bober(cast_distance)	
-		fish_drop_timeleft = randfn(60.0, 15.0)
+		fish_drop_timeleft = randfn(30.0, 5.0)
 		has_casted_once = true
 		await animations.animation_finished
 		animations.play(&"Rod_Fishing")

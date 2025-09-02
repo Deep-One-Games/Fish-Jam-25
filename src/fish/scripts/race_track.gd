@@ -14,8 +14,23 @@ var selected_track: Path3D
 var selected_camera: Camera3D
 var live_fish: Array[RaceFish]
 
+@export var passive : bool = false
+
 const dialogue_box = preload("res://src/ui/dialogue.tscn")
+@export var select_control: Control
 func _ready() -> void:
+	if passive:
+		race_data.populate_ai()
+		race_data.compute_probability_landscape()
+		selected_track = track_options[2]
+		for i in range(len(track_options)):
+			camera_options[i].queue_free()
+			if i != 2: track_options[i].queue_free()
+		populate_race()
+		for lf in live_fish:
+			lf.follow_track.following_path = true
+		return
+	select_control.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	race_data.populate_ai()
 	race_data.compute_probability_landscape()
@@ -33,12 +48,13 @@ func select_racetrack() -> void:
 		track_options[i].queue_free()
 
 func start_game() -> void:
-	var b: DialogBox = dialogue_box.instantiate()
-	b.npc = announcer 
-	get_tree().current_scene.add_child(b)
-	b.start(announcer.npc_dialogue, "JACK_count_race")
+	if not passive:
+		var b: DialogBox = dialogue_box.instantiate()
+		b.npc = announcer 
+		get_tree().current_scene.add_child(b)
+		b.start(announcer.npc_dialogue, "JACK_count_race")
 
-	await DialogueManager.dialogue_ended
+		await DialogueManager.dialogue_ended
 	music_player.play()
 
 	for lf in live_fish:
@@ -75,6 +91,7 @@ func populate_race() -> void:
 	fish.data = race_data # link ptrs internally
 
 	# enable the camera on the selected race track
+	if passive: return
 	selected_camera.current = true
 
 	# players fish exists on the race track with the camera on it. Lets

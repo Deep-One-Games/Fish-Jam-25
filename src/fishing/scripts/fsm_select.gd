@@ -49,8 +49,12 @@ var rod_name: String = ""
 @export var popup_state := true
 
 var page_i: int = 0
+@export var race_track: RaceTrack3D
+
+var id_location: int = -1
 
 func _ready() -> void:
+	if race_track and race_track.passive: return
 	item_view.visible = false
 	match item_type:
 		Types.Rods:
@@ -73,7 +77,7 @@ func _ready() -> void:
 		var el = item_ui.instantiate() as FishingRodItemUI
 		el.select_item.text = r.name
 		rod_list_target.add_child(el)
-		el.select_item.pressed.connect(select_rod.bind(r, el))
+		el.select_item.pressed.connect(select_rod.bind(r, Storage.sf.inventory.find(r), el))
 	
 	inventory_btn.pressed.connect(inv_pressed)
 	accept_btn.pressed.connect(accept_pressed)
@@ -159,7 +163,7 @@ func update_rod_ui(rod: GameItem, rod_ui: FishingRodItemUI):
 		item.scale = Vector3(2.48, 2.48, 2.48)
 		item.position.y = 1.655
 
-func select_rod(rod: GameItem, rod_ui: FishingRodItemUI):
+func select_rod(rod: GameItem, i: int, rod_ui: FishingRodItemUI):
 	# Enable old rod and disable new rod
 	if prev_selected_rod:
 		prev_selected_rod.select_item.disabled = false
@@ -173,6 +177,7 @@ func select_rod(rod: GameItem, rod_ui: FishingRodItemUI):
 	rod_name = rod.name
 	if rod is FishData:
 		stats = rod.stats_str()
+		id_location = i
 
 	if rod is RodItem and game_type == GameType.Fishing:
 		get_parent().rod = rod
