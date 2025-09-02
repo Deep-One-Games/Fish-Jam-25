@@ -351,8 +351,14 @@ initial_state = NodePath("Idle")
 [node name="RaceTrack" parent="." instance=ExtResource("24_m6il2")]
 passive = true
 
+[node name="Track1_BASE" parent="RaceTrack/Track4" index="0"]
+transform = Transform3D(-0.944588, 0, -0.327949, 0, 0.999998, 0, 0.327949, 0, -0.94459, -35.4459, 0, 8.34734)
+
 [node name="Track1_BASE" parent="RaceTrack/Track5" index="0"]
 transform = Transform3D(-0.00480526, -8.0177e-05, -0.999873, 3.63755e-12, 0.999998, -8.01688e-05, 0.999871, -3.85325e-07, -0.00480527, 28.0927, 0, 0.138148)
+
+[node name="Track1_BASE" parent="RaceTrack/Track6" index="0"]
+transform = Transform3D(-0.616583, 0, -0.787126, 0, 0.999998, 0, 0.787126, 0, -0.616583, -115.777, 0, 4.30393)
 
 [node name="SELECT_C" parent="RaceTrack/FSM/RaceSelectState" index="2"]
 visible = false

@@ -154,6 +154,27 @@ text = "Playing"
 
 [node name="MapBaseDay" parent="." instance=ExtResource("60_o4fcs")]
 
+[node name="Patroller_NPC1" parent="MapBaseDay/NPCS/PATROL_NPC1/Path" index="0"]
+transform = Transform3D(0.105249, 0, -0.994446, 0, 1, 0, 0.994446, 0, 0.105249, 5.45734, 0, -4.74726)
+
+[node name="Patroller" parent="MapBaseDay/NPCS/PATROL_NPC3/Path" index="0"]
+transform = Transform3D(-0.913897, 0, 0.405669, 0, 0.999989, 0, -0.405669, 0, -0.913897, -3.00794, 0, -24.0721)
+
+[node name="Patroller" parent="MapBaseDay/NPCS/PATROL_NPC5/Path" index="0"]
+transform = Transform3D(-0.820793, 0, 0.571022, 0, 0.999989, 0, -0.571022, 0, -0.820793, -100.594, 0, 23.6924)
+
+[node name="Patroller" parent="MapBaseDay/NPCS/PATROL_NPC7/Path" index="0"]
+transform = Transform3D(-0.994737, 0, 0.101305, 0, 0.999989, 0, -0.101305, 0, -0.994737, -13.4629, 0, -4.94109)
+
+[node name="Track1_BASE" parent="MapBaseDay/RaceTrack/Track4" index="0"]
+transform = Transform3D(-0.944588, 0, -0.327949, 0, 0.999998, 0, 0.327949, 0, -0.94459, -35.4459, 0, 8.34734)
+
+[node name="Track1_BASE" parent="MapBaseDay/RaceTrack/Track5" index="0"]
+transform = Transform3D(-0.00480526, -8.0177e-05, -0.999873, 3.63755e-12, 0.999998, -8.01688e-05, 0.999871, -3.85325e-07, -0.00480527, 28.0927, 0, 0.138148)
+
+[node name="Track1_BASE" parent="MapBaseDay/RaceTrack/Track6" index="0"]
+transform = Transform3D(-0.616583, 0, -0.787126, 0, 0.999998, 0, 0.787126, 0, -0.616583, -115.777, 0, 4.30393)
+
 [node name="TextureRect" parent="MapBaseDay/RaceTrack/FSM/RaceSelectState/SELECT_C/VBoxContainer/HBoxContainer/ItemView/VBoxContainer" index="0"]
 texture = SubResource("ViewportTexture_o4fcs")
 
